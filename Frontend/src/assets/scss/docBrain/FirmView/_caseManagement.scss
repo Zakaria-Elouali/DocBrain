@@ -1,0 +1,178 @@
+@use "sass:map";
+@use "../../config/minimal/variables" as *;
+@use "../../config/minimal/component-mixins" as mixins;
+
+.case-management-container {
+  @include mixins.main-area-container(0, true);
+
+  // Override width after mixin
+  & {
+    width: calc(100% - #{map.get($layout-dimensions, "fullsidebar-width")});
+  }
+
+  // Only show when case-management panel is active
+  body[data-active-panel="case-management"] & {
+    display: flex;
+  }
+
+  body[data-active-panel]:not([data-active-panel="case-management"]) & {
+    display: none !important;
+  }
+
+  .case-management-header {
+    @include mixins.flex-between;
+    padding: 1rem;
+    border-bottom: 1px solid var(--#{$prefix}border-color);
+
+    h2 {
+      margin: 0;
+      color: var(--#{$prefix}heading-color);
+      font-size: 1.25rem;
+    }
+
+    .create-case-btn {
+      @include mixins.flex-center;
+      gap: 0.5rem;
+      padding: 0.5rem 1rem;
+      background-color: var(--#{$prefix}primary);
+      color: #fff;
+      border: none;
+      border-radius: map.get($border-radius-map, "sm");
+      cursor: pointer;
+
+      &:hover {
+        background-color: var(--#{$prefix}primary-dark);
+      }
+    }
+  }
+
+  .case-filters {
+    padding: 1rem;
+    border-bottom: 1px solid var(--#{$prefix}border-color);
+
+    .status-filter {
+      @include mixins.form-field;
+      padding: 0.5rem;
+    }
+  }
+
+  .cases-list {
+    padding: 1rem;
+
+    .case-item {
+      display: flex;
+      align-items: flex-start;
+      padding: 1rem;
+      border: 1px solid var(--#{$prefix}border-color);
+      border-radius: map.get($border-radius-map, "sm");
+      margin-bottom: 1rem;
+      cursor: pointer;
+      transition: all 0.2s ease;
+
+      &:hover {
+        border-color: var(--#{$prefix}primary-light);
+        box-shadow: map.get($shadow-map, "sm");
+      }
+
+      &.selected {
+        border-color: var(--#{$prefix}primary);
+        background-color: var(--#{$prefix}primary-light);
+      }
+
+      .case-icon {
+        margin-right: 1rem;
+        color: var(--#{$prefix}primary);
+        font-size: 1.5rem;
+      }
+
+      .case-details {
+        flex: 1;
+
+        .case-title {
+          margin: 0 0 0.5rem;
+          color: var(--#{$prefix}heading-color);
+          font-size: 1.125rem;
+        }
+
+        .case-meta {
+          @include mixins.flex-between;
+          gap: 1rem;
+          margin-bottom: 0.5rem;
+
+          .case-number {
+            font-size: 0.875rem;
+            color: var(--#{$prefix}text-muted);
+          }
+
+          .case-status {
+            font-size: 0.75rem;
+            font-weight: 500;
+            padding: 0.25rem 0.5rem;
+            border-radius: map.get($border-radius-map, "pill");
+
+            &.active {
+              background-color: var(--#{$prefix}success-light);
+              color: var(--#{$prefix}success);
+            }
+
+            &.pending {
+              background-color: var(--#{$prefix}warning-light);
+              color: var(--#{$prefix}warning);
+            }
+
+            &.closed {
+              background-color: var(--#{$prefix}secondary-light);
+              color: var(--#{$prefix}secondary);
+            }
+          }
+        }
+
+        .case-info {
+          @include mixins.flex-between;
+          gap: 1rem;
+          font-size: 0.875rem;
+          color: var(--#{$prefix}text-muted);
+
+          > div {
+            @include mixins.flex-center;
+            gap: 0.25rem;
+          }
+        }
+      }
+
+      .case-actions {
+        .case-menu-btn {
+          background: none;
+          border: none;
+          color: var(--#{$prefix}text-muted);
+          cursor: pointer;
+          padding: 0.25rem;
+
+          &:hover {
+            color: var(--#{$prefix}primary);
+          }
+        }
+      }
+    }
+  }
+
+  .no-cases {
+    @include mixins.flex-center;
+    height: 200px;
+    color: var(--#{$prefix}text-muted);
+  }
+
+  .loading-spinner, .error-message {
+    @include mixins.flex-center;
+    height: 200px;
+  }
+
+  .error-message {
+    color: var(--#{$prefix}danger);
+  }
+
+  // Main content area
+  .case-management-content {
+    @include mixins.main-area-content;
+  }
+}

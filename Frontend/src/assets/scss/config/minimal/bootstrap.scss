@@ -1,0 +1,24 @@
+/*
+DocBrain - Custom Bootstrap Configuration
+Optimized for faster compilation
+*/
+
+// Core Bootstrap files (using @import for compatibility with Bootstrap)
+// Bootstrap doesn't fully support the @use syntax yet
+@use "sass:color";
+//@import "bootstrap/scss/_functions";
+//@import "bootstrap/scss/_variables";
+//@import "bootstrap/scss/_mixins";
+
+// Custom variables and utilities
+@use "variables" as *;
+@use "./_variables-custom" as *;
+@use "variables-light" as light;
+@use "./_variables-dark" as *;
+@use "../../components/utilities" as *;
+
+// Import Bootstrap (after core files are imported)
+@use "bootstrap/scss/bootstrap" as *;
+
+// Import root variables
+@use "./_root" as *;

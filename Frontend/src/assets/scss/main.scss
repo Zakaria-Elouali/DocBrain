@@ -1,0 +1,45 @@
+// Import Sass color module
+@use "sass:color";
+
+// Import variables and mixins
+@use "../scss/config/minimal/bootstrap" as *;
+@use "config/minimal/component-mixins" as mixins;
+
+// Core imports
+@use "../scss/icons.scss" as *;
+
+// Framework imports
+@use "../scss/config/minimal/app" as *;
+
+// Global base styling
+@use "docBrain/base" as *;
+@use "docBrain/utils" as *;
+@use "docBrain/utility-overrides" as *;
+
+// Component and layout groups - using forward pattern to reduce import statements
+@use "docBrain/layout/index" as *;
+@use "docBrain/_index" as *;
+
+// External CSS imports
+@import "./shepherd.css";
+@import "./mermaid.min.css";
+
+// Global utility overrides
+// Toast
+.Toastify {
+  .Toastify__toast {
+    min-height: 43px;
+  }
+
+  .Toastify__close-button {
+    top: 6px;
+  }
+
+  .Toastify__close-button--light {
+     color: #f8f9fa; /* Direct color value instead of CSS variable */
+  }
+}
+
+:root {
+  --toastify-color-success: #05a597;
+}

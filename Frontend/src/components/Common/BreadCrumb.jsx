@@ -1,0 +1,34 @@
+import React from "react";
+import { Link } from "react-router-dom";
+import { Col, Row } from "reactstrap";
+import logoTadafur from "../../assets/images/logo-sm.png";
+
+const BreadCrumb = ({ title, pageTitle }) => {
+  return (
+    <React.Fragment>
+      <Row hidden>
+        <Col xs={12}>
+          <div className="page-title-box d-sm-flex align-items-center justify-content-between">
+            <h4 className="mb-sm-0">{title}</h4>
+
+            <div className="page-title-right">
+              <ol className="breadcrumb m-0">
+                <li className="breadcrumb-item" style={{ width: "30px" }}>
+                  <Link to="#">
+                    <img src={logoTadafur} alt="" className="breadcrumb-img" />
+                  </Link>
+                </li>
+                <li className="breadcrumb-item">
+                  <Link to="#">{pageTitle}</Link>
+                </li>
+                <li className="breadcrumb-item active">{title}</li>
+              </ol>
+            </div>
+          </div>
+        </Col>
+      </Row>
+    </React.Fragment>
+  );
+};
+
+export default BreadCrumb;

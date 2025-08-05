@@ -1,0 +1,13 @@
+/*
+DocBrain - Main App Styles
+Optimized for faster compilation
+*/
+
+// Fonts
+@use "../../fonts/fonts" as *;
+
+// Core files - these are already imported in bootstrap.scss
+// We don't need to import them again to avoid duplicate processing
+
+// Auth pages - moved to components/index.scss
+// Structure components - moved to layout/index.scss

@@ -1,0 +1,155 @@
+//
+// _authentication.scss
+//
+@use 'sass:color';
+@use "../../config/minimal/variables" as *;
+@use "../../config/minimal/variables-custom" as *;
+@use "../../config/minimal/variables-dark" as *;
+
+.auth-page-wrapper {
+  .auth-page-content {
+    padding-bottom: $footer-height;
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    // top: 14rem;
+    // @media (max-width: 1022px) {
+    //     align-items: end;
+    // }
+  }
+
+  .footer {
+    left: 0;
+    background-color: transparent;
+    color: var(--#{$prefix}body-color);
+  }
+}
+
+.cardlogin {
+  border: none !important;
+  @media (max-width: 1022px) {
+    margin-top: 11rem !important;
+  }
+}
+
+.auth-one-bg-position {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+
+  @media (max-width: 575.98px) {
+    height: 100%;
+  }
+}
+
+.auth-one-bg {
+  background-image: url("@/assets/images/login-bg-2.png");
+  // background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  .bg-overlay {
+    background: linear-gradient(to right, color.adjust($primary, $lightness: -6%), $primary);
+    opacity: 0.8;
+  }
+  @media (max-width: 1022px) {
+    background-image: url("@/assets/images/login-bg-2.png");
+    // background-position: center;
+    background-repeat: no-repeat;
+    // background-size: cover;
+    // background-position: center;
+    background-position: center;
+    background-size: 100% 100%;
+    height: 100vh;
+    width: 100%;
+  }
+}
+
+.shape {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  z-index: 1;
+  pointer-events: none;
+
+  > svg {
+    width: 100%;
+    height: auto;
+    fill: var(--#{$prefix}body-bg);
+  }
+}
+
+// auth-pass-inputgroup
+
+.auth-pass-inputgroup {
+  input[type="text"] + .btn .ri-eye-fill {
+    &:before {
+      content: "\ecb6";
+    }
+  }
+}
+
+.particles-js-canvas-el {
+  position: relative;
+}
+
+// signin card title
+
+.signin-other-title {
+  position: relative;
+
+  &:after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 1px;
+    left: 0;
+    right: 0;
+    border-top: 1px dashed var(--#{$prefix}border-color);
+    top: 10px;
+  }
+
+  .title {
+    display: inline-block;
+    position: relative;
+    z-index: 9;
+    background-color: var(--#{$prefix}secondary-bg);
+    padding: 2px 16px;
+  }
+}
+
+//passowrd validations
+#password-contain {
+  display: none;
+
+  p {
+    padding-left: 13px;
+
+    &.valid {
+      color: $success;
+
+      &::before {
+        position: relative;
+        left: -8px;
+        content: "✔";
+      }
+    }
+
+    &.invalid {
+      color: $danger;
+
+      &::before {
+        position: relative;
+        left: -8px;
+        content: "✖";
+      }
+    }
+  }
+}

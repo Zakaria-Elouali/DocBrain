@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Verify Your DocBrain Account</title>
+    <style>
+        /* Reset and base styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            line-height: 1.6;
+            color: #333;
+            padding: 20px;
+        }
+
+        /* Email container */
+        .email-wrapper {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+        .container {
+            padding: 30px;
+            margin-bottom: 20px;
+        }
+
+        /* Typography */
+        p {
+            margin-bottom: 16px;
+        }
+
+        .verification-code {
+            font-size: 32px;
+            font-weight: bold;
+            color: #2c3e50;
+            text-align: center;
+            padding: 20px;
+            margin: 20px 0;
+            background-color: #f8f9fa;
+            border-radius: 8px;
+            border: 2px dashed #e0e0e0;
+        }
+
+        /* Links */
+        a {
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        /* Divider */
+        .divider {
+            border: none;
+            border-top: 1px solid #eee;
+            margin: 20px 0;
+        }
+
+        /* Support info */
+        .support-info {
+            font-size: 14px;
+            color: #666;
+        }
+
+        /* Signature */
+        .signature {
+            margin-top: 30px;
+            font-weight: 500;
+        }
+    </style>
+</head>
+<body>
+<div class="email-wrapper">
+    <!-- Arabic Version -->
+    <div class="container" dir="rtl">
+        <p>عزيزي <span th:text="${fullName ?: 'المستخدم'}"></span>،</p>
+
+        <p>لقد تلقينا طلباً للتحقق من عنوان بريدك الإلكتروني. يرجى استخدام رمز التحقق التالي لإكمال عملية التسجيل:</p>
+
+        <div class="verification-code" th:text="${verificationCode}"></div>
+
+        <p>
+            ينتهي رمز التحقق خلال
+            <th:block th:text="${expirationMinutes}"></th:block>
+            دقيقة.
+        </p>
+
+        <p>إذا لم تقم بطلب هذا التحقق، يرجى تجاهل هذا البريد الإلكتروني.</p>
+
+        <div class="support-info">
+            <p>للمساعدة، يمكنك التواصل مع فريق الدعم الفني عبر البريد الإلكتروني:
+                <a href="mailto:contact@docbrain.com">contact@docbrain.com</a>
+            </p>
+        </div>
+
+        <div class="signature">
+            <p>مع خالص التحية،</p>
+            <p>فريق دعم دوك برين</p>
+        </div>
+    </div>
+
+    <hr class="divider">
+
+    <!-- English Version -->
+    <div class="container">
+        <p>Dear <span th:text="${fullName ?: 'User'}"></span>,</p>
+
+        <p>We received a request to verify your email address. Please use the following verification code to complete the registration process:</p>
+
+        <div class="verification-code" th:text="${verificationCode}"></div>
+
+        <p>
+            This verification code will expire in
+            <th:block th:text="${expirationMinutes}"></th:block>
+            minutes.
+        </p>
+
+        <p>If you didn't request this verification, please ignore this email.</p>
+
+        <div class="support-info">
+            <p>For assistance, please contact our technical support team at:
+                <a href="mailto:contact@docbrain.com">contact@docbrain.com</a>
+            </p>
+        </div>
+
+        <div class="signature">
+            <p>Best regards,</p>
+            <p>DocBrain Support Team</p>
+        </div>
+    </div>
+</div>
+</body>
+</html>

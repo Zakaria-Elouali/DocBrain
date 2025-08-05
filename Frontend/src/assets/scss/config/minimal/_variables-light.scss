@@ -1,0 +1,284 @@
+@use "sass:color";
+@use "sass:map";
+@use "variables" as *;
+
+// ======================
+// Light Theme Color Variables
+// ======================
+
+// Base Light Theme
+$body-bg-light: #ffffff;
+$body-color-light: #000000;
+$border-color-light: #32383e;
+$headings-color-light: #212529;
+
+// ======================
+// Topbar Styles (Light)
+// ======================
+$header-bg: #ffffff;
+$header-border: #e0e0e0;
+$header-item-color: #333333;
+$header-item-bg: rgba(0, 0, 0, 0.04);
+$header-item-sub-color: #888888;
+$topbar-user-bg: #f8f8f8;
+$topbar-search-bg: #f3f3f3;
+$topbar-search-color: #333333;
+
+// ======================
+// IconBar (Light)
+// ======================
+$iconbar-bg: linear-gradient(135deg, #4158D0 0%, #262a63 100%);
+$iconbar-border: rgb(69, 75, 234);
+$iconbar-icon-color: #000000;
+$iconbar-icon-bg: #ffffff;
+$iconbar-icon-hover-bg: #9abcdf;
+$iconbar-icon-hover-color: #a1a5a8;
+$iconbar-icon-active-bg: rgba(255, 255, 255, 0.15);
+$iconbar-icon-active-color: #ffffff;
+
+// ======================
+// Sidebar/Content Panel (Light)
+// ======================
+$sidebar-menu-bg: linear-gradient(135deg, #4158D0 0%, #262a63 100%);
+$sidebar-menu-border: rgba(255, 255, 255, 0.1);
+$sidebar-menu-item-color: #ffffff;
+$sidebar-menu-item-bg: transparent;
+$sidebar-menu-item-hover-color: #ffffff;
+$sidebar-menu-item-active-color: #ffffff;
+$sidebar-menu-item-active-bg: rgba(255, 255, 255, 0.2);
+$sidebar-menu-title-color: #ffffff;
+$sidebar-menu-sub-item-color: #f0f0f0;
+$sidebar-menu-sub-item-hover-color: #ffffff;
+$sidebar-menu-sub-item-active-color: #ffffff;
+$sidebar-content-color: #9aaab3;
+
+// ======================
+// Main Area / Content Area
+// ======================
+// Removed main-area-shadow as it should be used directly from shadow map
+$main-area-bg: none;
+// Removed main-area-rtl-shadow as it should be used directly from shadow map
+
+// ======================
+// Dashboard Component (Light)
+// ======================
+$dashboard-card-bg: #ffffff;
+$dashboard-card-border: #e9ebec;
+$dashboard-text-primary: #212529;
+$dashboard-text-secondary: #6c757d;
+$dashboard-table-header-bg: #f8f9fa;
+$dashboard-table-body-bg: #ffffff;
+$dashboard-table-row-hover: #f8f9fa;
+$dashboard-table-border: #e9ebec;
+$dashboard-chart-grid: #e9ebec;
+$dashboard-progress-bg: #e9ebec;
+$dashboard-tooltip-bg: #ffffff;
+$dashboard-tooltip-border: #e9ebec;
+$dashboard-error-bg: #f8d7da;
+$dashboard-error-border: #f5c2c7;
+$dashboard-error-text: #842029;
+
+// ======================
+// Calendar Component (Light)
+// ======================
+$calendar-panel-bg: #f8fafc;
+$calendar-panel-color: #334155;
+$calendar-view-bg: linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 100%);
+$calendar-header-bg: linear-gradient(135deg, #0ea5e9, #0284c7);
+// Removed calendar-header-shadow as it should be used directly from shadow map
+$calendar-button-bg: rgba(255, 255, 255, 0.25);
+$calendar-button-hover-bg: rgba(255, 255, 255, 0.4);
+$calendar-button-color: #fff;
+$calendar-title-color: #fff;
+$calendar-new-button-bg: linear-gradient(135deg, #10b981, #059669);
+$calendar-new-button-color: white;
+// Removed calendar-new-button-shadow as it should be used directly from shadow map
+$calendar-grid-bg: #ffffff;
+$calendar-day-header-bg: linear-gradient(135deg, #64748b, #475569);
+$calendar-day-header-color: #fff;
+$calendar-day-bg: #f8fafc;
+$calendar-day-selected-bg: linear-gradient(135deg, #8b5cf6, #7c3aed);
+$calendar-day-selected-color: #fff;
+$calendar-day-today-border: 2px solid #0ea5e9;
+$calendar-appointment-bg: rgba(14, 165, 233, 0.1);
+$calendar-appointment-color: #0369a1;
+
+// ======================
+// User Management Tabs (Light)
+// ======================
+$user-tab-bg: #ffffff;
+$user-tab-active-bg: #000000;
+$user-tab-active-color: white;
+$user-tab-inactive-color: #ffffff;
+$user-tab-hover-bg: #bdbfc3;
+$user-tab-button-border-color: #000;
+$user-add-button-bg: #2563eb;
+$user-add-button-hover-bg: #1d4ed8;
+$user-add-button-color: white;
+$user-empty-state-color: #6b7280;
+
+// ======================
+// Form Common Variables (Light)
+// ======================
+$form-error-color: #dc2626;
+$scrollbar-track: #f3f4f6;
+$scrollbar-thumb: #d1d5db;
+
+// ======================
+// Modal Component (Light)
+// ======================
+$modal-bg: #ffffff;
+$modal-border: rgba(0, 0, 0, 0.125);
+// Removed modal-shadow as it should be used directly from shadow map
+$modal-title-color: #212529;
+$modal-overlay-bg: rgba(0, 0, 0, 0.5);
+
+// ======================
+// Appointment Modal (Light)
+// ======================
+$appointment-modal-overlay-bg: rgba(0, 0, 0, 0.5);
+$appointment-modal-field-label-color: #000000;
+$appointment-modal-field-input-color: #333333;
+$appointment-modal-field-input-bg: #ffffff;
+$appointment-modal-field-input-border: 1px solid #d1d5db;
+$appointment-modal-error-color: #ef4444;
+
+// ======================
+// Cards / Panels / Content (Light)
+// ======================
+$page-title-border: #dddddd;
+
+// ======================
+// Footer (Light)
+// ======================
+$footer-bg: transparent;
+$footer-color: #000;
+
+// ======================
+// Forms / Inputs (Light)
+// ======================
+$input-bg-custom: #f5f5f5;
+$input-border-custom: #dddddd;
+
+// ======================
+// Global Component Variables (Light Mode)
+// ======================
+
+// Typography
+$link-color-light: map.get(map.get($theme-color-variants, "primary"), "base");
+$link-hover-color-light: map.get(map.get($theme-color-variants, "primary"), "hover");
+$link-decoration-light: none;
+$link-hover-decoration-light: underline;
+
+// Form Elements
+$input-bg-light: #ffffff;
+$input-color-light: #495057;
+$input-border-light: #ced4da;
+$input-focus-border-light: map.get(map.get($theme-color-variants, "primary"), "base");
+$input-focus-shadow-light: rgba(map.get(map.get($theme-color-variants, "primary"), "base"), 0.25);
+$input-placeholder-color-light: #6c757d;
+$input-disabled-bg-light: #e9ecef;
+
+// Buttons - Primary
+$button-primary-bg-light: map.get(map.get($theme-color-variants, "primary"), "base");
+$button-primary-color-light: #ffffff;
+$button-primary-border-light: map.get(map.get($theme-color-variants, "primary"), "base");
+$button-primary-hover-bg-light: map.get(map.get($theme-color-variants, "primary"), "hover");
+$button-primary-hover-color-light: #ffffff;
+$button-primary-hover-border-light: map.get(map.get($theme-color-variants, "primary"), "dark");
+$button-primary-focus-shadow-light: rgba(map.get(map.get($theme-color-variants, "primary"), "base"), 0.5);
+
+// Buttons - Secondary
+$button-secondary-bg-light: map.get(map.get($theme-color-variants, "secondary"), "base");
+$button-secondary-color-light: #ffffff;
+$button-secondary-border-light: map.get(map.get($theme-color-variants, "secondary"), "base");
+$button-secondary-hover-bg-light: map.get(map.get($theme-color-variants, "secondary"), "hover");
+$button-secondary-hover-color-light: #ffffff;
+$button-secondary-hover-border-light: map.get(map.get($theme-color-variants, "secondary"), "dark");
+$button-secondary-focus-shadow-light: rgba(map.get(map.get($theme-color-variants, "secondary"), "base"), 0.5);
+
+// Tables
+$table-color-light: #212529;
+$table-border-color-light: #dee2e6;
+$table-header-bg-light: #f8f9fa;
+$table-header-color-light: #495057;
+$table-striped-bg-light: rgba(0, 0, 0, 0.05);
+
+// Cards
+$card-bg-light: #ffffff;
+$card-border-color-light: rgba(0, 0, 0, 0.125);
+// Removed card-box-shadow-light as it should be used directly from shadow map
+$card-header-bg-light: rgba(0, 0, 0, 0.03);
+$card-footer-bg-light: rgba(0, 0, 0, 0.03);
+
+// Code
+$code-bg-light: #204359;
+$code-color-light: #e83e8c;
+
+// Blockquote
+$blockquote-color-light: #6c757d;
+$blockquote-border-color-light: map.get(map.get($theme-color-variants, "primary"), "base");
+
+// Horizontal rule
+$hr-color-light: rgba(0, 0, 0, 0.1);
+
+// ======================
+// Invoice Component (Light)
+// ======================
+$invoice-primary-color: #6366f1;
+$invoice-success-color: #34d399;
+$invoice-warning-color: #fbbf24;
+$invoice-danger-color: #f87171;
+//$invoice-sidebar-bg: $sidebar-menu-bg;
+//$invoice-sidebar-color: $sidebar-menu-item-color;
+//$invoice-sidebar-border: $sidebar-menu-border;
+//$invoice-sidebar-title-color: $sidebar-menu-title-color;
+$invoice-sidebar-item-bg: rgba(255, 255, 255, 0.05);
+$invoice-sidebar-item-border: rgba(255, 255, 255, 0.1);
+$invoice-sidebar-item-hover-bg: rgba(255, 255, 255, 0.08);
+// Removed invoice-sidebar-item-hover-shadow as it should be used directly from shadow map
+$invoice-sidebar-item-text-color: rgba(255, 255, 255, 0.5);
+$invoice-sidebar-search-bg: rgba(255, 255, 255, 0.05);
+$invoice-sidebar-search-border: rgba(255, 255, 255, 0.1);
+$invoice-sidebar-search-focus-border: rgba(255, 255, 255, 0.2);
+$invoice-sidebar-search-focus-bg: rgba(255, 255, 255, 0.1);
+$invoice-sidebar-search-placeholder: rgba(255, 255, 255, 0.4);
+$invoice-sidebar-search-icon-color: rgba(255, 255, 255, 0.5);
+$invoice-sidebar-action-btn-color: rgba(255, 255, 255, 0.6);
+$invoice-sidebar-action-btn-hover-bg: rgba(255, 255, 255, 0.1);
+$invoice-sidebar-action-btn-hover-color: #ffffff;
+$invoice-status-paid-bg: rgba(16, 185, 129, 0.2);
+$invoice-status-pending-bg: rgba(245, 158, 11, 0.2);
+$invoice-status-overdue-bg: rgba(239, 68, 68, 0.2);
+$invoice-card-bg: $dashboard-card-bg;
+$invoice-card-border: $dashboard-card-border;
+//$invoice-card-shadow: $dashboard-card-shadow;
+$invoice-btn-secondary-hover-bg: rgba(0, 0, 0, 0.05);
+$invoice-table-header-bg: rgba(0, 0, 0, 0.02);
+$invoice-description-bg: $invoice-card-bg;
+$invoice-primary-color-hover: color.adjust($invoice-primary-color, $lightness: -10%);
+
+// ======================
+// Settings Component (Light)
+// ======================
+$settings-sidebar-border: #e5e7eb;
+$settings-nav-item-hover-bg: #f3f4f6;
+$settings-nav-item-active-bg: #e5e7eb;
+$settings-section-title-color: #111827;
+$settings-section-description-color: #6b7280;
+$settings-form-label-color: #374151;
+$settings-form-input-bg: #ffffff;
+$settings-form-input-border: #d1d5db;
+$settings-form-input-focus-border: #3b82f6;
+$settings-form-input-focus-shadow: rgba(59, 130, 246, 0.1);
+$settings-form-button-primary-bg: #3b82f6;
+$settings-form-button-primary-hover-bg: #2563eb;
+$settings-form-button-secondary-bg: #f3f4f6;
+$settings-form-button-secondary-hover-bg: #e5e7eb;
+$settings-form-button-secondary-color: #374151;
+$settings-form-button-danger-bg: #ef4444;
+$settings-form-button-danger-hover-bg: #dc2626;
+$settings-form-error-color: #ef4444;
+$settings-card-bg: #ffffff;
+$settings-card-border: #e5e7eb;
+// Removed settings-card-shadow as it should be used directly from shadow map

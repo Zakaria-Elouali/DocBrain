@@ -1,0 +1,42 @@
+dependencies {
+    // existing module dependencies
+    implementation project(':domain')
+    implementation project(':application')
+
+    // Update JWT dependencies - remove the old one and add these
+    implementation 'io.jsonwebtoken:jjwt-api:0.12.2'
+    runtimeOnly 'io.jsonwebtoken:jjwt-impl:0.12.2'
+    runtimeOnly 'io.jsonwebtoken:jjwt-jackson:0.12.2' // or 'io.jsonwebtoken:jjwt-gson:0.12.2' for Gson
+
+    // security
+    implementation 'org.springframework.boot:spring-boot-starter-security'
+
+    // web
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+
+    // lombok
+    implementation 'org.projectlombok:lombok:1.18.30'
+    annotationProcessor 'org.projectlombok:lombok:1.18.30'
+    compileOnly 'org.projectlombok:lombok'
+
+    // data
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+
+    // jakarta validation used in invoice
+    implementation 'jakarta.validation:jakarta.validation-api:3.0.2'
+
+    // jackson
+    implementation 'com.fasterxml.jackson.datatype:jackson-datatype-jsr310:2.17.0'
+    implementation 'com.fasterxml.jackson.core:jackson-databind:2.13.3'
+
+    // Excel support
+    implementation 'org.apache.poi:poi:5.2.2'
+    implementation 'org.apache.poi:poi-ooxml:5.2.2'
+
+    // test
+    testImplementation 'org.springframework.security:spring-security-test'
+}
+
+test {
+    useJUnitPlatform()
+}

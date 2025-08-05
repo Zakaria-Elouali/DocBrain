@@ -1,0 +1,43 @@
+@use "sass:map";
+@use "../../config/minimal/variables" as *;
+@use "../../config/minimal/variables-custom" as *;
+@use "../../config/minimal/variables-dark" as *;
+@use "../../config/minimal/component-mixins" as *;
+
+.right-click-menu {
+  background-color: var(--#{$prefix}dropdown-bg, #2b2b2b);
+  box-shadow: map.get($shadow-map, "lg");
+  border-radius: map.get($border-radius-map, "default");
+  padding: 4px 0; /* compact spacing */
+  color: var(--#{$prefix}dropdown-link-color, #dcdcdc);
+  font-family: $font-family-secondary;
+  font-size: 14px;
+  min-width: 150px; /* ensure consistent width */
+}
+
+.menu-item {
+  @include flex-between;
+  padding: 8px 12px;
+  cursor: pointer;
+  color: inherit;
+  transition: background-color 0.2s ease, color 0.2s ease;
+
+  svg {
+    width: 16px; /* Icon size */
+    height: 16px;
+    color: var(--#{$prefix}dropdown-link-color, #dcdcdc);
+  }
+
+  &:hover {
+    background-color: var(--#{$prefix}dropdown-link-hover-bg, #3c3c3c);
+    color: var(--#{$prefix}dropdown-link-hover-color, #fff);
+
+    svg {
+      color: var(--#{$prefix}dropdown-link-hover-color, #fff);
+    }
+  }
+
+  &:active {
+    background-color: var(--#{$prefix}dropdown-link-active-bg, #4c4c4c);
+  }
+}

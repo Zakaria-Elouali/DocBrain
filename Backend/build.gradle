@@ -1,0 +1,75 @@
+plugins {
+	id 'java'
+	id 'application'
+	id 'org.springframework.boot' version '3.1.3'
+	id 'io.spring.dependency-management' version '1.1.0'
+}
+
+configurations {
+	compileOnly {
+		extendsFrom annotationProcessor
+	}
+}
+
+allprojects {
+	repositories {
+		mavenCentral()
+	}
+
+	apply plugin: 'java'
+	apply plugin: 'application'
+	apply plugin: 'org.springframework.boot'
+	apply plugin: 'io.spring.dependency-management'
+dependencies {
+	// spring
+	implementation 'org.springframework.boot:spring-boot-starter'
+	developmentOnly 'org.springframework.boot:spring-boot-devtools'
+	// Cache
+	implementation 'org.springframework.boot:spring-boot-starter-cache'
+
+
+	implementation 'jakarta.persistence:jakarta.persistence-api:3.1.0'
+
+
+	implementation 'org.springframework.boot:spring-boot-starter-security'
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+
+	    // lombok
+    implementation 'org.projectlombok:lombok:1.18.30'
+    annotationProcessor 'org.projectlombok:lombok:1.18.30'
+    compileOnly 'org.projectlombok:lombok'
+
+//	implementation 'org.flywaydb:flyway-core'
+//	implementation 'org.flywaydb:flyway-database-postgresql'
+//	compileOnly 'org.projectlombok:lombok'
+//	runtimeOnly 'org.postgresql:postgresql'
+//	annotationProcessor 'org.projectlombok:lombok'
+//
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	testImplementation 'org.springframework.security:spring-security-test'
+	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+}
+
+	group = 'ai.docbrain'
+	version = '0.0.1-SNAPSHOT'
+	mainClassName = 'ai.docbrain.DocBrainApplication'
+
+	java {
+		toolchain {
+			languageVersion = JavaLanguageVersion.of(21)
+		}
+	}
+
+}
+
+
+dependencies {
+	// modules
+	implementation project(':domain')
+	implementation project(':application')
+	implementation project(':web')
+	implementation project(':persistence')
+}
+tasks.named('test') {
+	useJUnitPlatform()
+}

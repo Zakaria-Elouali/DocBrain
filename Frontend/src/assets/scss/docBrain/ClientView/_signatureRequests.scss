@@ -1,0 +1,229 @@
+// Signature Requests Sidebar Styles
+@use "sass:map";
+@use "../../config/minimal/variables" as *;
+@use "../../config/minimal/component-mixins" as mixins;
+
+.signature-requests-container {
+  width: 100%;
+  height: 100%;
+  @include mixins.flex-column;
+
+  .signature-requests-wrapper {
+    flex: 1;
+    @include mixins.flex-column;
+
+    .signature-requests-content {
+      flex: 1;
+      padding: 20px;
+      background-color: var(--#{$prefix}body-bg);
+      overflow: auto;
+
+      .signature-requests-header {
+        @include mixins.flex-between;
+        padding: 1rem;
+        border-bottom: 1px solid var(--#{$prefix}border-color);
+        background-color: var(--#{$prefix}card-bg);
+
+        h2 {
+          margin: 0;
+          color: var(--#{$prefix}heading-color);
+          font-size: 1.25rem;
+        }
+      }
+
+      .requests-list {
+        padding: 1rem;
+        overflow-y: auto;
+        max-height: calc(100vh - 150px);
+
+        .request-item {
+          @include mixins.flex-between;
+          align-items: flex-start;
+          padding: 1rem;
+          border-bottom: 1px solid var(--#{$prefix}border-color);
+          background-color: var(--#{$prefix}card-bg);
+          border-radius: map.get($border-radius-map, "sm");
+          margin-bottom: 0.75rem;
+          transition: all 0.2s ease;
+
+          &:hover {
+            background-color: var(--#{$prefix}hover-bg);
+            transform: translateY(-2px);
+            box-shadow: map.get($shadow-map, "sm");
+          }
+
+          .request-info {
+            @include mixins.flex-column;
+            gap: 0.5rem;
+
+            .request-document {
+              font-weight: 500;
+              color: var(--#{$prefix}body-color);
+              font-size: 1.1rem;
+            }
+
+            .request-meta {
+              @include mixins.flex-between;
+              gap: 1rem;
+
+              .request-date, .request-due-date {
+                font-size: 0.875rem;
+                color: var(--#{$prefix}text-muted);
+              }
+            }
+
+            .request-from {
+              font-size: 0.875rem;
+              color: var(--#{$prefix}text-muted);
+            }
+
+            .request-status {
+              font-size: 0.75rem;
+              font-weight: 500;
+              padding: 0.25rem 0.5rem;
+              border-radius: map.get($border-radius-map, "pill");
+              display: inline-block;
+              width: fit-content;
+
+              &.status-pending {
+                background-color: var(--#{$prefix}warning-light);
+                color: var(--#{$prefix}warning);
+              }
+
+              &.status-signed {
+                background-color: var(--#{$prefix}success-light);
+                color: var(--#{$prefix}success);
+              }
+
+              &.status-declined {
+                background-color: var(--#{$prefix}danger-light);
+                color: var(--#{$prefix}danger);
+              }
+
+              &.status-overdue {
+                background-color: var(--#{$prefix}danger-light);
+                color: var(--#{$prefix}danger);
+                font-weight: bold;
+              }
+            }
+
+            .request-priority {
+              font-size: 0.75rem;
+              font-weight: 500;
+              padding: 0.25rem 0.5rem;
+              border-radius: map.get($border-radius-map, "pill");
+              display: inline-block;
+              width: fit-content;
+
+              &.priority-high, &.priority-urgent {
+                background-color: var(--#{$prefix}danger-light);
+                color: var(--#{$prefix}danger);
+              }
+
+              &.priority-medium {
+                background-color: var(--#{$prefix}warning-light);
+                color: var(--#{$prefix}warning);
+              }
+
+              &.priority-low {
+                background-color: var(--#{$prefix}info-light);
+                color: var(--#{$prefix}info);
+              }
+            }
+          }
+
+          .request-actions {
+            @include mixins.flex-center;
+            gap: 0.5rem;
+
+            button {
+              background: none;
+              border: none;
+              color: var(--#{$prefix}text-muted);
+              cursor: pointer;
+              padding: 0.5rem;
+              border-radius: 50%;
+              transition: all 0.2s ease;
+
+              &:hover:not(:disabled) {
+                color: var(--#{$prefix}primary);
+                background-color: var(--#{$prefix}primary-light);
+              }
+
+              &:disabled {
+                opacity: 0.5;
+                cursor: not-allowed;
+              }
+
+              &.sign-button:hover:not(:disabled) {
+                color: var(--#{$prefix}success);
+                background-color: var(--#{$prefix}success-light);
+              }
+
+              &.decline-button:hover:not(:disabled) {
+                color: var(--#{$prefix}danger);
+                background-color: var(--#{$prefix}danger-light);
+              }
+            }
+
+            .signed-indicator, .declined-indicator, .overdue-indicator {
+              @include mixins.flex-center;
+              gap: 0.25rem;
+              font-size: 0.875rem;
+              padding: 0.25rem 0.5rem;
+              border-radius: map.get($border-radius-map, "sm");
+            }
+
+            .signed-indicator {
+              color: var(--#{$prefix}success);
+              background-color: var(--#{$prefix}success-light);
+            }
+
+            .declined-indicator {
+              color: var(--#{$prefix}danger);
+              background-color: var(--#{$prefix}danger-light);
+            }
+
+            .overdue-indicator {
+              color: var(--#{$prefix}danger);
+              background-color: var(--#{$prefix}danger-light);
+              font-weight: bold;
+            }
+          }
+        }
+      }
+
+      .no-requests {
+        @include mixins.flex-column;
+        justify-content: center;
+        align-items: center;
+        height: 300px;
+        color: var(--#{$prefix}text-muted);
+
+        p {
+          font-size: 1.1rem;
+        }
+      }
+
+      .loading-spinner, .error-message {
+        @include mixins.flex-center;
+        gap: 0.5rem;
+        height: 200px;
+        font-size: 1rem;
+      }
+
+      .error-message {
+        color: var(--#{$prefix}danger);
+      }
+
+      .spinner {
+        animation: spin 1s linear infinite;
+      }
+
+      @keyframes spin {
+        from { transform: rotate(0deg); }
+        to { transform: rotate(360deg); }
+      }
+    }
+  }
+}

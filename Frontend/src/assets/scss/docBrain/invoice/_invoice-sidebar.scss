@@ -1,0 +1,457 @@
+// Invoice sidebar styles - following project patterns
+@use "sass:map";
+@use "../../config/minimal/variables" as *;
+@use "../../config/minimal/component-mixins" as mixins;
+
+// Invoice sidebar styles - following calendar pattern
+.invoices-list {
+  width: map.get($layout-dimensions, "sidebar-width");
+  padding: 1rem;
+  overflow-y: auto;
+
+  .sidebar-header {
+    font-weight: 600;
+    font-size: 1rem;
+    margin-bottom: 1rem;
+    color: var(--#{$prefix}sidebar-menu-title-color);
+  }
+
+  .invoices-content {
+    @include mixins.flex-column;
+    gap: 1rem;
+
+    .invoice-card {
+      background: var(--#{$prefix}card-bg);
+      border: 1px solid var(--#{$prefix}border-color);
+      border-radius: map.get($border-radius-map, "default");
+      padding: 1rem;
+      cursor: pointer;
+      transition: all 0.2s ease;
+
+      &:hover {
+        border-color: var(--#{$prefix}primary);
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        transform: translateY(-1px);
+      }
+
+      &.selected {
+        border-color: var(--#{$prefix}primary);
+        background-color: rgba(var(--#{$prefix}primary-rgb, 59, 130, 246), 0.05);
+      }
+
+      .invoice-header {
+        @include mixins.flex-between;
+        align-items: center;
+        margin-bottom: 0.75rem;
+
+        .invoice-number {
+          @include mixins.flex-center;
+          gap: 0.5rem;
+          font-weight: 600;
+          color: var(--#{$prefix}text-primary);
+
+          .invoice-icon {
+            color: var(--#{$prefix}primary);
+          }
+        }
+
+        .invoice-status {
+          padding: 0.25rem 0.5rem;
+          border-radius: map.get($border-radius-map, "pill");
+          font-size: 0.75rem;
+          font-weight: 500;
+          text-transform: uppercase;
+
+          &.paid {
+            background-color: var(--#{$prefix}success-bg);
+            color: var(--#{$prefix}success-color);
+          }
+
+          &.pending {
+            background-color: var(--#{$prefix}warning-bg);
+            color: var(--#{$prefix}warning-color);
+          }
+
+          &.overdue {
+            background-color: var(--#{$prefix}danger-bg);
+            color: var(--#{$prefix}danger-color);
+          }
+        }
+      }
+
+      .invoice-details {
+        .detail-row {
+          @include mixins.flex-between;
+          margin-bottom: 0.5rem;
+
+          &:last-child {
+            margin-bottom: 0;
+          }
+
+          .client-name {
+            font-weight: 500;
+            color: var(--#{$prefix}text-primary);
+          }
+
+          .invoice-date {
+            color: var(--#{$prefix}text-muted);
+            font-size: 0.875rem;
+          }
+
+          .invoice-amount {
+            font-weight: 600;
+            color: var(--#{$prefix}primary);
+          }
+        }
+      }
+    }
+  }
+
+  // Header section
+  .invoice-panel-header {
+    @include mixins.flex-between;
+    margin-bottom: 1rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid var(--#{$prefix}border-color);
+
+    h2 {
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin: 0;
+      color: var(--#{$prefix}sidebar-menu-title-color);
+    }
+
+    .header-actions {
+      display: flex;
+      gap: 0.5rem;
+      align-items: center;
+
+      .btn-secondary {
+        @include mixins.button("secondary");
+        padding: 0.375rem;
+        font-size: 0.75rem;
+      }
+
+      .create-invoice-btn {
+        @include mixins.button("primary");
+        @include mixins.flex-center;
+        gap: 0.375rem;
+        padding: 0.5rem 0.75rem;
+        font-size: 0.875rem;
+      }
+    }
+  }
+
+  // Search and filter section
+  .search-and-filter-container {
+    margin-bottom: 1rem;
+
+    .search-input-wrapper {
+      position: relative;
+      margin-bottom: 0.5rem;
+
+      .search-icon {
+        position: absolute;
+        left: 0.75rem;
+        top: 50%;
+        transform: translateY(-50%);
+        color: var(--#{$prefix}text-muted);
+        font-size: 0.875rem;
+      }
+
+      .search-input {
+        @include mixins.form-field;
+        width: 100%;
+        padding-left: 2.25rem;
+        font-size: 0.875rem;
+      }
+    }
+
+    .filter-toggle-btn {
+      @include mixins.button("secondary");
+      padding: 0.5rem;
+      font-size: 0.75rem;
+      width: 100%;
+    }
+  }
+
+  // Filters panel
+  .filters-panel {
+    margin-bottom: 1rem;
+    padding: 0.75rem;
+    background-color: var(--#{$prefix}bg-light, rgba(0, 0, 0, 0.02));
+    border-radius: map.get($border-radius-map, "default");
+    border: 1px solid var(--#{$prefix}border-color);
+
+    .filter-group {
+      margin-bottom: 0.75rem;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+
+      label {
+        display: block;
+        font-size: 0.75rem;
+        font-weight: 600;
+        color: var(--#{$prefix}text-muted);
+        margin-bottom: 0.25rem;
+        text-transform: uppercase;
+      }
+
+      .filter-select,
+      .filter-input {
+        @include mixins.form-field;
+        width: 100%;
+        font-size: 0.875rem;
+      }
+
+      .date-range {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 0.5rem;
+      }
+    }
+
+    .filter-actions {
+      @include mixins.flex-between;
+      gap: 0.5rem;
+      margin-top: 1rem;
+
+      .btn-sm {
+        padding: 0.375rem 0.75rem;
+        font-size: 0.75rem;
+        flex: 1;
+      }
+    }
+  }
+
+  // Bulk actions
+  .bulk-actions-panel {
+    margin-bottom: 1rem;
+    padding: 0.75rem;
+    background-color: rgba(var(--#{$prefix}primary-rgb, 59, 130, 246), 0.1);
+    border-radius: map.get($border-radius-map, "default");
+    border: 1px solid var(--#{$prefix}primary);
+
+    .bulk-actions-header {
+      @include mixins.flex-between;
+      margin-bottom: 0.5rem;
+
+      span {
+        font-size: 0.875rem;
+        font-weight: 600;
+        color: var(--#{$prefix}primary);
+      }
+
+      .btn-link {
+        background: none;
+        border: none;
+        color: var(--#{$prefix}primary);
+        font-size: 0.75rem;
+        cursor: pointer;
+        text-decoration: underline;
+
+        &:hover {
+          text-decoration: none;
+        }
+      }
+    }
+
+    .bulk-actions-buttons {
+      display: flex;
+      gap: 0.5rem;
+
+      .btn-sm {
+        padding: 0.375rem 0.75rem;
+        font-size: 0.75rem;
+        flex: 1;
+      }
+    }
+  }
+
+  // Invoice list header
+  .invoice-list-header {
+    @include mixins.flex-between;
+    margin-bottom: 0.5rem;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid var(--#{$prefix}border-color);
+
+    .list-controls {
+      @include mixins.flex-between;
+      width: 100%;
+
+      .select-all-btn {
+        background: none;
+        border: none;
+        color: var(--#{$prefix}text-muted);
+        cursor: pointer;
+        padding: 0.25rem;
+
+        &:hover {
+          color: var(--#{$prefix}primary);
+        }
+      }
+
+      .invoice-count {
+        font-size: 0.75rem;
+        color: var(--#{$prefix}text-muted);
+        font-weight: 500;
+      }
+    }
+  }
+
+  // Invoice list
+  .invoice-list {
+    flex: 1;
+    overflow-y: auto;
+
+    .loading-spinner {
+      text-align: center;
+      padding: 2rem;
+      color: var(--#{$prefix}text-muted);
+    }
+
+    .error-message {
+      padding: 1rem;
+      text-align: center;
+      color: var(--#{$prefix}danger);
+
+      p {
+        margin-bottom: 0.5rem;
+      }
+    }
+
+    .no-invoices {
+      text-align: center;
+      padding: 2rem 1rem;
+      color: var(--#{$prefix}text-muted);
+      font-style: italic;
+      font-size: 0.875rem;
+    }
+
+    .invoice-item {
+      @include mixins.sidebar-item;
+      margin-bottom: 0.5rem;
+      border: 1px solid var(--#{$prefix}border-color);
+      border-radius: map.get($border-radius-map, "default");
+      padding: 0;
+      transition: all 0.2s ease;
+
+      &:hover {
+        border-color: var(--#{$prefix}primary);
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      }
+
+      &.selected {
+        border-color: var(--#{$prefix}primary);
+        background-color: rgba(var(--#{$prefix}primary-rgb, 59, 130, 246), 0.05);
+      }
+
+      .invoice-item-content {
+        display: flex;
+        align-items: center;
+        width: 100%;
+
+        .invoice-selection {
+          padding: 0.5rem;
+
+          .selection-checkbox {
+            background: none;
+            border: none;
+            color: var(--#{$prefix}text-muted);
+            cursor: pointer;
+            padding: 0.25rem;
+
+            &:hover {
+              color: var(--#{$prefix}primary);
+            }
+          }
+        }
+
+        .invoice-item-header {
+          flex: 1;
+          display: flex;
+          align-items: center;
+          padding: 0.75rem 0.5rem;
+          cursor: pointer;
+          min-width: 0;
+
+          .invoice-icon {
+            color: var(--#{$prefix}primary);
+            margin-right: 0.75rem;
+            font-size: 1rem;
+            flex-shrink: 0;
+          }
+
+          .invoice-details {
+            flex: 1;
+            min-width: 0;
+
+            .invoice-number {
+              display: block;
+              font-weight: 600;
+              color: var(--#{$prefix}text-primary);
+              font-size: 0.875rem;
+              margin-bottom: 0.125rem;
+              white-space: nowrap;
+              overflow: hidden;
+              text-overflow: ellipsis;
+            }
+
+            .invoice-client {
+              display: block;
+              color: var(--#{$prefix}text-muted);
+              font-size: 0.75rem;
+              white-space: nowrap;
+              overflow: hidden;
+              text-overflow: ellipsis;
+            }
+          }
+
+          .invoice-meta {
+            text-align: right;
+            flex-shrink: 0;
+
+            .invoice-date,
+            .invoice-amount {
+              display: block;
+              font-size: 0.75rem;
+              color: var(--#{$prefix}text-muted);
+              margin-bottom: 0.125rem;
+            }
+
+            .invoice-amount {
+              font-weight: 600;
+              color: var(--#{$prefix}text-primary);
+            }
+
+            .invoice-status {
+              display: inline-block;
+              padding: 0.125rem 0.375rem;
+              border-radius: map.get($border-radius-map, "pill");
+              font-size: 0.625rem;
+              font-weight: 600;
+              text-transform: uppercase;
+
+              &.status-paid {
+                background-color: rgba(16, 185, 129, 0.1);
+                color: var(--#{$prefix}success);
+              }
+
+              &.status-pending {
+                background-color: rgba(245, 158, 11, 0.1);
+                color: var(--#{$prefix}warning);
+              }
+
+              &.status-overdue {
+                background-color: rgba(239, 68, 68, 0.1);
+                color: var(--#{$prefix}danger);
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

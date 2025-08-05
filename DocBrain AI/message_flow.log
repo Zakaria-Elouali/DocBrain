@@ -1,0 +1,264 @@
+>>> MESSAGE FLOW: INFO 2025-05-20 04:18:48,481 - Application started - DocBrain PDF Processor API
+>>> MESSAGE FLOW: INFO 2025-05-20 04:18:48,606 - Application started - DocBrain PDF Processor API
+>>> MESSAGE FLOW: INFO 2025-05-20 04:19:00,231 - Application started - DocBrain PDF Processor API
+>>> MESSAGE FLOW: INFO 2025-05-20 04:19:00,687 - Application started - DocBrain PDF Processor API
+>>> MESSAGE FLOW: INFO 2025-05-20 04:19:26,478 - Application started - DocBrain PDF Processor API
+>>> MESSAGE FLOW: INFO 2025-05-20 04:19:26,510 - Application started - DocBrain PDF Processor API
+>>> MESSAGE FLOW: INFO 2025-05-20 04:19:38,179 - Application started - DocBrain PDF Processor API
+>>> MESSAGE FLOW: INFO 2025-05-20 04:19:40,367 - Application started - DocBrain PDF Processor API
+>>> MESSAGE FLOW: INFO 2025-05-20 04:19:56,971 - Application started - DocBrain PDF Processor API
+>>> MESSAGE FLOW: INFO 2025-05-20 04:19:56,983 - Application started - DocBrain PDF Processor API
+>>> MESSAGE FLOW: INFO 2025-05-20 04:20:12,571 - Application started - DocBrain PDF Processor API
+>>> MESSAGE FLOW: INFO 2025-05-20 04:20:12,608 - Application started - DocBrain PDF Processor API
+>>> MESSAGE FLOW: INFO 2025-05-20 04:20:28,162 - Application started - DocBrain PDF Processor API
+>>> MESSAGE FLOW: INFO 2025-05-20 04:20:28,242 - Application started - DocBrain PDF Processor API
+>>> MESSAGE FLOW: INFO 2025-05-20 04:20:47,671 - Application started - DocBrain PDF Processor API
+>>> MESSAGE FLOW: INFO 2025-05-20 04:20:47,746 - Application started - DocBrain PDF Processor API
+>>> MESSAGE FLOW: INFO 2025-05-20 04:21:07,262 - Application started - DocBrain PDF Processor API
+>>> MESSAGE FLOW: INFO 2025-05-20 04:21:07,332 - Application started - DocBrain PDF Processor API
+>>> MESSAGE FLOW: INFO 2025-05-20 04:21:23,548 - Application started - DocBrain PDF Processor API
+>>> MESSAGE FLOW: INFO 2025-05-20 04:21:23,630 - Application started - DocBrain PDF Processor API
+>>> MESSAGE FLOW: INFO 2025-05-20 04:21:38,500 - Application started - DocBrain PDF Processor API
+>>> MESSAGE FLOW: INFO 2025-05-20 04:21:38,612 - Application started - DocBrain PDF Processor API
+>>> MESSAGE FLOW: INFO 2025-05-20 04:21:51,358 - Application started - DocBrain PDF Processor API
+>>> MESSAGE FLOW: INFO 2025-05-20 04:21:52,819 - Application started - DocBrain PDF Processor API
+>>> MESSAGE FLOW: INFO 2025-05-20 04:22:15,853 - Application started - DocBrain PDF Processor API
+>>> MESSAGE FLOW: INFO 2025-05-20 04:22:15,853 - Application started - DocBrain PDF Processor API
+>>> MESSAGE FLOW: INFO 2025-05-20 04:22:32,361 - Application started - DocBrain PDF Processor API
+>>> MESSAGE FLOW: INFO 2025-05-20 04:22:32,361 - Application started - DocBrain PDF Processor API
+>>> MESSAGE FLOW: INFO 2025-05-20 04:23:49,424 - Application started - DocBrain PDF Processor API
+>>> MESSAGE FLOW: INFO 2025-05-20 04:28:53,527 - Application started - DocBrain PDF Processor API
+>>> MESSAGE FLOW: INFO 2025-05-20 04:28:53,685 - Application started - DocBrain PDF Processor API
+>>> MESSAGE FLOW: INFO 2025-05-20 04:42:18,034 - Application started - DocBrain PDF Processor API
+>>> MESSAGE FLOW: INFO 2025-05-20 04:43:03,264 - Received chat request from Spring Boot - Document ID: 2, Chunks: 1
+>>> MESSAGE FLOW: INFO 2025-05-20 04:43:03,264 - User prompt: 'what this document about...' (truncated)
+>>> MESSAGE FLOW: INFO 2025-05-20 04:43:03,264 - Conversation history: 21 messages
+>>> MESSAGE FLOW: INFO 2025-05-20 04:43:03,264 - Prepared 1 document chunks for context
+>>> MESSAGE FLOW: INFO 2025-05-20 04:43:03,264 - Starting chat response generation
+>>> MESSAGE FLOW: INFO 2025-05-20 04:43:03,264 - Starting chat response generation with API-first approach
+>>> MESSAGE FLOW: INFO 2025-05-20 04:43:03,264 - Sending request to API - Model: Qwen/Qwen3-235B-A22B
+>>> MESSAGE FLOW: INFO 2025-05-20 04:43:03,264 - Using chat completions API endpoint
+>>> MESSAGE FLOW: WARNING 2025-05-20 04:43:03,742 - Chat completions API failed: 402 Client Error: Payment Required for url: https://router.huggingface.co/hf-inference/models/Qwen/Qwen3-235B-A22B/v1/chat/completions (Request ID: Root=1-682bec37-493ada2b142a03a0021cfec0;7796872f-419c-4193-a4d4-d24acdd439f1)
+
+You have exceeded your monthly included credits for Inference Providers. Subscribe to PRO to get 20x more monthly included credits.. Falling back to text generation.
+>>> MESSAGE FLOW: INFO 2025-05-20 04:43:03,742 - Using text generation API endpoint (fallback)
+>>> MESSAGE FLOW: ERROR 2025-05-20 04:43:06,083 - API request failed: 402 Client Error: Payment Required for url: https://router.huggingface.co/hf-inference/models/Qwen/Qwen3-235B-A22B (Request ID: Root=1-682bec39-50e1b49914981fc840c1002f;9cf4c6fb-9edd-40ab-83e4-5c2ca704cce0)
+
+You have exceeded your monthly included credits for Inference Providers. Subscribe to PRO to get 20x more monthly included credits.
+>>> MESSAGE FLOW: WARNING 2025-05-20 04:43:06,083 - API call failed for chat response. Falling back to local model.
+>>> MESSAGE FLOW: INFO 2025-05-20 04:43:06,083 - Loading local model for chat response
+>>> MESSAGE FLOW: INFO 2025-05-20 04:43:43,031 - Processing chat with local model
+>>> MESSAGE FLOW: INFO 2025-05-20 04:43:48,321 - Local model generated response for chat
+>>> MESSAGE FLOW: INFO 2025-05-20 04:43:48,321 - Chat response generated successfully - Length: 299 characters
+>>> MESSAGE FLOW: INFO 2025-05-20 04:43:48,321 - Sending chat response back to Spring Boot
+>>> MESSAGE FLOW: INFO 2025-05-20 04:49:07,063 - Application started - DocBrain PDF Processor API
+>>> MESSAGE FLOW: INFO 2025-05-20 04:55:40,478 - Application started - DocBrain PDF Processor API
+>>> MESSAGE FLOW: INFO 2025-05-20 04:56:29,503 - Received chat request from Spring Boot - Document ID: 2, Chunks: 1
+>>> MESSAGE FLOW: INFO 2025-05-20 04:56:29,503 - User prompt: 'which model are you ...' (truncated)
+>>> MESSAGE FLOW: INFO 2025-05-20 04:56:29,503 - Conversation history: 23 messages
+>>> MESSAGE FLOW: INFO 2025-05-20 04:56:29,503 - Prepared 1 document chunks for context
+>>> MESSAGE FLOW: INFO 2025-05-20 04:56:29,503 - Starting chat response generation
+>>> MESSAGE FLOW: INFO 2025-05-20 04:56:29,504 - Starting chat response generation with API-first approach
+>>> MESSAGE FLOW: INFO 2025-05-20 04:56:29,505 - Sending request to API - Model: Qwen/Qwen3-235B-A22B
+>>> MESSAGE FLOW: INFO 2025-05-20 04:56:29,505 - Using chat completions API endpoint
+>>> MESSAGE FLOW: WARNING 2025-05-20 04:56:29,828 - Chat completions API failed: 402 Client Error: Payment Required for url: https://router.huggingface.co/hf-inference/models/Qwen/Qwen3-235B-A22B/v1/chat/completions (Request ID: Root=1-682bef5d-1a25b25367125ff31ed32cbc;5d6801f6-649b-46d9-8787-d50a80d90f62)
+
+You have exceeded your monthly included credits for Inference Providers. Subscribe to PRO to get 20x more monthly included credits.. Falling back to text generation.
+>>> MESSAGE FLOW: INFO 2025-05-20 04:56:29,828 - Using text generation API endpoint (fallback)
+>>> MESSAGE FLOW: ERROR 2025-05-20 04:56:29,967 - API request failed: 402 Client Error: Payment Required for url: https://router.huggingface.co/hf-inference/models/Qwen/Qwen3-235B-A22B (Request ID: Root=1-682bef5d-054970cd198790ad77297802;6487ad4d-4e9a-44d8-a1d1-9f6a10c90d30)
+
+You have exceeded your monthly included credits for Inference Providers. Subscribe to PRO to get 20x more monthly included credits.
+>>> MESSAGE FLOW: WARNING 2025-05-20 04:56:29,967 - API call failed for chat response. Falling back to local model.
+>>> MESSAGE FLOW: INFO 2025-05-20 04:56:29,967 - Loading local model for chat response
+>>> MESSAGE FLOW: INFO 2025-05-20 04:56:29,967 - Processing chat with local model
+>>> MESSAGE FLOW: INFO 2025-05-20 04:56:37,024 - Local model generated response for chat
+>>> MESSAGE FLOW: INFO 2025-05-20 04:56:37,024 - Chat response generated successfully - Length: 596 characters
+>>> MESSAGE FLOW: INFO 2025-05-20 04:56:37,024 - Sending chat response back to Spring Boot
+>>> MESSAGE FLOW: INFO 2025-05-20 04:58:35,492 - Received chat request from Spring Boot - Document ID: 2, Chunks: 1
+>>> MESSAGE FLOW: INFO 2025-05-20 04:58:35,492 - User prompt: 'what name of this model and when the last update...' (truncated)
+>>> MESSAGE FLOW: INFO 2025-05-20 04:58:35,492 - Conversation history: 25 messages
+>>> MESSAGE FLOW: INFO 2025-05-20 04:58:35,492 - Prepared 1 document chunks for context
+>>> MESSAGE FLOW: INFO 2025-05-20 04:58:35,492 - Starting chat response generation
+>>> MESSAGE FLOW: INFO 2025-05-20 04:58:35,492 - Starting chat response generation with API-first approach
+>>> MESSAGE FLOW: INFO 2025-05-20 04:58:35,492 - Sending request to API - Model: Qwen/Qwen3-235B-A22B
+>>> MESSAGE FLOW: INFO 2025-05-20 04:58:35,492 - Using chat completions API endpoint
+>>> MESSAGE FLOW: WARNING 2025-05-20 04:58:35,803 - Chat completions API failed: 402 Client Error: Payment Required for url: https://router.huggingface.co/hf-inference/models/Qwen/Qwen3-235B-A22B/v1/chat/completions (Request ID: Root=1-682befda-42b30f2c46a10be05a4c20e2;f003b16f-77d3-4278-a27b-826721f2961c)
+
+You have exceeded your monthly included credits for Inference Providers. Subscribe to PRO to get 20x more monthly included credits.. Falling back to text generation.
+>>> MESSAGE FLOW: INFO 2025-05-20 04:58:35,803 - Using text generation API endpoint (fallback)
+>>> MESSAGE FLOW: ERROR 2025-05-20 04:58:47,888 - API request failed: 500 Server Error: Internal Server Error for url: https://router.huggingface.co/hf-inference/models/Qwen/Qwen3-235B-A22B
+>>> MESSAGE FLOW: WARNING 2025-05-20 04:58:47,888 - API call failed for chat response. Falling back to local model.
+>>> MESSAGE FLOW: INFO 2025-05-20 04:58:47,888 - Loading local model for chat response
+>>> MESSAGE FLOW: INFO 2025-05-20 04:58:47,888 - Processing chat with local model
+>>> MESSAGE FLOW: INFO 2025-05-20 04:58:55,528 - Local model generated response for chat
+>>> MESSAGE FLOW: INFO 2025-05-20 04:58:55,528 - Chat response generated successfully - Length: 585 characters
+>>> MESSAGE FLOW: INFO 2025-05-20 04:58:55,528 - Sending chat response back to Spring Boot
+>>> MESSAGE FLOW: INFO 2025-05-20 05:00:28,570 - Received chat request from Spring Boot - Document ID: 2, Chunks: 1
+>>> MESSAGE FLOW: INFO 2025-05-20 05:00:28,570 - User prompt: 'which company you belong to...' (truncated)
+>>> MESSAGE FLOW: INFO 2025-05-20 05:00:28,570 - Conversation history: 27 messages
+>>> MESSAGE FLOW: INFO 2025-05-20 05:00:28,571 - Prepared 1 document chunks for context
+>>> MESSAGE FLOW: INFO 2025-05-20 05:00:28,571 - Starting chat response generation
+>>> MESSAGE FLOW: INFO 2025-05-20 05:00:28,571 - Starting chat response generation with API-first approach
+>>> MESSAGE FLOW: INFO 2025-05-20 05:00:28,572 - Sending request to API - Model: Qwen/Qwen3-235B-A22B
+>>> MESSAGE FLOW: INFO 2025-05-20 05:00:28,572 - Using chat completions API endpoint
+>>> MESSAGE FLOW: WARNING 2025-05-20 05:00:29,070 - Chat completions API failed: 402 Client Error: Payment Required for url: https://router.huggingface.co/hf-inference/models/Qwen/Qwen3-235B-A22B/v1/chat/completions (Request ID: Root=1-682bf04c-5f0a24e14b051e1279a5ec61;86b57121-a86a-4b01-8261-c68a5494af29)
+
+You have exceeded your monthly included credits for Inference Providers. Subscribe to PRO to get 20x more monthly included credits.. Falling back to text generation.
+>>> MESSAGE FLOW: INFO 2025-05-20 05:00:29,070 - Using text generation API endpoint (fallback)
+>>> MESSAGE FLOW: ERROR 2025-05-20 05:00:29,393 - API request failed: 402 Client Error: Payment Required for url: https://router.huggingface.co/hf-inference/models/Qwen/Qwen3-235B-A22B (Request ID: Root=1-682bf04c-61886eec7ee7b8b15696fcb8;fdd52b7a-bd23-4578-9d55-6b79194dda8f)
+
+You have exceeded your monthly included credits for Inference Providers. Subscribe to PRO to get 20x more monthly included credits.
+>>> MESSAGE FLOW: WARNING 2025-05-20 05:00:29,393 - API call failed for chat response. Falling back to local model.
+>>> MESSAGE FLOW: INFO 2025-05-20 05:00:29,393 - Loading local model for chat response
+>>> MESSAGE FLOW: INFO 2025-05-20 05:00:29,393 - Processing chat with local model
+>>> MESSAGE FLOW: INFO 2025-05-20 05:00:36,199 - Local model generated response for chat
+>>> MESSAGE FLOW: INFO 2025-05-20 05:00:36,199 - Chat response generated successfully - Length: 578 characters
+>>> MESSAGE FLOW: INFO 2025-05-20 05:00:36,199 - Sending chat response back to Spring Boot
+>>> MESSAGE FLOW: INFO 2025-05-20 05:01:34,271 - Received chat request from Spring Boot - Document ID: 2, Chunks: 1
+>>> MESSAGE FLOW: INFO 2025-05-20 05:01:34,271 - User prompt: 'give 3 advise keep them short...' (truncated)
+>>> MESSAGE FLOW: INFO 2025-05-20 05:01:34,271 - Conversation history: 29 messages
+>>> MESSAGE FLOW: INFO 2025-05-20 05:01:34,271 - Prepared 1 document chunks for context
+>>> MESSAGE FLOW: INFO 2025-05-20 05:01:34,271 - Starting chat response generation
+>>> MESSAGE FLOW: INFO 2025-05-20 05:01:34,271 - Starting chat response generation with API-first approach
+>>> MESSAGE FLOW: INFO 2025-05-20 05:01:34,271 - Sending request to API - Model: Qwen/Qwen3-235B-A22B
+>>> MESSAGE FLOW: INFO 2025-05-20 05:01:34,286 - Using chat completions API endpoint
+>>> MESSAGE FLOW: WARNING 2025-05-20 05:01:36,930 - Chat completions API failed: 402 Client Error: Payment Required for url: https://router.huggingface.co/hf-inference/models/Qwen/Qwen3-235B-A22B/v1/chat/completions (Request ID: Root=1-682bf08d-1f3c6a3f7aa8a095480878c4;2ae2d4f1-8509-47e6-99c3-fd6441b272a3)
+
+You have exceeded your monthly included credits for Inference Providers. Subscribe to PRO to get 20x more monthly included credits.. Falling back to text generation.
+>>> MESSAGE FLOW: INFO 2025-05-20 05:01:36,930 - Using text generation API endpoint (fallback)
+>>> MESSAGE FLOW: ERROR 2025-05-20 05:01:37,045 - API request failed: 402 Client Error: Payment Required for url: https://router.huggingface.co/hf-inference/models/Qwen/Qwen3-235B-A22B (Request ID: Root=1-682bf090-5453c99b788135397af5d749;a3e99112-f4cb-4e34-9f67-a4a4d99068d6)
+
+You have exceeded your monthly included credits for Inference Providers. Subscribe to PRO to get 20x more monthly included credits.
+>>> MESSAGE FLOW: WARNING 2025-05-20 05:01:37,046 - API call failed for chat response. Falling back to local model.
+>>> MESSAGE FLOW: INFO 2025-05-20 05:01:37,046 - Loading local model for chat response
+>>> MESSAGE FLOW: INFO 2025-05-20 05:02:40,371 - Application started - DocBrain PDF Processor API
+>>> MESSAGE FLOW: INFO 2025-05-20 05:03:21,054 - Received chat request from Spring Boot - Document ID: 2, Chunks: 1
+>>> MESSAGE FLOW: INFO 2025-05-20 05:03:21,054 - User prompt: 'give 3 advise keep them short...' (truncated)
+>>> MESSAGE FLOW: INFO 2025-05-20 05:03:21,054 - Conversation history: 29 messages
+>>> MESSAGE FLOW: INFO 2025-05-20 05:03:21,054 - Prepared 1 document chunks for context
+>>> MESSAGE FLOW: INFO 2025-05-20 05:03:21,054 - Starting chat response generation
+>>> MESSAGE FLOW: INFO 2025-05-20 05:03:21,054 - Starting chat response generation with API-first approach
+>>> MESSAGE FLOW: INFO 2025-05-20 05:03:21,054 - Sending request to API - Model: Qwen/Qwen3-235B-A22B
+>>> MESSAGE FLOW: INFO 2025-05-20 05:03:21,054 - Using chat completions API endpoint
+>>> MESSAGE FLOW: WARNING 2025-05-20 05:03:21,604 - Chat completions API failed: 402 Client Error: Payment Required for url: https://router.huggingface.co/hf-inference/models/Qwen/Qwen3-235B-A22B/v1/chat/completions (Request ID: Root=1-682bf0f8-3f77f8bd730b5b842cf91b6c;9990ac95-11a8-4930-8c18-2b369db88784)
+
+You have exceeded your monthly included credits for Inference Providers. Subscribe to PRO to get 20x more monthly included credits.. Falling back to text generation.
+>>> MESSAGE FLOW: INFO 2025-05-20 05:03:21,604 - Using text generation API endpoint (fallback)
+>>> MESSAGE FLOW: ERROR 2025-05-20 05:03:21,732 - API request failed: 402 Client Error: Payment Required for url: https://router.huggingface.co/hf-inference/models/Qwen/Qwen3-235B-A22B (Request ID: Root=1-682bf0f9-4860fdaf61b9ecd71b3b456d;8825534d-2d1d-4ee9-856e-5ae48282fe9b)
+
+You have exceeded your monthly included credits for Inference Providers. Subscribe to PRO to get 20x more monthly included credits.
+>>> MESSAGE FLOW: WARNING 2025-05-20 05:03:21,732 - API call failed for chat response. Falling back to local model.
+>>> MESSAGE FLOW: INFO 2025-05-20 05:03:21,732 - Loading local model for chat response
+>>> MESSAGE FLOW: INFO 2025-05-20 05:03:52,960 - Processing chat with local model
+>>> MESSAGE FLOW: INFO 2025-05-20 05:03:57,632 - Local model generated response for chat
+>>> MESSAGE FLOW: INFO 2025-05-20 05:03:57,632 - Chat response generated successfully - Length: 268 characters
+>>> MESSAGE FLOW: INFO 2025-05-20 05:03:57,632 - Sending chat response back to Spring Boot
+>>> MESSAGE FLOW: INFO 2025-05-20 16:39:01,025 - Application started - DocBrain PDF Processor API
+>>> MESSAGE FLOW: INFO 2025-05-20 16:42:14,061 - Application started - DocBrain PDF Processor API
+>>> MESSAGE FLOW: INFO 2025-05-20 16:43:30,489 - Received chat request from Spring Boot - Document ID: 4, Chunks: 76
+>>> MESSAGE FLOW: INFO 2025-05-20 16:43:30,489 - User prompt: 'when happend covid 19...' (truncated)
+>>> MESSAGE FLOW: INFO 2025-05-20 16:43:30,489 - Conversation history: 3 messages
+>>> MESSAGE FLOW: INFO 2025-05-20 16:43:30,490 - Prepared 76 document chunks for context
+>>> MESSAGE FLOW: INFO 2025-05-20 16:43:30,490 - Starting chat response generation
+>>> MESSAGE FLOW: INFO 2025-05-20 16:43:30,490 - Starting chat response generation with API-first approach
+>>> MESSAGE FLOW: INFO 2025-05-20 16:43:30,491 - Sending request to API - Model: Qwen/Qwen3-235B-A22B
+>>> MESSAGE FLOW: INFO 2025-05-20 16:43:30,492 - Using chat completions API endpoint
+>>> MESSAGE FLOW: WARNING 2025-05-20 16:43:30,730 - Chat completions API failed: 402 Client Error: Payment Required for url: https://router.huggingface.co/hf-inference/models/Qwen/Qwen3-235B-A22B/v1/chat/completions (Request ID: Root=1-682c9512-2f8cf02949b1ec8d2c4af6a7;d690c744-f883-42e7-993d-7fac4915a0aa)
+
+You have exceeded your monthly included credits for Inference Providers. Subscribe to PRO to get 20x more monthly included credits.. Falling back to text generation.
+>>> MESSAGE FLOW: INFO 2025-05-20 16:43:30,730 - Using text generation API endpoint (fallback)
+>>> MESSAGE FLOW: ERROR 2025-05-20 16:43:30,901 - API request failed: 402 Client Error: Payment Required for url: https://router.huggingface.co/hf-inference/models/Qwen/Qwen3-235B-A22B (Request ID: Root=1-682c9512-0ad4d1bf400eb24e7697eee7;8a516116-5c43-4d47-9ca7-60afe665d71d)
+
+You have exceeded your monthly included credits for Inference Providers. Subscribe to PRO to get 20x more monthly included credits.
+>>> MESSAGE FLOW: WARNING 2025-05-20 16:43:30,902 - API call failed for chat response. Falling back to local model.
+>>> MESSAGE FLOW: INFO 2025-05-20 16:43:30,902 - Loading local model for chat response
+>>> MESSAGE FLOW: INFO 2025-05-20 16:44:11,736 - Processing chat with local model
+>>> MESSAGE FLOW: INFO 2025-05-20 16:44:59,711 - Local model generated response for chat
+>>> MESSAGE FLOW: INFO 2025-05-20 16:44:59,713 - Chat response generated successfully - Length: 12134 characters
+>>> MESSAGE FLOW: INFO 2025-05-20 16:44:59,713 - Sending chat response back to Spring Boot
+>>> MESSAGE FLOW: INFO 2025-05-20 17:19:40,208 - Received chat request from Spring Boot - Document ID: 2, Chunks: 1
+>>> MESSAGE FLOW: INFO 2025-05-20 17:19:40,209 - User prompt: 'explain more about this file ...' (truncated)
+>>> MESSAGE FLOW: INFO 2025-05-20 17:19:40,210 - Conversation history: 31 messages
+>>> MESSAGE FLOW: INFO 2025-05-20 17:19:40,210 - Prepared 1 document chunks for context
+>>> MESSAGE FLOW: INFO 2025-05-20 17:19:40,210 - Starting chat response generation
+>>> MESSAGE FLOW: INFO 2025-05-20 17:19:40,216 - Starting chat response generation with API-first approach
+>>> MESSAGE FLOW: INFO 2025-05-20 17:19:40,218 - Sending request to API - Model: Qwen/Qwen3-235B-A22B
+>>> MESSAGE FLOW: INFO 2025-05-20 17:19:40,225 - Using chat completions API endpoint
+>>> MESSAGE FLOW: WARNING 2025-05-20 17:19:42,655 - Chat completions API failed: 402 Client Error: Payment Required for url: https://router.huggingface.co/hf-inference/models/Qwen/Qwen3-235B-A22B/v1/chat/completions (Request ID: Root=1-682c9d8c-32452d02454b2c2041c3f211;67345c31-1d2e-45a4-828c-8e885249ec4f)
+
+You have exceeded your monthly included credits for Inference Providers. Subscribe to PRO to get 20x more monthly included credits.. Falling back to text generation.
+>>> MESSAGE FLOW: INFO 2025-05-20 17:19:42,655 - Using text generation API endpoint (fallback)
+>>> MESSAGE FLOW: ERROR 2025-05-20 17:19:42,807 - API request failed: 402 Client Error: Payment Required for url: https://router.huggingface.co/hf-inference/models/Qwen/Qwen3-235B-A22B (Request ID: Root=1-682c9d8e-7ba02cc5484d93a204bef595;ee8d39ed-0df8-403d-8024-bf747f8f2143)
+
+You have exceeded your monthly included credits for Inference Providers. Subscribe to PRO to get 20x more monthly included credits.
+>>> MESSAGE FLOW: WARNING 2025-05-20 17:19:42,808 - API call failed for chat response. Falling back to local model.
+>>> MESSAGE FLOW: INFO 2025-05-20 17:19:42,810 - Loading local model for chat response
+>>> MESSAGE FLOW: INFO 2025-05-20 17:19:42,810 - Processing chat with local model
+>>> MESSAGE FLOW: INFO 2025-05-20 17:20:09,736 - Local model generated response for chat
+>>> MESSAGE FLOW: INFO 2025-05-20 17:20:09,738 - Chat response generated successfully - Length: 67 characters
+>>> MESSAGE FLOW: INFO 2025-05-20 17:20:09,739 - Sending chat response back to Spring Boot
+>>> MESSAGE FLOW: INFO 2025-06-02 20:29:55,647 - Application started - DocBrain PDF Processor API
+>>> MESSAGE FLOW: INFO 2025-06-02 20:32:23,401 - Received chat request from Spring Boot - Document ID: 1, Chunks: 21
+>>> MESSAGE FLOW: INFO 2025-06-02 20:32:23,402 - User prompt: 'give the main point about this document...' (truncated)
+>>> MESSAGE FLOW: INFO 2025-06-02 20:32:23,402 - Conversation history: 1 messages
+>>> MESSAGE FLOW: INFO 2025-06-02 20:32:23,402 - Prepared 21 document chunks for context
+>>> MESSAGE FLOW: INFO 2025-06-02 20:32:23,402 - Starting chat response generation
+>>> MESSAGE FLOW: INFO 2025-06-02 20:32:23,403 - Starting chat response generation with API-first approach
+>>> MESSAGE FLOW: INFO 2025-06-02 20:32:23,403 - Sending request to Gemini API - Model: gemini-2.0-flash
+>>> MESSAGE FLOW: INFO 2025-06-02 20:32:24,446 - Received response from Gemini API
+>>> MESSAGE FLOW: INFO 2025-06-02 20:32:24,448 - Chat response generated successfully using API
+>>> MESSAGE FLOW: INFO 2025-06-02 20:32:24,449 - Chat response generated successfully - Length: 274 characters
+>>> MESSAGE FLOW: INFO 2025-06-02 20:32:24,449 - Sending chat response back to Spring Boot
+>>> MESSAGE FLOW: INFO 2025-06-02 20:33:12,830 - Received chat request from Spring Boot - Document ID: 1, Chunks: 21
+>>> MESSAGE FLOW: INFO 2025-06-02 20:33:12,830 - User prompt: 'which llm model are you ...' (truncated)
+>>> MESSAGE FLOW: INFO 2025-06-02 20:33:12,830 - Conversation history: 3 messages
+>>> MESSAGE FLOW: INFO 2025-06-02 20:33:12,831 - Prepared 21 document chunks for context
+>>> MESSAGE FLOW: INFO 2025-06-02 20:33:12,831 - Starting chat response generation
+>>> MESSAGE FLOW: INFO 2025-06-02 20:33:12,831 - Starting chat response generation with API-first approach
+>>> MESSAGE FLOW: INFO 2025-06-02 20:33:12,832 - Sending request to Gemini API - Model: gemini-2.0-flash
+>>> MESSAGE FLOW: INFO 2025-06-02 20:33:13,716 - Received response from Gemini API
+>>> MESSAGE FLOW: INFO 2025-06-02 20:33:13,718 - Chat response generated successfully using API
+>>> MESSAGE FLOW: INFO 2025-06-02 20:33:13,718 - Chat response generated successfully - Length: 47 characters
+>>> MESSAGE FLOW: INFO 2025-06-02 20:33:13,718 - Sending chat response back to Spring Boot
+>>> MESSAGE FLOW: INFO 2025-06-23 21:04:10,310 - Application started - DocBrain PDF Processor API
+>>> MESSAGE FLOW: INFO 2025-06-23 21:07:58,348 - Received chat request from Spring Boot - Document ID: 4, Chunks: 76
+>>> MESSAGE FLOW: INFO 2025-06-23 21:07:58,348 - User prompt: 'can you summarize this document for me...' (truncated)
+>>> MESSAGE FLOW: INFO 2025-06-23 21:07:58,348 - Conversation history: 1 messages
+>>> MESSAGE FLOW: INFO 2025-06-23 21:07:58,352 - Prepared 76 document chunks for context
+>>> MESSAGE FLOW: INFO 2025-06-23 21:07:58,353 - Starting chat response generation
+>>> MESSAGE FLOW: INFO 2025-06-23 21:07:58,354 - Starting chat response generation with API-first approach
+>>> MESSAGE FLOW: INFO 2025-06-23 21:07:58,354 - Sending request to Gemini API - Model: gemini-2.0-flash
+>>> MESSAGE FLOW: INFO 2025-06-23 21:08:01,706 - Received response from Gemini API
+>>> MESSAGE FLOW: INFO 2025-06-23 21:08:01,709 - Chat response generated successfully using API
+>>> MESSAGE FLOW: INFO 2025-06-23 21:08:01,710 - Chat response generated successfully - Length: 1875 characters
+>>> MESSAGE FLOW: INFO 2025-06-23 21:08:01,710 - Sending chat response back to Spring Boot
+>>> MESSAGE FLOW: INFO 2025-06-24 08:37:49,012 - Application started - DocBrain PDF Processor API
+>>> MESSAGE FLOW: INFO 2025-06-24 09:32:05,091 - Received PDF processing request from Spring Boot - Document ID: 55
+>>> MESSAGE FLOW: INFO 2025-06-24 09:32:05,103 - Starting PDF text extraction - File: 1._Introduction_to_Ethical_Hacking_Author_Kanav_Jindal.pdf
+>>> MESSAGE FLOW: INFO 2025-06-24 09:32:05,815 - PDF text extraction completed - 24525 characters extracted
+>>> MESSAGE FLOW: INFO 2025-06-24 09:32:05,821 - Starting chunk generation and embedding
+>>> MESSAGE FLOW: INFO 2025-06-24 09:32:10,478 - Generated 31 chunks with embeddings
+>>> MESSAGE FLOW: INFO 2025-06-24 09:32:10,479 - Starting document analysis with model
+>>> MESSAGE FLOW: INFO 2025-06-24 09:32:10,513 - Starting document analysis with API-first approach
+>>> MESSAGE FLOW: INFO 2025-06-24 09:32:10,517 - Sending request to Gemini API - Model: gemini-2.0-flash
+>>> MESSAGE FLOW: INFO 2025-06-24 09:32:13,478 - Received response from Gemini API
+>>> MESSAGE FLOW: INFO 2025-06-24 09:32:13,484 - Document analysis completed successfully using API
+>>> MESSAGE FLOW: INFO 2025-06-24 09:32:13,486 - Document analysis completed successfully
+>>> MESSAGE FLOW: INFO 2025-06-24 09:32:13,486 - Preparing results for Spring Boot
+>>> MESSAGE FLOW: INFO 2025-06-24 09:32:13,486 - Sending results to Spring Boot - Document ID: 55
+>>> MESSAGE FLOW: INFO 2025-06-24 09:32:13,487 - Initiating HTTP POST to Spring Boot - URL: http://localhost:8080/api/documents/process/callback
+>>> MESSAGE FLOW: INFO 2025-06-24 09:32:13,487 - Sending document data - ID: 55, Chunks: 31, Summary length: 692
+>>> MESSAGE FLOW: INFO 2025-06-24 09:32:13,686 - Spring Boot responded with status code: 200
+>>> MESSAGE FLOW: INFO 2025-06-24 09:32:13,687 - Spring Boot response: {'message': 'Processing results received', 'status': 'success'}
+>>> MESSAGE FLOW: INFO 2025-06-24 09:32:13,688 - Results successfully sent to Spring Boot - Document ID: 55
+>>> MESSAGE FLOW: INFO 2025-06-24 09:32:13,936 - Received chat request from Spring Boot - Document ID: 55, Chunks: 31
+>>> MESSAGE FLOW: INFO 2025-06-24 09:32:13,937 - User prompt: 'give us main point about this dument...' (truncated)
+>>> MESSAGE FLOW: INFO 2025-06-24 09:32:13,938 - Conversation history: 1 messages
+>>> MESSAGE FLOW: INFO 2025-06-24 09:32:13,938 - Prepared 31 document chunks for context
+>>> MESSAGE FLOW: INFO 2025-06-24 09:32:13,938 - Starting chat response generation
+>>> MESSAGE FLOW: INFO 2025-06-24 09:32:13,939 - Starting chat response generation with API-first approach
+>>> MESSAGE FLOW: INFO 2025-06-24 09:32:13,940 - Sending request to Gemini API - Model: gemini-2.0-flash
+>>> MESSAGE FLOW: INFO 2025-06-24 09:32:16,267 - Received response from Gemini API
+>>> MESSAGE FLOW: INFO 2025-06-24 09:32:16,273 - Chat response generated successfully using API
+>>> MESSAGE FLOW: INFO 2025-06-24 09:32:16,273 - Chat response generated successfully - Length: 1018 characters
+>>> MESSAGE FLOW: INFO 2025-06-24 09:32:16,273 - Sending chat response back to Spring Boot

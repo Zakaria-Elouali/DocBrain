@@ -1,0 +1,40 @@
+// Global dark mode styles
+// This file contains dark mode specific overrides that aren't covered by CSS variables
+
+@use "../../config/minimal/variables" as *;
+@use "../../config/minimal/variables-custom" as *;
+@use "../../config/minimal/variables-dark" as *;
+
+// Dark mode specific overrides
+[data-bs-theme="dark"] {
+  // Add any specific dark mode overrides here that can't be handled by CSS variables
+
+  // Improve contrast for form elements
+  input::placeholder,
+  textarea::placeholder {
+    opacity: 0.6;
+  }
+
+  // Improve focus states in dark mode
+  button:focus,
+  input:focus,
+  select:focus,
+  textarea:focus {
+    outline: none;
+    box-shadow: 0 0 0 0.2rem var(--#{$prefix}input-focus-shadow);
+  }
+
+  // Improve code block readability
+  pre {
+    border: 1px solid var(--#{$prefix}border-color);
+  }
+
+  // Improve table readability
+  table {
+    border-color: var(--#{$prefix}table-border-color);
+
+    th {
+      background-color: var(--#{$prefix}table-header-bg);
+    }
+  }
+}

@@ -1,0 +1,1783 @@
+INFO 2025-02-21 21:54:16,106 config 10952 24912 Started DocBrain PDF Processor API
+INFO 2025-02-21 21:54:23,151 model_service 10952 24912 Checking GPU availability...
+INFO 2025-02-21 21:54:23,192 model_service 10952 24912 GPU detected: NVIDIA GeForce RTX 3070 Laptop GPU
+INFO 2025-02-21 21:54:23,193 model_service 10952 24912 Total GPU memory: 8.00 GB
+INFO 2025-02-21 21:54:23,193 model_service 10952 24912 Available GPU memory: 0.00 GB used
+INFO 2025-02-21 21:54:23,193 model_service 10952 24912 Initializing model service...
+INFO 2025-02-21 21:54:23,194 model_service 10952 24912 Loading model from: D:/Coding/DocBrain Project/AI model/Meta-Llama-3-8B-Instruct
+INFO 2025-02-21 21:54:23,195 model_service 10952 24912 Loading tokenizer...
+INFO 2025-02-21 21:54:23,551 model_service 10952 24912 Loading model...
+INFO 2025-02-21 21:54:53,924 model_service 10952 24912 Model is on device: cuda:0
+INFO 2025-02-21 21:54:53,926 model_service 10952 24912 Model loaded successfully!
+INFO 2025-02-21 21:55:30,531 model_service 10952 24912 GPU memory before processing: 5.64 GB used
+INFO 2025-02-21 21:55:30,531 model_service 10952 24912 Generating response...
+INFO 2025-02-21 21:55:44,135 model_service 10952 24912 GPU memory after processing: 5.65 GB used
+INFO 2025-02-21 21:55:44,143 model_service 10952 24912 GPU memory after cache clear: 5.65 GB used
+INFO 2025-02-21 21:55:44,144 pdf_service 10952 24912 Sending callback to Spring Boot for document ID: None
+ERROR 2025-02-21 21:55:44,170 pdf_service 10952 24912 Error sending results to Spring Boot: 401 Client Error:  for url: http://localhost:8080/api/documents/process/callback
+Traceback (most recent call last):
+  File "D:\Coding\DocBrain Project\DocBrain AI\app\services\pdf_service.py", line 49, in send_results_to_spring
+    response.raise_for_status()
+  File "C:\Users\asust\.conda\envs\docbrainLlama\lib\site-packages\requests\models.py", line 1021, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 401 Client Error:  for url: http://localhost:8080/api/documents/process/callback
+INFO 2025-02-21 22:06:44,398 config 26824 26832 Started DocBrain PDF Processor API
+INFO 2025-02-21 22:06:51,164 model_service 26824 26832 Checking GPU availability...
+INFO 2025-02-21 22:06:51,212 model_service 26824 26832 GPU detected: NVIDIA GeForce RTX 3070 Laptop GPU
+INFO 2025-02-21 22:06:51,212 model_service 26824 26832 Total GPU memory: 8.00 GB
+INFO 2025-02-21 22:06:51,213 model_service 26824 26832 Available GPU memory: 0.00 GB used
+INFO 2025-02-21 22:06:51,213 model_service 26824 26832 Initializing model service...
+INFO 2025-02-21 22:06:51,213 model_service 26824 26832 Loading model from: D:/Coding/DocBrain Project/AI model/Meta-Llama-3-8B-Instruct
+INFO 2025-02-21 22:06:51,213 model_service 26824 26832 Loading tokenizer...
+INFO 2025-02-21 22:06:51,582 model_service 26824 26832 Loading model...
+INFO 2025-02-21 22:07:20,664 model_service 26824 26832 Model is on device: cuda:0
+INFO 2025-02-21 22:07:20,664 model_service 26824 26832 Model loaded successfully!
+INFO 2025-02-21 22:07:59,433 routes 26824 26832 Processing PDF for document ID: 2
+INFO 2025-02-21 22:07:59,503 model_service 26824 26832 GPU memory before processing: 5.64 GB used
+INFO 2025-02-21 22:07:59,504 model_service 26824 26832 Generating response...
+INFO 2025-02-21 22:08:11,292 model_service 26824 26832 GPU memory after processing: 5.65 GB used
+INFO 2025-02-21 22:08:11,297 model_service 26824 26832 GPU memory after cache clear: 5.65 GB used
+INFO 2025-02-21 22:08:11,297 pdf_service 26824 26832 Sending callback to Spring Boot for document ID: 2
+ERROR 2025-02-21 22:08:11,311 pdf_service 26824 26832 Error sending results to Spring Boot: 401 Client Error:  for url: http://localhost:8080/api/documents/process/callback
+Traceback (most recent call last):
+  File "D:\Coding\DocBrain Project\DocBrain AI\app\services\pdf_service.py", line 49, in send_results_to_spring
+    response.raise_for_status()
+  File "C:\Users\asust\.conda\envs\docbrainLlama\lib\site-packages\requests\models.py", line 1021, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 401 Client Error:  for url: http://localhost:8080/api/documents/process/callback
+ERROR 2025-02-21 22:08:11,313 routes 26824 26832 Error processing PDF: Error sending results to Spring Boot: 401 Client Error:  for url: http://localhost:8080/api/documents/process/callback
+Traceback (most recent call last):
+  File "D:\Coding\DocBrain Project\DocBrain AI\app\services\pdf_service.py", line 49, in send_results_to_spring
+    response.raise_for_status()
+  File "C:\Users\asust\.conda\envs\docbrainLlama\lib\site-packages\requests\models.py", line 1021, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 401 Client Error:  for url: http://localhost:8080/api/documents/process/callback
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\Coding\DocBrain Project\DocBrain AI\app\api\routes.py", line 32, in process_pdf
+    await pdf_service.send_results_to_spring(results, doc_id)
+  File "D:\Coding\DocBrain Project\DocBrain AI\app\services\pdf_service.py", line 56, in send_results_to_spring
+    raise Exception(error_msg)
+Exception: Error sending results to Spring Boot: 401 Client Error:  for url: http://localhost:8080/api/documents/process/callback
+INFO 2025-02-21 22:14:46,552 routes 26824 26832 Processing PDF for document ID: 2
+INFO 2025-02-21 22:14:46,621 model_service 26824 26832 GPU memory before processing: 5.65 GB used
+INFO 2025-02-21 22:14:46,621 model_service 26824 26832 Generating response...
+INFO 2025-02-21 22:14:57,202 model_service 26824 26832 GPU memory after processing: 5.65 GB used
+INFO 2025-02-21 22:14:57,207 model_service 26824 26832 GPU memory after cache clear: 5.65 GB used
+INFO 2025-02-21 22:14:57,208 pdf_service 26824 26832 Sending callback to Spring Boot for document ID: 2
+INFO 2025-02-21 22:14:57,310 pdf_service 26824 26832 Successfully sent callback for document ID: 2
+ERROR 2025-02-21 22:14:57,310 pdf_service 26824 26832 Error sending results to Spring Boot: Expecting value: line 1 column 1 (char 0)
+Traceback (most recent call last):
+  File "C:\Users\asust\.conda\envs\docbrainLlama\lib\site-packages\requests\models.py", line 971, in json
+    return complexjson.loads(self.text, **kwargs)
+  File "C:\Users\asust\.conda\envs\docbrainLlama\lib\json\__init__.py", line 346, in loads
+    return _default_decoder.decode(s)
+  File "C:\Users\asust\.conda\envs\docbrainLlama\lib\json\decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "C:\Users\asust\.conda\envs\docbrainLlama\lib\json\decoder.py", line 355, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\Coding\DocBrain Project\DocBrain AI\app\services\pdf_service.py", line 51, in send_results_to_spring
+    return response.json()
+  File "C:\Users\asust\.conda\envs\docbrainLlama\lib\site-packages\requests\models.py", line 975, in json
+    raise RequestsJSONDecodeError(e.msg, e.doc, e.pos)
+requests.exceptions.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+ERROR 2025-02-21 22:14:57,349 routes 26824 26832 Error processing PDF: Error sending results to Spring Boot: Expecting value: line 1 column 1 (char 0)
+Traceback (most recent call last):
+  File "C:\Users\asust\.conda\envs\docbrainLlama\lib\site-packages\requests\models.py", line 971, in json
+    return complexjson.loads(self.text, **kwargs)
+  File "C:\Users\asust\.conda\envs\docbrainLlama\lib\json\__init__.py", line 346, in loads
+    return _default_decoder.decode(s)
+  File "C:\Users\asust\.conda\envs\docbrainLlama\lib\json\decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "C:\Users\asust\.conda\envs\docbrainLlama\lib\json\decoder.py", line 355, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\Coding\DocBrain Project\DocBrain AI\app\services\pdf_service.py", line 51, in send_results_to_spring
+    return response.json()
+  File "C:\Users\asust\.conda\envs\docbrainLlama\lib\site-packages\requests\models.py", line 975, in json
+    raise RequestsJSONDecodeError(e.msg, e.doc, e.pos)
+requests.exceptions.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\Coding\DocBrain Project\DocBrain AI\app\api\routes.py", line 32, in process_pdf
+    await pdf_service.send_results_to_spring(results, doc_id)
+  File "D:\Coding\DocBrain Project\DocBrain AI\app\services\pdf_service.py", line 56, in send_results_to_spring
+    raise Exception(error_msg)
+Exception: Error sending results to Spring Boot: Expecting value: line 1 column 1 (char 0)
+INFO 2025-02-22 09:51:35,326 config 7276 23164 Started DocBrain PDF Processor API
+INFO 2025-02-22 09:51:54,757 model_service 7276 23164 Checking GPU availability...
+INFO 2025-02-22 09:51:54,836 model_service 7276 23164 GPU detected: NVIDIA GeForce RTX 3070 Laptop GPU
+INFO 2025-02-22 09:51:54,836 model_service 7276 23164 Total GPU memory: 8.00 GB
+INFO 2025-02-22 09:51:54,836 model_service 7276 23164 Available GPU memory: 0.00 GB used
+INFO 2025-02-22 09:51:54,836 model_service 7276 23164 Initializing model service...
+INFO 2025-02-22 09:51:54,836 model_service 7276 23164 Loading model from: D:/Coding/DocBrain Project/AI model/Meta-Llama-3-8B-Instruct
+INFO 2025-02-22 09:51:54,836 model_service 7276 23164 Loading tokenizer...
+INFO 2025-02-22 09:51:55,233 model_service 7276 23164 Loading model...
+INFO 2025-02-22 09:52:25,017 model_service 7276 23164 Model is on device: cuda:0
+INFO 2025-02-22 09:52:25,017 model_service 7276 23164 Model loaded successfully!
+INFO 2025-02-22 09:55:59,734 routes 7276 23164 Processing PDF for document ID: 2
+INFO 2025-02-22 09:55:59,801 model_service 7276 23164 GPU memory before processing: 5.64 GB used
+INFO 2025-02-22 09:55:59,801 model_service 7276 23164 Generating response...
+INFO 2025-02-22 09:56:12,122 model_service 7276 23164 GPU memory after processing: 5.65 GB used
+INFO 2025-02-22 09:56:12,122 model_service 7276 23164 GPU memory after cache clear: 5.65 GB used
+INFO 2025-02-22 09:56:12,122 pdf_service 7276 23164 Sending callback to Spring Boot for document ID: 2
+INFO 2025-02-22 09:56:12,280 pdf_service 7276 23164 Successfully sent callback for document ID: 2
+ERROR 2025-02-22 09:56:12,280 pdf_service 7276 23164 Error sending results to Spring Boot: Expecting value: line 1 column 1 (char 0)
+Traceback (most recent call last):
+  File "C:\Users\asust\.conda\envs\docbrainLlama\lib\site-packages\requests\models.py", line 971, in json
+    return complexjson.loads(self.text, **kwargs)
+  File "C:\Users\asust\.conda\envs\docbrainLlama\lib\json\__init__.py", line 346, in loads
+    return _default_decoder.decode(s)
+  File "C:\Users\asust\.conda\envs\docbrainLlama\lib\json\decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "C:\Users\asust\.conda\envs\docbrainLlama\lib\json\decoder.py", line 355, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\Coding\DocBrain Project\DocBrain AI\app\services\pdf_service.py", line 51, in send_results_to_spring
+    return response.json()
+  File "C:\Users\asust\.conda\envs\docbrainLlama\lib\site-packages\requests\models.py", line 975, in json
+    raise RequestsJSONDecodeError(e.msg, e.doc, e.pos)
+requests.exceptions.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+ERROR 2025-02-22 09:56:12,343 routes 7276 23164 Error processing PDF: Error sending results to Spring Boot: Expecting value: line 1 column 1 (char 0)
+Traceback (most recent call last):
+  File "C:\Users\asust\.conda\envs\docbrainLlama\lib\site-packages\requests\models.py", line 971, in json
+    return complexjson.loads(self.text, **kwargs)
+  File "C:\Users\asust\.conda\envs\docbrainLlama\lib\json\__init__.py", line 346, in loads
+    return _default_decoder.decode(s)
+  File "C:\Users\asust\.conda\envs\docbrainLlama\lib\json\decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "C:\Users\asust\.conda\envs\docbrainLlama\lib\json\decoder.py", line 355, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\Coding\DocBrain Project\DocBrain AI\app\services\pdf_service.py", line 51, in send_results_to_spring
+    return response.json()
+  File "C:\Users\asust\.conda\envs\docbrainLlama\lib\site-packages\requests\models.py", line 975, in json
+    raise RequestsJSONDecodeError(e.msg, e.doc, e.pos)
+requests.exceptions.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\Coding\DocBrain Project\DocBrain AI\app\api\routes.py", line 32, in process_pdf
+    await pdf_service.send_results_to_spring(results, doc_id)
+  File "D:\Coding\DocBrain Project\DocBrain AI\app\services\pdf_service.py", line 56, in send_results_to_spring
+    raise Exception(error_msg)
+Exception: Error sending results to Spring Boot: Expecting value: line 1 column 1 (char 0)
+INFO 2025-02-22 10:30:00,410 config 10336 26524 Started DocBrain PDF Processor API
+INFO 2025-02-22 10:46:42,012 config 22196 19176 Started DocBrain PDF Processor API
+INFO 2025-02-22 10:46:47,456 model_service 22196 19176 Checking GPU availability...
+INFO 2025-02-22 10:46:47,480 model_service 22196 19176 GPU detected: NVIDIA GeForce RTX 3070 Laptop GPU
+INFO 2025-02-22 10:46:47,480 model_service 22196 19176 Total GPU memory: 8.00 GB
+INFO 2025-02-22 10:46:47,480 model_service 22196 19176 Available GPU memory: 0.00 GB used
+INFO 2025-02-22 10:46:47,480 model_service 22196 19176 Initializing model service...
+INFO 2025-02-22 10:46:47,480 model_service 22196 19176 Loading model from: D:/Coding/DocBrain Project/AI model/Meta-Llama-3-8B-Instruct
+INFO 2025-02-22 10:46:47,480 model_service 22196 19176 Loading tokenizer...
+INFO 2025-02-22 10:46:47,865 model_service 22196 19176 Loading model...
+INFO 2025-02-22 10:47:17,715 model_service 22196 19176 Model is on device: cuda:0
+INFO 2025-02-22 10:47:17,715 model_service 22196 19176 Model loaded successfully!
+INFO 2025-02-22 10:50:07,084 routes 22196 19176 Processing PDF for document ID: 2
+INFO 2025-02-22 10:50:07,159 model_service 22196 19176 GPU memory before processing: 5.64 GB used
+INFO 2025-02-22 10:50:07,160 model_service 22196 19176 Generating response...
+INFO 2025-02-22 10:50:19,159 model_service 22196 19176 GPU memory after processing: 5.65 GB used
+INFO 2025-02-22 10:50:19,165 model_service 22196 19176 GPU memory after cache clear: 5.65 GB used
+INFO 2025-02-22 10:50:19,166 pdf_service 22196 19176 Sending callback to Spring Boot for document ID: 2
+INFO 2025-02-22 10:50:19,285 pdf_service 22196 19176 Successfully sent callback for document ID: 2
+ERROR 2025-02-22 10:50:19,285 pdf_service 22196 19176 Error sending results to Spring Boot: Expecting value: line 1 column 1 (char 0)
+Traceback (most recent call last):
+  File "C:\Users\asust\.conda\envs\docbrainLlama\lib\site-packages\requests\models.py", line 971, in json
+    return complexjson.loads(self.text, **kwargs)
+  File "C:\Users\asust\.conda\envs\docbrainLlama\lib\json\__init__.py", line 346, in loads
+    return _default_decoder.decode(s)
+  File "C:\Users\asust\.conda\envs\docbrainLlama\lib\json\decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "C:\Users\asust\.conda\envs\docbrainLlama\lib\json\decoder.py", line 355, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\Coding\DocBrain Project\DocBrain AI\app\services\pdf_service.py", line 51, in send_results_to_spring
+    return response.json()
+  File "C:\Users\asust\.conda\envs\docbrainLlama\lib\site-packages\requests\models.py", line 975, in json
+    raise RequestsJSONDecodeError(e.msg, e.doc, e.pos)
+requests.exceptions.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+ERROR 2025-02-22 10:50:19,290 routes 22196 19176 Error processing PDF: Error sending results to Spring Boot: Expecting value: line 1 column 1 (char 0)
+Traceback (most recent call last):
+  File "C:\Users\asust\.conda\envs\docbrainLlama\lib\site-packages\requests\models.py", line 971, in json
+    return complexjson.loads(self.text, **kwargs)
+  File "C:\Users\asust\.conda\envs\docbrainLlama\lib\json\__init__.py", line 346, in loads
+    return _default_decoder.decode(s)
+  File "C:\Users\asust\.conda\envs\docbrainLlama\lib\json\decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "C:\Users\asust\.conda\envs\docbrainLlama\lib\json\decoder.py", line 355, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\Coding\DocBrain Project\DocBrain AI\app\services\pdf_service.py", line 51, in send_results_to_spring
+    return response.json()
+  File "C:\Users\asust\.conda\envs\docbrainLlama\lib\site-packages\requests\models.py", line 975, in json
+    raise RequestsJSONDecodeError(e.msg, e.doc, e.pos)
+requests.exceptions.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\Coding\DocBrain Project\DocBrain AI\app\api\routes.py", line 37, in process_pdf
+    await pdf_service.send_results_to_spring(results, doc_id)
+  File "D:\Coding\DocBrain Project\DocBrain AI\app\services\pdf_service.py", line 56, in send_results_to_spring
+    raise Exception(error_msg)
+Exception: Error sending results to Spring Boot: Expecting value: line 1 column 1 (char 0)
+INFO 2025-02-22 10:52:15,148 routes 22196 19176 Processing PDF for document ID: 2
+INFO 2025-02-22 10:52:15,353 model_service 22196 19176 GPU memory before processing: 5.65 GB used
+INFO 2025-02-22 10:52:15,354 model_service 22196 19176 Generating response...
+INFO 2025-02-22 10:52:26,503 model_service 22196 19176 GPU memory after processing: 5.65 GB used
+INFO 2025-02-22 10:52:26,507 model_service 22196 19176 GPU memory after cache clear: 5.65 GB used
+INFO 2025-02-22 10:52:26,508 pdf_service 22196 19176 Sending callback to Spring Boot for document ID: 2
+INFO 2025-02-22 10:52:26,530 pdf_service 22196 19176 Successfully sent callback for document ID: 2
+ERROR 2025-02-22 10:52:26,530 pdf_service 22196 19176 Error sending results to Spring Boot: Expecting value: line 1 column 1 (char 0)
+Traceback (most recent call last):
+  File "C:\Users\asust\.conda\envs\docbrainLlama\lib\site-packages\requests\models.py", line 971, in json
+    return complexjson.loads(self.text, **kwargs)
+  File "C:\Users\asust\.conda\envs\docbrainLlama\lib\json\__init__.py", line 346, in loads
+    return _default_decoder.decode(s)
+  File "C:\Users\asust\.conda\envs\docbrainLlama\lib\json\decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "C:\Users\asust\.conda\envs\docbrainLlama\lib\json\decoder.py", line 355, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\Coding\DocBrain Project\DocBrain AI\app\services\pdf_service.py", line 51, in send_results_to_spring
+    return response.json()
+  File "C:\Users\asust\.conda\envs\docbrainLlama\lib\site-packages\requests\models.py", line 975, in json
+    raise RequestsJSONDecodeError(e.msg, e.doc, e.pos)
+requests.exceptions.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+ERROR 2025-02-22 10:52:26,531 routes 22196 19176 Error processing PDF: Error sending results to Spring Boot: Expecting value: line 1 column 1 (char 0)
+Traceback (most recent call last):
+  File "C:\Users\asust\.conda\envs\docbrainLlama\lib\site-packages\requests\models.py", line 971, in json
+    return complexjson.loads(self.text, **kwargs)
+  File "C:\Users\asust\.conda\envs\docbrainLlama\lib\json\__init__.py", line 346, in loads
+    return _default_decoder.decode(s)
+  File "C:\Users\asust\.conda\envs\docbrainLlama\lib\json\decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "C:\Users\asust\.conda\envs\docbrainLlama\lib\json\decoder.py", line 355, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\Coding\DocBrain Project\DocBrain AI\app\services\pdf_service.py", line 51, in send_results_to_spring
+    return response.json()
+  File "C:\Users\asust\.conda\envs\docbrainLlama\lib\site-packages\requests\models.py", line 975, in json
+    raise RequestsJSONDecodeError(e.msg, e.doc, e.pos)
+requests.exceptions.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\Coding\DocBrain Project\DocBrain AI\app\api\routes.py", line 37, in process_pdf
+    await pdf_service.send_results_to_spring(results, doc_id)
+  File "D:\Coding\DocBrain Project\DocBrain AI\app\services\pdf_service.py", line 56, in send_results_to_spring
+    raise Exception(error_msg)
+Exception: Error sending results to Spring Boot: Expecting value: line 1 column 1 (char 0)
+INFO 2025-02-22 11:06:36,637 routes 22196 19176 Processing PDF for document ID: 2
+INFO 2025-02-22 11:06:36,704 model_service 22196 19176 GPU memory before processing: 5.65 GB used
+INFO 2025-02-22 11:06:36,704 model_service 22196 19176 Generating response...
+INFO 2025-02-22 11:06:47,532 model_service 22196 19176 GPU memory after processing: 5.65 GB used
+INFO 2025-02-22 11:06:47,538 model_service 22196 19176 GPU memory after cache clear: 5.65 GB used
+INFO 2025-02-22 11:06:47,538 pdf_service 22196 19176 Sending callback to Spring Boot for document ID: 2
+INFO 2025-02-22 11:06:47,634 pdf_service 22196 19176 Successfully sent callback for document ID: 2
+INFO 2025-02-22 12:23:23,296 routes 22196 19176 Processing PDF for document ID: 2
+INFO 2025-02-22 12:23:23,372 model_service 22196 19176 GPU memory before processing: 5.65 GB used
+INFO 2025-02-22 12:23:23,372 model_service 22196 19176 Generating response...
+INFO 2025-02-22 12:23:34,264 model_service 22196 19176 GPU memory after processing: 5.65 GB used
+INFO 2025-02-22 12:23:34,269 model_service 22196 19176 GPU memory after cache clear: 5.65 GB used
+INFO 2025-02-22 12:23:34,270 pdf_service 22196 19176 Sending callback to Spring Boot for document ID: 2
+INFO 2025-02-22 12:23:34,372 pdf_service 22196 19176 Successfully sent callback for document ID: 2
+INFO 2025-02-22 12:26:04,400 routes 22196 19176 Processing PDF for document ID: 3
+INFO 2025-02-22 12:26:04,623 model_service 22196 19176 GPU memory before processing: 5.65 GB used
+INFO 2025-02-22 12:26:04,624 model_service 22196 19176 Generating response...
+INFO 2025-02-22 12:26:12,458 model_service 22196 19176 GPU memory after processing: 5.65 GB used
+INFO 2025-02-22 12:26:12,462 model_service 22196 19176 GPU memory after cache clear: 5.65 GB used
+INFO 2025-02-22 12:26:12,462 pdf_service 22196 19176 Sending callback to Spring Boot for document ID: 3
+INFO 2025-02-22 12:26:12,578 pdf_service 22196 19176 Successfully sent callback for document ID: 3
+INFO 2025-02-25 10:49:30,521 config 13456 19464 Started DocBrain PDF Processor API
+INFO 2025-02-25 10:49:57,186 SentenceTransformer 13456 19464 Use pytorch device_name: cuda
+INFO 2025-02-25 10:49:57,186 SentenceTransformer 13456 19464 Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+INFO 2025-02-25 10:51:53,521 pdf_service 13456 19464 Embedding model loaded successfully
+INFO 2025-02-25 10:51:53,521 model_service 13456 19464 Checking GPU availability...
+INFO 2025-02-25 10:51:53,521 model_service 13456 19464 GPU detected: NVIDIA GeForce RTX 3070 Laptop GPU
+INFO 2025-02-25 10:51:53,521 model_service 13456 19464 Total GPU memory: 8.00 GB
+INFO 2025-02-25 10:51:53,521 model_service 13456 19464 Available GPU memory: 0.08 GB used
+INFO 2025-02-25 10:51:53,521 model_service 13456 19464 Initializing model service...
+INFO 2025-02-25 10:51:53,521 model_service 13456 19464 Loading model from: D:/Coding/DocBrain Project/AI model/Meta-Llama-3-8B-Instruct
+INFO 2025-02-25 10:51:53,521 model_service 13456 19464 Loading tokenizer...
+INFO 2025-02-25 10:51:53,886 model_service 13456 19464 Loading model...
+INFO 2025-02-25 10:52:22,245 model_service 13456 19464 Model is on device: cuda:0
+INFO 2025-02-25 10:52:22,250 model_service 13456 19464 Model loaded successfully!
+INFO 2025-02-25 10:52:39,819 config 12784 11704 Started DocBrain PDF Processor API
+INFO 2025-02-25 10:52:47,513 SentenceTransformer 12784 11704 Use pytorch device_name: cuda
+INFO 2025-02-25 10:52:47,513 SentenceTransformer 12784 11704 Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+INFO 2025-02-25 10:52:49,274 pdf_service 12784 11704 Embedding model loaded successfully
+INFO 2025-02-25 10:52:49,274 model_service 12784 11704 Checking GPU availability...
+INFO 2025-02-25 10:52:49,274 model_service 12784 11704 GPU detected: NVIDIA GeForce RTX 3070 Laptop GPU
+INFO 2025-02-25 10:52:49,274 model_service 12784 11704 Total GPU memory: 8.00 GB
+INFO 2025-02-25 10:52:49,274 model_service 12784 11704 Available GPU memory: 0.08 GB used
+INFO 2025-02-25 10:52:49,274 model_service 12784 11704 Initializing model service...
+INFO 2025-02-25 10:52:49,274 model_service 12784 11704 Loading model from: D:/Coding/DocBrain Project/AI model/Meta-Llama-3-8B-Instruct
+INFO 2025-02-25 10:52:49,274 model_service 12784 11704 Loading tokenizer...
+INFO 2025-02-25 10:52:49,628 model_service 12784 11704 Loading model...
+INFO 2025-02-25 10:53:16,848 model_service 12784 11704 Model is on device: cuda:0
+INFO 2025-02-25 10:53:16,848 model_service 12784 11704 Model loaded successfully!
+INFO 2025-02-25 11:06:34,412 config 19596 16480 Started DocBrain PDF Processor API
+INFO 2025-02-25 11:06:42,764 SentenceTransformer 19596 16480 Use pytorch device_name: cuda
+INFO 2025-02-25 11:06:42,764 SentenceTransformer 19596 16480 Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+INFO 2025-02-25 11:06:44,607 pdf_service 19596 16480 Embedding model loaded successfully
+INFO 2025-02-25 11:06:44,607 model_service 19596 16480 Checking GPU availability...
+INFO 2025-02-25 11:06:44,607 model_service 19596 16480 GPU detected: NVIDIA GeForce RTX 3070 Laptop GPU
+INFO 2025-02-25 11:06:44,607 model_service 19596 16480 Total GPU memory: 8.00 GB
+INFO 2025-02-25 11:06:44,607 model_service 19596 16480 Available GPU memory: 0.08 GB used
+INFO 2025-02-25 11:06:44,607 model_service 19596 16480 Initializing model service...
+INFO 2025-02-25 11:06:44,607 model_service 19596 16480 Loading model from: D:/Coding/DocBrain Project/AI model/Meta-Llama-3-8B-Instruct
+INFO 2025-02-25 11:06:44,607 model_service 19596 16480 Loading tokenizer...
+INFO 2025-02-25 11:06:44,986 model_service 19596 16480 Loading model...
+INFO 2025-02-25 11:07:13,682 model_service 19596 16480 Model is on device: cuda:0
+INFO 2025-02-25 11:07:13,682 model_service 19596 16480 Model loaded successfully!
+INFO 2025-02-25 11:08:34,343 config 13456 12848 Started DocBrain PDF Processor API
+INFO 2025-02-25 11:08:42,299 SentenceTransformer 13456 12848 Use pytorch device_name: cuda
+INFO 2025-02-25 11:08:42,299 SentenceTransformer 13456 12848 Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+INFO 2025-02-25 11:08:44,428 pdf_service 13456 12848 Embedding model loaded successfully
+INFO 2025-02-25 11:08:44,428 model_service 13456 12848 Checking GPU availability...
+INFO 2025-02-25 11:08:44,428 model_service 13456 12848 GPU detected: NVIDIA GeForce RTX 3070 Laptop GPU
+INFO 2025-02-25 11:08:44,428 model_service 13456 12848 Total GPU memory: 8.00 GB
+INFO 2025-02-25 11:08:44,428 model_service 13456 12848 Available GPU memory: 0.08 GB used
+INFO 2025-02-25 11:08:44,428 model_service 13456 12848 Initializing model service...
+INFO 2025-02-25 11:08:44,428 model_service 13456 12848 Loading model from: D:/Coding/DocBrain Project/AI model/Meta-Llama-3-8B-Instruct
+INFO 2025-02-25 11:08:44,428 model_service 13456 12848 Loading tokenizer...
+INFO 2025-02-25 11:08:44,792 model_service 13456 12848 Loading model...
+INFO 2025-02-25 11:09:13,229 model_service 13456 12848 Model is on device: cuda:0
+INFO 2025-02-25 11:09:13,229 model_service 13456 12848 Model loaded successfully!
+INFO 2025-02-25 11:09:36,604 routes 13456 12848 Successfully extracted text from PDF, length: 13380 characters
+INFO 2025-02-25 11:09:37,201 routes 13456 12848 Generated 17 chunks with embeddings
+INFO 2025-02-25 11:09:37,201 model_service 13456 12848 GPU memory before processing: 5.75 GB used
+INFO 2025-02-25 11:09:37,203 model_service 13456 12848 Generating document analysis...
+INFO 2025-02-25 11:09:54,646 model_service 13456 12848 GPU memory after cache clear: 5.75 GB used
+INFO 2025-02-25 11:09:54,646 routes 13456 12848 Generated document analysis with model
+INFO 2025-02-25 11:09:54,646 pdf_service 13456 12848 Sending results to Spring Boot for document ID: 3
+INFO 2025-02-25 11:09:54,924 pdf_service 13456 12848 Successfully sent results for document ID: 3
+INFO 2025-02-25 11:09:54,925 routes 13456 12848 Sent processing results to Spring Boot
+INFO 2025-02-25 11:38:40,031 routes 13456 12848 Successfully extracted text from PDF, length: 16171 characters
+INFO 2025-02-25 11:38:40,410 routes 13456 12848 Generated 21 chunks with embeddings
+INFO 2025-02-25 11:38:40,411 model_service 13456 12848 GPU memory before processing: 5.75 GB used
+INFO 2025-02-25 11:38:40,411 model_service 13456 12848 Generating document analysis...
+INFO 2025-02-25 11:38:55,941 model_service 13456 12848 GPU memory after cache clear: 5.75 GB used
+INFO 2025-02-25 11:38:55,942 routes 13456 12848 Generated document analysis with model
+INFO 2025-02-25 11:38:55,942 pdf_service 13456 12848 Sending results to Spring Boot for document ID: 4
+INFO 2025-02-25 11:38:56,127 pdf_service 13456 12848 Successfully sent results for document ID: 4
+INFO 2025-02-25 11:38:56,128 routes 13456 12848 Sent processing results to Spring Boot
+INFO 2025-02-25 15:53:13,472 config 23268 14628 Started DocBrain PDF Processor API
+INFO 2025-02-25 15:53:38,439 SentenceTransformer 23268 14628 Use pytorch device_name: cuda
+INFO 2025-02-25 15:53:38,439 SentenceTransformer 23268 14628 Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+INFO 2025-02-25 15:53:40,521 pdf_service 23268 14628 Embedding model loaded successfully
+INFO 2025-02-25 15:53:40,521 model_service 23268 14628 Checking GPU availability...
+INFO 2025-02-25 15:53:40,521 model_service 23268 14628 GPU detected: NVIDIA GeForce RTX 3070 Laptop GPU
+INFO 2025-02-25 15:53:40,521 model_service 23268 14628 Total GPU memory: 8.00 GB
+INFO 2025-02-25 15:53:40,521 model_service 23268 14628 Available GPU memory: 0.08 GB used
+INFO 2025-02-25 15:53:40,521 model_service 23268 14628 Initializing model service...
+INFO 2025-02-25 15:53:40,521 model_service 23268 14628 Loading model from: D:/Coding/DocBrain Project/AI model/Meta-Llama-3-8B-Instruct
+INFO 2025-02-25 15:53:40,521 model_service 23268 14628 Loading tokenizer...
+INFO 2025-02-25 15:53:40,940 model_service 23268 14628 Loading model...
+INFO 2025-02-25 15:54:12,678 model_service 23268 14628 Model is on device: cuda:0
+INFO 2025-02-25 15:54:12,678 model_service 23268 14628 Model loaded successfully!
+INFO 2025-02-25 16:00:33,110 config 28592 11948 Started DocBrain PDF Processor API
+INFO 2025-02-25 16:00:42,125 SentenceTransformer 28592 11948 Use pytorch device_name: cuda
+INFO 2025-02-25 16:00:42,125 SentenceTransformer 28592 11948 Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+INFO 2025-02-25 16:00:50,237 pdf_service 28592 11948 Embedding model loaded successfully
+INFO 2025-02-25 16:00:50,239 model_service 28592 11948 Checking GPU availability...
+INFO 2025-02-25 16:00:50,239 model_service 28592 11948 GPU detected: NVIDIA GeForce RTX 3070 Laptop GPU
+INFO 2025-02-25 16:00:50,240 model_service 28592 11948 Total GPU memory: 8.00 GB
+INFO 2025-02-25 16:00:50,240 model_service 28592 11948 Available GPU memory: 0.08 GB used
+INFO 2025-02-25 16:00:50,240 model_service 28592 11948 Initializing model service...
+INFO 2025-02-25 16:00:50,240 model_service 28592 11948 Loading model from: D:/Coding/DocBrain Project/AI model/Meta-Llama-3-8B-Instruct
+INFO 2025-02-25 16:00:50,240 model_service 28592 11948 Loading tokenizer...
+INFO 2025-02-25 16:00:50,626 model_service 28592 11948 Loading model...
+INFO 2025-02-25 16:01:23,807 model_service 28592 11948 Model is on device: cuda:0
+INFO 2025-02-25 16:01:23,807 model_service 28592 11948 Model loaded successfully!
+INFO 2025-02-25 16:42:28,605 config 29776 23980 Started DocBrain PDF Processor API
+INFO 2025-02-25 16:42:38,709 SentenceTransformer 29776 23980 Use pytorch device_name: cuda
+INFO 2025-02-25 16:42:38,709 SentenceTransformer 29776 23980 Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+INFO 2025-02-25 16:42:40,741 pdf_service 29776 23980 Embedding model loaded successfully
+INFO 2025-02-25 16:42:40,741 model_service 29776 23980 Checking GPU availability...
+INFO 2025-02-25 16:42:40,742 model_service 29776 23980 GPU detected: NVIDIA GeForce RTX 3070 Laptop GPU
+INFO 2025-02-25 16:42:40,742 model_service 29776 23980 Total GPU memory: 8.00 GB
+INFO 2025-02-25 16:42:40,743 model_service 29776 23980 Available GPU memory: 0.08 GB used
+INFO 2025-02-25 16:42:40,743 model_service 29776 23980 Initializing model service...
+INFO 2025-02-25 16:42:40,744 model_service 29776 23980 Loading model from: D:/Coding/DocBrain Project/AI model/Meta-Llama-3-8B-Instruct
+INFO 2025-02-25 16:42:40,744 model_service 29776 23980 Loading tokenizer...
+INFO 2025-02-25 16:42:41,118 model_service 29776 23980 Loading model...
+INFO 2025-02-25 16:43:14,943 model_service 29776 23980 Model is on device: cuda:0
+INFO 2025-02-25 16:43:14,944 model_service 29776 23980 Model loaded successfully!
+INFO 2025-02-25 16:45:57,951 routes 29776 23980 Received chat request for document 4
+INFO 2025-02-25 16:45:57,952 routes 29776 23980 Number of chunks received: 21
+INFO 2025-02-25 18:21:56,985 config 26912 13696 Started DocBrain PDF Processor API
+INFO 2025-02-25 18:22:24,191 SentenceTransformer 26912 13696 Use pytorch device_name: cuda
+INFO 2025-02-25 18:22:24,192 SentenceTransformer 26912 13696 Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+INFO 2025-02-25 18:22:26,575 pdf_service 26912 13696 Embedding model loaded successfully
+INFO 2025-02-25 18:22:26,575 model_service 26912 13696 Checking GPU availability...
+INFO 2025-02-25 18:22:26,575 model_service 26912 13696 GPU detected: NVIDIA GeForce RTX 3070 Laptop GPU
+INFO 2025-02-25 18:22:26,576 model_service 26912 13696 Total GPU memory: 8.00 GB
+INFO 2025-02-25 18:22:26,576 model_service 26912 13696 Available GPU memory: 0.08 GB used
+INFO 2025-02-25 18:22:26,576 model_service 26912 13696 Initializing model service...
+INFO 2025-02-25 18:22:26,576 model_service 26912 13696 Loading model from: D:/Coding/DocBrain Project/AI model/Meta-Llama-3-8B-Instruct
+INFO 2025-02-25 18:22:26,576 model_service 26912 13696 Loading tokenizer...
+INFO 2025-02-25 18:22:26,961 model_service 26912 13696 Loading model...
+INFO 2025-02-25 18:23:01,861 model_service 26912 13696 Model is on device: cuda:0
+INFO 2025-02-25 18:23:01,864 model_service 26912 13696 Model loaded successfully!
+INFO 2025-02-25 18:27:10,780 routes 26912 13696 Received chat request for document 4
+INFO 2025-02-25 18:27:10,780 routes 26912 13696 Number of chunks received: 21
+INFO 2025-03-01 19:17:39,689 config 7228 2076 Started DocBrain PDF Processor API
+INFO 2025-03-01 19:18:10,449 SentenceTransformer 7228 2076 Use pytorch device_name: cuda
+INFO 2025-03-01 19:18:10,449 SentenceTransformer 7228 2076 Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+INFO 2025-03-01 19:18:14,684 pdf_service 7228 2076 Embedding model loaded successfully
+INFO 2025-03-01 19:18:14,684 model_service 7228 2076 Checking GPU availability...
+INFO 2025-03-01 19:18:14,684 model_service 7228 2076 GPU detected: NVIDIA GeForce RTX 3070 Laptop GPU
+INFO 2025-03-01 19:18:14,684 model_service 7228 2076 Total GPU memory: 8.00 GB
+INFO 2025-03-01 19:18:14,684 model_service 7228 2076 Available GPU memory: 0.08 GB used
+INFO 2025-03-01 19:18:14,684 model_service 7228 2076 Initializing model service...
+INFO 2025-03-01 19:18:14,684 model_service 7228 2076 Loading model from: D:/Coding/DocBrain Project/AI model/Meta-Llama-3-8B-Instruct
+INFO 2025-03-01 19:18:14,684 model_service 7228 2076 Loading tokenizer...
+INFO 2025-03-01 19:18:15,110 model_service 7228 2076 Loading model...
+INFO 2025-03-01 19:18:46,513 model_service 7228 2076 Model is on device: cuda:0
+INFO 2025-03-01 19:18:46,515 model_service 7228 2076 Model loaded successfully!
+INFO 2025-03-02 00:58:57,408 config 20428 3504 Started DocBrain PDF Processor API
+INFO 2025-03-02 00:59:28,237 SentenceTransformer 20428 3504 Use pytorch device_name: cuda
+INFO 2025-03-02 00:59:28,237 SentenceTransformer 20428 3504 Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+INFO 2025-03-02 00:59:30,982 pdf_service 20428 3504 Embedding model loaded successfully
+INFO 2025-03-02 00:59:30,982 model_service 20428 3504 Checking GPU availability...
+INFO 2025-03-02 00:59:30,993 model_service 20428 3504 GPU detected: NVIDIA GeForce RTX 3070 Laptop GPU
+INFO 2025-03-02 00:59:30,993 model_service 20428 3504 Total GPU memory: 8.00 GB
+INFO 2025-03-02 00:59:30,993 model_service 20428 3504 Available GPU memory: 0.08 GB used
+INFO 2025-03-02 00:59:30,993 model_service 20428 3504 Initializing model service...
+INFO 2025-03-02 00:59:30,993 model_service 20428 3504 Loading model from: D:/Coding/DocBrain Project/AI model/Meta-Llama-3-8B-Instruct
+INFO 2025-03-02 00:59:30,993 model_service 20428 3504 Loading tokenizer...
+INFO 2025-03-02 00:59:31,394 model_service 20428 3504 Loading model...
+INFO 2025-03-02 01:00:03,415 model_service 20428 3504 Model is on device: cuda:0
+INFO 2025-03-02 01:00:03,415 model_service 20428 3504 Model loaded successfully!
+INFO 2025-03-02 01:01:25,067 routes 20428 3504 Successfully extracted text from PDF, length: 16171 characters
+INFO 2025-03-02 01:01:25,911 routes 20428 3504 Generated 21 chunks with embeddings
+INFO 2025-03-02 01:01:25,911 model_service 20428 3504 GPU memory before processing: 5.75 GB used
+INFO 2025-03-02 01:01:25,911 model_service 20428 3504 Generating document analysis...
+INFO 2025-03-02 01:01:27,718 model_service 20428 3504 GPU memory after cache clear: 5.75 GB used
+INFO 2025-03-02 01:01:27,718 routes 20428 3504 Generated document analysis with model
+INFO 2025-03-02 01:01:27,718 pdf_service 20428 3504 Sending results to Spring Boot for document ID: 1
+INFO 2025-03-02 01:01:28,121 pdf_service 20428 3504 Successfully sent results for document ID: 1
+INFO 2025-03-02 01:01:28,121 routes 20428 3504 Sent processing results to Spring Boot
+INFO 2025-03-02 01:01:28,246 routes 20428 3504 Received chat request for document 1
+INFO 2025-03-02 01:01:28,246 routes 20428 3504 Number of chunks received: 21
+INFO 2025-03-08 03:38:40,326 config 22104 13136 Started DocBrain PDF Processor API
+INFO 2025-03-08 03:39:06,478 SentenceTransformer 22104 13136 Use pytorch device_name: cuda
+INFO 2025-03-08 03:39:06,478 SentenceTransformer 22104 13136 Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+INFO 2025-03-08 03:41:00,185 pdf_service 22104 13136 Embedding model loaded successfully
+INFO 2025-03-08 03:41:00,185 model_service 22104 13136 Checking GPU availability...
+INFO 2025-03-08 03:41:00,185 model_service 22104 13136 GPU detected: NVIDIA GeForce RTX 3070 Laptop GPU
+INFO 2025-03-08 03:41:00,185 model_service 22104 13136 Total GPU memory: 8.00 GB
+INFO 2025-03-08 03:41:00,185 model_service 22104 13136 Available GPU memory: 0.08 GB used
+INFO 2025-03-08 03:41:00,185 model_service 22104 13136 Initializing model service...
+INFO 2025-03-08 03:41:00,185 model_service 22104 13136 Loading model from: D:/Coding/DocBrain Project/AI model/Meta-Llama-3-8B-Instruct
+INFO 2025-03-08 03:41:00,185 model_service 22104 13136 Loading tokenizer...
+INFO 2025-03-08 03:41:00,583 model_service 22104 13136 Loading model...
+INFO 2025-03-08 03:41:33,830 model_service 22104 13136 Model is on device: cuda:0
+INFO 2025-03-08 03:41:33,830 model_service 22104 13136 Model loaded successfully!
+INFO 2025-03-08 03:45:52,273 routes 22104 13136 Successfully extracted text from PDF, length: 16171 characters
+INFO 2025-03-08 03:45:53,293 routes 22104 13136 Generated 21 chunks with embeddings
+INFO 2025-03-08 03:45:53,293 model_service 22104 13136 GPU memory before processing: 5.75 GB used
+INFO 2025-03-08 03:45:53,293 model_service 22104 13136 Generating document analysis...
+INFO 2025-03-08 03:45:56,600 model_service 22104 13136 GPU memory after cache clear: 5.75 GB used
+INFO 2025-03-08 03:45:56,600 routes 22104 13136 Generated document analysis with model
+INFO 2025-03-08 03:45:56,600 pdf_service 22104 13136 Sending results to Spring Boot for document ID: 1
+INFO 2025-03-08 03:45:56,781 pdf_service 22104 13136 Successfully sent results for document ID: 1
+INFO 2025-03-08 03:45:56,791 routes 22104 13136 Sent processing results to Spring Boot
+INFO 2025-03-08 03:45:56,964 routes 22104 13136 Received chat request for document 1
+INFO 2025-03-08 03:45:56,964 routes 22104 13136 Number of chunks received: 21
+INFO 2025-03-08 05:33:45,312 routes 22104 13136 Received chat request for document 1
+INFO 2025-03-08 05:33:45,322 routes 22104 13136 Number of chunks received: 21
+INFO 2025-03-09 22:46:12,790 config 16680 22548 Started DocBrain PDF Processor API
+INFO 2025-03-09 22:46:42,135 SentenceTransformer 16680 22548 Use pytorch device_name: cuda
+INFO 2025-03-09 22:46:42,135 SentenceTransformer 16680 22548 Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+INFO 2025-03-09 22:46:44,847 pdf_service 16680 22548 Embedding model loaded successfully
+INFO 2025-03-09 22:46:44,847 model_service 16680 22548 Checking GPU availability...
+INFO 2025-03-09 22:46:44,847 model_service 16680 22548 GPU detected: NVIDIA GeForce RTX 3070 Laptop GPU
+INFO 2025-03-09 22:46:44,847 model_service 16680 22548 Total GPU memory: 8.00 GB
+INFO 2025-03-09 22:46:44,847 model_service 16680 22548 Available GPU memory: 0.08 GB used
+INFO 2025-03-09 22:46:44,847 model_service 16680 22548 Initializing model service...
+INFO 2025-03-09 22:46:44,847 model_service 16680 22548 Loading model from: D:/Coding/DocBrain Project/AI model/Meta-Llama-3-8B-Instruct
+INFO 2025-03-09 22:46:44,847 model_service 16680 22548 Loading tokenizer...
+INFO 2025-03-09 22:46:45,331 model_service 16680 22548 Loading model...
+INFO 2025-03-09 22:47:23,420 model_service 16680 22548 Model is on device: cuda:0
+INFO 2025-03-09 22:47:23,420 model_service 16680 22548 Model loaded successfully!
+INFO 2025-03-09 22:53:07,834 routes 16680 22548 Successfully extracted text from PDF, length: 700 characters
+INFO 2025-03-09 22:53:08,497 routes 16680 22548 Generated 1 chunks with embeddings
+INFO 2025-03-09 22:53:08,497 model_service 16680 22548 GPU memory before processing: 5.75 GB used
+INFO 2025-03-09 22:53:08,497 model_service 16680 22548 Generating document analysis...
+INFO 2025-03-09 22:53:18,269 model_service 16680 22548 GPU memory after cache clear: 5.75 GB used
+INFO 2025-03-09 22:53:18,269 routes 16680 22548 Generated document analysis with model
+INFO 2025-03-09 22:53:18,269 pdf_service 16680 22548 Sending results to Spring Boot for document ID: 2
+INFO 2025-03-09 22:53:18,368 pdf_service 16680 22548 Successfully sent results for document ID: 2
+INFO 2025-03-09 22:53:18,368 routes 16680 22548 Sent processing results to Spring Boot
+INFO 2025-03-09 22:53:18,455 routes 16680 22548 Received chat request for document 2
+INFO 2025-03-09 22:53:18,455 routes 16680 22548 Number of chunks received: 1
+INFO 2025-03-11 20:05:00,272 config 13784 25396 Started DocBrain PDF Processor API
+INFO 2025-03-11 20:05:29,375 SentenceTransformer 13784 25396 Use pytorch device_name: cuda
+INFO 2025-03-11 20:05:29,375 SentenceTransformer 13784 25396 Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+INFO 2025-03-11 20:05:50,650 pdf_service 13784 25396 Embedding model loaded successfully
+INFO 2025-03-11 20:05:50,650 model_service 13784 25396 Checking GPU availability...
+INFO 2025-03-11 20:05:50,651 model_service 13784 25396 GPU detected: NVIDIA GeForce RTX 3070 Laptop GPU
+INFO 2025-03-11 20:05:50,651 model_service 13784 25396 Total GPU memory: 8.00 GB
+INFO 2025-03-11 20:05:50,651 model_service 13784 25396 Available GPU memory: 0.08 GB used
+INFO 2025-03-11 20:05:50,651 model_service 13784 25396 Initializing model service...
+INFO 2025-03-11 20:05:50,651 model_service 13784 25396 Loading model from: D:/Coding/DocBrain Project/AI model/Meta-Llama-3-8B-Instruct
+INFO 2025-03-11 20:05:50,651 model_service 13784 25396 Loading tokenizer...
+INFO 2025-03-11 20:05:51,071 model_service 13784 25396 Loading model...
+INFO 2025-03-11 20:06:23,414 model_service 13784 25396 Model is on device: cuda:0
+INFO 2025-03-11 20:06:23,418 model_service 13784 25396 Model loaded successfully!
+INFO 2025-03-11 21:54:10,727 routes 13784 25396 Received chat request for document 2
+INFO 2025-03-11 21:54:10,743 routes 13784 25396 Number of chunks received: 1
+INFO 2025-03-12 01:05:45,038 routes 13784 25396 Received chat request for document 2
+INFO 2025-03-12 01:05:45,057 routes 13784 25396 Number of chunks received: 1
+INFO 2025-03-12 03:46:12,743 routes 13784 25396 Received chat request for document 2
+INFO 2025-03-12 03:46:12,765 routes 13784 25396 Number of chunks received: 1
+INFO 2025-03-12 03:53:22,758 routes 13784 25396 Received chat request for document 2
+INFO 2025-03-12 03:53:22,758 routes 13784 25396 Number of chunks received: 1
+INFO 2025-03-12 05:36:08,520 routes 13784 25396 Received chat request for document 2
+INFO 2025-03-12 05:36:08,528 routes 13784 25396 Number of chunks received: 1
+INFO 2025-03-12 06:06:59,957 routes 13784 25396 Received chat request for document 2
+INFO 2025-03-12 06:06:59,972 routes 13784 25396 Number of chunks received: 1
+INFO 2025-03-12 06:24:50,397 routes 13784 25396 Successfully extracted text from PDF, length: 973 characters
+INFO 2025-03-12 06:24:51,059 routes 13784 25396 Generated 2 chunks with embeddings
+INFO 2025-03-12 06:24:51,068 model_service 13784 25396 GPU memory before processing: 5.75 GB used
+INFO 2025-03-12 06:24:51,069 model_service 13784 25396 Generating document analysis...
+INFO 2025-03-12 06:25:01,863 model_service 13784 25396 GPU memory after cache clear: 5.75 GB used
+INFO 2025-03-12 06:25:01,863 routes 13784 25396 Generated document analysis with model
+INFO 2025-03-12 06:25:01,865 pdf_service 13784 25396 Sending results to Spring Boot for document ID: 3
+INFO 2025-03-12 06:25:01,964 pdf_service 13784 25396 Successfully sent results for document ID: 3
+INFO 2025-03-12 06:25:01,964 routes 13784 25396 Sent processing results to Spring Boot
+INFO 2025-03-12 06:25:02,025 routes 13784 25396 Received chat request for document 3
+INFO 2025-03-12 06:25:02,025 routes 13784 25396 Number of chunks received: 2
+INFO 2025-03-12 06:30:17,355 routes 13784 25396 Received chat request for document 3
+INFO 2025-03-12 06:30:17,356 routes 13784 25396 Number of chunks received: 2
+INFO 2025-03-12 06:36:42,685 routes 13784 25396 Received chat request for document 2
+INFO 2025-03-12 06:36:42,686 routes 13784 25396 Number of chunks received: 1
+INFO 2025-03-12 06:42:22,201 routes 13784 25396 Received chat request for document 3
+INFO 2025-03-12 06:42:22,202 routes 13784 25396 Number of chunks received: 2
+INFO 2025-03-12 19:33:56,005 config 22620 5216 Started DocBrain PDF Processor API
+INFO 2025-03-12 19:34:24,933 SentenceTransformer 22620 5216 Use pytorch device_name: cuda
+INFO 2025-03-12 19:34:24,933 SentenceTransformer 22620 5216 Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+INFO 2025-03-12 19:34:29,142 pdf_service 22620 5216 Embedding model loaded successfully
+INFO 2025-03-12 19:34:29,142 model_service 22620 5216 Checking GPU availability...
+INFO 2025-03-12 19:34:29,144 model_service 22620 5216 GPU detected: NVIDIA GeForce RTX 3070 Laptop GPU
+INFO 2025-03-12 19:34:29,146 model_service 22620 5216 Total GPU memory: 8.00 GB
+INFO 2025-03-12 19:34:29,148 model_service 22620 5216 Available GPU memory: 0.08 GB used
+INFO 2025-03-12 19:34:29,148 model_service 22620 5216 Initializing model service...
+INFO 2025-03-12 19:34:29,148 model_service 22620 5216 Loading model from: D:/Coding/DocBrain Project/AI model/Meta-Llama-3-8B-Instruct
+INFO 2025-03-12 19:34:29,148 model_service 22620 5216 Loading tokenizer...
+INFO 2025-03-12 19:34:29,571 model_service 22620 5216 Loading model...
+INFO 2025-03-12 19:35:07,216 model_service 22620 5216 Model is on device: cuda:0
+INFO 2025-03-12 19:35:07,216 model_service 22620 5216 Model loaded successfully!
+INFO 2025-03-12 19:50:45,776 routes 22620 5216 Received chat request for document 2
+INFO 2025-03-12 19:50:45,776 routes 22620 5216 Number of chunks received: 1
+INFO 2025-03-13 00:36:41,668 routes 22620 5216 Received chat request for document 3
+INFO 2025-03-13 00:36:41,670 routes 22620 5216 Number of chunks received: 2
+INFO 2025-03-13 00:59:31,048 routes 22620 5216 Received chat request for document 3
+INFO 2025-03-13 00:59:31,048 routes 22620 5216 Number of chunks received: 2
+INFO 2025-03-13 01:02:53,132 routes 22620 5216 Received chat request for document 2
+INFO 2025-03-13 01:02:53,137 routes 22620 5216 Number of chunks received: 1
+INFO 2025-03-13 01:15:51,089 routes 22620 5216 Received chat request for document 3
+INFO 2025-03-13 01:15:51,090 routes 22620 5216 Number of chunks received: 2
+INFO 2025-03-13 01:20:02,329 routes 22620 5216 Received chat request for document 3
+INFO 2025-03-13 01:20:02,330 routes 22620 5216 Number of chunks received: 2
+INFO 2025-03-13 01:27:44,704 routes 22620 5216 Received chat request for document 3
+INFO 2025-03-13 01:27:44,705 routes 22620 5216 Number of chunks received: 2
+INFO 2025-03-13 01:31:26,868 routes 22620 5216 Received chat request for document 3
+INFO 2025-03-13 01:31:26,869 routes 22620 5216 Number of chunks received: 2
+INFO 2025-03-13 01:52:29,309 routes 22620 5216 Received chat request for document 3
+INFO 2025-03-13 01:52:29,310 routes 22620 5216 Number of chunks received: 2
+INFO 2025-03-13 16:43:05,484 config 26172 26176 Started DocBrain PDF Processor API
+INFO 2025-03-13 16:43:35,582 SentenceTransformer 26172 26176 Use pytorch device_name: cuda
+INFO 2025-03-13 16:43:35,582 SentenceTransformer 26172 26176 Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+INFO 2025-03-13 16:43:38,280 pdf_service 26172 26176 Embedding model loaded successfully
+INFO 2025-03-13 16:43:38,280 model_service 26172 26176 Checking GPU availability...
+INFO 2025-03-13 16:43:38,280 model_service 26172 26176 GPU detected: NVIDIA GeForce RTX 3070 Laptop GPU
+INFO 2025-03-13 16:43:38,280 model_service 26172 26176 Total GPU memory: 8.00 GB
+INFO 2025-03-13 16:43:38,280 model_service 26172 26176 Available GPU memory: 0.08 GB used
+INFO 2025-03-13 16:43:38,280 model_service 26172 26176 Initializing model service...
+INFO 2025-03-13 16:43:38,280 model_service 26172 26176 Loading model from: D:/Coding/DocBrain Project/AI model/Meta-Llama-3-8B-Instruct
+INFO 2025-03-13 16:43:38,280 model_service 26172 26176 Loading tokenizer...
+INFO 2025-03-13 16:43:38,690 model_service 26172 26176 Loading model...
+INFO 2025-03-13 16:44:10,378 model_service 26172 26176 Model is on device: cuda:0
+INFO 2025-03-13 16:44:10,378 model_service 26172 26176 Model loaded successfully!
+INFO 2025-03-13 20:33:00,550 routes 26172 26176 Successfully extracted text from PDF, length: 61726 characters
+INFO 2025-03-13 20:33:01,991 routes 26172 26176 Generated 78 chunks with embeddings
+INFO 2025-03-13 20:33:01,991 model_service 26172 26176 GPU memory before processing: 5.75 GB used
+INFO 2025-03-13 20:33:01,991 model_service 26172 26176 Generating document analysis...
+INFO 2025-03-13 20:33:14,142 model_service 26172 26176 GPU memory after cache clear: 5.75 GB used
+INFO 2025-03-13 20:33:14,142 routes 26172 26176 Generated document analysis with model
+INFO 2025-03-13 20:33:14,142 pdf_service 26172 26176 Sending results to Spring Boot for document ID: 4
+ERROR 2025-03-13 20:33:14,299 pdf_service 26172 26176 Error sending results to Spring Boot: 500 Server Error:  for url: http://localhost:8080/api/documents/process/callback
+Traceback (most recent call last):
+  File "D:\Coding\DocBrain Project\DocBrain AI\app\services\pdf_service.py", line 111, in send_results_to_spring
+    response.raise_for_status()
+  File "C:\Users\asust\.conda\envs\docbrainLlama\lib\site-packages\requests\models.py", line 1021, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 500 Server Error:  for url: http://localhost:8080/api/documents/process/callback
+ERROR 2025-03-13 20:33:14,322 routes 26172 26176 Error processing PDF: Error sending results to Spring Boot: 500 Server Error:  for url: http://localhost:8080/api/documents/process/callback
+Traceback (most recent call last):
+  File "D:\Coding\DocBrain Project\DocBrain AI\app\services\pdf_service.py", line 111, in send_results_to_spring
+    response.raise_for_status()
+  File "C:\Users\asust\.conda\envs\docbrainLlama\lib\site-packages\requests\models.py", line 1021, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 500 Server Error:  for url: http://localhost:8080/api/documents/process/callback
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\Coding\DocBrain Project\DocBrain AI\app\api\routes.py", line 44, in process_pdf
+    await pdf_service.send_results_to_spring(results, documentId)
+  File "D:\Coding\DocBrain Project\DocBrain AI\app\services\pdf_service.py", line 118, in send_results_to_spring
+    raise Exception(error_msg)
+Exception: Error sending results to Spring Boot: 500 Server Error:  for url: http://localhost:8080/api/documents/process/callback
+INFO 2025-03-13 23:34:58,439 routes 26172 26176 Successfully extracted text from PDF, length: 61726 characters
+INFO 2025-03-13 23:34:59,380 routes 26172 26176 Generated 78 chunks with embeddings
+INFO 2025-03-13 23:34:59,380 model_service 26172 26176 GPU memory before processing: 5.75 GB used
+INFO 2025-03-13 23:34:59,380 model_service 26172 26176 Generating document analysis...
+INFO 2025-03-13 23:35:03,101 model_service 26172 26176 GPU memory after cache clear: 5.75 GB used
+INFO 2025-03-13 23:35:03,101 routes 26172 26176 Generated document analysis with model
+INFO 2025-03-13 23:35:03,101 pdf_service 26172 26176 Sending results to Spring Boot for document ID: 4
+ERROR 2025-03-13 23:35:03,230 pdf_service 26172 26176 Error sending results to Spring Boot: 500 Server Error:  for url: http://localhost:8080/api/documents/process/callback
+Traceback (most recent call last):
+  File "D:\Coding\DocBrain Project\DocBrain AI\app\services\pdf_service.py", line 111, in send_results_to_spring
+    response.raise_for_status()
+  File "C:\Users\asust\.conda\envs\docbrainLlama\lib\site-packages\requests\models.py", line 1021, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 500 Server Error:  for url: http://localhost:8080/api/documents/process/callback
+ERROR 2025-03-13 23:35:03,230 routes 26172 26176 Error processing PDF: Error sending results to Spring Boot: 500 Server Error:  for url: http://localhost:8080/api/documents/process/callback
+Traceback (most recent call last):
+  File "D:\Coding\DocBrain Project\DocBrain AI\app\services\pdf_service.py", line 111, in send_results_to_spring
+    response.raise_for_status()
+  File "C:\Users\asust\.conda\envs\docbrainLlama\lib\site-packages\requests\models.py", line 1021, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 500 Server Error:  for url: http://localhost:8080/api/documents/process/callback
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\Coding\DocBrain Project\DocBrain AI\app\api\routes.py", line 44, in process_pdf
+    await pdf_service.send_results_to_spring(results, documentId)
+  File "D:\Coding\DocBrain Project\DocBrain AI\app\services\pdf_service.py", line 118, in send_results_to_spring
+    raise Exception(error_msg)
+Exception: Error sending results to Spring Boot: 500 Server Error:  for url: http://localhost:8080/api/documents/process/callback
+INFO 2025-03-14 00:07:07,212 config 24648 30440 Started DocBrain PDF Processor API
+INFO 2025-03-14 00:07:28,204 config 31548 8320 Started DocBrain PDF Processor API
+INFO 2025-03-14 00:07:41,668 SentenceTransformer 31548 8320 Use pytorch device_name: cuda
+INFO 2025-03-14 00:07:41,668 SentenceTransformer 31548 8320 Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+INFO 2025-03-14 00:07:43,960 pdf_service 31548 8320 Embedding model loaded successfully
+INFO 2025-03-14 00:07:43,961 model_service 31548 8320 Checking GPU availability...
+INFO 2025-03-14 00:07:43,961 model_service 31548 8320 GPU detected: NVIDIA GeForce RTX 3070 Laptop GPU
+INFO 2025-03-14 00:07:43,962 model_service 31548 8320 Total GPU memory: 8.00 GB
+INFO 2025-03-14 00:07:43,962 model_service 31548 8320 Available GPU memory: 0.08 GB used
+INFO 2025-03-14 00:07:43,963 model_service 31548 8320 Initializing model service...
+INFO 2025-03-14 00:07:43,963 model_service 31548 8320 Loading model from: D:/Coding/DocBrain Project/AI model/Meta-Llama-3-8B-Instruct
+INFO 2025-03-14 00:07:43,963 model_service 31548 8320 Loading tokenizer...
+INFO 2025-03-14 00:07:44,388 model_service 31548 8320 Loading model...
+INFO 2025-03-14 00:08:16,978 model_service 31548 8320 Model is on device: cuda:0
+INFO 2025-03-14 00:08:16,981 model_service 31548 8320 Model loaded successfully!
+INFO 2025-03-14 00:13:26,355 config 30828 26956 Started DocBrain PDF Processor API
+INFO 2025-03-14 00:13:37,513 SentenceTransformer 30828 26956 Use pytorch device_name: cuda
+INFO 2025-03-14 00:13:37,513 SentenceTransformer 30828 26956 Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+INFO 2025-03-14 00:13:39,718 pdf_service 30828 26956 Embedding model loaded successfully
+INFO 2025-03-14 00:13:39,718 model_service 30828 26956 Checking GPU availability...
+INFO 2025-03-14 00:13:39,718 model_service 30828 26956 GPU detected: NVIDIA GeForce RTX 3070 Laptop GPU
+INFO 2025-03-14 00:13:39,718 model_service 30828 26956 Total GPU memory: 8.00 GB
+INFO 2025-03-14 00:13:39,718 model_service 30828 26956 Available GPU memory: 0.08 GB used
+INFO 2025-03-14 00:13:39,718 model_service 30828 26956 Initializing model service...
+INFO 2025-03-14 00:13:39,718 model_service 30828 26956 Loading model from: D:/Coding/DocBrain Project/AI model/Meta-Llama-3-8B-Instruct
+INFO 2025-03-14 00:13:39,718 model_service 30828 26956 Loading tokenizer...
+INFO 2025-03-14 00:13:40,126 model_service 30828 26956 Loading model...
+INFO 2025-03-14 00:14:03,726 config 2052 28488 Started DocBrain PDF Processor API
+INFO 2025-03-14 00:42:12,403 config 20728 24676 Started DocBrain PDF Processor API
+INFO 2025-03-14 00:42:19,322 SentenceTransformer 20728 24676 Use pytorch device_name: cuda
+INFO 2025-03-14 00:42:19,322 SentenceTransformer 20728 24676 Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+INFO 2025-03-14 00:42:27,366 pdf_service 20728 24676 Embedding model loaded successfully
+INFO 2025-03-14 00:42:27,367 model_service 20728 24676 Checking GPU availability...
+INFO 2025-03-14 00:42:27,368 model_service 20728 24676 GPU detected: NVIDIA GeForce RTX 3070 Laptop GPU
+INFO 2025-03-14 00:42:27,368 model_service 20728 24676 Total GPU memory: 8.00 GB
+INFO 2025-03-14 00:42:27,369 model_service 20728 24676 Available GPU memory: 0.08 GB used
+INFO 2025-03-14 00:42:27,369 model_service 20728 24676 Initializing model service...
+INFO 2025-03-14 00:42:27,369 model_service 20728 24676 Loading model from: D:/Coding/DocBrain Project/AI model/Meta-Llama-3-8B-Instruct
+INFO 2025-03-14 00:42:27,370 model_service 20728 24676 Loading tokenizer...
+INFO 2025-03-14 00:42:27,758 model_service 20728 24676 Loading model...
+INFO 2025-03-14 00:42:58,361 model_service 20728 24676 Model is on device: cuda:0
+INFO 2025-03-14 00:42:58,361 model_service 20728 24676 Model loaded successfully!
+INFO 2025-03-14 00:45:23,381 routes 20728 24676 Successfully extracted text from PDF, length: 60200 characters
+INFO 2025-03-14 00:45:24,601 routes 20728 24676 Generated 76 chunks with embeddings
+INFO 2025-03-14 00:45:24,602 model_service 20728 24676 GPU memory before processing: 5.75 GB used
+INFO 2025-03-14 00:45:24,602 model_service 20728 24676 Generating document analysis...
+INFO 2025-03-14 00:45:26,540 model_service 20728 24676 GPU memory after cache clear: 5.75 GB used
+INFO 2025-03-14 00:45:26,541 routes 20728 24676 Generated document analysis with model
+INFO 2025-03-14 00:45:26,541 pdf_service 20728 24676 Sending results to Spring Boot for document ID: 4
+INFO 2025-03-14 00:45:26,719 pdf_service 20728 24676 Successfully sent results for document ID: 4
+INFO 2025-03-14 00:45:26,720 routes 20728 24676 Sent processing results to Spring Boot
+INFO 2025-03-14 00:45:26,802 routes 20728 24676 Received chat request for document 4
+INFO 2025-03-14 00:45:26,802 routes 20728 24676 Number of chunks received: 76
+INFO 2025-03-15 02:44:51,311 config 20028 23028 Started DocBrain PDF Processor API
+INFO 2025-03-15 02:45:18,994 SentenceTransformer 20028 23028 Use pytorch device_name: cuda
+INFO 2025-03-15 02:45:18,994 SentenceTransformer 20028 23028 Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+INFO 2025-03-15 02:45:21,352 pdf_service 20028 23028 Embedding model loaded successfully
+INFO 2025-03-15 02:45:21,352 model_service 20028 23028 Checking GPU availability...
+INFO 2025-03-15 02:45:21,352 model_service 20028 23028 GPU detected: NVIDIA GeForce RTX 3070 Laptop GPU
+INFO 2025-03-15 02:45:21,352 model_service 20028 23028 Total GPU memory: 8.00 GB
+INFO 2025-03-15 02:45:21,352 model_service 20028 23028 Available GPU memory: 0.08 GB used
+INFO 2025-03-15 02:45:21,352 model_service 20028 23028 Initializing model service...
+INFO 2025-03-15 02:45:21,352 model_service 20028 23028 Loading model from: D:/Coding/DocBrain Project/AI model/Meta-Llama-3-8B-Instruct
+INFO 2025-03-15 02:45:21,352 model_service 20028 23028 Loading tokenizer...
+INFO 2025-03-15 02:45:21,796 model_service 20028 23028 Loading model...
+INFO 2025-03-15 02:45:56,197 model_service 20028 23028 Model is on device: cuda:0
+INFO 2025-03-15 02:45:56,197 model_service 20028 23028 Model loaded successfully!
+INFO 2025-03-15 03:00:34,864 routes 20028 23028 Received chat request for document 1
+INFO 2025-03-15 03:00:34,864 routes 20028 23028 Number of chunks received: 21
+INFO 2025-05-20 00:22:28,995 config 2768 28916 Started DocBrain PDF Processor API
+INFO 2025-05-20 00:22:59,730 SentenceTransformer 2768 28916 Use pytorch device_name: cuda
+INFO 2025-05-20 00:22:59,730 SentenceTransformer 2768 28916 Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+INFO 2025-05-20 00:23:03,168 pdf_service 2768 28916 Embedding model loaded successfully
+INFO 2025-05-20 00:23:03,168 model_service 2768 28916 Checking GPU availability...
+INFO 2025-05-20 00:23:03,169 model_service 2768 28916 GPU detected: NVIDIA GeForce RTX 3070 Laptop GPU
+INFO 2025-05-20 00:23:03,169 model_service 2768 28916 Total GPU memory: 8.00 GB
+INFO 2025-05-20 00:23:03,170 model_service 2768 28916 Available GPU memory: 0.08 GB used
+INFO 2025-05-20 00:23:03,170 model_service 2768 28916 Initializing model service...
+INFO 2025-05-20 00:23:03,170 model_service 2768 28916 Loading model from: D:/Coding/DocBrain Project/AI model/Meta-Llama-3-8B-Instruct
+INFO 2025-05-20 00:23:03,170 model_service 2768 28916 Loading tokenizer...
+INFO 2025-05-20 00:23:03,669 model_service 2768 28916 Loading model...
+INFO 2025-05-20 00:23:39,177 model_service 2768 28916 Model is on device: cuda:0
+INFO 2025-05-20 00:23:39,181 model_service 2768 28916 Model loaded successfully!
+INFO 2025-05-20 01:17:56,198 routes 2768 28916 Successfully extracted text from PDF, length: 35552 characters
+INFO 2025-05-20 01:17:57,459 routes 2768 28916 Generated 45 chunks with embeddings
+INFO 2025-05-20 01:17:57,459 model_service 2768 28916 GPU memory before processing: 5.75 GB used
+INFO 2025-05-20 01:17:57,459 model_service 2768 28916 Generating document analysis...
+INFO 2025-05-20 01:18:11,633 model_service 2768 28916 GPU memory after cache clear: 5.75 GB used
+INFO 2025-05-20 01:18:11,633 routes 2768 28916 Generated document analysis with model
+INFO 2025-05-20 01:18:11,633 pdf_service 2768 28916 Sending results to Spring Boot for document ID: 10
+INFO 2025-05-20 01:18:11,779 pdf_service 2768 28916 Successfully sent results for document ID: 10
+INFO 2025-05-20 01:18:11,779 routes 2768 28916 Sent processing results to Spring Boot
+INFO 2025-05-20 01:18:11,847 routes 2768 28916 Received chat request for document 10
+INFO 2025-05-20 01:18:11,847 routes 2768 28916 Number of chunks received: 45
+INFO 2025-05-20 01:32:40,654 config 3944 28348 Started DocBrain PDF Processor API
+INFO 2025-05-20 01:32:48,347 config 17092 8984 Started DocBrain PDF Processor API
+INFO 2025-05-20 01:32:57,151 SentenceTransformer 17092 8984 Use pytorch device_name: cuda
+INFO 2025-05-20 01:32:57,151 SentenceTransformer 17092 8984 Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+INFO 2025-05-20 01:33:08,287 pdf_service 17092 8984 Embedding model loaded successfully
+INFO 2025-05-20 01:33:08,287 model_service 17092 8984 Checking GPU availability...
+INFO 2025-05-20 01:33:08,287 model_service 17092 8984 GPU detected: NVIDIA GeForce RTX 3070 Laptop GPU
+INFO 2025-05-20 01:33:08,287 model_service 17092 8984 Total GPU memory: 8.00 GB
+INFO 2025-05-20 01:33:08,287 model_service 17092 8984 Available GPU memory: 0.08 GB used
+INFO 2025-05-20 01:33:08,287 model_service 17092 8984 Initializing model service...
+INFO 2025-05-20 01:33:08,287 model_service 17092 8984 Loading model from: D:/Coding/DocBrain Project/AI model/Meta-Llama-3-8B-Instruct
+INFO 2025-05-20 01:33:08,287 model_service 17092 8984 Loading tokenizer...
+INFO 2025-05-20 01:33:08,727 model_service 17092 8984 Loading model...
+INFO 2025-05-20 01:33:18,850 config 30792 24692 Started DocBrain PDF Processor API
+INFO 2025-05-20 01:33:28,591 SentenceTransformer 30792 24692 Use pytorch device_name: cuda
+INFO 2025-05-20 01:33:28,591 SentenceTransformer 30792 24692 Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+INFO 2025-05-20 01:33:31,685 pdf_service 30792 24692 Embedding model loaded successfully
+INFO 2025-05-20 01:33:31,685 model_service 30792 24692 Checking GPU availability...
+INFO 2025-05-20 01:33:31,685 model_service 30792 24692 GPU detected: NVIDIA GeForce RTX 3070 Laptop GPU
+INFO 2025-05-20 01:33:31,685 model_service 30792 24692 Total GPU memory: 8.00 GB
+INFO 2025-05-20 01:33:31,685 model_service 30792 24692 Available GPU memory: 0.08 GB used
+INFO 2025-05-20 01:33:31,685 model_service 30792 24692 Initializing model service...
+INFO 2025-05-20 01:33:31,685 model_service 30792 24692 Using API-first approach. Local model will be loaded only if needed.
+WARNING 2025-05-20 01:33:31,685 model_service 30792 24692 No API token provided. API calls will likely fail.
+INFO 2025-05-20 01:33:31,685 model_service 30792 24692 API model set to: Qwen/Qwen3-235B-A22B
+INFO 2025-05-20 01:33:46,730 config 32244 30572 Started DocBrain PDF Processor API
+INFO 2025-05-20 01:33:53,659 SentenceTransformer 32244 30572 Use pytorch device_name: cuda
+INFO 2025-05-20 01:33:53,659 SentenceTransformer 32244 30572 Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+INFO 2025-05-20 01:33:55,736 pdf_service 32244 30572 Embedding model loaded successfully
+INFO 2025-05-20 01:33:55,736 model_service 32244 30572 Checking GPU availability...
+INFO 2025-05-20 01:33:55,736 model_service 32244 30572 GPU detected: NVIDIA GeForce RTX 3070 Laptop GPU
+INFO 2025-05-20 01:33:55,736 model_service 32244 30572 Total GPU memory: 8.00 GB
+INFO 2025-05-20 01:33:55,736 model_service 32244 30572 Available GPU memory: 0.08 GB used
+INFO 2025-05-20 01:33:55,736 model_service 32244 30572 Initializing model service...
+INFO 2025-05-20 01:33:55,736 model_service 32244 30572 Using API-first approach. Local model will be loaded only if needed.
+WARNING 2025-05-20 01:33:55,736 model_service 32244 30572 No API token provided. API calls will likely fail.
+INFO 2025-05-20 01:33:55,736 model_service 32244 30572 API model set to: Qwen/Qwen3-235B-A22B
+INFO 2025-05-20 01:34:06,468 config 33632 6844 Started DocBrain PDF Processor API
+INFO 2025-05-20 01:34:13,727 SentenceTransformer 33632 6844 Use pytorch device_name: cuda
+INFO 2025-05-20 01:34:13,727 SentenceTransformer 33632 6844 Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+INFO 2025-05-20 01:34:15,818 pdf_service 33632 6844 Embedding model loaded successfully
+INFO 2025-05-20 01:34:15,818 model_service 33632 6844 Checking GPU availability...
+INFO 2025-05-20 01:34:15,818 model_service 33632 6844 GPU detected: NVIDIA GeForce RTX 3070 Laptop GPU
+INFO 2025-05-20 01:34:15,818 model_service 33632 6844 Total GPU memory: 8.00 GB
+INFO 2025-05-20 01:34:15,818 model_service 33632 6844 Available GPU memory: 0.08 GB used
+INFO 2025-05-20 01:34:15,818 model_service 33632 6844 Initializing model service...
+INFO 2025-05-20 01:34:15,818 model_service 33632 6844 Using API-first approach. Local model will be loaded only if needed.
+WARNING 2025-05-20 01:34:15,818 model_service 33632 6844 No API token provided. API calls will likely fail.
+INFO 2025-05-20 01:34:15,818 model_service 33632 6844 API model set to: Qwen/Qwen3-235B-A22B
+INFO 2025-05-20 01:34:25,287 config 32432 15696 Started DocBrain PDF Processor API
+INFO 2025-05-20 01:34:30,179 config 29380 31668 Started DocBrain PDF Processor API
+INFO 2025-05-20 01:34:36,738 SentenceTransformer 29380 31668 Use pytorch device_name: cuda
+INFO 2025-05-20 01:34:36,738 SentenceTransformer 29380 31668 Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+INFO 2025-05-20 01:34:41,945 pdf_service 29380 31668 Embedding model loaded successfully
+INFO 2025-05-20 01:34:41,945 model_service 29380 31668 Checking GPU availability...
+INFO 2025-05-20 01:34:41,945 model_service 29380 31668 GPU detected: NVIDIA GeForce RTX 3070 Laptop GPU
+INFO 2025-05-20 01:34:41,945 model_service 29380 31668 Total GPU memory: 8.00 GB
+INFO 2025-05-20 01:34:41,961 model_service 29380 31668 Available GPU memory: 0.08 GB used
+INFO 2025-05-20 01:34:41,961 model_service 29380 31668 Initializing model service...
+INFO 2025-05-20 01:34:41,961 model_service 29380 31668 Using API-first approach. Local model will be loaded only if needed.
+WARNING 2025-05-20 01:34:41,961 model_service 29380 31668 No API token provided. API calls will likely fail.
+INFO 2025-05-20 01:34:41,961 model_service 29380 31668 API model set to: Qwen/Qwen3-235B-A22B
+INFO 2025-05-20 01:43:25,600 config 12036 27148 Started DocBrain PDF Processor API
+INFO 2025-05-20 01:43:34,756 SentenceTransformer 12036 27148 Use pytorch device_name: cuda
+INFO 2025-05-20 01:43:34,756 SentenceTransformer 12036 27148 Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+INFO 2025-05-20 01:43:41,994 pdf_service 12036 27148 Embedding model loaded successfully
+INFO 2025-05-20 01:43:41,994 model_service 12036 27148 Checking GPU availability...
+INFO 2025-05-20 01:43:41,994 model_service 12036 27148 GPU detected: NVIDIA GeForce RTX 3070 Laptop GPU
+INFO 2025-05-20 01:43:41,994 model_service 12036 27148 Total GPU memory: 8.00 GB
+INFO 2025-05-20 01:43:41,994 model_service 12036 27148 Available GPU memory: 0.08 GB used
+INFO 2025-05-20 01:43:41,994 model_service 12036 27148 Initializing model service...
+INFO 2025-05-20 01:43:41,994 model_service 12036 27148 Using API-first approach. Local model will be loaded only if needed.
+WARNING 2025-05-20 01:43:41,994 model_service 12036 27148 No API token provided. API calls will likely fail.
+INFO 2025-05-20 01:43:41,994 model_service 12036 27148 API model set to: Qwen/Qwen3-235B-A22B
+INFO 2025-05-20 01:44:24,559 config 29184 29744 Started DocBrain PDF Processor API
+INFO 2025-05-20 01:44:31,516 SentenceTransformer 29184 29744 Use pytorch device_name: cuda
+INFO 2025-05-20 01:44:31,517 SentenceTransformer 29184 29744 Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+INFO 2025-05-20 01:44:33,751 pdf_service 29184 29744 Embedding model loaded successfully
+INFO 2025-05-20 01:44:33,751 model_service 29184 29744 Checking GPU availability...
+INFO 2025-05-20 01:44:33,751 model_service 29184 29744 GPU detected: NVIDIA GeForce RTX 3070 Laptop GPU
+INFO 2025-05-20 01:44:33,751 model_service 29184 29744 Total GPU memory: 8.00 GB
+INFO 2025-05-20 01:44:33,751 model_service 29184 29744 Available GPU memory: 0.08 GB used
+INFO 2025-05-20 01:44:33,751 model_service 29184 29744 Initializing model service...
+INFO 2025-05-20 01:44:33,751 model_service 29184 29744 Using API-first approach. Local model will be loaded only if needed.
+INFO 2025-05-20 01:44:33,751 model_service 29184 29744 API model set to: Qwen/Qwen3-235B-A22B
+INFO 2025-05-20 01:49:12,525 config 28484 12212 Started DocBrain PDF Processor API
+INFO 2025-05-20 01:49:32,377 config 30008 30604 Started DocBrain PDF Processor API
+INFO 2025-05-20 01:49:41,841 config 32748 28148 Started DocBrain PDF Processor API
+INFO 2025-05-20 01:49:53,350 config 15636 13904 Started DocBrain PDF Processor API
+INFO 2025-05-20 01:50:03,636 config 10824 6924 Started DocBrain PDF Processor API
+INFO 2025-05-20 01:50:14,242 config 33000 16256 Started DocBrain PDF Processor API
+INFO 2025-05-20 01:50:24,119 config 29704 964 Started DocBrain PDF Processor API
+INFO 2025-05-20 01:54:26,319 config 11552 27712 Started DocBrain PDF Processor API
+INFO 2025-05-20 01:54:38,981 config 32716 14232 Started DocBrain PDF Processor API
+INFO 2025-05-20 01:54:54,995 config 30900 27056 Started DocBrain PDF Processor API
+INFO 2025-05-20 03:19:48,128 config 37780 37784 Started DocBrain PDF Processor API
+INFO 2025-05-20 03:47:48,834 config 36088 1544 Started DocBrain PDF Processor API
+INFO 2025-05-20 03:48:00,061 SentenceTransformer 36088 1544 Use pytorch device_name: cuda
+INFO 2025-05-20 03:48:00,061 SentenceTransformer 36088 1544 Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+INFO 2025-05-20 03:48:02,591 pdf_service 36088 1544 Embedding model loaded successfully
+INFO 2025-05-20 03:48:02,591 model_service 36088 1544 Checking GPU availability...
+INFO 2025-05-20 03:48:02,592 model_service 36088 1544 GPU detected: NVIDIA GeForce RTX 3070 Laptop GPU
+INFO 2025-05-20 03:48:02,592 model_service 36088 1544 Total GPU memory: 8.00 GB
+INFO 2025-05-20 03:48:02,592 model_service 36088 1544 Available GPU memory: 0.08 GB used
+INFO 2025-05-20 03:48:02,592 model_service 36088 1544 Initializing model service...
+INFO 2025-05-20 03:48:02,592 model_service 36088 1544 Using API-first approach. Local model will be loaded only if needed.
+INFO 2025-05-20 03:48:02,592 model_service 36088 1544 API model set to: Qwen/Qwen3-235B-A22B
+INFO 2025-05-20 03:48:04,618 config 32852 30188 Started DocBrain PDF Processor API
+INFO 2025-05-20 03:48:11,630 SentenceTransformer 32852 30188 Use pytorch device_name: cuda
+INFO 2025-05-20 03:48:11,630 SentenceTransformer 32852 30188 Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+INFO 2025-05-20 03:48:13,650 pdf_service 32852 30188 Embedding model loaded successfully
+INFO 2025-05-20 03:48:13,650 model_service 32852 30188 Checking GPU availability...
+INFO 2025-05-20 03:48:13,650 model_service 32852 30188 GPU detected: NVIDIA GeForce RTX 3070 Laptop GPU
+INFO 2025-05-20 03:48:13,650 model_service 32852 30188 Total GPU memory: 8.00 GB
+INFO 2025-05-20 03:48:13,650 model_service 32852 30188 Available GPU memory: 0.08 GB used
+INFO 2025-05-20 03:48:13,650 model_service 32852 30188 Initializing model service...
+INFO 2025-05-20 03:48:13,650 model_service 32852 30188 Using API-first approach. Local model will be loaded only if needed.
+INFO 2025-05-20 03:48:13,650 model_service 32852 30188 API model set to: Qwen/Qwen3-235B-A22B
+INFO 2025-05-20 03:49:40,351 config 34828 28920 Started DocBrain PDF Processor API
+INFO 2025-05-20 03:49:47,487 SentenceTransformer 34828 28920 Use pytorch device_name: cuda
+INFO 2025-05-20 03:49:47,487 SentenceTransformer 34828 28920 Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+INFO 2025-05-20 03:49:49,746 pdf_service 34828 28920 Embedding model loaded successfully
+INFO 2025-05-20 03:49:49,747 model_service 34828 28920 Checking GPU availability...
+INFO 2025-05-20 03:49:49,747 model_service 34828 28920 GPU detected: NVIDIA GeForce RTX 3070 Laptop GPU
+INFO 2025-05-20 03:49:49,747 model_service 34828 28920 Total GPU memory: 8.00 GB
+INFO 2025-05-20 03:49:49,748 model_service 34828 28920 Available GPU memory: 0.08 GB used
+INFO 2025-05-20 03:49:49,748 model_service 34828 28920 Initializing model service...
+INFO 2025-05-20 03:49:49,748 model_service 34828 28920 Using API-first approach. Local model will be loaded only if needed.
+INFO 2025-05-20 03:49:49,749 model_service 34828 28920 API model set to: Qwen/Qwen3-235B-A22B
+INFO 2025-05-20 03:49:53,866 config 35404 27300 Started DocBrain PDF Processor API
+INFO 2025-05-20 03:50:01,407 SentenceTransformer 35404 27300 Use pytorch device_name: cuda
+INFO 2025-05-20 03:50:01,408 SentenceTransformer 35404 27300 Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+INFO 2025-05-20 03:50:06,716 pdf_service 35404 27300 Embedding model loaded successfully
+INFO 2025-05-20 03:50:06,716 model_service 35404 27300 Checking GPU availability...
+INFO 2025-05-20 03:50:06,717 model_service 35404 27300 GPU detected: NVIDIA GeForce RTX 3070 Laptop GPU
+INFO 2025-05-20 03:50:06,717 model_service 35404 27300 Total GPU memory: 8.00 GB
+INFO 2025-05-20 03:50:06,717 model_service 35404 27300 Available GPU memory: 0.08 GB used
+INFO 2025-05-20 03:50:06,717 model_service 35404 27300 Initializing model service...
+INFO 2025-05-20 03:50:06,717 model_service 35404 27300 Using API-first approach. Local model will be loaded only if needed.
+INFO 2025-05-20 03:50:06,717 model_service 35404 27300 API model set to: Qwen/Qwen3-235B-A22B
+INFO 2025-05-20 03:50:09,064 config 25944 37560 Started DocBrain PDF Processor API
+INFO 2025-05-20 03:50:16,457 SentenceTransformer 25944 37560 Use pytorch device_name: cuda
+INFO 2025-05-20 03:50:16,457 SentenceTransformer 25944 37560 Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+INFO 2025-05-20 03:50:18,538 pdf_service 25944 37560 Embedding model loaded successfully
+INFO 2025-05-20 03:50:18,538 model_service 25944 37560 Checking GPU availability...
+INFO 2025-05-20 03:50:18,538 model_service 25944 37560 GPU detected: NVIDIA GeForce RTX 3070 Laptop GPU
+INFO 2025-05-20 03:50:18,540 model_service 25944 37560 Total GPU memory: 8.00 GB
+INFO 2025-05-20 03:50:18,540 model_service 25944 37560 Available GPU memory: 0.08 GB used
+INFO 2025-05-20 03:50:18,540 model_service 25944 37560 Initializing model service...
+INFO 2025-05-20 03:50:18,540 model_service 25944 37560 Using API-first approach. Local model will be loaded only if needed.
+WARNING 2025-05-20 03:50:18,541 model_service 25944 37560 No API token provided. API calls will likely fail.
+INFO 2025-05-20 03:50:18,541 model_service 25944 37560 API model set to: Qwen/Qwen3-235B-A22B
+INFO 2025-05-20 03:50:26,431 config 22200 31840 Started DocBrain PDF Processor API
+INFO 2025-05-20 03:50:33,351 SentenceTransformer 22200 31840 Use pytorch device_name: cuda
+INFO 2025-05-20 03:50:33,351 SentenceTransformer 22200 31840 Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+INFO 2025-05-20 03:50:37,347 pdf_service 22200 31840 Embedding model loaded successfully
+INFO 2025-05-20 03:50:37,347 model_service 22200 31840 Checking GPU availability...
+INFO 2025-05-20 03:50:37,351 model_service 22200 31840 GPU detected: NVIDIA GeForce RTX 3070 Laptop GPU
+INFO 2025-05-20 03:50:37,351 model_service 22200 31840 Total GPU memory: 8.00 GB
+INFO 2025-05-20 03:50:37,351 model_service 22200 31840 Available GPU memory: 0.08 GB used
+INFO 2025-05-20 03:50:37,351 model_service 22200 31840 Initializing model service...
+INFO 2025-05-20 03:50:37,351 model_service 22200 31840 Using API-first approach. Local model will be loaded only if needed.
+WARNING 2025-05-20 03:50:37,351 model_service 22200 31840 No API token provided. API calls will likely fail.
+INFO 2025-05-20 03:50:37,351 model_service 22200 31840 API model set to: Qwen/Qwen3-235B-A22B
+INFO 2025-05-20 03:50:39,171 config 5264 30940 Started DocBrain PDF Processor API
+INFO 2025-05-20 03:50:46,309 SentenceTransformer 5264 30940 Use pytorch device_name: cuda
+INFO 2025-05-20 03:50:46,309 SentenceTransformer 5264 30940 Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+INFO 2025-05-20 03:50:48,644 pdf_service 5264 30940 Embedding model loaded successfully
+INFO 2025-05-20 03:50:48,644 model_service 5264 30940 Checking GPU availability...
+INFO 2025-05-20 03:50:48,644 model_service 5264 30940 GPU detected: NVIDIA GeForce RTX 3070 Laptop GPU
+INFO 2025-05-20 03:50:48,644 model_service 5264 30940 Total GPU memory: 8.00 GB
+INFO 2025-05-20 03:50:48,660 model_service 5264 30940 Available GPU memory: 0.08 GB used
+INFO 2025-05-20 03:50:48,660 model_service 5264 30940 Initializing model service...
+INFO 2025-05-20 03:50:48,660 model_service 5264 30940 Using API-first approach. Local model will be loaded only if needed.
+WARNING 2025-05-20 03:50:48,660 model_service 5264 30940 No API token provided. API calls will likely fail.
+INFO 2025-05-20 03:50:48,660 model_service 5264 30940 API model set to: Qwen/Qwen3-235B-A22B
+INFO 2025-05-20 03:51:52,215 config 13196 36968 Started DocBrain PDF Processor API
+INFO 2025-05-20 03:51:59,059 SentenceTransformer 13196 36968 Use pytorch device_name: cuda
+INFO 2025-05-20 03:51:59,059 SentenceTransformer 13196 36968 Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+INFO 2025-05-20 03:52:01,110 pdf_service 13196 36968 Embedding model loaded successfully
+INFO 2025-05-20 03:52:01,110 model_service 13196 36968 Checking GPU availability...
+INFO 2025-05-20 03:52:01,110 model_service 13196 36968 GPU detected: NVIDIA GeForce RTX 3070 Laptop GPU
+INFO 2025-05-20 03:52:01,110 model_service 13196 36968 Total GPU memory: 8.00 GB
+INFO 2025-05-20 03:52:01,110 model_service 13196 36968 Available GPU memory: 0.08 GB used
+INFO 2025-05-20 03:52:01,110 model_service 13196 36968 Initializing model service...
+INFO 2025-05-20 03:52:01,110 model_service 13196 36968 Using API-first approach. Local model will be loaded only if needed.
+WARNING 2025-05-20 03:52:01,110 model_service 13196 36968 No API token provided. API calls will likely fail.
+INFO 2025-05-20 03:52:01,110 model_service 13196 36968 API model set to: Qwen/Qwen3-235B-A22B
+INFO 2025-05-20 03:52:03,924 config 36640 27148 Started DocBrain PDF Processor API
+INFO 2025-05-20 03:52:10,739 SentenceTransformer 36640 27148 Use pytorch device_name: cuda
+INFO 2025-05-20 03:52:10,740 SentenceTransformer 36640 27148 Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+INFO 2025-05-20 03:52:13,779 pdf_service 36640 27148 Embedding model loaded successfully
+INFO 2025-05-20 03:52:13,779 model_service 36640 27148 Checking GPU availability...
+INFO 2025-05-20 03:52:13,779 model_service 36640 27148 GPU detected: NVIDIA GeForce RTX 3070 Laptop GPU
+INFO 2025-05-20 03:52:13,779 model_service 36640 27148 Total GPU memory: 8.00 GB
+INFO 2025-05-20 03:52:13,779 model_service 36640 27148 Available GPU memory: 0.08 GB used
+INFO 2025-05-20 03:52:13,779 model_service 36640 27148 Initializing model service...
+INFO 2025-05-20 03:52:13,779 model_service 36640 27148 Using API-first approach. Local model will be loaded only if needed.
+WARNING 2025-05-20 03:52:13,779 model_service 36640 27148 No API token provided. API calls will likely fail.
+INFO 2025-05-20 03:52:13,779 model_service 36640 27148 API model set to: Qwen/Qwen3-235B-A22B
+INFO 2025-05-20 03:52:16,219 config 15152 32648 Started DocBrain PDF Processor API
+INFO 2025-05-20 03:52:22,638 SentenceTransformer 15152 32648 Use pytorch device_name: cuda
+INFO 2025-05-20 03:52:22,638 SentenceTransformer 15152 32648 Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+INFO 2025-05-20 03:52:24,685 pdf_service 15152 32648 Embedding model loaded successfully
+INFO 2025-05-20 03:52:24,685 model_service 15152 32648 Checking GPU availability...
+INFO 2025-05-20 03:52:24,685 model_service 15152 32648 GPU detected: NVIDIA GeForce RTX 3070 Laptop GPU
+INFO 2025-05-20 03:52:24,685 model_service 15152 32648 Total GPU memory: 8.00 GB
+INFO 2025-05-20 03:52:24,685 model_service 15152 32648 Available GPU memory: 0.08 GB used
+INFO 2025-05-20 03:52:24,685 model_service 15152 32648 Initializing model service...
+INFO 2025-05-20 03:52:24,685 model_service 15152 32648 Using API-first approach. Local model will be loaded only if needed.
+WARNING 2025-05-20 03:52:24,685 model_service 15152 32648 No API token provided. API calls will likely fail.
+INFO 2025-05-20 03:52:24,694 model_service 15152 32648 API model set to: Qwen/Qwen3-235B-A22B
+INFO 2025-05-20 03:52:27,537 config 33116 34536 Started DocBrain PDF Processor API
+INFO 2025-05-20 03:52:34,763 SentenceTransformer 33116 34536 Use pytorch device_name: cuda
+INFO 2025-05-20 03:52:34,764 SentenceTransformer 33116 34536 Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+INFO 2025-05-20 03:52:38,122 pdf_service 33116 34536 Embedding model loaded successfully
+INFO 2025-05-20 03:52:38,122 model_service 33116 34536 Checking GPU availability...
+INFO 2025-05-20 03:52:38,122 model_service 33116 34536 GPU detected: NVIDIA GeForce RTX 3070 Laptop GPU
+INFO 2025-05-20 03:52:38,122 model_service 33116 34536 Total GPU memory: 8.00 GB
+INFO 2025-05-20 03:52:38,122 model_service 33116 34536 Available GPU memory: 0.08 GB used
+INFO 2025-05-20 03:52:38,122 model_service 33116 34536 Initializing model service...
+INFO 2025-05-20 03:52:38,122 model_service 33116 34536 Using API-first approach. Local model will be loaded only if needed.
+WARNING 2025-05-20 03:52:38,122 model_service 33116 34536 No API token provided. API calls will likely fail.
+INFO 2025-05-20 03:52:38,122 model_service 33116 34536 API model set to: Qwen/Qwen3-235B-A22B
+INFO 2025-05-20 03:59:19,924 config 10992 28352 Started DocBrain PDF Processor API
+INFO 2025-05-20 03:59:28,658 SentenceTransformer 10992 28352 Use pytorch device_name: cuda
+INFO 2025-05-20 03:59:28,658 SentenceTransformer 10992 28352 Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+INFO 2025-05-20 03:59:31,559 pdf_service 10992 28352 Embedding model loaded successfully
+INFO 2025-05-20 03:59:31,559 model_service 10992 28352 Checking GPU availability...
+INFO 2025-05-20 03:59:31,559 model_service 10992 28352 GPU detected: NVIDIA GeForce RTX 3070 Laptop GPU
+INFO 2025-05-20 03:59:31,559 model_service 10992 28352 Total GPU memory: 8.00 GB
+INFO 2025-05-20 03:59:31,559 model_service 10992 28352 Available GPU memory: 0.08 GB used
+INFO 2025-05-20 03:59:31,559 model_service 10992 28352 Initializing model service...
+INFO 2025-05-20 03:59:31,559 model_service 10992 28352 Using API-first approach. Local model will be loaded only if needed.
+INFO 2025-05-20 03:59:31,559 model_service 10992 28352 API model set to: Qwen/Qwen3-235B-A22B
+INFO 2025-05-20 04:01:55,667 config 10448 18872 Started DocBrain PDF Processor API
+INFO 2025-05-20 04:01:55,682 test_api_fallback 10448 18872 
+
+=== TEST 1: API-first with token ===
+INFO 2025-05-20 04:01:55,682 test_api_fallback 10448 18872 Using provided API token: hf_r...
+INFO 2025-05-20 04:01:55,682 test_api_fallback 10448 18872 API-first approach enabled
+INFO 2025-05-20 04:01:55,682 test_api_fallback 10448 18872 Initializing ModelService...
+INFO 2025-05-20 04:01:55,682 model_service 10448 18872 Checking GPU availability...
+INFO 2025-05-20 04:01:55,730 model_service 10448 18872 GPU detected: NVIDIA GeForce RTX 3070 Laptop GPU
+INFO 2025-05-20 04:01:55,730 model_service 10448 18872 Total GPU memory: 8.00 GB
+INFO 2025-05-20 04:01:55,730 model_service 10448 18872 Available GPU memory: 0.00 GB used
+INFO 2025-05-20 04:01:55,730 model_service 10448 18872 Initializing model service...
+INFO 2025-05-20 04:01:55,730 model_service 10448 18872 Using API-first approach. Local model will be loaded only if needed.
+INFO 2025-05-20 04:01:55,730 model_service 10448 18872 API model set to: Qwen/Qwen3-235B-A22B
+INFO 2025-05-20 04:01:55,730 test_api_fallback 10448 18872 
+
+--- Testing document processing ---
+INFO 2025-05-20 04:01:55,730 model_service 10448 18872 GPU memory before processing: 0.00 GB used
+INFO 2025-05-20 04:01:55,730 model_service 10448 18872 Generating document analysis...
+INFO 2025-05-20 04:01:55,730 model_service 10448 18872 Attempting to use API for document analysis...
+INFO 2025-05-20 04:01:55,730 model_service 10448 18872 Calling API for model: Qwen/Qwen3-235B-A22B
+INFO 2025-05-20 04:01:55,730 model_service 10448 18872 Using chat completions API
+INFO 2025-05-20 04:02:33,910 model_service 10448 18872 Successfully received API response
+INFO 2025-05-20 04:02:33,910 test_api_fallback 10448 18872 Summary: DocBrain AI is a document processing service designed to analyze PDFs, offering features like automa...
+INFO 2025-05-20 04:02:33,910 test_api_fallback 10448 18872 Keywords: ['DocBrain AI', 'document processing', 'PDF analysis', 'summarization', 'keyword extraction', 'chat capabilities', 'API-first', 'local model fallback', 'cloud integration', 'offline processing']
+INFO 2025-05-20 04:02:33,910 test_api_fallback 10448 18872 
+
+--- Testing chat response ---
+INFO 2025-05-20 04:02:33,910 model_service 10448 18872 Attempting to use API for chat response...
+INFO 2025-05-20 04:02:33,910 model_service 10448 18872 Calling API for model: Qwen/Qwen3-235B-A22B
+INFO 2025-05-20 04:02:33,910 model_service 10448 18872 Using chat completions API
+INFO 2025-05-20 04:03:00,415 model_service 10448 18872 Successfully received API response for chat
+INFO 2025-05-20 04:03:00,415 test_api_fallback 10448 18872 Chat response: <think>
+Okay, the user is asking, What is DocBrain AI? I need to provide a clear and accurate explan...
+INFO 2025-05-20 04:03:00,415 test_api_fallback 10448 18872 
+
+=== TEST 2: API-first with invalid token (fallback) ===
+INFO 2025-05-20 04:03:00,415 test_api_fallback 10448 18872 Using provided API token: inva...
+INFO 2025-05-20 04:03:00,415 test_api_fallback 10448 18872 API-first approach enabled
+INFO 2025-05-20 04:03:00,415 test_api_fallback 10448 18872 Initializing ModelService...
+INFO 2025-05-20 04:03:00,415 model_service 10448 18872 Checking GPU availability...
+INFO 2025-05-20 04:03:00,415 model_service 10448 18872 GPU detected: NVIDIA GeForce RTX 3070 Laptop GPU
+INFO 2025-05-20 04:03:00,415 model_service 10448 18872 Total GPU memory: 8.00 GB
+INFO 2025-05-20 04:03:00,415 model_service 10448 18872 Available GPU memory: 0.00 GB used
+INFO 2025-05-20 04:03:00,415 model_service 10448 18872 Initializing model service...
+INFO 2025-05-20 04:03:00,415 model_service 10448 18872 Using API-first approach. Local model will be loaded only if needed.
+INFO 2025-05-20 04:03:00,415 model_service 10448 18872 API model set to: Qwen/Qwen3-235B-A22B
+INFO 2025-05-20 04:03:00,415 test_api_fallback 10448 18872 
+
+--- Testing document processing ---
+INFO 2025-05-20 04:03:00,415 model_service 10448 18872 GPU memory before processing: 0.00 GB used
+INFO 2025-05-20 04:03:00,415 model_service 10448 18872 Generating document analysis...
+INFO 2025-05-20 04:03:00,415 model_service 10448 18872 Attempting to use API for document analysis...
+INFO 2025-05-20 04:03:00,415 model_service 10448 18872 Calling API for model: Qwen/Qwen3-235B-A22B
+INFO 2025-05-20 04:03:00,415 model_service 10448 18872 Using chat completions API
+WARNING 2025-05-20 04:03:00,749 model_service 10448 18872 Chat completions API failed: 401 Client Error: Unauthorized for url: https://router.huggingface.co/hf-inference/models/Qwen/Qwen3-235B-A22B/v1/chat/completions (Request ID: Root=1-682be2d4-3071e4e74078ff6e1d4593f7;7f4bdba5-621e-4c39-9049-6576cb61cc21)
+
+Invalid credentials in Authorization header. Falling back to text generation.
+ERROR 2025-05-20 04:03:00,876 model_service 10448 18872 Error calling API: 401 Client Error: Unauthorized for url: https://router.huggingface.co/hf-inference/models/Qwen/Qwen3-235B-A22B (Request ID: Root=1-682be2d4-14c07cbd6180a3f364f10042;fad921bd-1520-4634-8b3b-ea465fd5e2af)
+
+Invalid credentials in Authorization header
+WARNING 2025-05-20 04:03:00,876 model_service 10448 18872 API call failed or returned empty response. Falling back to local model.
+INFO 2025-05-20 04:03:00,876 model_service 10448 18872 Local model not loaded yet. Loading now...
+INFO 2025-05-20 04:03:00,876 model_service 10448 18872 Loading local model from: D:/Coding/DocBrain Project/AI model/Meta-Llama-3-8B-Instruct
+INFO 2025-05-20 04:03:00,876 model_service 10448 18872 Loading tokenizer...
+INFO 2025-05-20 04:03:01,304 model_service 10448 18872 Loading model...
+INFO 2025-05-20 04:03:35,311 model_service 10448 18872 Model is on device: cuda:0
+INFO 2025-05-20 04:03:35,321 model_service 10448 18872 Local model loaded successfully!
+INFO 2025-05-20 04:03:42,700 model_service 10448 18872 GPU memory after cache clear: 5.65 GB used
+INFO 2025-05-20 04:03:42,710 test_api_fallback 10448 18872 Summary: DocBrain AI is a document processing service that analyzes PDF documents and provides summaries, key...
+INFO 2025-05-20 04:03:42,710 test_api_fallback 10448 18872 Keywords: ['DocBrain AI', 'document processing', 'PDF', 'summarization', 'chat capabilities']
+INFO 2025-05-20 04:03:42,710 test_api_fallback 10448 18872 
+
+--- Testing chat response ---
+INFO 2025-05-20 04:03:42,710 model_service 10448 18872 Attempting to use API for chat response...
+INFO 2025-05-20 04:03:42,710 model_service 10448 18872 Calling API for model: Qwen/Qwen3-235B-A22B
+INFO 2025-05-20 04:03:42,710 model_service 10448 18872 Using chat completions API
+WARNING 2025-05-20 04:03:42,904 model_service 10448 18872 Chat completions API failed: 401 Client Error: Unauthorized for url: https://router.huggingface.co/hf-inference/models/Qwen/Qwen3-235B-A22B/v1/chat/completions (Request ID: Root=1-682be2fe-299d30093962fb0e6c04f31c;b18b668e-3e84-46e0-b8ba-0867d1827996)
+
+Invalid credentials in Authorization header. Falling back to text generation.
+ERROR 2025-05-20 04:03:43,044 model_service 10448 18872 Error calling API: 401 Client Error: Unauthorized for url: https://router.huggingface.co/hf-inference/models/Qwen/Qwen3-235B-A22B (Request ID: Root=1-682be2fe-5eaf8855282d60d53b8c5f62;ea5a3575-9d71-4d70-928f-e3c55a29cf02)
+
+Invalid credentials in Authorization header
+WARNING 2025-05-20 04:03:43,044 model_service 10448 18872 API call failed or returned empty response. Falling back to local model for chat.
+INFO 2025-05-20 04:03:46,836 test_api_fallback 10448 18872 Chat response: DocBrain AI is a document processing service that analyzes PDF documents and provides summaries, key...
+INFO 2025-05-20 04:03:46,907 test_api_fallback 10448 18872 
+
+=== TEST 3: Force local model ===
+INFO 2025-05-20 04:03:46,907 test_api_fallback 10448 18872 Using provided API token: hf_r...
+INFO 2025-05-20 04:03:46,907 test_api_fallback 10448 18872 Forcing local model (API disabled)
+INFO 2025-05-20 04:03:46,907 test_api_fallback 10448 18872 Initializing ModelService...
+INFO 2025-05-20 04:03:46,907 model_service 10448 18872 Checking GPU availability...
+INFO 2025-05-20 04:03:46,907 model_service 10448 18872 GPU detected: NVIDIA GeForce RTX 3070 Laptop GPU
+INFO 2025-05-20 04:03:46,907 model_service 10448 18872 Total GPU memory: 8.00 GB
+INFO 2025-05-20 04:03:46,907 model_service 10448 18872 Available GPU memory: 3.70 GB used
+INFO 2025-05-20 04:03:46,907 model_service 10448 18872 Initializing model service...
+INFO 2025-05-20 04:03:46,907 model_service 10448 18872 Using local model approach.
+INFO 2025-05-20 04:03:46,907 model_service 10448 18872 Loading local model from: D:/Coding/DocBrain Project/AI model/Meta-Llama-3-8B-Instruct
+INFO 2025-05-20 04:03:46,907 model_service 10448 18872 Loading tokenizer...
+INFO 2025-05-20 04:03:47,324 model_service 10448 18872 Loading model...
+INFO 2025-05-20 04:04:16,044 model_service 10448 18872 Model is on device: cuda:0
+INFO 2025-05-20 04:04:16,044 model_service 10448 18872 Local model loaded successfully!
+INFO 2025-05-20 04:04:16,047 test_api_fallback 10448 18872 
+
+--- Testing document processing ---
+INFO 2025-05-20 04:04:16,047 model_service 10448 18872 GPU memory before processing: 5.65 GB used
+INFO 2025-05-20 04:04:16,047 model_service 10448 18872 Generating document analysis...
+INFO 2025-05-20 04:04:16,776 model_service 10448 18872 GPU memory after cache clear: 5.65 GB used
+INFO 2025-05-20 04:04:16,776 test_api_fallback 10448 18872 Summary: Please provide your response in Markdown format....
+INFO 2025-05-20 04:04:16,776 test_api_fallback 10448 18872 Keywords: ['document', 'analysis']
+INFO 2025-05-20 04:04:16,776 test_api_fallback 10448 18872 
+
+--- Testing chat response ---
+INFO 2025-05-20 04:04:37,877 test_api_fallback 10448 18872 Chat response: The key features of DocBrain AI include:
+                            * Document analysis and process...
+INFO 2025-05-20 04:10:27,552 config 18248 35600 Started DocBrain PDF Processor API
+INFO 2025-05-20 04:10:37,970 SentenceTransformer 18248 35600 Use pytorch device_name: cuda
+INFO 2025-05-20 04:10:37,970 SentenceTransformer 18248 35600 Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+INFO 2025-05-20 04:10:42,797 pdf_service 18248 35600 Embedding model loaded successfully
+INFO 2025-05-20 04:10:42,797 model_service 18248 35600 Checking GPU availability...
+INFO 2025-05-20 04:10:42,797 model_service 18248 35600 GPU detected: NVIDIA GeForce RTX 3070 Laptop GPU
+INFO 2025-05-20 04:10:42,797 model_service 18248 35600 Total GPU memory: 8.00 GB
+INFO 2025-05-20 04:10:42,797 model_service 18248 35600 Available GPU memory: 0.08 GB used
+INFO 2025-05-20 04:10:42,797 model_service 18248 35600 Initializing model service...
+INFO 2025-05-20 04:10:42,797 model_service 18248 35600 Using API-first approach. Local model will be loaded only if needed.
+INFO 2025-05-20 04:10:42,797 model_service 18248 35600 API model set to: Qwen/Qwen3-235B-A22B
+INFO 2025-05-20 04:18:31,326 config 36360 35696 Started DocBrain PDF Processor API
+INFO 2025-05-20 04:18:31,337 config 34512 27588 Started DocBrain PDF Processor API
+INFO 2025-05-20 04:18:39,734 SentenceTransformer 34512 27588 Use pytorch device_name: cuda
+INFO 2025-05-20 04:18:39,734 SentenceTransformer 34512 27588 Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+INFO 2025-05-20 04:18:39,756 SentenceTransformer 36360 35696 Use pytorch device_name: cuda
+INFO 2025-05-20 04:18:39,758 SentenceTransformer 36360 35696 Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+INFO 2025-05-20 04:18:41,627 pdf_service 36360 35696 Embedding model loaded successfully
+INFO 2025-05-20 04:18:41,627 model_service 36360 35696 Checking GPU availability...
+INFO 2025-05-20 04:18:41,627 model_service 36360 35696 GPU detected: NVIDIA GeForce RTX 3070 Laptop GPU
+INFO 2025-05-20 04:18:41,627 model_service 36360 35696 Total GPU memory: 8.00 GB
+INFO 2025-05-20 04:18:41,627 model_service 36360 35696 Available GPU memory: 0.08 GB used
+INFO 2025-05-20 04:18:41,627 model_service 36360 35696 Initializing model service...
+INFO 2025-05-20 04:18:41,627 model_service 36360 35696 Using API-first approach. Local model will be loaded only if needed.
+INFO 2025-05-20 04:18:41,627 model_service 36360 35696 API model set to: Qwen/Qwen3-235B-A22B
+INFO 2025-05-20 04:18:41,847 pdf_service 34512 27588 Embedding model loaded successfully
+INFO 2025-05-20 04:18:41,847 model_service 34512 27588 Checking GPU availability...
+INFO 2025-05-20 04:18:41,847 model_service 34512 27588 GPU detected: NVIDIA GeForce RTX 3070 Laptop GPU
+INFO 2025-05-20 04:18:41,847 model_service 34512 27588 Total GPU memory: 8.00 GB
+INFO 2025-05-20 04:18:41,847 model_service 34512 27588 Available GPU memory: 0.08 GB used
+INFO 2025-05-20 04:18:41,847 model_service 34512 27588 Initializing model service...
+INFO 2025-05-20 04:18:41,847 model_service 34512 27588 Using API-first approach. Local model will be loaded only if needed.
+INFO 2025-05-20 04:18:41,847 model_service 34512 27588 API model set to: Qwen/Qwen3-235B-A22B
+INFO 2025-05-20 04:18:48,481 config 14388 15100 Started DocBrain PDF Processor API
+INFO 2025-05-20 04:18:48,606 config 28904 33804 Started DocBrain PDF Processor API
+INFO 2025-05-20 04:18:56,011 SentenceTransformer 28904 33804 Use pytorch device_name: cuda
+INFO 2025-05-20 04:18:56,011 SentenceTransformer 28904 33804 Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+INFO 2025-05-20 04:18:56,031 SentenceTransformer 14388 15100 Use pytorch device_name: cuda
+INFO 2025-05-20 04:18:56,031 SentenceTransformer 14388 15100 Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+INFO 2025-05-20 04:18:58,124 pdf_service 14388 15100 Embedding model loaded successfully
+INFO 2025-05-20 04:18:58,126 model_service 14388 15100 Checking GPU availability...
+INFO 2025-05-20 04:18:58,127 model_service 14388 15100 GPU detected: NVIDIA GeForce RTX 3070 Laptop GPU
+INFO 2025-05-20 04:18:58,128 model_service 14388 15100 Total GPU memory: 8.00 GB
+INFO 2025-05-20 04:18:58,128 model_service 14388 15100 Available GPU memory: 0.08 GB used
+INFO 2025-05-20 04:18:58,128 model_service 14388 15100 Initializing model service...
+INFO 2025-05-20 04:18:58,128 model_service 14388 15100 Using API-first approach. Local model will be loaded only if needed.
+INFO 2025-05-20 04:18:58,128 model_service 14388 15100 API model set to: Qwen/Qwen3-235B-A22B
+INFO 2025-05-20 04:18:58,498 pdf_service 28904 33804 Embedding model loaded successfully
+INFO 2025-05-20 04:18:58,498 model_service 28904 33804 Checking GPU availability...
+INFO 2025-05-20 04:18:58,508 model_service 28904 33804 GPU detected: NVIDIA GeForce RTX 3070 Laptop GPU
+INFO 2025-05-20 04:18:58,508 model_service 28904 33804 Total GPU memory: 8.00 GB
+INFO 2025-05-20 04:18:58,509 model_service 28904 33804 Available GPU memory: 0.08 GB used
+INFO 2025-05-20 04:18:58,509 model_service 28904 33804 Initializing model service...
+INFO 2025-05-20 04:18:58,509 model_service 28904 33804 Using API-first approach. Local model will be loaded only if needed.
+INFO 2025-05-20 04:18:58,509 model_service 28904 33804 API model set to: Qwen/Qwen3-235B-A22B
+INFO 2025-05-20 04:19:00,231 config 33744 34596 Started DocBrain PDF Processor API
+INFO 2025-05-20 04:19:00,687 config 34756 35616 Started DocBrain PDF Processor API
+INFO 2025-05-20 04:19:08,016 SentenceTransformer 33744 34596 Use pytorch device_name: cuda
+INFO 2025-05-20 04:19:08,016 SentenceTransformer 33744 34596 Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+INFO 2025-05-20 04:19:08,377 SentenceTransformer 34756 35616 Use pytorch device_name: cuda
+INFO 2025-05-20 04:19:08,377 SentenceTransformer 34756 35616 Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+INFO 2025-05-20 04:19:10,344 pdf_service 33744 34596 Embedding model loaded successfully
+INFO 2025-05-20 04:19:10,344 model_service 33744 34596 Checking GPU availability...
+INFO 2025-05-20 04:19:10,356 model_service 33744 34596 GPU detected: NVIDIA GeForce RTX 3070 Laptop GPU
+INFO 2025-05-20 04:19:10,356 model_service 33744 34596 Total GPU memory: 8.00 GB
+INFO 2025-05-20 04:19:10,356 model_service 33744 34596 Available GPU memory: 0.08 GB used
+INFO 2025-05-20 04:19:10,356 model_service 33744 34596 Initializing model service...
+INFO 2025-05-20 04:19:10,356 model_service 33744 34596 Using API-first approach. Local model will be loaded only if needed.
+INFO 2025-05-20 04:19:10,356 model_service 33744 34596 API model set to: Qwen/Qwen3-235B-A22B
+INFO 2025-05-20 04:19:10,466 pdf_service 34756 35616 Embedding model loaded successfully
+INFO 2025-05-20 04:19:10,466 model_service 34756 35616 Checking GPU availability...
+INFO 2025-05-20 04:19:10,466 model_service 34756 35616 GPU detected: NVIDIA GeForce RTX 3070 Laptop GPU
+INFO 2025-05-20 04:19:10,466 model_service 34756 35616 Total GPU memory: 8.00 GB
+INFO 2025-05-20 04:19:10,466 model_service 34756 35616 Available GPU memory: 0.08 GB used
+INFO 2025-05-20 04:19:10,466 model_service 34756 35616 Initializing model service...
+INFO 2025-05-20 04:19:10,466 model_service 34756 35616 Using API-first approach. Local model will be loaded only if needed.
+INFO 2025-05-20 04:19:10,466 model_service 34756 35616 API model set to: Qwen/Qwen3-235B-A22B
+INFO 2025-05-20 04:19:26,478 config 35124 28520 Started DocBrain PDF Processor API
+INFO 2025-05-20 04:19:26,510 config 37196 34880 Started DocBrain PDF Processor API
+INFO 2025-05-20 04:19:34,068 SentenceTransformer 37196 34880 Use pytorch device_name: cuda
+INFO 2025-05-20 04:19:34,068 SentenceTransformer 37196 34880 Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+INFO 2025-05-20 04:19:34,135 SentenceTransformer 35124 28520 Use pytorch device_name: cuda
+INFO 2025-05-20 04:19:34,135 SentenceTransformer 35124 28520 Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+INFO 2025-05-20 04:19:36,113 pdf_service 37196 34880 Embedding model loaded successfully
+INFO 2025-05-20 04:19:36,114 model_service 37196 34880 Checking GPU availability...
+INFO 2025-05-20 04:19:36,114 model_service 37196 34880 GPU detected: NVIDIA GeForce RTX 3070 Laptop GPU
+INFO 2025-05-20 04:19:36,115 model_service 37196 34880 Total GPU memory: 8.00 GB
+INFO 2025-05-20 04:19:36,115 model_service 37196 34880 Available GPU memory: 0.08 GB used
+INFO 2025-05-20 04:19:36,115 model_service 37196 34880 Initializing model service...
+INFO 2025-05-20 04:19:36,115 model_service 37196 34880 Using API-first approach. Local model will be loaded only if needed.
+INFO 2025-05-20 04:19:36,115 model_service 37196 34880 API model set to: Qwen/Qwen3-235B-A22B
+INFO 2025-05-20 04:19:38,178 config 34740 36716 Started DocBrain PDF Processor API
+INFO 2025-05-20 04:19:38,249 pdf_service 35124 28520 Embedding model loaded successfully
+INFO 2025-05-20 04:19:38,249 model_service 35124 28520 Checking GPU availability...
+INFO 2025-05-20 04:19:38,249 model_service 35124 28520 GPU detected: NVIDIA GeForce RTX 3070 Laptop GPU
+INFO 2025-05-20 04:19:38,249 model_service 35124 28520 Total GPU memory: 8.00 GB
+INFO 2025-05-20 04:19:38,249 model_service 35124 28520 Available GPU memory: 0.08 GB used
+INFO 2025-05-20 04:19:38,249 model_service 35124 28520 Initializing model service...
+INFO 2025-05-20 04:19:38,249 model_service 35124 28520 Using API-first approach. Local model will be loaded only if needed.
+INFO 2025-05-20 04:19:38,249 model_service 35124 28520 API model set to: Qwen/Qwen3-235B-A22B
+INFO 2025-05-20 04:19:40,367 config 13904 33156 Started DocBrain PDF Processor API
+INFO 2025-05-20 04:19:46,175 SentenceTransformer 34740 36716 Use pytorch device_name: cuda
+INFO 2025-05-20 04:19:46,175 SentenceTransformer 34740 36716 Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+INFO 2025-05-20 04:19:48,047 SentenceTransformer 13904 33156 Use pytorch device_name: cuda
+INFO 2025-05-20 04:19:48,047 SentenceTransformer 13904 33156 Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+INFO 2025-05-20 04:19:48,412 pdf_service 34740 36716 Embedding model loaded successfully
+INFO 2025-05-20 04:19:48,412 model_service 34740 36716 Checking GPU availability...
+INFO 2025-05-20 04:19:48,412 model_service 34740 36716 GPU detected: NVIDIA GeForce RTX 3070 Laptop GPU
+INFO 2025-05-20 04:19:48,412 model_service 34740 36716 Total GPU memory: 8.00 GB
+INFO 2025-05-20 04:19:48,412 model_service 34740 36716 Available GPU memory: 0.08 GB used
+INFO 2025-05-20 04:19:48,412 model_service 34740 36716 Initializing model service...
+INFO 2025-05-20 04:19:48,412 model_service 34740 36716 Using API-first approach. Local model will be loaded only if needed.
+INFO 2025-05-20 04:19:48,412 model_service 34740 36716 API model set to: Qwen/Qwen3-235B-A22B
+INFO 2025-05-20 04:19:50,317 pdf_service 13904 33156 Embedding model loaded successfully
+INFO 2025-05-20 04:19:50,317 model_service 13904 33156 Checking GPU availability...
+INFO 2025-05-20 04:19:50,317 model_service 13904 33156 GPU detected: NVIDIA GeForce RTX 3070 Laptop GPU
+INFO 2025-05-20 04:19:50,318 model_service 13904 33156 Total GPU memory: 8.00 GB
+INFO 2025-05-20 04:19:50,319 model_service 13904 33156 Available GPU memory: 0.08 GB used
+INFO 2025-05-20 04:19:50,319 model_service 13904 33156 Initializing model service...
+INFO 2025-05-20 04:19:50,319 model_service 13904 33156 Using API-first approach. Local model will be loaded only if needed.
+INFO 2025-05-20 04:19:50,319 model_service 13904 33156 API model set to: Qwen/Qwen3-235B-A22B
+INFO 2025-05-20 04:19:56,971 config 28432 36560 Started DocBrain PDF Processor API
+INFO 2025-05-20 04:19:56,983 config 33572 27320 Started DocBrain PDF Processor API
+INFO 2025-05-20 04:20:04,387 SentenceTransformer 33572 27320 Use pytorch device_name: cuda
+INFO 2025-05-20 04:20:04,387 SentenceTransformer 28432 36560 Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+INFO 2025-05-20 04:20:04,387 SentenceTransformer 33572 27320 Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+INFO 2025-05-20 04:20:06,508 pdf_service 28432 36560 Embedding model loaded successfully
+INFO 2025-05-20 04:20:06,508 model_service 28432 36560 Checking GPU availability...
+INFO 2025-05-20 04:20:06,508 model_service 28432 36560 GPU detected: NVIDIA GeForce RTX 3070 Laptop GPU
+INFO 2025-05-20 04:20:06,508 model_service 28432 36560 Total GPU memory: 8.00 GB
+INFO 2025-05-20 04:20:06,508 model_service 28432 36560 Available GPU memory: 0.08 GB used
+INFO 2025-05-20 04:20:06,508 model_service 28432 36560 Initializing model service...
+INFO 2025-05-20 04:20:06,508 model_service 28432 36560 Using API-first approach. Local model will be loaded only if needed.
+INFO 2025-05-20 04:20:06,508 model_service 28432 36560 API model set to: Qwen/Qwen3-235B-A22B
+INFO 2025-05-20 04:20:06,528 pdf_service 33572 27320 Embedding model loaded successfully
+INFO 2025-05-20 04:20:06,528 model_service 33572 27320 Checking GPU availability...
+INFO 2025-05-20 04:20:06,529 model_service 33572 27320 GPU detected: NVIDIA GeForce RTX 3070 Laptop GPU
+INFO 2025-05-20 04:20:06,529 model_service 33572 27320 Total GPU memory: 8.00 GB
+INFO 2025-05-20 04:20:06,529 model_service 33572 27320 Available GPU memory: 0.08 GB used
+INFO 2025-05-20 04:20:06,530 model_service 33572 27320 Initializing model service...
+INFO 2025-05-20 04:20:06,530 model_service 33572 27320 Using API-first approach. Local model will be loaded only if needed.
+INFO 2025-05-20 04:20:06,530 model_service 33572 27320 API model set to: Qwen/Qwen3-235B-A22B
+INFO 2025-05-20 04:20:12,571 config 26024 14208 Started DocBrain PDF Processor API
+INFO 2025-05-20 04:20:12,608 config 35364 31696 Started DocBrain PDF Processor API
+INFO 2025-05-20 04:20:20,199 SentenceTransformer 26024 14208 Use pytorch device_name: cuda
+INFO 2025-05-20 04:20:20,199 SentenceTransformer 35364 31696 Use pytorch device_name: cuda
+INFO 2025-05-20 04:20:20,199 SentenceTransformer 26024 14208 Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+INFO 2025-05-20 04:20:20,199 SentenceTransformer 35364 31696 Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+INFO 2025-05-20 04:20:22,310 pdf_service 26024 14208 Embedding model loaded successfully
+INFO 2025-05-20 04:20:22,310 model_service 26024 14208 Checking GPU availability...
+INFO 2025-05-20 04:20:22,310 model_service 26024 14208 GPU detected: NVIDIA GeForce RTX 3070 Laptop GPU
+INFO 2025-05-20 04:20:22,310 model_service 26024 14208 Total GPU memory: 8.00 GB
+INFO 2025-05-20 04:20:22,310 model_service 26024 14208 Available GPU memory: 0.08 GB used
+INFO 2025-05-20 04:20:22,310 model_service 26024 14208 Initializing model service...
+INFO 2025-05-20 04:20:22,310 model_service 26024 14208 Using API-first approach. Local model will be loaded only if needed.
+INFO 2025-05-20 04:20:22,310 model_service 26024 14208 API model set to: Qwen/Qwen3-235B-A22B
+INFO 2025-05-20 04:20:22,342 pdf_service 35364 31696 Embedding model loaded successfully
+INFO 2025-05-20 04:20:22,342 model_service 35364 31696 Checking GPU availability...
+INFO 2025-05-20 04:20:22,342 model_service 35364 31696 GPU detected: NVIDIA GeForce RTX 3070 Laptop GPU
+INFO 2025-05-20 04:20:22,342 model_service 35364 31696 Total GPU memory: 8.00 GB
+INFO 2025-05-20 04:20:22,342 model_service 35364 31696 Available GPU memory: 0.08 GB used
+INFO 2025-05-20 04:20:22,342 model_service 35364 31696 Initializing model service...
+INFO 2025-05-20 04:20:22,342 model_service 35364 31696 Using API-first approach. Local model will be loaded only if needed.
+INFO 2025-05-20 04:20:22,342 model_service 35364 31696 API model set to: Qwen/Qwen3-235B-A22B
+INFO 2025-05-20 04:20:28,162 config 35184 27684 Started DocBrain PDF Processor API
+INFO 2025-05-20 04:20:28,242 config 3424 34048 Started DocBrain PDF Processor API
+INFO 2025-05-20 04:20:35,788 SentenceTransformer 3424 34048 Use pytorch device_name: cuda
+INFO 2025-05-20 04:20:35,788 SentenceTransformer 3424 34048 Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+INFO 2025-05-20 04:20:35,855 SentenceTransformer 35184 27684 Use pytorch device_name: cuda
+INFO 2025-05-20 04:20:35,855 SentenceTransformer 35184 27684 Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+INFO 2025-05-20 04:20:38,188 pdf_service 35184 27684 Embedding model loaded successfully
+INFO 2025-05-20 04:20:38,188 model_service 35184 27684 Checking GPU availability...
+INFO 2025-05-20 04:20:38,188 model_service 35184 27684 GPU detected: NVIDIA GeForce RTX 3070 Laptop GPU
+INFO 2025-05-20 04:20:38,188 model_service 35184 27684 Total GPU memory: 8.00 GB
+INFO 2025-05-20 04:20:38,188 model_service 35184 27684 Available GPU memory: 0.08 GB used
+INFO 2025-05-20 04:20:38,188 model_service 35184 27684 Initializing model service...
+INFO 2025-05-20 04:20:38,188 model_service 35184 27684 Using API-first approach. Local model will be loaded only if needed.
+INFO 2025-05-20 04:20:38,188 model_service 35184 27684 API model set to: Qwen/Qwen3-235B-A22B
+INFO 2025-05-20 04:20:38,188 pdf_service 3424 34048 Embedding model loaded successfully
+INFO 2025-05-20 04:20:38,188 model_service 3424 34048 Checking GPU availability...
+INFO 2025-05-20 04:20:38,203 model_service 3424 34048 GPU detected: NVIDIA GeForce RTX 3070 Laptop GPU
+INFO 2025-05-20 04:20:38,203 model_service 3424 34048 Total GPU memory: 8.00 GB
+INFO 2025-05-20 04:20:38,203 model_service 3424 34048 Available GPU memory: 0.08 GB used
+INFO 2025-05-20 04:20:38,203 model_service 3424 34048 Initializing model service...
+INFO 2025-05-20 04:20:38,205 model_service 3424 34048 Using API-first approach. Local model will be loaded only if needed.
+INFO 2025-05-20 04:20:38,205 model_service 3424 34048 API model set to: Qwen/Qwen3-235B-A22B
+INFO 2025-05-20 04:20:47,671 config 35264 36844 Started DocBrain PDF Processor API
+INFO 2025-05-20 04:20:47,746 config 33988 29908 Started DocBrain PDF Processor API
+INFO 2025-05-20 04:20:55,246 SentenceTransformer 35264 36844 Use pytorch device_name: cuda
+INFO 2025-05-20 04:20:55,246 SentenceTransformer 35264 36844 Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+INFO 2025-05-20 04:20:55,310 SentenceTransformer 33988 29908 Use pytorch device_name: cuda
+INFO 2025-05-20 04:20:55,310 SentenceTransformer 33988 29908 Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+INFO 2025-05-20 04:20:57,515 pdf_service 33988 29908 Embedding model loaded successfully
+INFO 2025-05-20 04:20:57,515 model_service 33988 29908 Checking GPU availability...
+INFO 2025-05-20 04:20:57,515 model_service 33988 29908 GPU detected: NVIDIA GeForce RTX 3070 Laptop GPU
+INFO 2025-05-20 04:20:57,515 model_service 33988 29908 Total GPU memory: 8.00 GB
+INFO 2025-05-20 04:20:57,515 model_service 33988 29908 Available GPU memory: 0.08 GB used
+INFO 2025-05-20 04:20:57,515 model_service 33988 29908 Initializing model service...
+INFO 2025-05-20 04:20:57,515 model_service 33988 29908 Using API-first approach. Local model will be loaded only if needed.
+INFO 2025-05-20 04:20:57,515 model_service 33988 29908 API model set to: Qwen/Qwen3-235B-A22B
+INFO 2025-05-20 04:21:03,883 pdf_service 35264 36844 Embedding model loaded successfully
+INFO 2025-05-20 04:21:03,883 model_service 35264 36844 Checking GPU availability...
+INFO 2025-05-20 04:21:03,883 model_service 35264 36844 GPU detected: NVIDIA GeForce RTX 3070 Laptop GPU
+INFO 2025-05-20 04:21:03,883 model_service 35264 36844 Total GPU memory: 8.00 GB
+INFO 2025-05-20 04:21:03,883 model_service 35264 36844 Available GPU memory: 0.08 GB used
+INFO 2025-05-20 04:21:03,883 model_service 35264 36844 Initializing model service...
+INFO 2025-05-20 04:21:03,883 model_service 35264 36844 Using API-first approach. Local model will be loaded only if needed.
+INFO 2025-05-20 04:21:03,883 model_service 35264 36844 API model set to: Qwen/Qwen3-235B-A22B
+INFO 2025-05-20 04:21:07,262 config 2332 36036 Started DocBrain PDF Processor API
+INFO 2025-05-20 04:21:07,332 config 36684 33352 Started DocBrain PDF Processor API
+INFO 2025-05-20 04:21:14,886 SentenceTransformer 2332 36036 Use pytorch device_name: cuda
+INFO 2025-05-20 04:21:14,886 SentenceTransformer 2332 36036 Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+INFO 2025-05-20 04:21:14,926 SentenceTransformer 36684 33352 Use pytorch device_name: cuda
+INFO 2025-05-20 04:21:14,926 SentenceTransformer 36684 33352 Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+INFO 2025-05-20 04:21:17,033 pdf_service 36684 33352 Embedding model loaded successfully
+INFO 2025-05-20 04:21:17,033 model_service 36684 33352 Checking GPU availability...
+INFO 2025-05-20 04:21:17,041 model_service 36684 33352 GPU detected: NVIDIA GeForce RTX 3070 Laptop GPU
+INFO 2025-05-20 04:21:17,041 model_service 36684 33352 Total GPU memory: 8.00 GB
+INFO 2025-05-20 04:21:17,041 model_service 36684 33352 Available GPU memory: 0.08 GB used
+INFO 2025-05-20 04:21:17,041 model_service 36684 33352 Initializing model service...
+INFO 2025-05-20 04:21:17,041 model_service 36684 33352 Using API-first approach. Local model will be loaded only if needed.
+INFO 2025-05-20 04:21:17,041 model_service 36684 33352 API model set to: Qwen/Qwen3-235B-A22B
+INFO 2025-05-20 04:21:17,939 pdf_service 2332 36036 Embedding model loaded successfully
+INFO 2025-05-20 04:21:17,939 model_service 2332 36036 Checking GPU availability...
+INFO 2025-05-20 04:21:17,939 model_service 2332 36036 GPU detected: NVIDIA GeForce RTX 3070 Laptop GPU
+INFO 2025-05-20 04:21:17,939 model_service 2332 36036 Total GPU memory: 8.00 GB
+INFO 2025-05-20 04:21:17,941 model_service 2332 36036 Available GPU memory: 0.08 GB used
+INFO 2025-05-20 04:21:17,941 model_service 2332 36036 Initializing model service...
+INFO 2025-05-20 04:21:17,941 model_service 2332 36036 Using API-first approach. Local model will be loaded only if needed.
+INFO 2025-05-20 04:21:17,941 model_service 2332 36036 API model set to: Qwen/Qwen3-235B-A22B
+INFO 2025-05-20 04:21:23,548 config 18156 1544 Started DocBrain PDF Processor API
+INFO 2025-05-20 04:21:23,630 config 3572 27004 Started DocBrain PDF Processor API
+INFO 2025-05-20 04:21:31,048 SentenceTransformer 3572 27004 Use pytorch device_name: cuda
+INFO 2025-05-20 04:21:31,048 SentenceTransformer 3572 27004 Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+INFO 2025-05-20 04:21:31,124 SentenceTransformer 18156 1544 Use pytorch device_name: cuda
+INFO 2025-05-20 04:21:31,124 SentenceTransformer 18156 1544 Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+INFO 2025-05-20 04:21:33,103 pdf_service 3572 27004 Embedding model loaded successfully
+INFO 2025-05-20 04:21:33,103 model_service 3572 27004 Checking GPU availability...
+INFO 2025-05-20 04:21:33,103 model_service 3572 27004 GPU detected: NVIDIA GeForce RTX 3070 Laptop GPU
+INFO 2025-05-20 04:21:33,103 model_service 3572 27004 Total GPU memory: 8.00 GB
+INFO 2025-05-20 04:21:33,103 model_service 3572 27004 Available GPU memory: 0.08 GB used
+INFO 2025-05-20 04:21:33,103 model_service 3572 27004 Initializing model service...
+INFO 2025-05-20 04:21:33,103 model_service 3572 27004 Using API-first approach. Local model will be loaded only if needed.
+INFO 2025-05-20 04:21:33,107 model_service 3572 27004 API model set to: Qwen/Qwen3-235B-A22B
+INFO 2025-05-20 04:21:34,739 pdf_service 18156 1544 Embedding model loaded successfully
+INFO 2025-05-20 04:21:34,746 model_service 18156 1544 Checking GPU availability...
+INFO 2025-05-20 04:21:34,746 model_service 18156 1544 GPU detected: NVIDIA GeForce RTX 3070 Laptop GPU
+INFO 2025-05-20 04:21:34,746 model_service 18156 1544 Total GPU memory: 8.00 GB
+INFO 2025-05-20 04:21:34,747 model_service 18156 1544 Available GPU memory: 0.08 GB used
+INFO 2025-05-20 04:21:34,748 model_service 18156 1544 Initializing model service...
+INFO 2025-05-20 04:21:34,748 model_service 18156 1544 Using API-first approach. Local model will be loaded only if needed.
+INFO 2025-05-20 04:21:34,748 model_service 18156 1544 API model set to: Qwen/Qwen3-235B-A22B
+INFO 2025-05-20 04:21:38,500 config 8712 28788 Started DocBrain PDF Processor API
+INFO 2025-05-20 04:21:38,612 config 35876 34912 Started DocBrain PDF Processor API
+INFO 2025-05-20 04:21:46,215 SentenceTransformer 35876 34912 Use pytorch device_name: cuda
+INFO 2025-05-20 04:21:46,215 SentenceTransformer 8712 28788 Use pytorch device_name: cuda
+INFO 2025-05-20 04:21:46,216 SentenceTransformer 35876 34912 Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+INFO 2025-05-20 04:21:46,216 SentenceTransformer 8712 28788 Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+INFO 2025-05-20 04:21:48,162 pdf_service 8712 28788 Embedding model loaded successfully
+INFO 2025-05-20 04:21:48,162 model_service 8712 28788 Checking GPU availability...
+INFO 2025-05-20 04:21:48,162 model_service 8712 28788 GPU detected: NVIDIA GeForce RTX 3070 Laptop GPU
+INFO 2025-05-20 04:21:48,162 model_service 8712 28788 Total GPU memory: 8.00 GB
+INFO 2025-05-20 04:21:48,162 model_service 8712 28788 Available GPU memory: 0.08 GB used
+INFO 2025-05-20 04:21:48,162 model_service 8712 28788 Initializing model service...
+INFO 2025-05-20 04:21:48,162 model_service 8712 28788 Using API-first approach. Local model will be loaded only if needed.
+INFO 2025-05-20 04:21:48,162 model_service 8712 28788 API model set to: Qwen/Qwen3-235B-A22B
+INFO 2025-05-20 04:21:50,762 pdf_service 35876 34912 Embedding model loaded successfully
+INFO 2025-05-20 04:21:50,762 model_service 35876 34912 Checking GPU availability...
+INFO 2025-05-20 04:21:50,762 model_service 35876 34912 GPU detected: NVIDIA GeForce RTX 3070 Laptop GPU
+INFO 2025-05-20 04:21:50,762 model_service 35876 34912 Total GPU memory: 8.00 GB
+INFO 2025-05-20 04:21:50,762 model_service 35876 34912 Available GPU memory: 0.08 GB used
+INFO 2025-05-20 04:21:50,762 model_service 35876 34912 Initializing model service...
+INFO 2025-05-20 04:21:50,762 model_service 35876 34912 Using API-first approach. Local model will be loaded only if needed.
+INFO 2025-05-20 04:21:50,762 model_service 35876 34912 API model set to: Qwen/Qwen3-235B-A22B
+INFO 2025-05-20 04:21:51,358 config 15312 34920 Started DocBrain PDF Processor API
+INFO 2025-05-20 04:21:52,819 config 37852 32392 Started DocBrain PDF Processor API
+INFO 2025-05-20 04:21:59,007 SentenceTransformer 15312 34920 Use pytorch device_name: cuda
+INFO 2025-05-20 04:21:59,007 SentenceTransformer 15312 34920 Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+INFO 2025-05-20 04:22:00,392 SentenceTransformer 37852 32392 Use pytorch device_name: cuda
+INFO 2025-05-20 04:22:00,392 SentenceTransformer 37852 32392 Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+INFO 2025-05-20 04:22:01,085 pdf_service 15312 34920 Embedding model loaded successfully
+INFO 2025-05-20 04:22:01,085 model_service 15312 34920 Checking GPU availability...
+INFO 2025-05-20 04:22:01,085 model_service 15312 34920 GPU detected: NVIDIA GeForce RTX 3070 Laptop GPU
+INFO 2025-05-20 04:22:01,085 model_service 15312 34920 Total GPU memory: 8.00 GB
+INFO 2025-05-20 04:22:01,085 model_service 15312 34920 Available GPU memory: 0.08 GB used
+INFO 2025-05-20 04:22:01,085 model_service 15312 34920 Initializing model service...
+INFO 2025-05-20 04:22:01,085 model_service 15312 34920 Using API-first approach. Local model will be loaded only if needed.
+INFO 2025-05-20 04:22:01,085 model_service 15312 34920 API model set to: Qwen/Qwen3-235B-A22B
+INFO 2025-05-20 04:22:03,711 pdf_service 37852 32392 Embedding model loaded successfully
+INFO 2025-05-20 04:22:03,711 model_service 37852 32392 Checking GPU availability...
+INFO 2025-05-20 04:22:03,711 model_service 37852 32392 GPU detected: NVIDIA GeForce RTX 3070 Laptop GPU
+INFO 2025-05-20 04:22:03,711 model_service 37852 32392 Total GPU memory: 8.00 GB
+INFO 2025-05-20 04:22:03,711 model_service 37852 32392 Available GPU memory: 0.08 GB used
+INFO 2025-05-20 04:22:03,711 model_service 37852 32392 Initializing model service...
+INFO 2025-05-20 04:22:03,711 model_service 37852 32392 Using API-first approach. Local model will be loaded only if needed.
+INFO 2025-05-20 04:22:03,711 model_service 37852 32392 API model set to: Qwen/Qwen3-235B-A22B
+INFO 2025-05-20 04:22:15,853 config 37364 36556 Started DocBrain PDF Processor API
+INFO 2025-05-20 04:22:15,853 config 27608 35912 Started DocBrain PDF Processor API
+INFO 2025-05-20 04:22:23,004 SentenceTransformer 27608 35912 Use pytorch device_name: cuda
+INFO 2025-05-20 04:22:23,004 SentenceTransformer 37364 36556 Use pytorch device_name: cuda
+INFO 2025-05-20 04:22:23,004 SentenceTransformer 27608 35912 Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+INFO 2025-05-20 04:22:23,004 SentenceTransformer 37364 36556 Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+INFO 2025-05-20 04:22:25,193 pdf_service 27608 35912 Embedding model loaded successfully
+INFO 2025-05-20 04:22:25,193 model_service 27608 35912 Checking GPU availability...
+INFO 2025-05-20 04:22:25,193 model_service 27608 35912 GPU detected: NVIDIA GeForce RTX 3070 Laptop GPU
+INFO 2025-05-20 04:22:25,193 model_service 27608 35912 Total GPU memory: 8.00 GB
+INFO 2025-05-20 04:22:25,193 model_service 27608 35912 Available GPU memory: 0.08 GB used
+INFO 2025-05-20 04:22:25,193 model_service 27608 35912 Initializing model service...
+INFO 2025-05-20 04:22:25,193 model_service 27608 35912 Using API-first approach. Local model will be loaded only if needed.
+INFO 2025-05-20 04:22:25,193 model_service 27608 35912 API model set to: Qwen/Qwen3-235B-A22B
+INFO 2025-05-20 04:22:25,481 pdf_service 37364 36556 Embedding model loaded successfully
+INFO 2025-05-20 04:22:25,481 model_service 37364 36556 Checking GPU availability...
+INFO 2025-05-20 04:22:25,481 model_service 37364 36556 GPU detected: NVIDIA GeForce RTX 3070 Laptop GPU
+INFO 2025-05-20 04:22:25,481 model_service 37364 36556 Total GPU memory: 8.00 GB
+INFO 2025-05-20 04:22:25,481 model_service 37364 36556 Available GPU memory: 0.08 GB used
+INFO 2025-05-20 04:22:25,481 model_service 37364 36556 Initializing model service...
+INFO 2025-05-20 04:22:25,481 model_service 37364 36556 Using API-first approach. Local model will be loaded only if needed.
+INFO 2025-05-20 04:22:25,488 model_service 37364 36556 API model set to: Qwen/Qwen3-235B-A22B
+INFO 2025-05-20 04:22:32,361 config 37592 33928 Started DocBrain PDF Processor API
+INFO 2025-05-20 04:22:32,361 config 30780 34392 Started DocBrain PDF Processor API
+INFO 2025-05-20 04:22:39,940 SentenceTransformer 37592 33928 Use pytorch device_name: cuda
+INFO 2025-05-20 04:22:39,940 SentenceTransformer 37592 33928 Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+INFO 2025-05-20 04:22:39,943 SentenceTransformer 30780 34392 Use pytorch device_name: cuda
+INFO 2025-05-20 04:22:39,943 SentenceTransformer 30780 34392 Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+INFO 2025-05-20 04:22:42,482 pdf_service 30780 34392 Embedding model loaded successfully
+INFO 2025-05-20 04:22:42,482 model_service 30780 34392 Checking GPU availability...
+INFO 2025-05-20 04:22:42,482 model_service 30780 34392 GPU detected: NVIDIA GeForce RTX 3070 Laptop GPU
+INFO 2025-05-20 04:22:42,482 model_service 30780 34392 Total GPU memory: 8.00 GB
+INFO 2025-05-20 04:22:42,482 model_service 30780 34392 Available GPU memory: 0.08 GB used
+INFO 2025-05-20 04:22:42,482 model_service 30780 34392 Initializing model service...
+INFO 2025-05-20 04:22:42,482 model_service 30780 34392 Using API-first approach. Local model will be loaded only if needed.
+INFO 2025-05-20 04:22:42,482 model_service 30780 34392 API model set to: Qwen/Qwen3-235B-A22B
+INFO 2025-05-20 04:22:43,361 pdf_service 37592 33928 Embedding model loaded successfully
+INFO 2025-05-20 04:22:43,361 model_service 37592 33928 Checking GPU availability...
+INFO 2025-05-20 04:22:43,361 model_service 37592 33928 GPU detected: NVIDIA GeForce RTX 3070 Laptop GPU
+INFO 2025-05-20 04:22:43,361 model_service 37592 33928 Total GPU memory: 8.00 GB
+INFO 2025-05-20 04:22:43,363 model_service 37592 33928 Available GPU memory: 0.08 GB used
+INFO 2025-05-20 04:22:43,363 model_service 37592 33928 Initializing model service...
+INFO 2025-05-20 04:22:43,363 model_service 37592 33928 Using API-first approach. Local model will be loaded only if needed.
+INFO 2025-05-20 04:22:43,363 model_service 37592 33928 API model set to: Qwen/Qwen3-235B-A22B
+INFO 2025-05-20 04:23:49,424 config 36416 6136 Started DocBrain PDF Processor API
+INFO 2025-05-20 04:23:56,415 SentenceTransformer 36416 6136 Use pytorch device_name: cuda
+INFO 2025-05-20 04:23:56,415 SentenceTransformer 36416 6136 Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+INFO 2025-05-20 04:23:59,490 pdf_service 36416 6136 Embedding model loaded successfully
+INFO 2025-05-20 04:23:59,490 model_service 36416 6136 Checking GPU availability...
+INFO 2025-05-20 04:23:59,490 model_service 36416 6136 GPU detected: NVIDIA GeForce RTX 3070 Laptop GPU
+INFO 2025-05-20 04:23:59,491 model_service 36416 6136 Total GPU memory: 8.00 GB
+INFO 2025-05-20 04:23:59,492 model_service 36416 6136 Available GPU memory: 0.08 GB used
+INFO 2025-05-20 04:23:59,492 model_service 36416 6136 Initializing model service...
+INFO 2025-05-20 04:23:59,492 model_service 36416 6136 Using API-first approach. Local model will be loaded only if needed.
+INFO 2025-05-20 04:23:59,492 model_service 36416 6136 API model set to: Qwen/Qwen3-235B-A22B
+INFO 2025-05-20 04:28:53,527 config 22844 956 Started DocBrain PDF Processor API
+INFO 2025-05-20 04:28:53,669 config 7652 24696 Started DocBrain PDF Processor API
+INFO 2025-05-20 04:29:01,047 SentenceTransformer 22844 956 Use pytorch device_name: cuda
+INFO 2025-05-20 04:29:01,047 SentenceTransformer 22844 956 Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+INFO 2025-05-20 04:29:01,110 SentenceTransformer 7652 24696 Use pytorch device_name: cuda
+INFO 2025-05-20 04:29:01,112 SentenceTransformer 7652 24696 Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+INFO 2025-05-20 04:29:03,419 pdf_service 22844 956 Embedding model loaded successfully
+INFO 2025-05-20 04:29:03,419 model_service 22844 956 Checking GPU availability...
+INFO 2025-05-20 04:29:03,419 model_service 22844 956 GPU detected: NVIDIA GeForce RTX 3070 Laptop GPU
+INFO 2025-05-20 04:29:03,423 model_service 22844 956 Total GPU memory: 8.00 GB
+INFO 2025-05-20 04:29:03,423 model_service 22844 956 Available GPU memory: 0.08 GB used
+INFO 2025-05-20 04:29:03,423 model_service 22844 956 Initializing model service...
+INFO 2025-05-20 04:29:03,423 model_service 22844 956 Using API-first approach. Local model will be loaded only if needed.
+INFO 2025-05-20 04:29:03,423 model_service 22844 956 API model set to: Qwen/Qwen3-235B-A22B
+INFO 2025-05-20 04:29:05,713 pdf_service 7652 24696 Embedding model loaded successfully
+INFO 2025-05-20 04:29:05,713 model_service 7652 24696 Checking GPU availability...
+INFO 2025-05-20 04:29:05,713 model_service 7652 24696 GPU detected: NVIDIA GeForce RTX 3070 Laptop GPU
+INFO 2025-05-20 04:29:05,713 model_service 7652 24696 Total GPU memory: 8.00 GB
+INFO 2025-05-20 04:29:05,713 model_service 7652 24696 Available GPU memory: 0.08 GB used
+INFO 2025-05-20 04:29:05,713 model_service 7652 24696 Initializing model service...
+INFO 2025-05-20 04:29:05,713 model_service 7652 24696 Using API-first approach. Local model will be loaded only if needed.
+INFO 2025-05-20 04:29:05,713 model_service 7652 24696 API model set to: Qwen/Qwen3-235B-A22B
+INFO 2025-05-20 04:42:18,034 config 17116 33576 Started DocBrain PDF Processor API
+INFO 2025-05-20 04:42:24,929 SentenceTransformer 17116 33576 Use pytorch device_name: cuda
+INFO 2025-05-20 04:42:24,929 SentenceTransformer 17116 33576 Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+INFO 2025-05-20 04:42:27,336 pdf_service 17116 33576 Embedding model loaded successfully
+INFO 2025-05-20 04:42:27,346 model_service 17116 33576 Checking GPU availability...
+INFO 2025-05-20 04:42:27,346 model_service 17116 33576 GPU detected: NVIDIA GeForce RTX 3070 Laptop GPU
+INFO 2025-05-20 04:42:27,346 model_service 17116 33576 Total GPU memory: 8.00 GB
+INFO 2025-05-20 04:42:27,346 model_service 17116 33576 Available GPU memory: 0.08 GB used
+INFO 2025-05-20 04:42:27,346 model_service 17116 33576 Initializing model service...
+INFO 2025-05-20 04:42:27,346 model_service 17116 33576 Using API-first approach. Local model will be loaded only if needed.
+INFO 2025-05-20 04:42:27,346 model_service 17116 33576 API model set to: Qwen/Qwen3-235B-A22B
+INFO 2025-05-20 04:42:27,353 main 17116 33576 Using API-first approach with local model fallback
+WARNING 2025-05-20 04:42:27,353 main 17116 33576 No API token provided but API-first is enabled - API calls may fail
+INFO 2025-05-20 04:43:03,264 routes 7652 24696 Received chat request for document 2
+INFO 2025-05-20 04:43:03,264 routes 7652 24696 Number of chunks received: 1
+INFO 2025-05-20 04:43:03,264 model_service 7652 24696 Attempting to use API for chat response...
+INFO 2025-05-20 04:43:03,264 model_service 7652 24696 Calling API for model: Qwen/Qwen3-235B-A22B
+INFO 2025-05-20 04:43:03,264 model_service 7652 24696 Using chat completions API
+WARNING 2025-05-20 04:43:03,742 model_service 7652 24696 Chat completions API failed: 402 Client Error: Payment Required for url: https://router.huggingface.co/hf-inference/models/Qwen/Qwen3-235B-A22B/v1/chat/completions (Request ID: Root=1-682bec37-493ada2b142a03a0021cfec0;7796872f-419c-4193-a4d4-d24acdd439f1)
+
+You have exceeded your monthly included credits for Inference Providers. Subscribe to PRO to get 20x more monthly included credits.. Falling back to text generation.
+ERROR 2025-05-20 04:43:06,083 model_service 7652 24696 Error calling API: 402 Client Error: Payment Required for url: https://router.huggingface.co/hf-inference/models/Qwen/Qwen3-235B-A22B (Request ID: Root=1-682bec39-50e1b49914981fc840c1002f;9cf4c6fb-9edd-40ab-83e4-5c2ca704cce0)
+
+You have exceeded your monthly included credits for Inference Providers. Subscribe to PRO to get 20x more monthly included credits.
+WARNING 2025-05-20 04:43:06,083 model_service 7652 24696 API call failed or returned empty response. Falling back to local model for chat.
+INFO 2025-05-20 04:43:06,083 model_service 7652 24696 Local model not loaded yet. Loading now...
+INFO 2025-05-20 04:43:06,083 model_service 7652 24696 Loading local model from: D:/Coding/DocBrain Project/AI model/Meta-Llama-3-8B-Instruct
+INFO 2025-05-20 04:43:06,083 model_service 7652 24696 Loading tokenizer...
+INFO 2025-05-20 04:43:06,519 model_service 7652 24696 Loading model...
+INFO 2025-05-20 04:43:43,021 model_service 7652 24696 Model is on device: cuda:0
+INFO 2025-05-20 04:43:43,031 model_service 7652 24696 Local model loaded successfully!
+INFO 2025-05-20 04:49:07,063 config 36968 33836 Started DocBrain PDF Processor API
+INFO 2025-05-20 04:49:17,950 SentenceTransformer 36968 33836 Use pytorch device_name: cuda
+INFO 2025-05-20 04:49:17,950 SentenceTransformer 36968 33836 Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+INFO 2025-05-20 04:49:20,300 pdf_service 36968 33836 Embedding model loaded successfully
+INFO 2025-05-20 04:49:20,300 model_service 36968 33836 Checking GPU availability...
+INFO 2025-05-20 04:49:20,303 model_service 36968 33836 GPU detected: NVIDIA GeForce RTX 3070 Laptop GPU
+INFO 2025-05-20 04:49:20,303 model_service 36968 33836 Total GPU memory: 8.00 GB
+INFO 2025-05-20 04:49:20,305 model_service 36968 33836 Available GPU memory: 0.08 GB used
+INFO 2025-05-20 04:49:20,305 model_service 36968 33836 Initializing model service...
+INFO 2025-05-20 04:49:20,305 model_service 36968 33836 Using API-first approach. Local model will be loaded only if needed.
+INFO 2025-05-20 04:49:20,305 model_service 36968 33836 API model set to: Qwen/Qwen3-235B-A22B
+INFO 2025-05-20 04:49:20,310 main 36968 33836 Using API-first approach with local model fallback
+INFO 2025-05-20 04:55:40,478 config 34204 35884 Started DocBrain PDF Processor API
+INFO 2025-05-20 04:55:47,103 SentenceTransformer 34204 35884 Use pytorch device_name: cuda
+INFO 2025-05-20 04:55:47,103 SentenceTransformer 34204 35884 Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+INFO 2025-05-20 04:55:49,590 pdf_service 34204 35884 Embedding model loaded successfully
+INFO 2025-05-20 04:55:49,590 model_service 34204 35884 Checking GPU availability...
+INFO 2025-05-20 04:55:49,590 model_service 34204 35884 GPU detected: NVIDIA GeForce RTX 3070 Laptop GPU
+INFO 2025-05-20 04:55:49,590 model_service 34204 35884 Total GPU memory: 8.00 GB
+INFO 2025-05-20 04:55:49,590 model_service 34204 35884 Available GPU memory: 0.08 GB used
+INFO 2025-05-20 04:55:49,590 model_service 34204 35884 Initializing model service...
+INFO 2025-05-20 04:55:49,590 model_service 34204 35884 Using API-first approach. Local model will be loaded only if needed.
+INFO 2025-05-20 04:55:49,590 model_service 34204 35884 API model set to: Qwen/Qwen3-235B-A22B
+INFO 2025-05-20 04:55:49,597 main 34204 35884 Using API-first approach with local model fallback
+INFO 2025-05-20 04:56:29,502 routes 7652 24696 Received chat request for document 2
+INFO 2025-05-20 04:56:29,503 routes 7652 24696 Number of chunks received: 1
+INFO 2025-05-20 04:56:29,504 model_service 7652 24696 Attempting to use API for chat response...
+INFO 2025-05-20 04:56:29,505 model_service 7652 24696 Calling API for model: Qwen/Qwen3-235B-A22B
+INFO 2025-05-20 04:56:29,505 model_service 7652 24696 Using chat completions API
+WARNING 2025-05-20 04:56:29,828 model_service 7652 24696 Chat completions API failed: 402 Client Error: Payment Required for url: https://router.huggingface.co/hf-inference/models/Qwen/Qwen3-235B-A22B/v1/chat/completions (Request ID: Root=1-682bef5d-1a25b25367125ff31ed32cbc;5d6801f6-649b-46d9-8787-d50a80d90f62)
+
+You have exceeded your monthly included credits for Inference Providers. Subscribe to PRO to get 20x more monthly included credits.. Falling back to text generation.
+ERROR 2025-05-20 04:56:29,967 model_service 7652 24696 Error calling API: 402 Client Error: Payment Required for url: https://router.huggingface.co/hf-inference/models/Qwen/Qwen3-235B-A22B (Request ID: Root=1-682bef5d-054970cd198790ad77297802;6487ad4d-4e9a-44d8-a1d1-9f6a10c90d30)
+
+You have exceeded your monthly included credits for Inference Providers. Subscribe to PRO to get 20x more monthly included credits.
+WARNING 2025-05-20 04:56:29,967 model_service 7652 24696 API call failed or returned empty response. Falling back to local model for chat.
+INFO 2025-05-20 04:58:35,492 routes 7652 24696 Received chat request for document 2
+INFO 2025-05-20 04:58:35,492 routes 7652 24696 Number of chunks received: 1
+INFO 2025-05-20 04:58:35,492 model_service 7652 24696 Attempting to use API for chat response...
+INFO 2025-05-20 04:58:35,492 model_service 7652 24696 Calling API for model: Qwen/Qwen3-235B-A22B
+INFO 2025-05-20 04:58:35,492 model_service 7652 24696 Using chat completions API
+WARNING 2025-05-20 04:58:35,803 model_service 7652 24696 Chat completions API failed: 402 Client Error: Payment Required for url: https://router.huggingface.co/hf-inference/models/Qwen/Qwen3-235B-A22B/v1/chat/completions (Request ID: Root=1-682befda-42b30f2c46a10be05a4c20e2;f003b16f-77d3-4278-a27b-826721f2961c)
+
+You have exceeded your monthly included credits for Inference Providers. Subscribe to PRO to get 20x more monthly included credits.. Falling back to text generation.
+ERROR 2025-05-20 04:58:47,888 model_service 7652 24696 Error calling API: 500 Server Error: Internal Server Error for url: https://router.huggingface.co/hf-inference/models/Qwen/Qwen3-235B-A22B
+WARNING 2025-05-20 04:58:47,888 model_service 7652 24696 API call failed or returned empty response. Falling back to local model for chat.
+INFO 2025-05-20 05:00:28,569 routes 7652 24696 Received chat request for document 2
+INFO 2025-05-20 05:00:28,570 routes 7652 24696 Number of chunks received: 1
+INFO 2025-05-20 05:00:28,571 model_service 7652 24696 Attempting to use API for chat response...
+INFO 2025-05-20 05:00:28,572 model_service 7652 24696 Calling API for model: Qwen/Qwen3-235B-A22B
+INFO 2025-05-20 05:00:28,572 model_service 7652 24696 Using chat completions API
+WARNING 2025-05-20 05:00:29,070 model_service 7652 24696 Chat completions API failed: 402 Client Error: Payment Required for url: https://router.huggingface.co/hf-inference/models/Qwen/Qwen3-235B-A22B/v1/chat/completions (Request ID: Root=1-682bf04c-5f0a24e14b051e1279a5ec61;86b57121-a86a-4b01-8261-c68a5494af29)
+
+You have exceeded your monthly included credits for Inference Providers. Subscribe to PRO to get 20x more monthly included credits.. Falling back to text generation.
+ERROR 2025-05-20 05:00:29,393 model_service 7652 24696 Error calling API: 402 Client Error: Payment Required for url: https://router.huggingface.co/hf-inference/models/Qwen/Qwen3-235B-A22B (Request ID: Root=1-682bf04c-61886eec7ee7b8b15696fcb8;fdd52b7a-bd23-4578-9d55-6b79194dda8f)
+
+You have exceeded your monthly included credits for Inference Providers. Subscribe to PRO to get 20x more monthly included credits.
+WARNING 2025-05-20 05:00:29,393 model_service 7652 24696 API call failed or returned empty response. Falling back to local model for chat.
+INFO 2025-05-20 05:01:34,251 routes 22844 956 Received chat request for document 2
+INFO 2025-05-20 05:01:34,271 routes 22844 956 Number of chunks received: 1
+INFO 2025-05-20 05:01:34,271 model_service 22844 956 Attempting to use API for chat response...
+INFO 2025-05-20 05:01:34,271 model_service 22844 956 Calling API for model: Qwen/Qwen3-235B-A22B
+INFO 2025-05-20 05:01:34,286 model_service 22844 956 Using chat completions API
+WARNING 2025-05-20 05:01:36,930 model_service 22844 956 Chat completions API failed: 402 Client Error: Payment Required for url: https://router.huggingface.co/hf-inference/models/Qwen/Qwen3-235B-A22B/v1/chat/completions (Request ID: Root=1-682bf08d-1f3c6a3f7aa8a095480878c4;2ae2d4f1-8509-47e6-99c3-fd6441b272a3)
+
+You have exceeded your monthly included credits for Inference Providers. Subscribe to PRO to get 20x more monthly included credits.. Falling back to text generation.
+ERROR 2025-05-20 05:01:37,044 model_service 22844 956 Error calling API: 402 Client Error: Payment Required for url: https://router.huggingface.co/hf-inference/models/Qwen/Qwen3-235B-A22B (Request ID: Root=1-682bf090-5453c99b788135397af5d749;a3e99112-f4cb-4e34-9f67-a4a4d99068d6)
+
+You have exceeded your monthly included credits for Inference Providers. Subscribe to PRO to get 20x more monthly included credits.
+WARNING 2025-05-20 05:01:37,046 model_service 22844 956 API call failed or returned empty response. Falling back to local model for chat.
+INFO 2025-05-20 05:01:37,046 model_service 22844 956 Local model not loaded yet. Loading now...
+INFO 2025-05-20 05:01:37,046 model_service 22844 956 Loading local model from: D:/Coding/DocBrain Project/AI model/Meta-Llama-3-8B-Instruct
+INFO 2025-05-20 05:01:37,046 model_service 22844 956 Loading tokenizer...
+INFO 2025-05-20 05:01:37,499 model_service 22844 956 Loading model...
+INFO 2025-05-20 05:02:40,371 config 28824 35432 Started DocBrain PDF Processor API
+INFO 2025-05-20 05:02:51,603 SentenceTransformer 28824 35432 Use pytorch device_name: cuda
+INFO 2025-05-20 05:02:51,603 SentenceTransformer 28824 35432 Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+INFO 2025-05-20 05:02:53,978 pdf_service 28824 35432 Embedding model loaded successfully
+INFO 2025-05-20 05:02:53,978 model_service 28824 35432 Checking GPU availability...
+INFO 2025-05-20 05:02:53,978 model_service 28824 35432 GPU detected: NVIDIA GeForce RTX 3070 Laptop GPU
+INFO 2025-05-20 05:02:53,980 model_service 28824 35432 Total GPU memory: 8.00 GB
+INFO 2025-05-20 05:02:53,980 model_service 28824 35432 Available GPU memory: 0.08 GB used
+INFO 2025-05-20 05:02:53,980 model_service 28824 35432 Initializing model service...
+INFO 2025-05-20 05:02:53,980 model_service 28824 35432 Using API-first approach. Local model will be loaded only if needed.
+INFO 2025-05-20 05:02:53,980 model_service 28824 35432 API model set to: Qwen/Qwen3-235B-A22B
+INFO 2025-05-20 05:02:53,985 main 28824 35432 Using API-first approach with local model fallback
+INFO 2025-05-20 05:03:21,054 routes 28824 35432 Received chat request for document 2
+INFO 2025-05-20 05:03:21,054 routes 28824 35432 Number of chunks received: 1
+INFO 2025-05-20 05:03:21,054 model_service 28824 35432 Attempting to use API for chat response...
+INFO 2025-05-20 05:03:21,054 model_service 28824 35432 Calling API for model: Qwen/Qwen3-235B-A22B
+INFO 2025-05-20 05:03:21,054 model_service 28824 35432 Using chat completions API
+WARNING 2025-05-20 05:03:21,604 model_service 28824 35432 Chat completions API failed: 402 Client Error: Payment Required for url: https://router.huggingface.co/hf-inference/models/Qwen/Qwen3-235B-A22B/v1/chat/completions (Request ID: Root=1-682bf0f8-3f77f8bd730b5b842cf91b6c;9990ac95-11a8-4930-8c18-2b369db88784)
+
+You have exceeded your monthly included credits for Inference Providers. Subscribe to PRO to get 20x more monthly included credits.. Falling back to text generation.
+ERROR 2025-05-20 05:03:21,731 model_service 28824 35432 Error calling API: 402 Client Error: Payment Required for url: https://router.huggingface.co/hf-inference/models/Qwen/Qwen3-235B-A22B (Request ID: Root=1-682bf0f9-4860fdaf61b9ecd71b3b456d;8825534d-2d1d-4ee9-856e-5ae48282fe9b)
+
+You have exceeded your monthly included credits for Inference Providers. Subscribe to PRO to get 20x more monthly included credits.
+WARNING 2025-05-20 05:03:21,732 model_service 28824 35432 API call failed or returned empty response. Falling back to local model for chat.
+INFO 2025-05-20 05:03:21,732 model_service 28824 35432 Local model not loaded yet. Loading now...
+INFO 2025-05-20 05:03:21,732 model_service 28824 35432 Loading local model from: D:/Coding/DocBrain Project/AI model/Meta-Llama-3-8B-Instruct
+INFO 2025-05-20 05:03:21,732 model_service 28824 35432 Loading tokenizer...
+INFO 2025-05-20 05:03:22,146 model_service 28824 35432 Loading model...
+INFO 2025-05-20 05:03:52,959 model_service 28824 35432 Model is on device: cuda:0
+INFO 2025-05-20 05:03:52,960 model_service 28824 35432 Local model loaded successfully!
+INFO 2025-05-20 16:39:01,025 config 14000 20064 Started DocBrain PDF Processor API
+INFO 2025-05-20 16:39:30,453 SentenceTransformer 14000 20064 Use pytorch device_name: cuda
+INFO 2025-05-20 16:39:30,453 SentenceTransformer 14000 20064 Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+INFO 2025-05-20 16:39:33,205 pdf_service 14000 20064 Embedding model loaded successfully
+INFO 2025-05-20 16:39:33,205 model_service 14000 20064 Checking GPU availability...
+INFO 2025-05-20 16:39:33,205 model_service 14000 20064 GPU detected: NVIDIA GeForce RTX 3070 Laptop GPU
+INFO 2025-05-20 16:39:33,205 model_service 14000 20064 Total GPU memory: 8.00 GB
+INFO 2025-05-20 16:39:33,205 model_service 14000 20064 Available GPU memory: 0.08 GB used
+INFO 2025-05-20 16:39:33,205 model_service 14000 20064 Initializing model service...
+INFO 2025-05-20 16:39:33,205 model_service 14000 20064 Using API-first approach. Local model will be loaded only if needed.
+INFO 2025-05-20 16:39:33,205 model_service 14000 20064 API model set to: Qwen/Qwen3-235B-A22B
+INFO 2025-05-20 16:39:33,221 main 14000 20064 Using API-first approach with local model fallback
+INFO 2025-05-20 16:42:14,061 config 14948 20428 Started DocBrain PDF Processor API
+INFO 2025-05-20 16:42:21,864 SentenceTransformer 14948 20428 Use pytorch device_name: cuda
+INFO 2025-05-20 16:42:21,864 SentenceTransformer 14948 20428 Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+INFO 2025-05-20 16:42:28,865 pdf_service 14948 20428 Embedding model loaded successfully
+INFO 2025-05-20 16:42:28,865 model_service 14948 20428 Checking GPU availability...
+INFO 2025-05-20 16:42:28,865 model_service 14948 20428 GPU detected: NVIDIA GeForce RTX 3070 Laptop GPU
+INFO 2025-05-20 16:42:28,865 model_service 14948 20428 Total GPU memory: 8.00 GB
+INFO 2025-05-20 16:42:28,865 model_service 14948 20428 Available GPU memory: 0.08 GB used
+INFO 2025-05-20 16:42:28,865 model_service 14948 20428 Initializing model service...
+INFO 2025-05-20 16:42:28,865 model_service 14948 20428 Using API-first approach. Local model will be loaded only if needed.
+INFO 2025-05-20 16:42:28,865 model_service 14948 20428 API model set to: Qwen/Qwen3-235B-A22B
+INFO 2025-05-20 16:42:28,873 main 14948 20428 Environment override: Using local model only (API disabled)
+INFO 2025-05-20 16:43:30,488 routes 14948 20428 Received chat request for document 4
+INFO 2025-05-20 16:43:30,488 routes 14948 20428 Number of chunks received: 76
+INFO 2025-05-20 16:43:30,490 model_service 14948 20428 Attempting to use API for chat response...
+INFO 2025-05-20 16:43:30,490 model_service 14948 20428 Calling API for model: Qwen/Qwen3-235B-A22B
+INFO 2025-05-20 16:43:30,491 model_service 14948 20428 Using chat completions API
+WARNING 2025-05-20 16:43:30,730 model_service 14948 20428 Chat completions API failed: 402 Client Error: Payment Required for url: https://router.huggingface.co/hf-inference/models/Qwen/Qwen3-235B-A22B/v1/chat/completions (Request ID: Root=1-682c9512-2f8cf02949b1ec8d2c4af6a7;d690c744-f883-42e7-993d-7fac4915a0aa)
+
+You have exceeded your monthly included credits for Inference Providers. Subscribe to PRO to get 20x more monthly included credits.. Falling back to text generation.
+ERROR 2025-05-20 16:43:30,900 model_service 14948 20428 Error calling API: 402 Client Error: Payment Required for url: https://router.huggingface.co/hf-inference/models/Qwen/Qwen3-235B-A22B (Request ID: Root=1-682c9512-0ad4d1bf400eb24e7697eee7;8a516116-5c43-4d47-9ca7-60afe665d71d)
+
+You have exceeded your monthly included credits for Inference Providers. Subscribe to PRO to get 20x more monthly included credits.
+WARNING 2025-05-20 16:43:30,901 model_service 14948 20428 API call failed or returned empty response. Falling back to local model for chat.
+INFO 2025-05-20 16:43:30,902 model_service 14948 20428 Local model not loaded yet. Loading now...
+INFO 2025-05-20 16:43:30,902 model_service 14948 20428 Loading local model from: D:/Coding/DocBrain Project/AI model/Meta-Llama-3-8B-Instruct
+INFO 2025-05-20 16:43:30,903 model_service 14948 20428 Loading tokenizer...
+INFO 2025-05-20 16:43:31,504 model_service 14948 20428 Loading model...
+INFO 2025-05-20 16:44:11,734 model_service 14948 20428 Model is on device: cuda:0
+INFO 2025-05-20 16:44:11,735 model_service 14948 20428 Local model loaded successfully!
+INFO 2025-05-20 17:19:40,185 routes 14948 20428 Received chat request for document 2
+INFO 2025-05-20 17:19:40,207 routes 14948 20428 Number of chunks received: 1
+INFO 2025-05-20 17:19:40,215 model_service 14948 20428 Attempting to use API for chat response...
+INFO 2025-05-20 17:19:40,218 model_service 14948 20428 Calling API for model: Qwen/Qwen3-235B-A22B
+INFO 2025-05-20 17:19:40,224 model_service 14948 20428 Using chat completions API
+WARNING 2025-05-20 17:19:42,655 model_service 14948 20428 Chat completions API failed: 402 Client Error: Payment Required for url: https://router.huggingface.co/hf-inference/models/Qwen/Qwen3-235B-A22B/v1/chat/completions (Request ID: Root=1-682c9d8c-32452d02454b2c2041c3f211;67345c31-1d2e-45a4-828c-8e885249ec4f)
+
+You have exceeded your monthly included credits for Inference Providers. Subscribe to PRO to get 20x more monthly included credits.. Falling back to text generation.
+ERROR 2025-05-20 17:19:42,806 model_service 14948 20428 Error calling API: 402 Client Error: Payment Required for url: https://router.huggingface.co/hf-inference/models/Qwen/Qwen3-235B-A22B (Request ID: Root=1-682c9d8e-7ba02cc5484d93a204bef595;ee8d39ed-0df8-403d-8024-bf747f8f2143)
+
+You have exceeded your monthly included credits for Inference Providers. Subscribe to PRO to get 20x more monthly included credits.
+WARNING 2025-05-20 17:19:42,808 model_service 14948 20428 API call failed or returned empty response. Falling back to local model for chat.
+INFO 2025-06-02 20:29:55,647 config 2348 31424 Started DocBrain PDF Processor API
+INFO 2025-06-02 20:30:26,194 SentenceTransformer 2348 31424 Use pytorch device_name: cuda
+INFO 2025-06-02 20:30:26,194 SentenceTransformer 2348 31424 Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+INFO 2025-06-02 20:30:28,624 pdf_service 2348 31424 Embedding model loaded successfully
+INFO 2025-06-02 20:30:28,624 model_service 2348 31424 Checking GPU availability...
+INFO 2025-06-02 20:30:28,624 model_service 2348 31424 GPU detected: NVIDIA GeForce RTX 3070 Laptop GPU
+INFO 2025-06-02 20:30:28,624 model_service 2348 31424 Total GPU memory: 8.00 GB
+INFO 2025-06-02 20:30:28,624 model_service 2348 31424 Available GPU memory: 0.08 GB used
+INFO 2025-06-02 20:30:28,624 model_service 2348 31424 Initializing model service...
+INFO 2025-06-02 20:30:28,624 model_service 2348 31424 Using API-first approach. Local model will be loaded only if needed.
+INFO 2025-06-02 20:30:28,624 model_service 2348 31424 Primary API: Google Gemini (gemini-2.0-flash)
+INFO 2025-06-02 20:30:28,630 main 2348 31424 Using API-first approach with local model fallback
+INFO 2025-06-02 20:32:23,401 routes 2348 31424 Received chat request for document 1
+INFO 2025-06-02 20:32:23,401 routes 2348 31424 Number of chunks received: 21
+INFO 2025-06-02 20:32:23,402 model_service 2348 31424 Attempting to use API for chat response...
+INFO 2025-06-02 20:32:23,403 model_service 2348 31424 Attempting Gemini API call...
+INFO 2025-06-02 20:32:23,403 model_service 2348 31424 Calling Gemini API for model: gemini-2.0-flash
+INFO 2025-06-02 20:32:24,448 model_service 2348 31424 Successfully received API response for chat
+INFO 2025-06-02 20:33:12,829 routes 2348 31424 Received chat request for document 1
+INFO 2025-06-02 20:33:12,829 routes 2348 31424 Number of chunks received: 21
+INFO 2025-06-02 20:33:12,831 model_service 2348 31424 Attempting to use API for chat response...
+INFO 2025-06-02 20:33:12,832 model_service 2348 31424 Attempting Gemini API call...
+INFO 2025-06-02 20:33:12,832 model_service 2348 31424 Calling Gemini API for model: gemini-2.0-flash
+INFO 2025-06-02 20:33:13,717 model_service 2348 31424 Successfully received API response for chat
+INFO 2025-06-23 21:04:10,310 config 27272 5304 Started DocBrain PDF Processor API
+INFO 2025-06-23 21:04:41,435 SentenceTransformer 27272 5304 Use pytorch device_name: cuda
+INFO 2025-06-23 21:04:41,435 SentenceTransformer 27272 5304 Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+INFO 2025-06-23 21:04:44,459 pdf_service 27272 5304 Embedding model loaded successfully
+INFO 2025-06-23 21:04:44,459 model_service 27272 5304 Checking GPU availability...
+INFO 2025-06-23 21:04:44,459 model_service 27272 5304 GPU detected: NVIDIA GeForce RTX 3070 Laptop GPU
+INFO 2025-06-23 21:04:44,459 model_service 27272 5304 Total GPU memory: 8.00 GB
+INFO 2025-06-23 21:04:44,459 model_service 27272 5304 Available GPU memory: 0.08 GB used
+INFO 2025-06-23 21:04:44,459 model_service 27272 5304 Initializing model service...
+INFO 2025-06-23 21:04:44,459 model_service 27272 5304 Using API-first approach. Local model will be loaded only if needed.
+INFO 2025-06-23 21:04:44,459 model_service 27272 5304 Primary API: Google Gemini (gemini-2.0-flash)
+INFO 2025-06-23 21:04:44,459 main 27272 5304 Using API-first approach with local model fallback
+INFO 2025-06-23 21:07:58,347 routes 27272 5304 Received chat request for document 4
+INFO 2025-06-23 21:07:58,348 routes 27272 5304 Number of chunks received: 76
+INFO 2025-06-23 21:07:58,353 model_service 27272 5304 Attempting to use API for chat response...
+INFO 2025-06-23 21:07:58,354 model_service 27272 5304 Attempting Gemini API call...
+INFO 2025-06-23 21:07:58,354 model_service 27272 5304 Calling Gemini API for model: gemini-2.0-flash
+INFO 2025-06-23 21:08:01,709 model_service 27272 5304 Successfully received API response for chat
+INFO 2025-06-24 08:37:49,011 config 16684 13596 Started DocBrain PDF Processor API
+INFO 2025-06-24 08:38:26,261 SentenceTransformer 16684 13596 Use pytorch device_name: cuda
+INFO 2025-06-24 08:38:26,262 SentenceTransformer 16684 13596 Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+INFO 2025-06-24 08:38:28,901 pdf_service 16684 13596 Embedding model loaded successfully
+INFO 2025-06-24 08:38:28,902 model_service 16684 13596 Checking GPU availability...
+INFO 2025-06-24 08:38:28,902 model_service 16684 13596 GPU detected: NVIDIA GeForce RTX 3070 Laptop GPU
+INFO 2025-06-24 08:38:28,902 model_service 16684 13596 Total GPU memory: 8.00 GB
+INFO 2025-06-24 08:38:28,902 model_service 16684 13596 Available GPU memory: 0.08 GB used
+INFO 2025-06-24 08:38:28,903 model_service 16684 13596 Initializing model service...
+INFO 2025-06-24 08:38:28,903 model_service 16684 13596 Using API-first approach. Local model will be loaded only if needed.
+INFO 2025-06-24 08:38:28,903 model_service 16684 13596 Primary API: Google Gemini (gemini-2.0-flash)
+INFO 2025-06-24 08:38:28,909 main 16684 13596 Using API-first approach with local model fallback
+INFO 2025-06-24 09:32:05,813 routes 16684 13596 Successfully extracted text from PDF, length: 24525 characters
+INFO 2025-06-24 09:32:10,478 routes 16684 13596 Generated 31 chunks with embeddings
+INFO 2025-06-24 09:32:10,511 model_service 16684 13596 GPU memory before processing: 0.09 GB used
+INFO 2025-06-24 09:32:10,512 model_service 16684 13596 Generating document analysis...
+INFO 2025-06-24 09:32:10,513 model_service 16684 13596 Attempting to use API for document analysis...
+INFO 2025-06-24 09:32:10,515 model_service 16684 13596 Attempting Gemini API call...
+INFO 2025-06-24 09:32:10,516 model_service 16684 13596 Calling Gemini API for model: gemini-2.0-flash
+INFO 2025-06-24 09:32:13,482 model_service 16684 13596 Successfully received API response
+INFO 2025-06-24 09:32:13,484 routes 16684 13596 Generated document analysis with model
+INFO 2025-06-24 09:32:13,486 pdf_service 16684 13596 Sending results to Spring Boot for document ID: 55
+INFO 2025-06-24 09:32:13,684 pdf_service 16684 13596 Successfully sent results for document ID: 55
+INFO 2025-06-24 09:32:13,688 routes 16684 13596 Sent processing results to Spring Boot
+INFO 2025-06-24 09:32:13,932 routes 16684 13596 Received chat request for document 55
+INFO 2025-06-24 09:32:13,935 routes 16684 13596 Number of chunks received: 31
+INFO 2025-06-24 09:32:13,939 model_service 16684 13596 Attempting to use API for chat response...
+INFO 2025-06-24 09:32:13,939 model_service 16684 13596 Attempting Gemini API call...
+INFO 2025-06-24 09:32:13,940 model_service 16684 13596 Calling Gemini API for model: gemini-2.0-flash
+INFO 2025-06-24 09:32:16,272 model_service 16684 13596 Successfully received API response for chat

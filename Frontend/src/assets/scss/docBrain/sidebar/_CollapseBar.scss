@@ -1,0 +1,60 @@
+// Content Panel (Collapsible Sidebar)
+@use "sass:map";
+@use "../../config/minimal/variables" as *;
+@use "../../config/minimal/component-mixins" as mixins;
+
+.content-panel {
+  background: var(--#{$prefix}sidebar-menu-bg);
+  transition: width 0.3s ease;
+  overflow: hidden;
+  //border-right: 1px solid var(--#{$prefix}sidebar-menu-border);
+  color: var(--#{$prefix}sidebar-menu-item-color);
+
+  //@include mixins.rtl-support {
+  //  border-right: none;
+  //  border-left: 1px solid var(--#{$prefix}sidebar-menu-border);
+  //}
+
+  &.collapsed {
+    width: 0;
+  }
+}
+
+.panel-content {
+  padding: 15px;
+  color: var(--#{$prefix}sidebar-content-color);
+}
+
+.panel-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 12px;
+  color: var(--#{$prefix}sidebar-menu-title-color);
+}
+
+.panel-menu {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+
+  .panel-menu-item {
+    padding: 0.75rem 1rem;
+    margin: 0.25rem 0;
+    border-radius: map.get($border-radius-map, "sm");
+    cursor: pointer;
+    transition: all 0.2s ease;
+    background-color: var(--#{$prefix}sidebar-menu-item-bg);
+    color: var(--#{$prefix}sidebar-menu-item-color);
+
+    &:hover {
+      background-color: var(--#{$prefix}sidebar-menu-item-hover-bg);
+      color: var(--#{$prefix}sidebar-menu-item-hover-color);
+    }
+
+    &.active {
+      background-color: var(--#{$prefix}sidebar-menu-item-active-bg);
+      color: var(--#{$prefix}sidebar-menu-item-active-color);
+      font-weight: 500;
+    }
+  }
+}

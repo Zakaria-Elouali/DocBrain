@@ -1,0 +1,643 @@
+// Client Documents Sidebar Styles
+@use "sass:map";
+@use "../../config/minimal/variables" as *;
+@use "../../config/minimal/component-mixins" as mixins;
+
+.client-documents-container {
+  width: 100%;
+  height: 100%;
+
+  .client-documents-wrapper {
+    width: 100%;
+    height: 100%;
+    @include mixins.flex-column;
+    background-color: var(--#{$prefix}sidebar-bg);
+    border-right: 1px solid var(--#{$prefix}border-color);
+    box-shadow: map.get($shadow-map, "sm");
+
+    .client-documents-content {
+      flex: 1;
+      padding: 15px;
+      background-color: var(--#{$prefix}sidebar-bg);
+      overflow: auto;
+
+      // Header section with title
+      .client-documents-header {
+        @include mixins.flex-column;
+        padding: 1rem;
+        border-bottom: 1px solid var(--#{$prefix}border-color);
+        background-color: var(--#{$prefix}card-bg);
+        margin-bottom: 1rem;
+
+        h2 {
+          margin: 0 0 1.25rem 0; // Added bottom margin for spacing from button
+          color: var(--#{$prefix}heading-color);
+          font-size: 1.25rem;
+          font-weight: 600;
+          position: relative;
+          align-self: flex-start; // Align to the left
+
+          &:after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 40px;
+            height: 3px;
+            background-color: $primary;
+            border-radius: 3px;
+          }
+        }
+
+        // Create vault button moved below the title
+        .create-vault-button {
+          @include mixins.button("primary");
+          display: flex;
+          align-items: center;
+          gap: 0.5rem;
+          min-width: fit-content;
+          justify-content: center;
+          // align-self: flex-start; // Align to the left
+          margin-top: 0.5rem; // Add spacing from title
+
+          &:disabled {
+            opacity: 0.7;
+            cursor: not-allowed;
+          }
+        }
+      }
+
+      .vaults-list {
+        padding: 1rem;
+        overflow-y: auto;
+        max-height: calc(100vh - 150px);
+
+        .vault-item {
+          display: flex;
+          align-items: center;
+          padding: 0.75rem;
+          border-bottom: 1px solid var(--#{$prefix}border-color-light);
+          background-color: var(--#{$prefix}card-bg);
+          border-radius: 4px;
+          margin-bottom: 0.5rem;
+          transition: all 0.2s ease;
+          cursor: pointer;
+
+          &:hover {
+            background-color: var(--#{$prefix}hover-bg);
+            transform: translateY(-2px);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+          }
+
+          &.selected {
+            background-color: rgba($primary, 0.1);
+            border-left: 3px solid $primary;
+
+            .vault-name {
+              color: $primary;
+              font-weight: 600;
+            }
+          }
+
+          .vault-icon {
+            font-size: 1.25rem;
+            color: $primary;
+            margin-right: 0.75rem;
+            width: 30px;
+            display: flex;
+            justify-content: center;
+          }
+
+          .vault-info {
+            display: flex;
+            flex-direction: column;
+            gap: 0.25rem;
+            flex: 1;
+
+            .vault-name {
+              font-weight: 500;
+              color: var(--#{$prefix}body-color);
+            }
+
+            .vault-date {
+              font-size: 0.75rem;
+              color: var(--#{$prefix}text-muted);
+            }
+          }
+        }
+      }
+
+      .documents-list {
+        padding: 1rem;
+        overflow-y: auto;
+        max-height: calc(100vh - 150px);
+
+        .document-item {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          padding: 0.75rem;
+          border-bottom: 1px solid var(--#{$prefix}border-color-light);
+          background-color: var(--#{$prefix}card-bg);
+          border-radius: 4px;
+          margin-bottom: 0.5rem;
+          transition: all 0.2s ease;
+          cursor: pointer;
+
+          &:hover {
+            background-color: var(--#{$prefix}hover-bg);
+            transform: translateY(-2px);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+          }
+
+          &.selected {
+            background-color: rgba($primary, 0.1);
+            border-left: 3px solid $primary;
+
+            .document-name {
+              color: $primary;
+              font-weight: 600;
+            }
+          }
+
+          .document-info {
+            display: flex;
+            flex-direction: column;
+            gap: 0.25rem;
+
+            .document-name {
+              font-weight: 500;
+              color: var(--#{$prefix}body-color);
+            }
+
+            .document-date {
+              font-size: 0.875rem;
+              color: var(--#{$prefix}text-muted);
+            }
+
+            .document-status {
+              font-size: 0.75rem;
+              font-weight: 500;
+              padding: 0.25rem 0.5rem;
+              border-radius: 1rem;
+              display: inline-block;
+              width: fit-content;
+
+              &.status-pending {
+                background-color: var(--#{$prefix}warning-light);
+                color: var(--#{$prefix}warning);
+              }
+
+              &.status-signed {
+                background-color: var(--#{$prefix}success-light);
+                color: var(--#{$prefix}success);
+              }
+
+              &.status-rejected {
+                background-color: var(--#{$prefix}danger-light);
+                color: var(--#{$prefix}danger);
+              }
+            }
+          }
+
+          .document-actions {
+            display: flex;
+            gap: 0.5rem;
+
+            button {
+              background: none;
+              border: none;
+              color: var(--#{$prefix}text-muted);
+              cursor: pointer;
+              padding: 0.5rem;
+              border-radius: 50%;
+              transition: all 0.2s ease;
+
+              &:hover:not(:disabled) {
+                color: $primary;
+                background-color: rgba($primary, 0.1);
+              }
+
+              &:disabled {
+                opacity: 0.5;
+                cursor: not-allowed;
+              }
+
+              &.signed {
+                color: var(--#{$prefix}success);
+              }
+            }
+          }
+        }
+      }
+
+      .no-vaults {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 300px;
+        color: var(--#{$prefix}text-muted);
+
+        p {
+          margin-bottom: 1.5rem;
+          font-size: 1.1rem;
+        }
+
+        .create-first-vault-button {
+          @include mixins.button("primary");
+          display: flex;
+          align-items: center;
+          gap: 0.5rem;
+          padding: 0.75rem 1.5rem;
+          font-size: 1rem;
+
+          &:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+          }
+        }
+      }
+
+      .no-documents {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 300px;
+        color: var(--#{$prefix}text-muted);
+
+        p {
+          margin-bottom: 1.5rem;
+          font-size: 1.1rem;
+        }
+
+        .upload-first-button {
+          @include mixins.button("primary");
+          display: flex;
+          align-items: center;
+          gap: 0.5rem;
+          padding: 0.75rem 1.5rem;
+          font-size: 1rem;
+
+          &:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+          }
+        }
+      }
+
+      .loading-spinner, .error-message {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 0.5rem;
+        height: 200px;
+        font-size: 1rem;
+      }
+
+      .error-message {
+        color: var(--#{$prefix}danger);
+      }
+
+      .spinner {
+        animation: spin 1s linear infinite;
+      }
+
+      @keyframes spin {
+        from { transform: rotate(0deg); }
+        to { transform: rotate(360deg); }
+      }
+
+      // Upload Modal
+      .upload-modal {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: rgba(0, 0, 0, 0.5);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 1000;
+
+        .upload-modal-content {
+          background-color: var(--#{$prefix}card-bg);
+          border-radius: 8px;
+          width: 500px;
+          max-width: 90%;
+          box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+
+          .upload-modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem;
+            border-bottom: 1px solid var(--#{$prefix}border-color);
+
+            h3 {
+              margin: 0;
+              color: var(--#{$prefix}heading-color);
+            }
+
+            .close-button {
+              background: none;
+              border: none;
+              color: var(--#{$prefix}text-muted);
+              cursor: pointer;
+              font-size: 1.25rem;
+
+              &:hover {
+                color: var(--#{$prefix}danger);
+              }
+            }
+          }
+
+          .upload-modal-body {
+            padding: 1.5rem;
+
+            p {
+              margin-top: 0;
+              margin-bottom: 1rem;
+            }
+
+            input[type="file"] {
+              width: 100%;
+              padding: 0.5rem;
+              border: 1px dashed var(--#{$prefix}border-color);
+              border-radius: 4px;
+              background-color: var(--#{$prefix}input-bg);
+            }
+
+            .client-documents-create-vault-input {
+              margin: 1rem 0;
+
+              input[type="text"] {
+                width: 100%;
+                padding: 0.75rem;
+                border: 1px solid var(--#{$prefix}border-color);
+                border-radius: 4px;
+                background-color: var(--#{$prefix}input-bg);
+                color: var(--#{$prefix}body-color);
+                font-size: 1rem;
+
+                &:focus {
+                  outline: none;
+                  border-color: $primary;
+                  box-shadow: 0 0 0 2px rgba($primary, 0.25);
+                }
+
+                &::placeholder {
+                  color: var(--#{$prefix}text-muted);
+                }
+              }
+            }
+
+            .file-types {
+              margin-top: 1rem;
+              font-size: 0.875rem;
+              color: var(--#{$prefix}text-muted);
+            }
+          }
+
+          .upload-modal-footer {
+            display: flex;
+            justify-content: flex-end;
+            gap: 1rem;
+            padding: 1rem;
+            border-top: 1px solid var(--#{$prefix}border-color);
+
+            .cancel-button {
+              padding: 0.5rem 1rem;
+              background-color: var(--#{$prefix}secondary-light);
+              color: var(--#{$prefix}secondary);
+              border: none;
+              border-radius: 4px;
+              cursor: pointer;
+
+              &:hover {
+                background-color: var(--#{$prefix}secondary);
+                color: #fff;
+              }
+            }
+
+            .upload-button {
+              @include mixins.button("primary");
+              display: flex;
+              align-items: center;
+              gap: 0.5rem;
+
+              &:disabled {
+                opacity: 0.7;
+                cursor: not-allowed;
+              }
+            }
+          }
+        }
+  }
+
+      // Main Area Styles
+      .document-viewer-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem 1.5rem;
+        background-color: var(--#{$prefix}card-bg);
+        border-bottom: 1px solid var(--#{$prefix}border-color);
+
+        h3 {
+          margin: 0;
+          color: var(--#{$prefix}heading-color);
+          font-size: 1.25rem;
+        }
+
+        .document-actions {
+          display: flex;
+          gap: 0.75rem;
+
+          .action-button {
+            @include mixins.button("outline");
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+
+            &:disabled {
+              opacity: 0.7;
+              cursor: not-allowed;
+            }
+          }
+
+          .close-button {
+            background: none;
+            border: none;
+            color: var(--#{$prefix}text-muted);
+            cursor: pointer;
+            font-size: 1.25rem;
+            padding: 0.25rem;
+
+            &:hover {
+              color: var(--#{$prefix}danger);
+            }
+          }
+        }
+      }
+
+      .document-placeholder {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+        padding: 2rem;
+        text-align: center;
+        color: var(--#{$prefix}text-muted);
+
+        h2 {
+          margin-bottom: 1rem;
+          color: var(--#{$prefix}heading-color);
+        }
+
+        p {
+          font-size: 1.1rem;
+          max-width: 500px;
+        }
+      }
+
+      .document-viewer-content {
+        flex: 1;
+        padding: 1.5rem;
+        overflow: auto;
+
+        .document-preview {
+          background-color: var(--#{$prefix}card-bg);
+          padding: 2rem;
+          border-radius: 8px;
+          max-width: 900px;
+          margin: 0 auto;
+          box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+
+          pre {
+            white-space: pre-wrap;
+            word-break: break-word;
+            color: var(--#{$prefix}body-color);
+            font-family: monospace;
+            font-size: 0.9rem;
+            line-height: 1.5;
+            max-height: 60vh;
+            overflow-y: auto;
+            padding: 1rem;
+            background-color: var(--#{$prefix}input-bg);
+            border-radius: 4px;
+          }
+
+          .document-info-display {
+            p {
+              margin: 0.75rem 0;
+              color: var(--#{$prefix}body-color);
+              font-size: 1.1rem;
+            }
+
+            .signature-info {
+              margin-top: 1.5rem;
+              padding-top: 1rem;
+              border-top: 1px solid var(--#{$prefix}border-color);
+
+              p {
+                color: var(--#{$prefix}success);
+                font-weight: 500;
+              }
+            }
+          }
+        }
+      }
+
+      // Document Viewer (Modal)
+      .document-viewer {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: rgba(0, 0, 0, 0.8);
+        display: flex;
+        flex-direction: column;
+        z-index: 1000;
+
+        .document-viewer-header {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          padding: 1rem;
+          background-color: var(--#{$prefix}card-bg);
+          border-bottom: 1px solid var(--#{$prefix}border-color);
+
+          h3 {
+            margin: 0;
+            color: var(--#{$prefix}heading-color);
+          }
+
+          .close-button {
+            background: none;
+            border: none;
+            color: var(--#{$prefix}text-muted);
+            cursor: pointer;
+            font-size: 1.25rem;
+
+            &:hover {
+              color: var(--#{$prefix}danger);
+            }
+          }
+        }
+
+        .document-viewer-content {
+          flex: 1;
+          overflow: auto;
+          padding: 2rem;
+          display: flex;
+          justify-content: center;
+
+          .document-preview {
+            background-color: var(--#{$prefix}card-bg);
+            padding: 2rem;
+            border-radius: 8px;
+            max-width: 800px;
+            width: 100%;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+
+            pre {
+              white-space: pre-wrap;
+              word-break: break-word;
+              color: var(--#{$prefix}body-color);
+              font-family: monospace;
+              font-size: 0.9rem;
+              line-height: 1.5;
+              max-height: 60vh;
+              overflow-y: auto;
+              padding: 1rem;
+              background-color: var(--#{$prefix}input-bg);
+              border-radius: 4px;
+            }
+
+            .document-info-display {
+              p {
+                margin: 0.5rem 0;
+                color: var(--#{$prefix}body-color);
+              }
+
+              .signature-info {
+                margin-top: 1.5rem;
+                padding-top: 1rem;
+                border-top: 1px solid var(--#{$prefix}border-color);
+
+                p {
+                  color: var(--#{$prefix}success);
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

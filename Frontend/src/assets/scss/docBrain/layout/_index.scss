@@ -1,0 +1,18 @@
+// Layout index file - forwards all layout styles
+// This pattern reduces the number of imports in main.scss and improves compilation time
+
+// Structure components (moved from app.scss)
+@forward "../../structure/page-head";
+@forward "../../structure/topbar";
+@forward "../../structure/footer";
+
+// Sidebar components
+@forward "../sidebar/IconsBar";
+@forward "../sidebar/CollapseBar";
+
+// Dashboard components
+@forward "../dashboard/dashboard";
+
+// Dark mode components
+@forward "../darkmode/darkmodeButton";
+@forward "../darkmode/darkmode";

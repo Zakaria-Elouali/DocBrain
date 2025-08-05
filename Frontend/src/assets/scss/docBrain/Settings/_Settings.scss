@@ -1,0 +1,67 @@
+@use "sass:map";
+@use "../../config/minimal/variables" as *;
+@use "../../config/minimal/component-mixins" as mixins;
+
+// Settings sidebar styles
+.settings-sidebar {
+  height: 100%;
+  border-right: 1px solid var(--#{$prefix}settings-sidebar-border);
+
+  .settings-nav {
+    padding: 1rem;
+    @include mixins.flex-column;
+    gap: 0.5rem;
+
+    .settings-nav-item {
+      @include mixins.sidebar-item;
+      @include mixins.flex-center;
+      justify-content: flex-start;
+      padding: 0.75rem 1rem;
+      border-radius: map.get($border-radius-map, "default");
+      transition: all 0.2s;
+      width: 100%;
+      text-align: left;
+
+      &:hover {
+        background-color: var(--#{$prefix}settings-nav-item-hover-bg);
+      }
+
+      &.active {
+        background-color: var(--#{$prefix}settings-nav-item-active-bg);
+        font-weight: 500;
+      }
+    }
+  }
+}
+
+// Main settings area
+.settings-container {
+  #settings-wrapper {
+    @include mixins.main-area-container(0, true);
+
+    // Override width after mixin
+    & {
+      width: calc(100% - #{map.get($layout-dimensions, "fullsidebar-width")});
+    }
+
+    // Only show when settings panel is active
+    body[data-active-panel="settings"] & {
+      display: flex;
+    }
+
+    body[data-active-panel]:not([data-active-panel="settings"]) & {
+      display: none !important;
+    }
+
+    .settings-main {
+      @include mixins.main-area-content;
+      height: 100%;
+      padding: 2rem;
+
+      .settings-section {
+        width: 100%;
+        margin: 0 auto;
+      }
+    }
+  }
+}

@@ -1,0 +1,35 @@
+body {
+  padding-top: 15px;
+}
+
+#btnSend {
+  margin-left: 10px;
+}
+
+#propertiesBox {
+  overflow: auto;
+  height: 100px;
+  width: 1024px;
+  border: 1px solid #cccccc;
+}
+
+svg {
+  border: 1px dashed #cccccc;
+}
+
+circle {
+  cursor: pointer;
+  stroke-width: 1.5px;
+}
+
+text {
+  font: 10px arial;
+  pointer-events: none;
+  /*text-shadow: 0 1px 0 #fff, 1px 0 0 #fff, 0 -1px 0 #fff, -1px 0 0 #fff;*/
+}
+
+path {
+  fill: #403e3e;
+  stroke: #403e3e;
+  stroke-width: 1.5px;
+}

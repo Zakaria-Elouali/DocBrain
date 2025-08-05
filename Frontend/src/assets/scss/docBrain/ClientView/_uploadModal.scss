@@ -1,0 +1,201 @@
+@use "sass:map";
+@use "../../config/minimal/variables" as *;
+@use "../../config/minimal/component-mixins" as mixins;
+
+.client-documents-upload-modal {
+  @include mixins.modal-overlay($fullscreen: true);
+  z-index: map.get($z-index-map, "modal");
+
+  .client-documents-upload-modal-content {
+    @include mixins.modal-style($size: "md", $custom-width: 550px);
+    animation: modal-slide-in 0.3s ease-out;
+
+    .client-documents-upload-modal-header {
+      @include mixins.flex-between;
+      padding: 1.25rem 1.5rem;
+      border-bottom: 1px solid var(--#{$prefix}border-color);
+      background-color: var(--#{$prefix}primary-light);
+
+      h3 {
+        margin: 0;
+        color: var(--#{$prefix}primary);
+        font-size: 1.25rem;
+        font-weight: 600;
+      }
+
+      .client-documents-upload-modal-close-button {
+        background: none;
+        border: none;
+        color: var(--#{$prefix}text-muted);
+        font-size: 1.25rem;
+        cursor: pointer;
+        width: 32px;
+        height: 32px;
+        @include mixins.flex-center;
+        border-radius: 50%;
+        transition: all 0.2s ease;
+
+        &:hover {
+          background-color: var(--#{$prefix}danger-light);
+          color: var(--#{$prefix}danger);
+        }
+      }
+    }
+
+    .client-documents-upload-modal-body {
+      padding: 1.5rem;
+
+      p {
+        margin-bottom: 1.25rem;
+        color: var(--#{$prefix}body-color);
+        font-size: 1rem;
+      }
+
+      .client-documents-upload-modal-dropzone {
+        border: 2px dashed var(--#{$prefix}border-color);
+        border-radius: map.get($border-radius-map, "lg");
+        padding: 2rem;
+        text-align: center;
+        cursor: pointer;
+        transition: all 0.2s ease;
+        background-color: var(--#{$prefix}input-bg);
+        margin-bottom: 1rem;
+
+        &:hover, &.active {
+          border-color: var(--#{$prefix}primary);
+          background-color: var(--#{$prefix}primary-light);
+        }
+
+        .client-documents-upload-modal-icon {
+          font-size: 3rem;
+          color: var(--#{$prefix}primary);
+          margin-bottom: 1rem;
+        }
+
+        h4 {
+          margin-bottom: 0.5rem;
+          color: var(--#{$prefix}heading-color);
+        }
+
+        p {
+          margin-bottom: 0;
+          color: var(--#{$prefix}text-muted);
+        }
+
+        input[type="file"] {
+          display: none;
+        }
+      }
+
+      .client-documents-upload-modal-selected-file {
+        @include mixins.flex-center;
+        gap: 1rem;
+        padding: 1rem;
+        border-radius: map.get($border-radius-map, "lg");
+        background-color: var(--#{$prefix}success-light);
+        margin-top: 1rem;
+
+        .client-documents-upload-modal-file-icon {
+          font-size: 1.5rem;
+          color: var(--#{$prefix}success);
+        }
+
+        .client-documents-upload-modal-file-info {
+          flex: 1;
+
+          .client-documents-upload-modal-file-name {
+            font-weight: 500;
+            color: var(--#{$prefix}heading-color);
+            margin-bottom: 0.25rem;
+          }
+
+          .client-documents-upload-modal-file-size {
+            font-size: 0.85rem;
+            color: var(--#{$prefix}text-muted);
+          }
+        }
+
+        .client-documents-upload-modal-remove-button {
+          background: none;
+          border: none;
+          color: var(--#{$prefix}danger);
+          cursor: pointer;
+          font-size: 1.25rem;
+          width: 32px;
+          height: 32px;
+          @include mixins.flex-center;
+          border-radius: 50%;
+
+          &:hover {
+            background-color: var(--#{$prefix}danger-light);
+          }
+        }
+      }
+
+      .client-documents-upload-modal-file-types {
+        margin-top: 1rem;
+        padding: 0.75rem;
+        background-color: var(--#{$prefix}input-bg);
+        border-radius: 4px;
+
+        p {
+          margin: 0;
+          font-size: 0.85rem;
+          color: var(--#{$prefix}text-muted);
+        }
+      }
+    }
+
+    .client-documents-upload-modal-footer {
+      @include mixins.flex-between;
+      justify-content: flex-end;
+      gap: 1rem;
+      padding: 1.25rem 1.5rem;
+      border-top: 1px solid var(--#{$prefix}border-color);
+      background-color: var(--#{$prefix}card-bg);
+
+      .client-documents-upload-modal-cancel-button {
+        @include mixins.button("secondary");
+        padding: 0.5rem 1.25rem;
+        font-weight: 500;
+      }
+
+      .client-documents-upload-modal-upload-button {
+        @include mixins.button("primary");
+        padding: 0.5rem 1.25rem;
+        font-weight: 500;
+        @include mixins.flex-center;
+        gap: 0.5rem;
+
+        &:hover:not(:disabled) {
+          background-color: var(--#{$prefix}primary-dark);
+        }
+
+        &:disabled {
+          opacity: 0.7;
+          cursor: not-allowed;
+        }
+
+        .client-documents-upload-modal-spinner {
+          animation: spin 1s linear infinite;
+        }
+      }
+    }
+  }
+}
+
+@keyframes modal-slide-in {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}

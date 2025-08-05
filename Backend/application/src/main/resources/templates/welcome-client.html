@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Welcome to DocBrain - Your Account is Ready!</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            padding: 1rem;
+            margin: 0;
+            line-height: 1.6;
+        }
+
+        .container {
+            background-color: #ffffff;
+            padding: 2rem;
+            margin: 1rem auto;
+            width: 80%;
+            max-width: 600px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .logo {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .logo img {
+            max-width: 200px;
+            height: auto;
+        }
+
+        .welcome-message {
+            font-size: 24px;
+            color: #2c3e50;
+            text-align: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .credentials-box {
+            background-color: #f8f9fa;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 8px;
+            border: 2px dashed #e9ecef;
+        }
+
+        .credentials-item {
+            margin: 0.5rem 0;
+            padding: 0.5rem;
+            background-color: #ffffff;
+            border-radius: 4px;
+        }
+
+        .button {
+            display: inline-block;
+            padding: 12px 24px;
+            background-color: #007bff;
+            color: white !important;
+            text-decoration: none;
+            border-radius: 4px;
+            margin: 1rem 0;
+            text-align: center;
+        }
+
+        .features-list {
+            background-color: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 1.5rem 0;
+        }
+
+        .footer {
+            text-align: center;
+            color: #6c757d;
+            font-size: 0.9rem;
+            margin-top: 2rem;
+        }
+
+        .company-info {
+            background-color: #e8f4ff;
+            padding: 1rem;
+            border-radius: 4px;
+            margin: 1rem 0;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container" dir="rtl">
+    <div class="logo">
+        <img src="/api/placeholder/200/80" alt="DocBrain Logo">
+    </div>
+    <div class="welcome-message">مرحباً بك في دوك برين!</div>
+    <p>عزيزي المستخدم،</p>
+
+    <div class="company-info">
+        <p>مرحباً بك في <strong th:text="${companyName}"></strong></p>
+    </div>
+
+    <p>تم تأكيد حسابك بنجاح! مرحباً بك في عائلة دوك برين. يمكنك الآن تسجيل الدخول باستخدام بيانات الاعتماد التالية:</p>
+
+    <div class="credentials-box">
+        <div class="credentials-item">
+            <strong>البريد الإلكتروني:</strong> <span th:text="${email}"></span>
+        </div>
+        <div class="credentials-item">
+            <strong>كلمة المرور:</strong> <span th:text="${password}"></span>
+        </div>
+    </div>
+
+    <a href="https://docbrain.com/login" class="button">تسجيل الدخول الآن</a>
+
+    <div class="features-list">
+        <strong>مميزات حسابك الجديد:</strong>
+        <ul>
+            <li>تنظيم وتخزين المستندات بشكل آمن</li>
+            <li>البحث السريع في محتوى الملفات</li>
+            <li>مشاركة المستندات بسهولة مع فريقك</li>
+            <li>الوصول إلى ملفاتك من أي مكان</li>
+        </ul>
+    </div>
+
+    <p><strong>ملاحظة أمنية:</strong> نوصي بتغيير كلمة المرور الخاصة بك بعد تسجيل الدخول لأول مرة.</p>
+
+    <p>للمساعدة، يمكنك التواصل مع فريق الدعم الفني عبر البريد الإلكتروني:
+        <a href="mailto:contact@docbrain.com">contact@docbrain.com</a>
+    </p>
+
+    <p>مع خالص التحية،</p>
+    <p>فريق دعم دوك برين</p>
+</div>
+
+<hr>
+
+<div class="container">
+    <div class="logo">
+        <img src="/api/placeholder/200/80" alt="DocBrain Logo">
+    </div>
+    <div class="welcome-message">Welcome to DocBrain!</div>
+    <p>Dear Client,</p>
+
+    <div class="company-info">
+        <p>Welcome to <strong th:text="${companyName}"></strong></p>
+    </div>
+
+    <p>Your account has been successfully confirmed! Welcome to the DocBrain family. You can now log in using the following credentials:</p>
+
+    <div class="credentials-box">
+        <div class="credentials-item">
+            <strong>Email:</strong> <span th:text="${email}"></span>
+        </div>
+        <div class="credentials-item">
+            <strong>Password:</strong> <span th:text="${password}"></span>
+        </div>
+    </div>
+
+    <a href="https://docbrain.com/login" class="button">Login Now</a>
+
+    <div class="features-list">
+        <strong>Your new account features:</strong>
+        <ul>
+            <li>Organize and store documents securely</li>
+            <li>Quick search through file contents</li>
+            <li>Easily share documents with your team</li>
+            <li>Access your files from anywhere</li>
+        </ul>
+    </div>
+
+    <p><strong>Security Note:</strong> We recommend changing your password after your first login.</p>
+
+    <p>For assistance, please contact our technical support team at:
+        <a href="mailto:contact@docbrain.com">contact@docbrain.com</a>
+    </p>
+
+    <p>Best regards,</p>
+    <p>DocBrain Support Team</p>
+</div>
+
+<div class="footer">
+    <p>© 2025 DocBrain. All rights reserved.</p>
+</div>
+
+</body>
+</html>

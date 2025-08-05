@@ -1,0 +1,278 @@
+@use "sass:map";
+@use "../../config/minimal/variables" as *;
+@use "../../config/minimal/component-mixins" as mixins;
+
+.markdown-editor {
+    @include mixins.flex-column;
+    height: 100%;
+    width: 100%;
+    max-width: 100%;
+    background-color: var(--#{$prefix}header-bg);
+    color: var(--#{$prefix}body-color);
+    border-radius: map.get($border-radius-map, "lg");
+    overflow: hidden;
+    box-shadow: map.get($shadow-map, "md");
+    transition: all 0.3s ease-in-out;
+
+    .editor-header {
+        @include mixins.flex-between;
+        padding: 10px 16px;
+        background-color: var(--#{$prefix}light-bg);
+        border-bottom: 1px solid var(--#{$prefix}border-color);
+        transition: padding 0.3s ease;
+
+        .file-info {
+            @include mixins.flex-center;
+            overflow: hidden;
+
+            .file-name {
+                font-weight: 600;
+                margin-right: 8px;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                max-width: calc(100% - 20px);
+                transition: font-size 0.3s ease;
+            }
+        }
+
+        .editor-actions {
+            @include mixins.flex-center;
+            gap: 8px;
+            flex-shrink: 0;
+
+            .action-button {
+                background: none;
+                border: none;
+                cursor: pointer;
+                @include mixins.flex-center;
+                padding: 6px 10px;
+                border-radius: map.get($border-radius-map, "sm");
+                color: var(--#{$prefix}body-color);
+                transition: all 0.2s ease;
+
+                &:hover {
+                    background-color: var(--#{$prefix}hover-bg);
+                    transform: translateY(-1px);
+                }
+
+                &:active {
+                    transform: translateY(1px);
+                }
+
+                &.save-button {
+                    color: var(--#{$prefix}primary);
+
+                    &:hover {
+                        background-color: var(--#{$prefix}primary-light);
+                    }
+                }
+
+                &.toggle-button {
+                    background-color: var(--#{$prefix}light-bg);
+                    font-weight: 500;
+
+                    &:hover {
+                        background-color: var(--#{$prefix}hover-bg);
+                    }
+                }
+
+                &.close-button {
+                    color: var(--#{$prefix}danger);
+
+                    &:hover {
+                        background-color: var(--#{$prefix}danger-light);
+                    }
+                }
+            }
+        }
+    }
+
+    .editor-content {
+        flex: 1;
+        display: flex;
+        overflow: hidden;
+        position: relative;
+
+        .markdown-textarea {
+            flex: 1;
+            padding: 20px;
+            font-family: $font-family-monospace;
+            font-size: 14px;
+            line-height: 1.6;
+            resize: none;
+            border: none;
+            outline: none;
+            background-color: var(--#{$prefix}header-bg);
+            color: var(--#{$prefix}body-color);
+            transition: padding 0.3s ease, font-size 0.3s ease;
+            box-shadow: inset 0 0 0 1px var(--#{$prefix}border-color-light);
+        }
+
+        .markdown-preview {
+            flex: 1;
+            padding: 20px;
+            overflow-y: auto;
+            background-color: var(--#{$prefix}card-bg);
+            transition: padding 0.3s ease;
+
+            pre {
+                white-space: pre-wrap;
+                word-wrap: break-word;
+                font-family: $font-family-monospace;
+                font-size: 14px;
+                line-height: 1.6;
+                margin: 0;
+                transition: font-size 0.3s ease;
+            }
+        }
+    }
+}
+
+/* Responsive styles */
+@media (max-width: 1200px) {
+    .markdown-editor {
+        .editor-header {
+            padding: 8px 12px;
+
+            .file-info .file-name {
+                font-size: 0.95rem;
+            }
+        }
+
+        .editor-content {
+            .markdown-textarea,
+            .markdown-preview {
+                padding: 16px;
+                font-size: 13px;
+
+                pre {
+                    font-size: 13px;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    .markdown-editor {
+        border-radius: 6px;
+
+        .editor-header {
+            padding: 6px 10px;
+
+            .file-info .file-name {
+                font-size: 0.9rem;
+            }
+
+            .editor-actions {
+                gap: 4px;
+
+                .action-button {
+                    padding: 4px 8px;
+                }
+
+                .toggle-button {
+                    font-size: 0.8rem;
+                }
+            }
+        }
+
+        .editor-content {
+            .markdown-textarea,
+            .markdown-preview {
+                padding: 12px;
+                font-size: 12px;
+
+                pre {
+                    font-size: 12px;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 480px) {
+    .markdown-editor {
+        border-radius: 4px;
+
+        .editor-header {
+            padding: 4px 8px;
+
+            .file-info .file-name {
+                font-size: 0.85rem;
+                max-width: 120px;
+            }
+
+            .editor-actions {
+                gap: 2px;
+
+                .action-button {
+                    padding: 3px 6px;
+                }
+
+                .toggle-button {
+                    font-size: 0.75rem;
+                }
+            }
+        }
+
+        .editor-content {
+            .markdown-textarea,
+            .markdown-preview {
+                padding: 10px;
+                font-size: 11px;
+
+                pre {
+                    font-size: 11px;
+                }
+            }
+        }
+    }
+}
+
+/* Animation for editor transitions */
+.markdown-editor {
+    &:hover {
+        box-shadow: map.get($shadow-map, "lg");
+    }
+
+    /* Fullscreen mode styles - these are now handled by the parent container */
+    &.fullscreen {
+        border-radius: 0;
+        box-shadow: none;
+
+        .editor-header {
+            padding: 12px 20px;
+
+            .file-name {
+                font-size: 1.1rem;
+            }
+
+            .action-button {
+                padding: 8px 12px;
+            }
+        }
+
+        .editor-content {
+            .markdown-textarea,
+            .markdown-preview {
+                padding: 24px;
+                font-size: 16px;
+
+                pre {
+                    font-size: 16px;
+                }
+            }
+        }
+    }
+
+    /* Fullscreen button styles */
+    .fullscreen-button {
+        color: var(--#{$prefix}text-muted);
+
+        &:hover {
+            background-color: var(--#{$prefix}hover-bg);
+        }
+    }
+}

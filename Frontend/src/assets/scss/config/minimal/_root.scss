@@ -1,0 +1,526 @@
+@use "sass:map";
+@use "variables" as *;
+@use "./_variables-light" as *;
+@use "./_variables-dark" as *;
+
+:root {
+  // Base Theme Variables
+  --#{$prefix}body-bg: #{$body-bg-light};
+  --#{$prefix}body-color: #{$body-color-light};
+  --#{$prefix}border-color: #{$border-color-light};
+  --#{$prefix}light: #f8f9fa;
+  --#{$prefix}headings-color: #{$headings-color-light};
+
+  // Typography
+  --#{$prefix}link-color: #{$link-color-light};
+  --#{$prefix}link-hover-color: #{$link-hover-color-light};
+  --#{$prefix}link-decoration: #{$link-decoration-light};
+  --#{$prefix}link-hover-decoration: #{$link-hover-decoration-light};
+
+  // Form Elements
+  --#{$prefix}input-bg: #{$input-bg-light};
+  --#{$prefix}input-color: #{$input-color-light};
+  --#{$prefix}input-border: #{$input-border-light};
+  --#{$prefix}input-focus-border: #{$input-focus-border-light};
+  --#{$prefix}input-focus-shadow: #{$input-focus-shadow-light};
+  --#{$prefix}input-placeholder-color: #{$input-placeholder-color-light};
+  --#{$prefix}input-disabled-bg: #{$input-disabled-bg-light};
+
+  // Buttons - Primary
+  --#{$prefix}button-primary-bg: #{$button-primary-bg-light};
+  --#{$prefix}button-primary-color: #{$button-primary-color-light};
+  --#{$prefix}button-primary-border: #{$button-primary-border-light};
+  --#{$prefix}button-primary-hover-bg: #{$button-primary-hover-bg-light};
+  --#{$prefix}button-primary-hover-color: #{$button-primary-hover-color-light};
+  --#{$prefix}button-primary-hover-border: #{$button-primary-hover-border-light};
+  --#{$prefix}button-primary-focus-shadow: #{$button-primary-focus-shadow-light};
+
+  // Buttons - Secondary
+  --#{$prefix}button-secondary-bg: #{$button-secondary-bg-light};
+  --#{$prefix}button-secondary-color: #{$button-secondary-color-light};
+  --#{$prefix}button-secondary-border: #{$button-secondary-border-light};
+  --#{$prefix}button-secondary-hover-bg: #{$button-secondary-hover-bg-light};
+  --#{$prefix}button-secondary-hover-color: #{$button-secondary-hover-color-light};
+  --#{$prefix}button-secondary-hover-border: #{$button-secondary-hover-border-light};
+  --#{$prefix}button-secondary-focus-shadow: #{$button-secondary-focus-shadow-light};
+
+  // Tables
+  --#{$prefix}table-color: #{$table-color-light};
+  --#{$prefix}table-border-color: #{$table-border-color-light};
+  --#{$prefix}table-header-bg: #{$table-header-bg-light};
+  --#{$prefix}table-header-color: #{$table-header-color-light};
+  --#{$prefix}table-striped-bg: #{$table-striped-bg-light};
+
+  // Cards
+  --#{$prefix}card-bg: #{$card-bg-light};
+  --#{$prefix}card-border-color: #{$card-border-color-light};
+
+  // Removed card-box-shadow as it should be used directly from shadow map
+  --#{$prefix}card-header-bg: #{$card-header-bg-light};
+  --#{$prefix}card-footer-bg: #{$card-footer-bg-light};
+
+  // Code
+  --#{$prefix}code-bg: #{$code-bg-light};
+  --#{$prefix}code-color: #{$code-color-light};
+
+  // Blockquote
+  --#{$prefix}blockquote-color: #{$blockquote-color-light};
+  --#{$prefix}blockquote-border-color: #{$blockquote-border-color-light};
+
+  // Horizontal rule
+  --#{$prefix}hr-color: #{$hr-color-light};
+
+  // IconBar (Light)
+  --#{$prefix}iconbar-bg: #{$iconbar-bg};
+  --#{$prefix}iconbar-border: #{$iconbar-border};
+  // Removed non-color variables (iconbar-width, iconbar-padding, iconbar-icon-size, iconbar-icon-border-radius, iconbar-icon-margin)
+  --#{$prefix}iconbar-icon-color: #{$iconbar-icon-color};
+  --#{$prefix}iconbar-icon-bg: #{$iconbar-icon-bg};
+  --#{$prefix}iconbar-icon-hover-bg: #{$iconbar-icon-hover-bg};
+  --#{$prefix}iconbar-icon-hover-color: #{$iconbar-icon-hover-color};
+  --#{$prefix}iconbar-icon-active-bg: #{$iconbar-icon-active-bg};
+  --#{$prefix}iconbar-icon-active-color: #{$iconbar-icon-active-color};
+
+  // Topbar (Light)
+  --#{$prefix}header-bg: #{$header-bg};
+  --#{$prefix}header-border: #{$header-border};
+  --#{$prefix}header-item-color: #{$header-item-color};
+  --#{$prefix}header-item-bg: #{$header-item-bg};
+  --#{$prefix}header-item-sub-color: #{$header-item-sub-color};
+  --#{$prefix}topbar-search-bg: #{$topbar-search-bg};
+  --#{$prefix}topbar-search-color: #{$topbar-search-color};
+  --#{$prefix}topbar-user-bg: #{$topbar-user-bg};
+
+  // Sidebar/Content Panel (Light)
+  --#{$prefix}sidebar-menu-bg: #{$sidebar-menu-bg};
+  --#{$prefix}sidebar-menu-border: #{$sidebar-menu-border};
+  --#{$prefix}sidebar-menu-item-color: #{$sidebar-menu-item-color};
+  --#{$prefix}sidebar-menu-item-bg: #{$sidebar-menu-item-bg};
+  --#{$prefix}sidebar-menu-item-hover-color: #{$sidebar-menu-item-hover-color};
+  --#{$prefix}sidebar-menu-item-active-color: #{$sidebar-menu-item-active-color};
+  --#{$prefix}sidebar-menu-item-active-bg: #{$sidebar-menu-item-active-bg};
+  --#{$prefix}sidebar-menu-title-color: #{$sidebar-menu-title-color};
+
+  --#{$prefix}sidebar-menu-sub-item-color: #{$sidebar-menu-sub-item-color};
+  --#{$prefix}sidebar-menu-sub-item-hover-color: #{$sidebar-menu-sub-item-hover-color};
+  --#{$prefix}sidebar-menu-sub-item-active-color: #{$sidebar-menu-sub-item-active-color};
+  --#{$prefix}sidebar-content-color: #{$sidebar-content-color};
+
+  // Dashboard/Cards
+  // Removed page-title-box-shadow as it should be used directly from shadow map
+  --#{$prefix}page-title-border: #{$page-title-border};
+
+  // Dashboard Component
+  --#{$prefix}dashboard-card-bg: #{$dashboard-card-bg};
+  --#{$prefix}dashboard-card-border: #{$dashboard-card-border};
+  --#{$prefix}dashboard-text-primary: #{$dashboard-text-primary};
+  --#{$prefix}dashboard-text-secondary: #{$dashboard-text-secondary};
+  --#{$prefix}dashboard-table-header-bg: #{$dashboard-table-header-bg};
+  --#{$prefix}dashboard-table-body-bg: #{$dashboard-table-body-bg};
+  --#{$prefix}dashboard-table-row-hover: #{$dashboard-table-row-hover};
+  --#{$prefix}dashboard-table-border: #{$dashboard-table-border};
+  --#{$prefix}dashboard-chart-grid: #{$dashboard-chart-grid};
+  --#{$prefix}dashboard-progress-bg: #{$dashboard-progress-bg};
+  --#{$prefix}dashboard-tooltip-bg: #{$dashboard-tooltip-bg};
+  --#{$prefix}dashboard-tooltip-border: #{$dashboard-tooltip-border};
+  --#{$prefix}dashboard-error-bg: #{$dashboard-error-bg};
+  --#{$prefix}dashboard-error-border: #{$dashboard-error-border};
+  --#{$prefix}dashboard-error-text: #{$dashboard-error-text};
+
+  // Invoice Component (Light)
+  // Removed non-color variables (invoice-panel-width, invoice-sidebar-width, invoice-border-radius)
+
+  // Colors
+  --#{$prefix}invoice-primary-color: #{$invoice-primary-color};
+  --#{$prefix}invoice-success-color: #{$invoice-success-color};
+  --#{$prefix}invoice-warning-color: #{$invoice-warning-color};
+  --#{$prefix}invoice-danger-color: #{$invoice-danger-color};
+
+  // Sidebar
+  --#{$prefix}invoice-sidebar-item-border: #{$invoice-sidebar-item-border};
+  --#{$prefix}invoice-sidebar-item-hover-bg: #{$invoice-sidebar-item-hover-bg};
+  // Removed invoice-sidebar-item-hover-shadow as it should be used directly from shadow map
+  --#{$prefix}invoice-sidebar-item-text-color: #{$invoice-sidebar-item-text-color};
+  --#{$prefix}invoice-sidebar-search-bg: #{$invoice-sidebar-search-bg};
+  --#{$prefix}invoice-sidebar-search-border: #{$invoice-sidebar-search-border};
+  --#{$prefix}invoice-sidebar-search-focus-border: #{$invoice-sidebar-search-focus-border};
+  --#{$prefix}invoice-sidebar-search-focus-bg: #{$invoice-sidebar-search-focus-bg};
+  --#{$prefix}invoice-sidebar-search-placeholder: #{$invoice-sidebar-search-placeholder};
+  --#{$prefix}invoice-sidebar-search-icon-color: #{$invoice-sidebar-search-icon-color};
+  --#{$prefix}invoice-sidebar-action-btn-color: #{$invoice-sidebar-action-btn-color};
+  --#{$prefix}invoice-sidebar-action-btn-hover-bg: #{$invoice-sidebar-action-btn-hover-bg};
+  --#{$prefix}invoice-sidebar-action-btn-hover-color: #{$invoice-sidebar-action-btn-hover-color};
+
+  // Status colors
+  --#{$prefix}invoice-status-paid-bg: #{$invoice-status-paid-bg};
+  --#{$prefix}invoice-status-pending-bg: #{$invoice-status-pending-bg};
+  --#{$prefix}invoice-status-overdue-bg: #{$invoice-status-overdue-bg};
+
+  // Card/Content
+  --#{$prefix}invoice-card-bg: #{$invoice-card-bg};
+  --#{$prefix}invoice-card-border: #{$invoice-card-border};
+  --#{$prefix}invoice-btn-secondary-hover-bg: #{$invoice-btn-secondary-hover-bg};
+  --#{$prefix}invoice-table-header-bg: #{$invoice-table-header-bg};
+  --#{$prefix}invoice-description-bg: #{$invoice-description-bg};
+  --#{$prefix}invoice-primary-color-hover: #{$invoice-primary-color-hover};
+
+  // Main Area / Content Area
+  // Removed non-color variables (main-area-shadow, main-area-padding, main-area-z-index, main-area-rtl-shadow)
+  --#{$prefix}main-area-bg: #{$main-area-bg}; // Only keeping color-related variable
+
+  // Modal Component - Common variables for all modals
+  --#{$prefix}modal-bg: #{$modal-bg};
+  --#{$prefix}modal-border: #{$modal-border};
+  // Removed modal-shadow as it should be used directly from shadow map
+  --#{$prefix}modal-title-color: #{$modal-title-color};
+  --#{$prefix}modal-overlay-bg: #{$modal-overlay-bg};
+
+  // Appointment Modal Component - Only specific overrides
+  --#{$prefix}appointment-modal-overlay-bg: #{$appointment-modal-overlay-bg};
+  --#{$prefix}appointment-modal-field-label-color: #{$appointment-modal-field-label-color};
+  --#{$prefix}appointment-modal-field-input-color: #{$appointment-modal-field-input-color};
+  --#{$prefix}appointment-modal-field-input-bg: #{$appointment-modal-field-input-bg};
+  --#{$prefix}appointment-modal-field-input-border: #{$appointment-modal-field-input-border};
+  --#{$prefix}appointment-modal-error-color: #{$appointment-modal-error-color};
+
+  // Calendar Component
+  --#{$prefix}calendar-panel-bg: #{$calendar-panel-bg};
+  --#{$prefix}calendar-panel-color: #{$calendar-panel-color};
+  --#{$prefix}calendar-view-bg: #{$calendar-view-bg};
+  --#{$prefix}calendar-header-bg: #{$calendar-header-bg};
+  // Removed calendar-header-shadow as it should be used directly from shadow map
+  --#{$prefix}calendar-button-bg: #{$calendar-button-bg};
+  --#{$prefix}calendar-button-hover-bg: #{$calendar-button-hover-bg};
+  --#{$prefix}calendar-button-color: #{$calendar-button-color};
+  --#{$prefix}calendar-title-color: #{$calendar-title-color};
+  --#{$prefix}calendar-new-button-bg: #{$calendar-new-button-bg};
+  --#{$prefix}calendar-new-button-color: #{$calendar-new-button-color};
+  // Removed calendar-new-button-shadow as it should be used directly from shadow map
+  --#{$prefix}calendar-grid-bg: #{$calendar-grid-bg};
+  --#{$prefix}calendar-day-header-bg: #{$calendar-day-header-bg};
+  --#{$prefix}calendar-day-header-color: #{$calendar-day-header-color};
+  --#{$prefix}calendar-day-bg: #{$calendar-day-bg};
+  --#{$prefix}calendar-day-selected-bg: #{$calendar-day-selected-bg};
+  --#{$prefix}calendar-day-selected-color: #{$calendar-day-selected-color};
+  --#{$prefix}calendar-day-today-border: #{$calendar-day-today-border};
+  --#{$prefix}calendar-appointment-bg: #{$calendar-appointment-bg};
+  --#{$prefix}calendar-appointment-color: #{$calendar-appointment-color};
+
+
+  // User Management Tabs
+  // Removed user-tabs-bg as it's not defined
+  --#{$prefix}user-tab-active-bg: #{$user-tab-active-bg};
+  --#{$prefix}user-tab-active-color: #{$user-tab-active-color};
+  --#{$prefix}user-tab-inactive-color: #{$user-tab-inactive-color};
+  //--#{$prefix}user-tab-hover-bg: #{$user-tab-hover-bg};
+  --#{$prefix}user-tab-button-border-color: #{$user-tab-button-border-color};
+  --#{$prefix}user-add-button-bg: #{$user-add-button-bg};
+  --#{$prefix}user-add-button-hover-bg: #{$user-add-button-hover-bg};
+  --#{$prefix}user-add-button-color: #{$user-add-button-color};
+  --#{$prefix}user-empty-state-color: #{$user-empty-state-color};
+
+  // Form Common Variables
+  --#{$prefix}form-error-color: #{$form-error-color};
+  --#{$prefix}scrollbar-track: #{$scrollbar-track};
+  --#{$prefix}scrollbar-thumb: #{$scrollbar-thumb};
+
+  // Settings Component
+  --#{$prefix}settings-sidebar-border: #{$settings-sidebar-border};
+  --#{$prefix}settings-nav-item-hover-bg: #{$settings-nav-item-hover-bg};
+  --#{$prefix}settings-nav-item-active-bg: #{$settings-nav-item-active-bg};
+  --#{$prefix}settings-section-title-color: #{$settings-section-title-color};
+  --#{$prefix}settings-section-description-color: #{$settings-section-description-color};
+  --#{$prefix}settings-form-label-color: #{$settings-form-label-color};
+  --#{$prefix}settings-form-input-bg: #{$settings-form-input-bg};
+  --#{$prefix}settings-form-input-border: #{$settings-form-input-border};
+  --#{$prefix}settings-form-input-focus-border: #{$settings-form-input-focus-border};
+  --#{$prefix}settings-form-input-focus-shadow: #{$settings-form-input-focus-shadow};
+  --#{$prefix}settings-form-button-primary-bg: #{$settings-form-button-primary-bg};
+  --#{$prefix}settings-form-button-primary-hover-bg: #{$settings-form-button-primary-hover-bg};
+  --#{$prefix}settings-form-button-secondary-bg: #{$settings-form-button-secondary-bg};
+  --#{$prefix}settings-form-button-secondary-hover-bg: #{$settings-form-button-secondary-hover-bg};
+  --#{$prefix}settings-form-button-secondary-color: #{$settings-form-button-secondary-color};
+  --#{$prefix}settings-form-button-danger-bg: #{$settings-form-button-danger-bg};
+  --#{$prefix}settings-form-button-danger-hover-bg: #{$settings-form-button-danger-hover-bg};
+  --#{$prefix}settings-form-error-color: #{$settings-form-error-color};
+  --#{$prefix}settings-card-bg: #{$settings-card-bg};
+  --#{$prefix}settings-card-border: #{$settings-card-border};
+  // Removed settings-card-shadow as it should be used directly from shadow map
+
+  // Footer
+  --#{$prefix}footer-bg: #{$footer-bg};
+  --#{$prefix}footer-color: #{$footer-color};
+
+  // Form
+  --#{$prefix}input-bg-custom: #{$input-bg-custom};
+  --#{$prefix}input-border-custom: #{$input-border-custom};
+}
+
+// =============================================
+// Dark Theme CSS Variables
+// =============================================
+
+[data-bs-theme="dark"] {
+  // Base Dark Theme
+  --#{$prefix}body-bg: #{$body-bg-dark};
+  --#{$prefix}body-color: #{$body-color-dark};
+  --#{$prefix}border-color: #{$border-color-dark};
+  --#{$prefix}light: #{$light-dark};
+  --#{$prefix}dark: #{$dark-color};
+  --#{$prefix}headings-color: #{$headings-color-dark};
+
+  // Base Styling Variables (Dark Mode)
+  // Typography
+  --#{$prefix}link-color: #{$link-color-dark};
+  --#{$prefix}link-hover-color: #{$link-hover-color-dark};
+  --#{$prefix}link-decoration: #{$link-decoration-dark};
+  --#{$prefix}link-hover-decoration: #{$link-hover-decoration-dark};
+
+  // Form Elements
+  --#{$prefix}input-bg: #{$input-bg-dark};
+  --#{$prefix}input-color: #{$input-color-dark};
+  --#{$prefix}input-border: #{$input-border-dark};
+  --#{$prefix}input-focus-border: #{$input-focus-border-dark};
+  --#{$prefix}input-focus-shadow: #{$input-focus-shadow-dark};
+  --#{$prefix}input-placeholder-color: #{$input-placeholder-color-dark};
+  --#{$prefix}input-disabled-bg: #{$input-disabled-bg-dark};
+
+  // Buttons - Primary
+  --#{$prefix}button-primary-bg: #{$button-primary-bg-dark};
+  --#{$prefix}button-primary-color: #{$button-primary-color-dark};
+  --#{$prefix}button-primary-border: #{$button-primary-border-dark};
+  --#{$prefix}button-primary-hover-bg: #{$button-primary-hover-bg-dark};
+  --#{$prefix}button-primary-hover-color: #{$button-primary-hover-color-dark};
+  --#{$prefix}button-primary-hover-border: #{$button-primary-hover-border-dark};
+  --#{$prefix}button-primary-focus-shadow: #{$button-primary-focus-shadow-dark};
+
+  // Buttons - Secondary
+  --#{$prefix}button-secondary-bg: #{$button-secondary-bg-dark};
+  --#{$prefix}button-secondary-color: #{$button-secondary-color-dark};
+  --#{$prefix}button-secondary-border: #{$button-secondary-border-dark};
+  --#{$prefix}button-secondary-hover-bg: #{$button-secondary-hover-bg-dark};
+  --#{$prefix}button-secondary-hover-color: #{$button-secondary-hover-color-dark};
+  --#{$prefix}button-secondary-hover-border: #{$button-secondary-hover-border-dark};
+  --#{$prefix}button-secondary-focus-shadow: #{$button-secondary-focus-shadow-dark};
+
+  // Tables
+  --#{$prefix}table-color: #{$table-color-dark};
+  --#{$prefix}table-border-color: #{$table-border-color-dark};
+  --#{$prefix}table-header-bg: #{$table-header-bg-dark};
+  --#{$prefix}table-header-color: #{$table-header-color-dark};
+  --#{$prefix}table-striped-bg: #{$table-striped-bg-dark};
+
+  // Cards
+  --#{$prefix}card-bg: #{$card-bg-dark};
+  --#{$prefix}card-border-color: #{$card-border-color-dark};
+
+  // Removed card-box-shadow as it should be used directly from shadow map
+  --#{$prefix}card-header-bg: #{$card-header-bg-dark};
+  --#{$prefix}card-footer-bg: #{$card-footer-bg-dark};
+
+  // Code
+  --#{$prefix}code-bg: #{$code-bg-dark};
+  --#{$prefix}code-color: #{$code-color-dark};
+
+  // Blockquote
+  --#{$prefix}blockquote-color: #{$blockquote-color-dark};
+  --#{$prefix}blockquote-border-color: #{$blockquote-border-color-dark};
+
+  // Horizontal rule
+  --#{$prefix}hr-color: #{$hr-color-dark};
+
+  // Topbar (Dark)
+  --#{$prefix}header-bg: #{$header-bg-dark};
+  --#{$prefix}header-border: #{$header-border-dark};
+  --#{$prefix}header-item-color: #{$header-item-color-dark};
+  --#{$prefix}header-item-bg: #{$header-item-bg-dark};
+  --#{$prefix}header-item-sub-color: #{$header-item-sub-color-dark};
+  --#{$prefix}topbar-search-bg: #{$topbar-search-bg-dark};
+  --#{$prefix}topbar-search-color: #{$topbar-search-color-dark};
+  --#{$prefix}topbar-user-bg: #{$topbar-user-bg-dark};
+
+  // IconBar (Dark)
+  --#{$prefix}iconbar-bg: #{$iconbar-bg-dark};
+  --#{$prefix}iconbar-border: #{$iconbar-border-dark};
+  --#{$prefix}iconbar-icon-color: #{$iconbar-icon-color-dark};
+  --#{$prefix}iconbar-icon-bg: #{$iconbar-icon-bg-dark};
+  --#{$prefix}iconbar-icon-hover-bg: #{$iconbar-icon-hover-bg-dark};
+  --#{$prefix}iconbar-icon-hover-color: #{$iconbar-icon-hover-color-dark};
+  --#{$prefix}iconbar-icon-active-bg: #{$iconbar-icon-active-bg-dark};
+  --#{$prefix}iconbar-icon-active-color: #{$iconbar-icon-active-color-dark};
+
+  // Sidebar (Dark)
+  --#{$prefix}sidebar-menu-bg: #{$sidebar-menu-bg-dark};
+  --#{$prefix}sidebar-menu-border: #{$sidebar-menu-border-dark};
+  --#{$prefix}sidebar-menu-item-color: #{$sidebar-menu-item-color-dark};
+  --#{$prefix}sidebar-menu-item-bg: #{$sidebar-menu-item-bg-dark};
+  --#{$prefix}sidebar-menu-item-hover-color: #{$sidebar-menu-item-hover-color-dark};
+  --#{$prefix}sidebar-menu-item-active-color: #{$sidebar-menu-item-active-color-dark};
+  --#{$prefix}sidebar-menu-item-active-bg: #{$sidebar-menu-item-active-bg-dark};
+  --#{$prefix}sidebar-menu-sub-item-color: #{$sidebar-menu-sub-item-color-dark};
+  --#{$prefix}sidebar-menu-sub-item-hover-color: #{$sidebar-menu-sub-item-hover-color-dark};
+  --#{$prefix}sidebar-menu-sub-item-active-color: #{$sidebar-menu-sub-item-active-color-dark};
+  --#{$prefix}sidebar-menu-title-color: #{$sidebar-menu-title-color-dark};
+
+  // Footer (Dark)
+  --#{$prefix}footer-bg: #{$footer-bg-dark};
+  --#{$prefix}footer-color: #{$footer-color-dark};
+
+  // Forms (Dark)
+  --#{$prefix}input-bg-custom: #{$input-bg-custom-dark};
+  --#{$prefix}input-border-custom: #{$input-border-custom-dark};
+
+  // Dropdown (Dark)
+  --#{$prefix}dropdown-bg: #{$dropdown-bg-dark};
+  --#{$prefix}dropdown-link-color: #{$dropdown-link-color-dark};
+  --#{$prefix}dropdown-link-hover-color: #{$dropdown-link-hover-color-dark};
+  --#{$prefix}dropdown-link-hover-bg: #{$dropdown-link-hover-bg-dark};
+
+  --#{$prefix}dropdown-link-active-color: #{$dropdown-link-active-color-dark};
+  --#{$prefix}dropdown-link-active-bg: #{$dropdown-link-active-bg-dark};
+
+  // Components (Dark)
+
+  // Main Area / Content Area (Dark)
+  // Removed non-color variables (main-area-shadow-dark, main-area-rtl-shadow-dark)
+  --#{$prefix}main-area-bg: #{$main-area-bg-dark}; // Only keeping color-related variable
+
+  // Modal Component - Common variables for all modals (Dark)
+  --#{$prefix}modal-bg: #{$modal-bg-dark};
+  --#{$prefix}modal-border: #{$modal-border-dark};
+  // Removed modal-shadow as it should be used directly from shadow map
+  --#{$prefix}modal-title-color: #{$modal-title-color-dark};
+  --#{$prefix}modal-overlay-bg: #{$modal-overlay-bg-dark};
+
+  // Dashboard Component (Dark)
+  --#{$prefix}dashboard-card-bg: #{$dashboard-card-bg-dark};
+  --#{$prefix}dashboard-card-border: #{$dashboard-card-border-dark};
+  --#{$prefix}dashboard-text-primary: #{$dashboard-text-primary-dark};
+  --#{$prefix}dashboard-text-secondary: #{$dashboard-text-secondary-dark};
+  --#{$prefix}dashboard-table-header-bg: #{$dashboard-table-header-bg-dark};
+  --#{$prefix}dashboard-table-body-bg: #{$dashboard-table-body-bg-dark};
+  --#{$prefix}dashboard-table-row-hover: #{$dashboard-table-row-hover-dark};
+  --#{$prefix}dashboard-table-border: #{$dashboard-table-border-dark};
+  --#{$prefix}dashboard-chart-grid: #{$dashboard-chart-grid-dark};
+  --#{$prefix}dashboard-progress-bg: #{$dashboard-progress-bg-dark};
+  --#{$prefix}dashboard-tooltip-bg: #{$dashboard-tooltip-bg-dark};
+  --#{$prefix}dashboard-tooltip-border: #{$dashboard-tooltip-border-dark};
+  --#{$prefix}dashboard-error-bg: #{$dashboard-error-bg-dark};
+  --#{$prefix}dashboard-error-border: #{$dashboard-error-border-dark};
+  --#{$prefix}dashboard-error-text: #{$dashboard-error-text-dark};
+
+  // Invoice Component (Dark)
+  // Colors
+  --#{$prefix}invoice-primary-color: #{$invoice-primary-color-dark};
+  --#{$prefix}invoice-success-color: #{$invoice-success-color-dark};
+  --#{$prefix}invoice-warning-color: #{$invoice-warning-color-dark};
+  --#{$prefix}invoice-danger-color: #{$invoice-danger-color-dark};
+
+  // Sidebar
+  --#{$prefix}invoice-sidebar-bg: #{$invoice-sidebar-bg-dark};
+  --#{$prefix}invoice-sidebar-color: #{$invoice-sidebar-color-dark};
+  --#{$prefix}invoice-sidebar-border: #{$invoice-sidebar-border-dark};
+  --#{$prefix}invoice-sidebar-title-color: #{$invoice-sidebar-title-color-dark};
+  --#{$prefix}invoice-sidebar-item-bg: #{$invoice-sidebar-item-bg-dark};
+  --#{$prefix}invoice-sidebar-item-border: #{$invoice-sidebar-item-border-dark};
+  --#{$prefix}invoice-sidebar-item-hover-bg: #{$invoice-sidebar-item-hover-bg-dark};
+  // Removed invoice-sidebar-item-hover-shadow as it should be used directly from shadow map
+  --#{$prefix}invoice-sidebar-item-text-color: #{$invoice-sidebar-item-text-color-dark};
+  --#{$prefix}invoice-sidebar-search-bg: #{$invoice-sidebar-search-bg-dark};
+  --#{$prefix}invoice-sidebar-search-border: #{$invoice-sidebar-search-border-dark};
+  --#{$prefix}invoice-sidebar-search-focus-border: #{$invoice-sidebar-search-focus-border-dark};
+  --#{$prefix}invoice-sidebar-search-focus-bg: #{$invoice-sidebar-search-focus-bg-dark};
+  --#{$prefix}invoice-sidebar-search-placeholder: #{$invoice-sidebar-search-placeholder-dark};
+  --#{$prefix}invoice-sidebar-search-icon-color: #{$invoice-sidebar-search-icon-color-dark};
+  --#{$prefix}invoice-sidebar-action-btn-color: #{$invoice-sidebar-action-btn-color-dark};
+  --#{$prefix}invoice-sidebar-action-btn-hover-bg: #{$invoice-sidebar-action-btn-hover-bg-dark};
+  --#{$prefix}invoice-sidebar-action-btn-hover-color: #{$invoice-sidebar-action-btn-hover-color-dark};
+
+  // Status colors
+  --#{$prefix}invoice-status-paid-bg: #{$invoice-status-paid-bg-dark};
+  --#{$prefix}invoice-status-pending-bg: #{$invoice-status-pending-bg-dark};
+  --#{$prefix}invoice-status-overdue-bg: #{$invoice-status-overdue-bg-dark};
+
+  // Card/Content
+  --#{$prefix}invoice-card-bg: #{$invoice-card-bg-dark};
+  --#{$prefix}invoice-card-border: #{$invoice-card-border-dark};
+  // Removed invoice-card-shadow as it should be used directly from shadow map
+  --#{$prefix}invoice-btn-secondary-hover-bg: #{$invoice-btn-secondary-hover-bg-dark};
+  --#{$prefix}invoice-table-header-bg: #{$invoice-table-header-bg-dark};
+  --#{$prefix}invoice-description-bg: #{$invoice-description-bg-dark};
+  --#{$prefix}invoice-primary-color-hover: #{$invoice-primary-color-hover-dark};
+
+  // Appointment Modal Component (Dark) - Only specific overrides
+  --#{$prefix}appointment-modal-overlay-bg: #{$appointment-modal-overlay-bg-dark};
+  --#{$prefix}appointment-modal-field-label-color: #{$appointment-modal-field-label-color-dark};
+  --#{$prefix}appointment-modal-field-input-color: #{$appointment-modal-field-input-color-dark};
+  --#{$prefix}appointment-modal-field-input-bg: #{$appointment-modal-field-input-bg-dark};
+  --#{$prefix}appointment-modal-field-input-border: #{$appointment-modal-field-input-border-dark};
+  --#{$prefix}appointment-modal-error-color: #{$appointment-modal-error-color-dark};
+
+  // Calendar Component (Dark)
+  --#{$prefix}calendar-panel-bg: #{$calendar-panel-bg-dark};
+  --#{$prefix}calendar-panel-color: #{$calendar-panel-color-dark};
+  --#{$prefix}calendar-view-bg: #{$calendar-view-bg-dark};
+  --#{$prefix}calendar-header-bg: #{$calendar-header-bg-dark};
+  // Removed calendar-header-shadow as it should be used directly from shadow map
+  --#{$prefix}calendar-button-bg: #{$calendar-button-bg-dark};
+  --#{$prefix}calendar-button-hover-bg: #{$calendar-button-hover-bg-dark};
+  --#{$prefix}calendar-button-color: #{$calendar-button-color-dark};
+  --#{$prefix}calendar-title-color: #{$calendar-title-color-dark};
+  --#{$prefix}calendar-new-button-bg: #{$calendar-new-button-bg-dark};
+  --#{$prefix}calendar-new-button-color: #{$calendar-new-button-color-dark};
+  // Removed calendar-new-button-shadow as it should be used directly from shadow map
+  --#{$prefix}calendar-grid-bg: #{$calendar-grid-bg-dark};
+  // Removed calendar-grid-border-dark as it's not defined
+  // Removed calendar-day-border-dark as it's not defined
+  --#{$prefix}calendar-day-header-bg: #{$calendar-day-header-bg-dark};
+  --#{$prefix}calendar-day-header-color: #{$calendar-day-header-color-dark};
+  --#{$prefix}calendar-day-bg: #{$calendar-day-bg-dark};
+  --#{$prefix}calendar-day-selected-bg: #{$calendar-day-selected-bg-dark};
+  --#{$prefix}calendar-day-selected-color: #{$calendar-day-selected-color-dark};
+  --#{$prefix}calendar-day-today-border: #{$calendar-day-today-border-dark};
+  --#{$prefix}calendar-appointment-bg: #{$calendar-appointment-bg-dark};
+  --#{$prefix}calendar-appointment-color: #{$calendar-appointment-color-dark};
+
+  // User Management Tabs (Dark)
+  //--#{$prefix}user-tabs-bg: #{$user-tabs-bg-dark};
+  //--#{$prefix}user-tab-active-bg: #{$user-tab-active-bg-dark};
+  //--#{$prefix}user-tab-active-color: #{$user-tab-active-color-dark};
+  --#{$prefix}user-tab-inactive-color: #{$user-tab-inactive-bg-dark};
+  //--#{$prefix}user-tab-inactive-color: #{$user-tab-inactive-color-dark};
+  //--#{$prefix}user-tab-hover-bg: #{$user-tab-hover-bg-dark};
+  --#{$prefix}user-tab-button-border-color: #{$user-tab-button-border-color-dark};
+  //--#{$prefix}user-add-button-bg: #{$user-add-button-bg-dark};
+  //--#{$prefix}user-add-button-hover-bg: #{$user-add-button-hover-bg-dark};
+  //--#{$prefix}user-add-button-color: #{$user-add-button-color-dark};
+  //--#{$prefix}user-empty-state-color: #{$user-empty-state-color-dark};
+
+  // Form Common Variables (Dark)
+  --#{$prefix}form-error-color: #{$form-error-color-dark};
+  --#{$prefix}scrollbar-track: #{$scrollbar-track-dark};
+  --#{$prefix}scrollbar-thumb: #{$scrollbar-thumb-dark};
+
+  // Settings Component (Dark)
+  --#{$prefix}settings-sidebar-border: #{$settings-sidebar-border-dark};
+  --#{$prefix}settings-nav-item-hover-bg: #{$settings-nav-item-hover-bg-dark};
+  --#{$prefix}settings-nav-item-active-bg: #{$settings-nav-item-active-bg-dark};
+  --#{$prefix}settings-section-title-color: #{$settings-section-title-color-dark};
+  --#{$prefix}settings-section-description-color: #{$settings-section-description-color-dark};
+  --#{$prefix}settings-form-label-color: #{$settings-form-label-color-dark};
+  --#{$prefix}settings-form-input-bg: #{$settings-form-input-bg-dark};
+  --#{$prefix}settings-form-input-border: #{$settings-form-input-border-dark};
+  --#{$prefix}settings-form-input-focus-border: #{$settings-form-input-focus-border-dark};
+  --#{$prefix}settings-form-input-focus-shadow: #{$settings-form-input-focus-shadow-dark};
+  --#{$prefix}settings-form-button-primary-bg: #{$settings-form-button-primary-bg-dark};
+  --#{$prefix}settings-form-button-primary-hover-bg: #{$settings-form-button-primary-hover-bg-dark};
+  --#{$prefix}settings-form-button-secondary-bg: #{$settings-form-button-secondary-bg-dark};
+  --#{$prefix}settings-form-button-secondary-hover-bg: #{$settings-form-button-secondary-hover-bg-dark};
+  --#{$prefix}settings-form-button-secondary-color: #{$settings-form-button-secondary-color-dark};
+  --#{$prefix}settings-form-button-danger-bg: #{$settings-form-button-danger-bg-dark};
+  --#{$prefix}settings-form-button-danger-hover-bg: #{$settings-form-button-danger-hover-bg-dark};
+  --#{$prefix}settings-form-error-color: #{$settings-form-error-color-dark};
+  --#{$prefix}settings-card-bg: #{$settings-card-bg-dark};
+  --#{$prefix}settings-card-border: #{$settings-card-border-dark};
+  // Removed settings-card-shadow as it should be used directly from shadow map
+}

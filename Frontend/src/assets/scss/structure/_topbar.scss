@@ -1,0 +1,362 @@
+//
+// _topbar.scss - Optimized for vertical layout with light/dark themes
+//
+
+@use "../config/minimal/variables" as *;
+@use "../config/minimal/variables-custom" as *;
+@use "../config/minimal/variables-dark" as *;
+
+#page-topbar {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 1002;
+  background-color: var(--#{$prefix}header-bg);
+  transition: all 0.1s ease-out;
+  border-bottom: 1px solid var(--#{$prefix}header-border);
+
+  &.topbar-shadow {
+    box-shadow: $box-shadow;
+  }
+
+  @media (min-width: 768px) {
+    left: var(--#{$prefix}vertical-menu-width);
+  }
+}
+
+.navbar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 auto;
+  height: $header-height;
+  padding: 0 $grid-gutter-width 0 calc(#{$grid-gutter-width} * 0.5);
+
+  @media (max-width: 767.98px) {
+    padding: 0 calc(#{$grid-gutter-width} * 0.5);
+  }
+
+  .topbar-head-dropdown {
+    .dropdown-menu.show {
+      top: 13px !important;
+    }
+
+    .dropdown-menu {
+      background-color: #ffffff !important;
+      border: 1px solid rgba(0, 0, 0, 0.15);
+      box-shadow: 0 5px 10px rgba(30, 32, 37, 0.12);
+
+      [data-bs-theme="dark"] & {
+        background-color: #292e33 !important;
+        border-color: #32383e;
+      }
+    }
+
+    .notification-actions {
+      display: none;
+      position: absolute;
+      background-color: var(--#{$prefix}dropdown-bg);
+      left: 0;
+      right: 0;
+      bottom: 0;
+      padding: 7px;
+      border-top: 1px solid var(--#{$prefix}border-color);
+    }
+  }
+
+  .btn-topbar {
+    height: 42px;
+    width: 42px;
+    color: var(--#{$prefix}header-item-sub-color);
+    transition: all 0.5s ease;
+    background-color: transparent;
+
+    &:hover,
+    &:focus,
+    &:active,
+    &.active {
+      background-color: var(--#{$prefix}header-item-bg);
+    }
+
+    [data-bs-theme="dark"] & {
+      &:hover,
+      &:focus,
+      &:active,
+      &.active {
+        background-color: rgba(255, 255, 255, 0.05);
+      }
+    }
+
+    @media (max-width: 360px) {
+      height: 36px;
+      width: 36px;
+    }
+  }
+
+  .user-name-sub-text {
+    color: var(--#{$prefix}header-item-sub-color);
+  }
+
+  .user-name-text {
+    color: var(--#{$prefix}header-item-color);
+  }
+}
+
+// Logo styles (moved from vertical.scss)
+.navbar-brand-box {
+  padding: 0 1.3rem;
+  text-align: center;
+  transition: all 0.1s ease-out;
+
+  @media (max-width: 767.98px) {
+    display: none;
+  }
+}
+
+.logo {
+  line-height: $header-height;
+
+  .logo-sm {
+    display: none;
+  }
+}
+
+.logo-light {
+  display: none;
+}
+
+.logo-lg img {
+  object-fit: cover;
+  width: 46%;
+  height: 100%;
+}
+
+.logo-sm img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+@media (max-width: 767.98px) {
+  .logo {
+    span.logo-lg {
+      display: none;
+    }
+
+    span.logo-sm {
+      display: inline-block;
+    }
+  }
+}
+
+/* Search */
+.app-search {
+  padding: calc(#{$header-height - 38px} * 0.5) 0;
+
+  .form-control {
+    border: none;
+    height: 38px;
+    padding-left: 40px;
+    padding-right: 30px;
+    background-color: var(--#{$prefix}topbar-search-bg);
+    color: var(--#{$prefix}topbar-search-color);
+    box-shadow: none;
+  }
+
+  span.search-widget-icon {
+    position: absolute;
+    z-index: 10;
+    font-size: 18px;
+    line-height: 38px;
+    left: 13px;
+    top: 0;
+    color: var(--#{$prefix}header-item-sub-color);
+  }
+
+  .search-widget-icon-close {
+    right: 7px;
+    left: auto !important;
+  }
+
+  @media (max-width: 1023.99px) {
+    padding-left: calc(#{$grid-gutter-width} * 0.5);
+  }
+
+  ::-webkit-input-placeholder {
+    color: var(--#{$prefix}header-item-sub-color);
+  }
+
+  :-ms-input-placeholder {
+    color: var(--#{$prefix}header-item-sub-color);
+  }
+
+  ::placeholder {
+    color: var(--#{$prefix}header-item-sub-color);
+  }
+}
+
+.header-item {
+  height: $header-height;
+  display: flex;
+  align-items: center;
+}
+
+.header-profile-user {
+  height: 32px;
+  width: 32px;
+}
+
+.topbar-badge-sm {
+  right: 0;
+  top: 7px !important;
+}
+
+.topbar-badge {
+  right: -9px;
+  top: 4px !important;
+}
+
+.topbar-user {
+  @media (min-width: 768px) {
+    background-color: var(--#{$prefix}topbar-user-bg);
+  }
+
+  .dropdown-menu {
+    top: 6px !important;
+    background-color: #ffffff !important;
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    box-shadow: 0 5px 10px rgba(30, 32, 37, 0.12);
+
+    [data-bs-theme="dark"] & {
+      background-color: #292e33 !important;
+      border-color: #32383e;
+    }
+  }
+}
+
+.notification-item {
+  padding: 0.75rem 1rem;
+  white-space: inherit;
+  position: relative;
+
+  .form-check-input {
+    position: relative;
+    z-index: 2;
+  }
+}
+
+// Dropdown with Icons
+.dropdown-icon-item {
+  display: block;
+  border-radius: 3px;
+  line-height: 34px;
+  text-align: center;
+  padding: 15px 0 9px;
+  border: 1px solid transparent;
+  color: var(--#{$prefix}dropdown-link-color);
+
+  img {
+    height: 24px;
+  }
+
+  span {
+    display: block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  &:hover {
+    background-color: var(--#{$prefix}dropdown-link-hover-bg);
+  }
+}
+
+// Dark mode enable
+[data-bs-theme="dark"] {
+  .light-dark-mode {
+    .bx-moon::before {
+      content: "\ec34";
+    }
+  }
+}
+
+// Theme-specific logo visibility
+[data-topbar="dark"] {
+  .logo-dark {
+    display: none;
+  }
+
+  .logo-light {
+    display: inline-block;
+  }
+}
+
+[data-bs-theme="dark"] {
+  &[data-topbar="light"] {
+    .logo-dark {
+      display: none;
+    }
+
+    .logo-light {
+      display: inline-block;
+    }
+  }
+}
+
+@media (max-width: 600px) {
+  .navbar-header {
+    .dropdown {
+      position: static;
+
+      .dropdown-menu {
+        width: 100%;
+      }
+    }
+  }
+}
+
+@media (max-width: 767.98px) {
+  #search-dropdown-reponsive {
+    top: 54px !important;
+  }
+}
+
+// General dropdown styles
+.dropdown-menu {
+  .dropdown-item {
+    color: #212529;
+
+    &:hover, &:focus {
+      background-color: #f8f9fa !important;
+      color: #16181b;
+    }
+
+    &.active, &:active {
+      background-color: #{$primary} !important;
+      color: #ffffff;
+    }
+
+    [data-bs-theme="dark"] & {
+      color: #adb5bd;
+
+      &:hover, &:focus {
+        background-color: #2f343a !important;
+        color: #b9bfc4;
+      }
+
+      &.active, &:active {
+        background-color: #{$primary} !important;
+        color: #ffffff;
+      }
+    }
+  }
+
+  .dropdown-header {
+    color: #6c757d;
+
+    [data-bs-theme="dark"] & {
+      color: #adb5bd;
+    }
+  }
+}

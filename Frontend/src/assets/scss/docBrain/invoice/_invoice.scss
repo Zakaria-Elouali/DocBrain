@@ -1,0 +1,90 @@
+@use "sass:map";
+@use "../../config/minimal/variables" as *;
+@use "../../config/minimal/component-mixins" as mixins;
+
+// Import component-specific styles
+@use "invoice-sidebar" as *;
+@use "invoice-main-area" as *;
+@use "invoice-modal" as *;
+
+// Global invoice styles
+// This file contains only the global styles that apply to all invoice components
+
+// Invoice container styles
+.invoice-container {
+  display: flex;
+  height: 100%;
+}
+
+// Main area styles
+#invoice-wrapper {
+  @include mixins.main-area-container(0, true);
+
+  // Override width after mixin
+  & {
+    width: calc(100% - #{map.get($layout-dimensions, "fullsidebar-width")});
+  }
+
+  // Only show when invoice panel is active
+  body[data-active-panel="invoice"] & {
+    display: flex;
+  }
+
+  body[data-active-panel]:not([data-active-panel="invoice"]) & {
+    display: none !important;
+  }
+
+  .invoice-main {
+    @include mixins.main-area-content;
+    height: 100%;
+    padding: 2rem;
+    background-color: var(--#{$prefix}main-area-bg);
+    color: var(--#{$prefix}dashboard-text-primary);
+  }
+}
+
+// Common button styles used across invoice components
+.btn-primary {
+  @include mixins.button("primary");
+  background-color: var(--#{$prefix}invoice-primary-color);
+  color: white;
+  @include mixins.flex-center;
+  justify-content: center;
+  gap: 0.5rem;
+  font-size: 0.875rem;
+
+  &:hover {
+    background-color: var(--#{$prefix}invoice-primary-color-hover);
+  }
+}
+
+.btn-secondary {
+  @include mixins.button("secondary");
+  background-color: transparent;
+  color: var(--#{$prefix}dashboard-text-primary);
+  border: 1px solid var(--#{$prefix}invoice-card-border);
+  @include mixins.flex-center;
+  justify-content: center;
+  gap: 0.5rem;
+  font-size: 0.875rem;
+
+  &:hover {
+    background-color: var(--#{$prefix}invoice-btn-secondary-hover-bg);
+  }
+}
+
+.btn-danger {
+  @include mixins.button("primary");
+  background-color: var(--#{$prefix}invoice-danger-color);
+  color: white;
+  @include mixins.flex-center;
+  justify-content: center;
+  gap: 0.5rem;
+  font-size: 0.875rem;
+
+  &:hover {
+    filter: brightness(90%);
+  }
+}
+
+

@@ -1,0 +1,78 @@
+// Appointment List - Optimized with mixins
+@use "sass:map";
+@use "../../config/minimal/variables" as *;
+@use "../../config/minimal/component-mixins" as mixins;
+
+.appointments-list {
+  width: map.get($layout-dimensions, "sidebar-width");
+  padding: 1rem;
+  overflow-y: auto;
+
+  .sidebar-header {
+    font-weight: 600;
+    font-size: 1rem;
+    margin-bottom: 1rem;
+    color: var(--#{$prefix}sidebar-menu-title-color);
+  }
+
+  .appointments-content {
+    @include mixins.flex-column;
+    gap: 1rem;
+
+    .appointment-card {
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: map.get($border-radius-map, "default");
+      overflow: hidden;
+
+      .appointment-header {
+        padding: 0.75rem 1rem;
+        @include mixins.flex-between;
+        color: var(--#{$prefix}sidebar-menu-item-color);
+        font-weight: 500;
+      }
+
+      .appointment-actions {
+        display: flex;
+        gap: 0.5rem;
+
+        button {
+          background: none;
+          border: none;
+          color: var(--#{$prefix}sidebar-menu-item-color);
+          cursor: pointer;
+          padding: 0.25rem;
+          border-radius: 4px;
+
+          &:hover {
+            background: rgba(255, 255, 255, 0.1);
+          }
+        }
+      }
+
+      .appointment-details {
+        padding: 1rem;
+        color: var(--#{$prefix}sidebar-menu-item-color);
+
+        .detail-row {
+          @include mixins.flex-center;
+          justify-content: flex-start;
+          gap: 0.5rem;
+          margin-bottom: 0.5rem;
+        }
+
+        .appointment-description {
+          margin-top: 0.5rem;
+          padding-top: 0.5rem;
+          border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+      }
+    }
+  }
+
+  .no-selection {
+    color: var(--#{$prefix}sidebar-content-color);
+    font-size: 0.9rem;
+    text-align: center;
+    margin-top: 1rem;
+  }
+}

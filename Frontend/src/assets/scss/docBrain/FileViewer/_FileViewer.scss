@@ -1,0 +1,201 @@
+@use "sass:map";
+@use "../../config/minimal/variables" as *;
+@use "../../config/minimal/component-mixins" as mixins;
+
+.file-viewer-modal {
+  position: fixed;
+  top: map.get($layout-dimensions, "header-height");
+  right: 0;
+  left: map.get($layout-dimensions, "fullsidebar-width"); /* Position after iconbar + sidebar */
+  width: calc(100% - #{map.get($layout-dimensions, "fullsidebar-width")});
+  height: calc(100vh - #{map.get($layout-dimensions, "header-height")});
+  background-color: var(--#{$prefix}card-bg);
+  box-shadow: map.get($shadow-map, "sm");
+  @include mixins.flex-column;
+  z-index: map.get($z-index-map, "modal");
+  transition: all 0.3s ease-in-out;
+  min-width: 400px; /* Prevent it from becoming too narrow */
+
+  // RTL support
+  @include mixins.rtl-support {
+    right: map.get($layout-dimensions, "fullsidebar-width");
+    left: 0;
+    box-shadow: 1px 0 4px rgba(0, 0, 0, 0.1);
+  }
+}
+
+.file-viewer-content {
+  flex: 1;
+  @include mixins.flex-column;
+  overflow: hidden;
+}
+
+.compact-header {
+  @include mixins.flex-between;
+  padding: 4px 8px;
+  background-color: var(--#{$prefix}light-bg);
+  border-bottom: 1px solid var(--#{$prefix}border-color);
+  height: 28px;
+}
+
+.file-name {
+  font-size: 0.75rem;
+  color: var(--#{$prefix}body-color);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.close-button {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 2px;
+  color: var(--#{$prefix}text-muted);
+  @include mixins.flex-center;
+  border-radius: map.get($border-radius-map, "xs");
+}
+
+.close-button:hover {
+  background-color: var(--#{$prefix}danger);
+  color: white;
+}
+
+.file-content-wrapper {
+  flex: 1;
+  overflow: hidden;
+  @include mixins.flex-column;
+  width: 100%;
+  background-color: var(--#{$prefix}card-bg);
+}
+
+.file-content-wrapper iframe {
+  flex: 1;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+.text-content {
+  width: 100%;
+  padding: 8px;
+  font-family: $font-family-monospace;
+  font-size: 0.75rem;
+  line-height: 1.4;
+  white-space: pre-wrap;
+  overflow: auto;
+  color: var(--#{$prefix}body-color);
+}
+
+.error-message {
+  color: var(--#{$prefix}danger);
+  text-align: center;
+  padding: 12px;
+  font-size: 0.75rem;
+}
+
+/* Responsive styles */
+@media (max-width: 1200px) {
+  .file-viewer-modal {
+    /* Maintain position relative to sidebar */
+    left: map.get($layout-dimensions, "fullsidebar-width-sm");
+    width: calc(100% - #{map.get($layout-dimensions, "fullsidebar-width-sm")});
+
+    @include mixins.rtl-support {
+      right: map.get($layout-dimensions, "fullsidebar-width-sm");
+      left: 0;
+    }
+  }
+}
+
+@media (max-width: 992px) {
+  .file-viewer-modal {
+    /* Maintain position relative to sidebar */
+    left: map.get($layout-dimensions, "fullsidebar-width-sm");
+    width: calc(100% - #{map.get($layout-dimensions, "fullsidebar-width-sm")});
+
+    @include mixins.rtl-support {
+      right: map.get($layout-dimensions, "fullsidebar-width-sm");
+      left: 0;
+    }
+  }
+}
+
+/* Only on mobile do we take full width */
+@media (max-width: 768px) {
+  .file-viewer-modal {
+    width: 100% !important;
+    left: 0 !important;
+    min-width: 100% !important;
+
+    @include mixins.rtl-support {
+      right: 0 !important;
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .file-viewer-modal {
+    .compact-header {
+      padding: 3px 6px;
+      height: 24px;
+    }
+
+    .file-name {
+      font-size: 0.7rem;
+    }
+
+    .close-button {
+      padding: 1px;
+    }
+  }
+}
+
+/* Special styles for markdown view */
+.file-viewer-modal.markdown-view {
+  transition: all 0.3s ease-in-out;
+  box-shadow: map.get($shadow-map, "lg");
+
+  .file-content-wrapper {
+    background-color: transparent;
+  }
+}
+
+/* Special styles for the file viewer when in fullscreen mode */
+.file-viewer-modal.fullscreen-mode {
+  position: fixed;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  width: 100vw !important;
+  height: 100vh !important;
+  max-width: none !important;
+  z-index: map.get($z-index-map, "fullscreen") !important; /* Higher than page-topbar */
+  margin: 0 !important;
+  padding-top: 0 !important;
+
+  .file-content-wrapper {
+    background-color: transparent;
+  }
+
+  /* Ensure the markdown editor takes full space in fullscreen mode */
+  .markdown-editor {
+    height: 100vh !important;
+    max-height: 100vh !important;
+
+    .editor-header {
+      position: sticky;
+      top: 0;
+      z-index: map.get($z-index-map, "sticky");
+    }
+  }
+}
+
+/* Iframe container style */
+.pdf-iframe {
+  flex: 1; /* Take up remaining space */
+  width: 100%;
+  height: 60%;
+  border: none;
+}

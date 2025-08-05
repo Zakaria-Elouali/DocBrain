@@ -1,0 +1,127 @@
+@use "sass:map";
+@use "../../config/minimal/variables" as *;
+@use "../../config/minimal/variables-custom" as *;
+@use "../../config/minimal/variables-dark" as *;
+@use "../../config/minimal/component-mixins" as mixins;
+
+// Modal Overlay
+.modal-overlay {
+  @include mixins.modal-overlay(
+    $fullscreen: true,
+    $bg-color: var(--#{$prefix}modal-overlay-bg),
+    $header-gap: true,
+    $content-padding-top: 50px
+  );
+}
+
+// Modal Content
+.modal-content {
+  @include mixins.modal-style($size: "sm", $custom-width: 425px);
+  max-height: 90vh;
+  overflow: auto;
+
+  h2 {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--#{$prefix}modal-title-color);
+    margin: 0 0 24px 0;
+    text-align: center;
+
+    &:after {
+      content: '';
+      display: block;
+      width: 50px;
+      height: 3px;
+      background: var(--#{$prefix}button-primary-bg);
+      margin: 8px auto 0;
+      border-radius: 3px;
+    }
+  }
+}
+
+// Form Styles
+.modal-form {
+  @include mixins.flex-column;
+  gap: 12px;
+}
+
+// Form Fields Container
+.modal-fields {
+  @include mixins.flex-column;
+  gap: 16px;
+}
+
+// Form Fields
+.modal-field {
+  @include mixins.flex-column;
+  gap: 4px;
+
+  label {
+    @include mixins.form-label;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--#{$prefix}input-color);
+    margin-bottom: 4px;
+  }
+
+  input, select, textarea {
+    @include mixins.form-field;
+    padding: 8px 12px;
+    border-radius: 8px;
+    font-size: 14px;
+    width: 100%;
+  }
+
+  textarea {
+    min-height: 100px;
+    resize: vertical;
+  }
+
+  .error {
+    color: var(--#{$prefix}form-error-color);
+    font-size: 12px;
+    margin-top: 4px;
+  }
+}
+
+// Button Group
+.modal-button-group {
+  @include mixins.flex-between;
+  justify-content: flex-end;
+  gap: 1rem;
+  margin-top: 1.25rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--#{$prefix}modal-border);
+
+  button {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: 500;
+    padding: 0.625rem 1.25rem;
+    border-radius: map.get($border-radius-map, "default");
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.2s;
+
+    &.primary {
+      @include mixins.button("primary");
+    }
+
+    &.secondary {
+      @include mixins.button("secondary");
+    }
+  }
+}
+
+// Media Queries
+@media (min-width: 640px) {
+  .modal-fields {
+    gap: 24px;
+  }
+
+  .modal-button-group button {
+    padding: 10px 20px;
+    font-size: 16px;
+  }
+}

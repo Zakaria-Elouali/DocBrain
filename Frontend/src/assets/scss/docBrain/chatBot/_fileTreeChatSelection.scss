@@ -1,0 +1,99 @@
+.file-selector-container {
+  width: 100%;
+  margin: 0 auto;
+
+  .border {
+    border: 1px solid #e2e8f0; // Light gray border
+    border-radius: 8px; // Rounded corners
+    background-color: #ffffff; // White background
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); // Subtle shadow
+  }
+
+  .max-h-48 {
+    max-height: 12rem; // Adjust height as needed
+    overflow-y: auto; // Enable vertical scrolling
+  }
+
+  /* Custom Scrollbar */
+  .max-h-48::-webkit-scrollbar {
+    width: 8px; // Scrollbar width
+  }
+
+  .max-h-48::-webkit-scrollbar-track {
+    background: #f1f1f1; // Light gray track
+    border-radius: 4px; // Rounded track
+  }
+
+  .max-h-48::-webkit-scrollbar-thumb {
+    background: #cbd5e0; // Gray thumb
+    border-radius: 4px; // Rounded thumb
+  }
+
+  .max-h-48::-webkit-scrollbar-thumb:hover {
+    background: #a0aec0; // Darker gray on hover
+  }
+
+  /* Ensure scrollbar is always visible */
+  .max-h-48 {
+    scrollbar-width: thin; // For Firefox
+    scrollbar-color: #cbd5e0 #f1f1f1; // For Firefox
+  }
+
+  /* File Tree Styling */
+  .file-tree {
+    .folder, .file {
+      padding: 8px 12px; // Padding for folders and files
+      transition: background-color 0.2s ease; // Smooth hover transition
+    }
+
+    .folder {
+      background-color: #f7fafc; // Light blue-gray background for folders
+      border-bottom: 1px solid #e2e8f0; // Border between folders
+    }
+
+    .file {
+      background-color: #ffffff; // White background for files
+      border-bottom: 1px solid #e2e8f0; // Border between files
+    }
+
+    .folder:hover, .file:hover {
+      background-color: #ebf8ff; // Light blue hover effect
+    }
+
+    .selected {
+      background-color: #bee3f8; // Light blue for selected file
+    }
+
+    .icon {
+      margin-right: 8px; // Space between icon and text
+    }
+
+    .folder-icon {
+      color: #f6ad55; // Yellow for folder icons
+    }
+
+    .file-icon {
+      color: #63b3ed; // Blue for file icons
+    }
+
+    .chevron-icon {
+      color: #718096; // Gray for chevron icons
+    }
+
+    .root-folder {
+      background-color: #edf2f7; // Light gray for root folder
+      border-radius: 8px; // Rounded corners for root folder
+      padding: 12px; // Increased padding for root folder
+      margin-bottom: 8px; // Space below root folder
+    }
+
+    .root-folder .folder-icon {
+      color: #805ad5; // Purple for root folder icon
+    }
+
+    .root-folder .folder-name {
+      color: #553c9a; // Purple for root folder name
+      font-weight: 600; // Bold for root folder name
+    }
+  }
+}

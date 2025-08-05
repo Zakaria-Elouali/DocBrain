@@ -1,0 +1,129 @@
+// Appointment Modal - Optimized with mixins
+@use "sass:map";
+@use "../../config/minimal/variables" as *;
+@use "../../config/minimal/component-mixins" as mixins;
+
+.modal-overlay {
+  @include mixins.modal-overlay(
+    $fullscreen: true,
+    $bg-color: var(--#{$prefix}appointment-modal-overlay-bg),
+    $header-gap: false,
+    $content-padding-top: 80px // Add padding to create gap between header and modal content
+  );
+}
+
+// Modal Content
+.modal-content {
+  @include mixins.modal-style($size: "md", $custom-width: 900px);
+  max-height: 90vh;
+
+  h2 {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--#{$prefix}appointment-modal-title-color);
+    margin: 0 0 24px 0;
+    text-align: center;
+
+    &:after {
+      content: '';
+      display: block;
+      width: 50px;
+      height: 3px;
+      background: var(--#{$prefix}appointment-modal-button-primary-bg);
+      margin: 8px auto 0;
+      border-radius: 3px;
+    }
+  }
+}
+
+// Form Styles - Using modal-body from the mixin
+.modal-form {
+  @include mixins.flex-column;
+  gap: 12px; // Reduced from 16px
+}
+
+// Form Fields
+.modal-field {
+  @include mixins.flex-column;
+  gap: 4px;
+
+  label {
+    @include mixins.form-label;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--#{$prefix}appointment-modal-field-label-color);
+    margin-bottom: 4px;
+  }
+
+  input, select, textarea {
+    @include mixins.form-field;
+    padding: 8px 12px; // Reduced padding
+    color: var(--#{$prefix}appointment-modal-field-input-color);
+    background-color: var(--#{$prefix}appointment-modal-field-input-bg);
+    border: var(--#{$prefix}appointment-modal-field-input-border);
+    border-radius: 8px;
+    font-size: 14px;
+    width: 100%;
+  }
+
+  textarea {
+    min-height: 100px;
+    resize: vertical;
+  }
+
+  .error {
+    color: var(--#{$prefix}appointment-modal-error-color);
+    font-size: 12px;
+    margin-top: 4px;
+  }
+}
+
+// Two-column layout for form fields
+.modal-field-group {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+
+// Button Group - Using modal-footer from the mixin
+.modal-button-group {
+  @include mixins.flex-between;
+  justify-content: flex-end; // Align buttons to the right
+  gap: 1rem;
+  margin-top: 1.25rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--#{$prefix}modal-border);
+
+  button {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: 500;
+    padding: 0.625rem 1.25rem;
+    border-radius: map.get($border-radius-map, "default");
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.2s;
+
+    &.primary {
+      @include mixins.button("primary");
+      background-color: var(--#{$prefix}button-primary-bg);
+      color: var(--#{$prefix}button-primary-color);
+
+      &:hover {
+        background-color: var(--#{$prefix}button-primary-hover-bg);
+      }
+    }
+
+    &.secondary {
+      @include mixins.button("secondary");
+      background-color: var(--#{$prefix}button-secondary-bg);
+      color: var(--#{$prefix}button-secondary-color);
+
+      &:hover {
+        background-color: var(--#{$prefix}button-secondary-hover-bg);
+      }
+    }
+  }
+}
+

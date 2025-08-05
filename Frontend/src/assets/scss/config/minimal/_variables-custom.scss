@@ -1,0 +1,40 @@
+@use "sass:map";
+@use "variables" as *;
+@use "variables-light" as light;
+
+// ======================
+// Global Structure Variables
+// ======================
+
+// Layout Sizes & Structure
+// Use the layout dimensions map from variables.scss
+$header-height: map.get($layout-dimensions, "header-height");
+$footer-height: map.get($layout-dimensions, "footer-height");
+
+// Sidebar/Content Panel Structure
+$sidebar-menu-title-font-size: 1.25rem;
+$sidebar-menu-title-font-weight: 600;
+$sidebar-menu-title-margin: 0 0 12px 0;
+$sidebar-content-padding: 16px;
+
+// IconBar Structure
+$iconbar-padding: 0.625rem 0;
+$iconbar-icon-size: 40px;
+$iconbar-icon-border-radius: 4px;
+$iconbar-icon-margin: 4px 0;
+
+// Main Area / Content Area Structure
+$main-area-top-position: 50px; // Adjusted to match the header height
+$main-area-padding: 0rem;
+$main-area-z-index: 10;
+// Modal Structure
+$modal-content-padding: 1.5rem;
+
+// User Management Structure
+$user-tabs-bg: null; // This is a structural variable that doesn't change with theme
+
+// Card Structure
+$card-border-radius-light: map.get($border-radius-map, "default");
+
+// Page Title Structure
+$page-title-box-shadow: none;

@@ -1,0 +1,8 @@
+{
+  "includePaths": [
+    "node_modules"
+  ],
+  "outputStyle": "compressed",
+  "sourceMap": false,
+  "quietDeps": true
+}

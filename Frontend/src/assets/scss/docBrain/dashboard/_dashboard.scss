@@ -1,0 +1,156 @@
+@use "sass:map";
+@use "../../config/minimal/variables" as *;
+@use "../../config/minimal/component-mixins" as mixins;
+
+.dashboard-container {
+  .main-area-wrapper[data-id="dashboard"] {
+    @include mixins.main-area-container(0, true);
+
+    // Override width to account for mini sidebar only
+    & {
+      width: calc(100% - #{map.get($layout-dimensions, "iconbar-width")}); // full width minus mini sidebar
+    }
+
+    // Only show when dashboard is the active panel
+    body[data-active-panel="dashboard"] & {
+      display: flex;
+    }
+
+    body[data-active-panel]:not([data-active-panel="dashboard"]) & {
+      display: none !important;
+    }
+  }
+
+  .dashboard-content {
+    @include mixins.main-area-content;
+  }
+
+  // Dashboard grid styling
+  .dashboard-grid {
+    padding: 2rem 2rem 0.5rem 2rem;
+
+    // Card styling
+    .card {
+      @include mixins.card-style;
+      background-color: var(--#{$prefix}dashboard-card-bg) !important;
+      border-color: var(--#{$prefix}dashboard-card-border) !important;
+      border-radius: map.get($border-radius-map, "lg");
+      overflow: hidden;
+
+      h1, h2, h3, h4, h5, h6 {
+        color: var(--#{$prefix}dashboard-text-primary);
+      }
+
+      .text-gray-500 {
+        color: var(--#{$prefix}dashboard-text-secondary) !important;
+      }
+
+      .text-gray-800, .text-gray-900 {
+        color: var(--#{$prefix}dashboard-text-primary) !important;
+      }
+
+      // Activity grid styles
+      .grid-cols-12 {
+        &.bg-gray-50 {
+          background-color: var(--#{$prefix}dashboard-table-header-bg) !important;
+        }
+
+        &.hover\:bg-gray-50:hover {
+          background-color: var(--#{$prefix}dashboard-table-row-hover) !important;
+        }
+
+        .text-gray-500 {
+          color: var(--#{$prefix}dashboard-text-secondary) !important;
+        }
+
+        .text-gray-900 {
+          color: var(--#{$prefix}dashboard-text-primary) !important;
+        }
+
+        .truncate {
+          max-width: 100% !important;
+          overflow: hidden !important;
+          text-overflow: ellipsis !important;
+          white-space: nowrap !important;
+        }
+      }
+
+      // Divider
+      .divide-y.divide-gray-200 {
+        > div {
+          border-color: var(--#{$prefix}dashboard-table-border) !important;
+        }
+      }
+
+      // Table container
+      .overflow-x-auto {
+        width: 100% !important;
+        display: block !important;
+        margin: 0 auto !important;
+
+        // Table borders
+        &.divide-gray-200 {
+          border-color: var(--#{$prefix}dashboard-table-border) !important;
+        }
+      }
+
+      // Chart elements
+      .recharts-cartesian-grid-horizontal line,
+      .recharts-cartesian-grid-vertical line {
+        stroke: var(--#{$prefix}dashboard-chart-grid);
+      }
+
+      .recharts-text {
+        fill: var(--#{$prefix}dashboard-text-secondary);
+      }
+
+      // Progress bar
+      .bg-gray-200 {
+        background-color: var(--#{$prefix}dashboard-progress-bg) !important;
+      }
+
+      // Tooltip styling
+      .recharts-tooltip-wrapper {
+        .recharts-default-tooltip {
+          background-color: var(--#{$prefix}dashboard-tooltip-bg) !important;
+          border-color: var(--#{$prefix}dashboard-tooltip-border) !important;
+
+          .recharts-tooltip-item-name,
+          .recharts-tooltip-item-value {
+            color: var(--#{$prefix}dashboard-text-primary) !important;
+          }
+        }
+      }
+
+      // Custom tooltip
+      .bg-white.p-3.shadow-md.rounded.border {
+        background-color: var(--#{$prefix}dashboard-tooltip-bg) !important;
+        border-color: var(--#{$prefix}dashboard-tooltip-border) !important;
+
+        p {
+          color: var(--#{$prefix}dashboard-text-primary) !important;
+        }
+      }
+    }
+
+    // Error state
+    .bg-red-100 {
+      background-color: var(--#{$prefix}dashboard-error-bg) !important;
+      border-color: var(--#{$prefix}dashboard-error-border) !important;
+
+      p {
+        color: var(--#{$prefix}dashboard-error-text) !important;
+      }
+    }
+
+    // Table container
+    .bg-gray-50 {
+      background-color: var(--#{$prefix}dashboard-table-header-bg) !important;
+    }
+
+    // Text in "No data" messages
+    .text-gray-500 {
+      color: var(--#{$prefix}dashboard-text-secondary) !important;
+    }
+  }
+}

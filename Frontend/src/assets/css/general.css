@@ -1,0 +1,100 @@
+/*.comparison-table {*/
+/*    width: 100%;*/
+/*    border-collapse: collapse;*/
+/*    margin: 20px 0;*/
+/*    font-size: 18px;*/
+/*    */
+/*  }*/
+/*  */
+/*  .comparison-table th, .comparison-table td {*/
+/*    padding: 12px 15px;*/
+/*    border: 1px solid #ddd;*/
+/*  }*/
+/*  */
+/*  .comparison-table th {*/
+/*    background-color: #f4f4f4;*/
+/*    text-align: center;*/
+/*  }*/
+/*  */
+/*  .comparison-table tr:nth-child(even) {*/
+/*    background-color: #f9f9f9;*/
+/*  }*/
+/*  */
+/*  .comparison-table tr:hover {*/
+/*    background-color: #f1f1f1;*/
+/*  }*/
+/*  .comparison-table tr td.center{*/
+/*    text-align: center;*/
+/*  }*/
+
+/*  .process-completion {*/
+/*    padding: 20px;*/
+/*    font-family: Arial, sans-serif;*/
+/*  }*/
+/*  */
+/*  .process-details {*/
+/*    margin-bottom: 20px;*/
+/*  }*/
+/*  */
+/*  .chart-container {*/
+/*    width: 100%;*/
+/*    max-width: 800px; !* Increase max-width for larger chart *!*/
+/*    height: 400px;    !* Set a fixed height for the chart *!*/
+/*    margin-bottom: 20px;*/
+/*  }*/
+/*  */
+/*  .chart-wrapper {*/
+/*    position: relative;*/
+/*    height: 100%; !* Allow chart to take full height *!*/
+/*  }*/
+/*  */
+/*  .progress-bar-container {*/
+/*    width: 100%;*/
+/*    background-color: #f3f3f3;*/
+/*    border-radius: 5px;*/
+/*  }*/
+/*  */
+/*  .progress-bar {*/
+/*    height: 20px;*/
+/*    border-radius: 5px;*/
+/*    color: #fff;*/
+/*    display: flex;*/
+/*    justify-content: center;*/
+/*    align-items: center;*/
+/*    font-weight: bold;*/
+/*  }*/
+/*  */
+/*  .activities-missing-fields {*/
+/*    margin-top: 20px;*/
+/*  }*/
+/*  */
+/*  .activities-missing-fields div {*/
+/*    margin-bottom: 10px;*/
+/*  }  */
+
+
+/*.activities-table {*/
+/*  width: 100%;*/
+/*  border-collapse: collapse;*/
+/*  margin-top: 10px;*/
+/*}*/
+
+/*.activities-table th, .activities-table td {*/
+/*  padding: 10px;*/
+/*  border: 1px solid #ddd;*/
+/*  text-align: left;*/
+/*}*/
+
+/*.activities-table th {*/
+/*  background-color: #f4f4f4;*/
+/*  text-align: center;*/
+/*}*/
+
+/*.activities-table td {*/
+/*  vertical-align: top;*/
+/*  text-align: center;*/
+/*}*/
+
+/*.bjs-breadcrumbs{*/
+/*  display: none;*/
+/*}*/

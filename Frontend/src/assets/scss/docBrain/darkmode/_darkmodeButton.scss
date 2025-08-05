@@ -1,0 +1,70 @@
+
+@use "../../config/minimal/variables" as *;
+@use "../../config/minimal/variables-custom" as *;
+@use "../../config/minimal/variables-dark" as *;
+
+.toggle-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .toggle {
+    width: 80px;
+    height: 36px;
+    background: #353535;
+    border-radius: 30px;
+    padding: 3px;
+    position: relative;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    // Container for both icons
+    .icons {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      padding: 0 8px;
+      z-index: 1;
+
+      // Style for both sun and moon icons
+      svg {
+        width: 18px;
+        height: 18px;
+      }
+    }
+
+    // Sliding circle
+    &::before {
+      content: '';
+      position: absolute;
+      left: 3px;
+      width: 30px;
+      height: 30px;
+      background: #fff;
+      border-radius: 50%;
+      transition: transform 0.3s ease;
+    }
+
+    // Move circle to right when enabled (dark mode)
+    &.enabled::before {
+      transform: translateX(44px);
+    }
+  }
+
+  // Hide actual checkbox
+  .hidden {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+  }
+}
+
+.small-h6 {
+  font-size: 0.875rem;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+  color: #333;
+}
+

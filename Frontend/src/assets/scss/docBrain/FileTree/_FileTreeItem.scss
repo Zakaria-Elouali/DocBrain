@@ -1,0 +1,35 @@
+@use "sass:map";
+
+@use "../../config/minimal/variables" as *;
+@use "../../config/minimal/variables-custom" as *;
+@use "../../config/minimal/variables-dark" as *;
+@use "../../config/minimal/component-mixins" as *;
+
+.folder-name-input {
+  @include form-field;
+  width: calc(100% - 10px); /* Adjust width relative to its container */
+  padding: 4px 8px; /* Add some padding for a better look */
+  font-size: 14px; /* Match the font size with the surrounding text */
+  border-radius: map.get($border-radius-map, "sm"); /* Rounded corners */
+  box-shadow: map.get($shadow-map, "sm"); /* Slight shadow for depth */
+  transition: border-color 0.2s ease, box-shadow 0.2s ease; /* Smooth transitions */
+}
+
+.folder-name-input:focus {
+  border-color: var(--#{$prefix}input-focus-border); /* Highlight border on focus */
+  box-shadow: 0 0 0 3px var(--#{$prefix}input-focus-shadow); /* Add focus ring */
+}
+
+.folder-name-input::placeholder {
+  color: var(--#{$prefix}input-placeholder-color); /* Subtle placeholder color */
+  font-style: italic; /* Optional italic placeholder text */
+}
+
+.animate-spin {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}

@@ -1,0 +1,103 @@
+// _base.scss - Global base styling with CSS variables
+// This file applies CSS variables to common HTML elements for consistent theming
+// Optimized for better performance
+
+@use "utils" as *;
+@use "../config/minimal/variables" as *;
+@use "../config/minimal/variables-custom" as *;
+@use "../config/minimal/variables-dark" as *;
+@use "../config/minimal/component-mixins" as mixins;
+
+// Body base styling
+body {
+  background-color: var(--#{$prefix}body-bg);
+  color: var(--#{$prefix}body-color);
+  transition: background-color 0.3s, color 0.3s;
+  font-family: var(--#{$prefix}font-family);
+}
+
+// Headings
+h1, h2, h3, h4, h5, h6 {
+  color: var(--#{$prefix}headings-color);
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+  line-height: 1.2;
+}
+
+// Links
+a {
+  color: var(--#{$prefix}link-color);
+  text-decoration: var(--#{$prefix}link-decoration);
+  transition: color 0.3s ease;
+
+  &:hover {
+    color: var(--#{$prefix}link-hover-color);
+    text-decoration: var(--#{$prefix}link-hover-decoration);
+  }
+}
+
+// Form elements
+input,
+select,
+textarea {
+  @include mixins.form-field;
+}
+
+// Buttons
+button {
+  @include mixins.button("primary");
+}
+
+// Primary button class
+.btn-primary {
+  @include mixins.button("primary");
+}
+
+// Secondary button class
+.btn-secondary {
+  @include mixins.button("secondary");
+}
+
+// Tables
+table {
+  @include mixins.table-style;
+}
+
+// Cards
+.card {
+  @include mixins.card-style;
+}
+
+// Code blocks
+pre, code {
+  font-family: var(--#{$prefix}font-family-monospace);
+  background-color: var(--#{$prefix}code-bg);
+  color: var(--#{$prefix}code-color);
+  border-radius: var(--#{$prefix}border-radius);
+}
+
+pre {
+  padding: 1rem;
+  margin-bottom: 1rem;
+  overflow: auto;
+}
+
+code {
+  padding: 0.2rem 0.4rem;
+}
+
+// Blockquotes
+blockquote {
+  padding: 0.5rem 1rem;
+  margin: 0 0 1rem;
+  border-left: 4px solid var(--#{$prefix}blockquote-border-color);
+  color: var(--#{$prefix}blockquote-color);
+}
+
+// Horizontal rule
+hr {
+  margin: 1rem 0;
+  border: 0;
+  border-top: 1px solid var(--#{$prefix}hr-color);
+  opacity: 0.25;
+}

@@ -1,0 +1,147 @@
+// _utility-overrides.scss
+// This file contains overrides for Bootstrap utility classes
+// Using modern Sass syntax
+
+@use "../config/minimal/variables" as *;
+@use "../config/minimal/variables-custom" as *;
+@use "../config/minimal/variables-dark" as *;
+
+// Override background utility classes to use direct color values instead of CSS variables
+.bg-primary {
+  background-color: #{$primary} !important;
+}
+
+.bg-secondary {
+  background-color: #{$secondary} !important;
+}
+
+.bg-success {
+  background-color: #{$success} !important;
+}
+
+.bg-info {
+  background-color: #{$info} !important;
+}
+
+.bg-warning {
+  background-color: #{$warning} !important;
+}
+
+.bg-danger {
+  background-color: #{$danger} !important;
+}
+
+.bg-light {
+  background-color: #{$light} !important;
+}
+
+.bg-dark {
+  background-color: #{$dark} !important;
+}
+
+// Override text color utility classes
+.text-primary {
+  color: #{$primary} !important;
+}
+
+.text-secondary {
+  color: #{$secondary} !important;
+}
+
+.text-success {
+  color: #{$success} !important;
+}
+
+.text-info {
+  color: #{$info} !important;
+}
+
+.text-warning {
+  color: #{$warning} !important;
+}
+
+.text-danger {
+  color: #{$danger} !important;
+}
+
+.text-light {
+  color: #{$light} !important;
+}
+
+.text-dark {
+  color: #{$dark} !important;
+}
+
+// Override border color utility classes
+.border-primary {
+  border-color: #{$primary} !important;
+}
+
+.border-secondary {
+  border-color: #{$secondary} !important;
+}
+
+.border-success {
+  border-color: #{$success} !important;
+}
+
+.border-info {
+  border-color: #{$info} !important;
+}
+
+.border-warning {
+  border-color: #{$warning} !important;
+}
+
+.border-danger {
+  border-color: #{$danger} !important;
+}
+
+.border-light {
+  border-color: #{$light} !important;
+}
+
+.border-dark {
+  border-color: #{$dark} !important;
+}
+
+// Override button classes if needed
+.btn-primary {
+  background-color: #{$primary} !important;
+  border-color: #{$primary} !important;
+}
+
+.btn-secondary {
+  background-color: #{$secondary} !important;
+  border-color: #{$secondary} !important;
+}
+
+.btn-success {
+  background-color: #{$success} !important;
+  border-color: #{$success} !important;
+}
+
+.btn-info {
+  background-color: #{$info} !important;
+  border-color: #{$info} !important;
+}
+
+.btn-warning {
+  background-color: #{$warning} !important;
+  border-color: #{$warning} !important;
+}
+
+.btn-danger {
+  background-color: #{$danger} !important;
+  border-color: #{$danger} !important;
+}
+
+.btn-light {
+  background-color: #{$light} !important;
+  border-color: #{$light} !important;
+}
+
+.btn-dark {
+  background-color: #{$dark} !important;
+  border-color: #{$dark} !important;
+}

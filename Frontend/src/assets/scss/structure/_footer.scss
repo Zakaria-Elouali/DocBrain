@@ -1,0 +1,32 @@
+//
+// _footer.scss
+//
+
+@use "../config/minimal/variables" as *;
+@use "../config/minimal/variables-custom" as *;
+@use "../config/minimal/variables-dark" as *;
+
+
+
+.footer {
+  bottom: 0;
+  padding: 20px calc(#{$grid-gutter-width} * 0.5);
+  position: absolute;
+  right: 0;
+  color: var(--#{$prefix}footer-color);
+  left: var(--#{$prefix}vertical-menu-width);
+  height: $footer-height;
+  background-color: var(--#{$prefix}footer-bg);
+
+  .footer-text {
+    display: inline-block; // Ensures the text stays in one line
+    text-align: center;
+    white-space: nowrap; // Prevents wrapping of the text
+    width: 100%; // Makes it span full width for alignment
+    font-size: 14px; // Adjust font size as needed
+  }
+
+  @media (max-width: 991.98px) {
+    left: 0;
+  }
+}

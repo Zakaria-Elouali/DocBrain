@@ -1,0 +1,385 @@
+// Import Sass color module for modern color functions
+@use "sass:color";
+
+// Variables
+//
+// Variables should follow the `$component-state-property-size` formula for
+// consistent naming. Ex: $nav-link-disabled-color and $modal-content-box-shadow-xs.
+
+// Google Font
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap");
+
+// Prefix for :root CSS variables
+$variable-prefix: vz-;
+$prefix: $variable-prefix;
+
+// Font Family
+$font-family-primary: "Open Sans", sans-serif;
+$font-family-secondary: "Open Sans", sans-serif;
+$font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+
+:lang(ar) {
+  $font-family-primary: "cocoon_ar", sans-serif;
+  $font-family-secondary: "cocoon_ar", sans-serif;
+}
+
+//// Mode settings
+//$sidebar-mode: true;
+//$sidebar-gradient-mode: true;
+//$sidebar-img: true;
+//$topbar-dark-mode: true;
+//$sidebar-dark-mode: true;
+//$sidebar-gradient-dark-mode: false;
+//$enable-dark-mode: true;
+//$color-mode-type: data; // `data` or `media-query`
+
+// Color system
+$white: #fff;
+$gray-100: #f3f6f9;
+$gray-200: #eff2f7;
+$gray-300: #e9ebec;
+$gray-400: #ced4da;
+$gray-500: #adb5bd;
+$gray-600: #878a99;
+$gray-700: #495057;
+$gray-800: #343a40;
+$gray-900: #212529;
+$black: #000;
+
+// Base colors
+$blue: #32ccff;
+$indigo: #516196;
+$purple: #8772f9;
+$pink: #f672a7;
+$red: #f06548;
+$orange: #f1963b;
+$yellow: #ffbc0a;
+$green: #00bd9d;
+$teal: #02a8b5;
+$cyan: #25a0e2;
+
+// Theme colors
+$primary: #3a4091;
+$primary-dark: #262a63;
+$primary-light: #4158D0;
+$secondary: #05a597;
+$success: #05a597;
+$info: $blue;
+$warning: $yellow;
+$danger: #bd2d2e;
+$light: $gray-100;
+$dark: $gray-800;
+
+// Theme color map
+$theme-colors: (
+  "primary": $primary,
+  "secondary": $secondary,
+  "success": $success,
+  "info": $info,
+  "warning": $warning,
+  "danger": $danger,
+  "light": $light,
+  "dark": $dark,
+);
+
+// Extended theme color map with variants
+$theme-color-variants: (
+  "primary": (
+    "base": $primary,
+    "dark": $primary-dark,
+    "light": $primary-light,
+    "hover": color.adjust($primary, $lightness: -7.5%)
+  ),
+  "secondary": (
+    "base": $secondary,
+    "dark": color.adjust($secondary, $lightness: -10%),
+    "light": color.adjust($secondary, $lightness: 15%),
+    "hover": color.adjust($secondary, $lightness: -7.5%)
+  ),
+  "success": (
+    "base": $success,
+    "dark": color.adjust($success, $lightness: -10%),
+    "light": color.adjust($success, $lightness: 15%),
+    "hover": color.adjust($success, $lightness: -7.5%)
+  ),
+  "info": (
+    "base": $info,
+    "dark": color.adjust($info, $lightness: -10%),
+    "light": color.adjust($info, $lightness: 15%),
+    "hover": color.adjust($info, $lightness: -7.5%)
+  ),
+  "warning": (
+    "base": $warning,
+    "dark": color.adjust($warning, $lightness: -10%),
+    "light": color.adjust($warning, $lightness: 15%),
+    "hover": color.adjust($warning, $lightness: -7.5%)
+  ),
+  "danger": (
+    "base": $danger,
+    "dark": color.adjust($danger, $lightness: -10%),
+    "light": color.adjust($danger, $lightness: 15%),
+    "hover": color.adjust($danger, $lightness: -7.5%)
+  )
+);
+
+// Neutral color palette
+$neutral-colors: (
+  "white": $white,
+  "black": $black,
+  "gray-100": $gray-100,
+  "gray-200": $gray-200,
+  "gray-300": $gray-300,
+  "gray-400": $gray-400,
+  "gray-500": $gray-500,
+  "gray-600": $gray-600,
+  "gray-700": $gray-700,
+  "gray-800": $gray-800,
+  "gray-900": $gray-900
+);
+
+// Options
+$enable-caret: false;
+$enable-rounded: true;
+$enable-shadows: false;
+$enable-gradients: false;
+$enable-transitions: true;
+$enable-reduced-motion: true;
+$enable-smooth-scroll: true;
+$enable-grid-classes: true;
+$enable-container-classes: true;
+$enable-cssgrid: false;
+$enable-button-pointers: true;
+$enable-rfs: true;
+$enable-validation-icons: true;
+$enable-negative-margins: true;
+$enable-important-utilities: true;
+
+// Spacing
+$spacer: 1rem;
+$spacers: (
+  0: 0,
+  1: $spacer * 0.25,
+  2: $spacer * 0.5,
+  3: $spacer,
+  4: $spacer * 1.5,
+  5: $spacer * 3,
+);
+
+// Body
+$body-bg: #ffffff;
+$body-color: $gray-900;
+
+// Links
+$link-color: $primary;
+$link-decoration: none;
+$link-hover-color: $primary;
+
+// Grid breakpoints
+$grid-breakpoints: (
+  xs: 0,
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px,
+  xxl: 1400px,
+);
+
+// Breakpoints for responsive design
+$breakpoints: (
+  xs: 0,
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px,
+  xxl: 1400px,
+);
+
+// Grid containers
+$container-max-widths: (
+  sm: 540px,
+  md: 720px,
+  lg: 960px,
+  xl: 1140px,
+  xxl: 1320px,
+);
+
+// Grid columns
+$grid-columns: 12;
+$grid-gutter-width: 1.5rem;
+$grid-row-columns: 6;
+$container-padding-x: $grid-gutter-width * 1;
+
+// Components
+$border-width: 1px;
+$border-color: $gray-300;
+$border-radius: 0.25rem;
+$border-radius-sm: 0.2rem;
+$border-radius-lg: 0.3rem;
+$border-radius-xl: 1rem;
+$border-radius-pill: 50rem;
+
+// Border radius map
+$border-radius-map: (
+  "sm": $border-radius-sm,
+  "default": $border-radius,
+  "lg": $border-radius-lg,
+  "xl": $border-radius-xl,
+  "pill": $border-radius-pill
+);
+
+// Border width map
+$border-width-map: (
+  "default": 1px,
+  "medium": 2px,
+  "thick": 3px
+);
+
+// Box shadows
+$box-shadow: 0 1px 2px rgba(56, 65, 74, 0.15);
+$box-shadow-sm: 0 0.125rem 0.25rem rgba($black, 0.075);
+$box-shadow-lg: 0 5px 10px rgba(30, 32, 37, 0.12);
+$box-shadow-inset: inset 0 1px 2px rgba($black, 0.075);
+
+// Shadow map
+$shadow-map: (
+  "sm": $box-shadow-sm,
+  "default": $box-shadow,
+  "lg": $box-shadow-lg,
+  "inset": $box-shadow-inset,
+  "card": 0 2px 8px rgba(0, 0, 0, 0.08),
+  "modal": 0 10px 30px rgba(0, 0, 0, 0.25)
+);
+
+// Typography
+$font-size-root: null;
+$font-size-base: 0.875rem;
+$font-size-sm: $font-size-base * 0.875;
+$font-size-lg: $font-size-base * 1.25;
+$font-size-custom: 0.875rem; //add this variable to use in the utility classes
+
+$font-weight-lighter: lighter;
+$font-weight-light: 300;
+$font-weight-normal: 400;
+$font-weight-medium: 500;
+$font-weight-semibold: 600;
+$font-weight-bold: 700;
+$font-weight-bolder: bolder;
+
+$line-height-base: 1.5;
+$line-height-sm: 1.25;
+$line-height-lg: 2;
+
+$h1-font-size: $font-size-base * 2.5;
+$h2-font-size: $font-size-base * 2;
+$h3-font-size: $font-size-base * 1.75;
+$h4-font-size: $font-size-base * 1.5;
+$h5-font-size: $font-size-base * 1.25;
+$h6-font-size: $font-size-base;
+
+// Font size custom map for utility classes
+$font-size-custom: (
+  10: 10px,
+  11: 11px,
+  12: 12px,
+  13: 13px,
+  14: 14px,
+  15: 15px,
+  16: 16px,
+  17: 17px,
+  18: 18px,
+  19: 19px,
+  20: 20px,
+  21: 21px,
+  22: 22px,
+  23: 23px,
+  24: 24px,
+  36: 36px,
+  48: 48px,
+);
+
+$headings-margin-bottom: $spacer * 0.5;
+$headings-font-family: $font-family-primary;
+$headings-font-weight: 600;
+$headings-line-height: 1.2;
+$headings-color: $gray-700;
+
+// Z-index master list
+$zindex-dropdown: 1000;
+$zindex-sticky: 1020;
+$zindex-fixed: 1030;
+$zindex-offcanvas-backdrop: 1040;
+$zindex-offcanvas: 1045;
+$zindex-modal-backdrop: 1050;
+$zindex-modal: 1055;
+$zindex-popover: 1070;
+$zindex-tooltip: 1080;
+$zindex-toast: 1090;
+
+// Z-index map
+$z-index-map: (
+  "dropdown": $zindex-dropdown,
+  "sticky": $zindex-sticky,
+  "fixed": $zindex-fixed,
+  "offcanvas-backdrop": $zindex-offcanvas-backdrop,
+  "offcanvas": $zindex-offcanvas,
+  "modal-backdrop": $zindex-modal-backdrop,
+  "modal": $zindex-modal,
+  "popover": $zindex-popover,
+  "tooltip": $zindex-tooltip,
+  "toast": $zindex-toast
+);
+
+// Layout dimensions map
+$layout-dimensions: (
+  "header-height": 50px,
+  "footer-height": 40px,
+  "iconbar-width": 60px,
+  "sidebar-width": 250px,
+  "fullsidebar-width": calc(60px + 250px),
+  "fullsidebar-width-sm": 60px  // Only iconbar width for smaller screens
+);
+
+// Tables
+$table-cell-padding-y: 0.75rem;
+$table-cell-padding-x: 0.6rem;
+$table-border-width: var(--#{$prefix}border-width);
+
+// Buttons + Forms
+$input-btn-padding-y: 0.5rem;
+$input-btn-padding-x: 0.9rem;
+$input-btn-font-size: $font-size-base;
+$input-btn-line-height: $line-height-base;
+
+// Cards
+$card-spacer-y: $spacer;
+$card-spacer-x: $spacer;
+$card-border-width: 1px;
+$card-border-radius: var(--#{$prefix}border-radius);
+$card-bg: var(--#{$prefix}secondary-bg);
+
+// Modals
+$modal-inner-padding: $spacer * 1.25;
+$modal-content-border-width: var(--#{$prefix}border-width);
+$modal-backdrop-bg: $black;
+$modal-backdrop-opacity: 0.5;
+$modal-sm: 300px;
+$modal-md: 500px;
+$modal-lg: 800px;
+$modal-xl: 1140px;
+
+// Alerts
+$alert-padding-y: $spacer * 0.8;
+$alert-padding-x: $spacer;
+$alert-border-radius: var(--#{$prefix}border-radius);
+$alert-border-width: var(--#{$prefix}border-width);
+
+// Close
+$btn-close-width: 1em;
+$btn-close-height: $btn-close-width;
+$btn-close-padding-x: 0.25em;
+$btn-close-padding-y: $btn-close-padding-x;
+$btn-close-color: $black;
+$btn-close-opacity: 0.5;
+$btn-close-hover-opacity: 0.75;
+

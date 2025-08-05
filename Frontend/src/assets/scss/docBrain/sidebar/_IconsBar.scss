@@ -1,0 +1,45 @@
+@use "sass:map";
+@use "../../config/minimal/variables" as *;
+@use "../../config/minimal/component-mixins" as mixins;
+
+// Sidebar Container
+.sidebar-container {
+  height: 100vh;
+  display: flex;
+  position: fixed;
+  top: map.get($layout-dimensions, "header-height");
+  inset-inline-start: 0; /* replaces 'left: 0' to handle RTL */
+}
+
+// IconBar
+.icon-sidebar {
+  width: map.get($layout-dimensions, "iconbar-width");
+  background: var(--#{$prefix}iconbar-bg);
+  padding: 10px 0;
+  @include mixins.flex-column;
+  align-items: center;
+  border-inline-end: 1px solid var(--#{$prefix}iconbar-border);
+}
+
+.nav-button {
+  width: 40px;
+  height: 40px;
+  @include mixins.flex-center;
+  color: var(--#{$prefix}iconbar-icon-color);
+  border: none;
+  background: var(--#{$prefix}iconbar-icon-bg);
+  border-radius: map.get($border-radius-map, "xs");
+  margin: 4px 0;
+  cursor: pointer;
+  transition: all 0.2s ease;
+
+  &:hover {
+    background-color: var(--#{$prefix}iconbar-icon-hover-bg);
+    color: var(--#{$prefix}iconbar-icon-hover-color);
+  }
+
+  &.active {
+    background-color: var(--#{$prefix}iconbar-icon-active-bg);
+    color: var(--#{$prefix}iconbar-icon-active-color);
+  }
+}

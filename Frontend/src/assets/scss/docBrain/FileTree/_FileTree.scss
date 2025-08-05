@@ -1,0 +1,79 @@
+@use "sass:map";
+@use "../../config/minimal/variables" as *;
+@use "../../config/minimal/variables-custom" as *;
+@use "../../config/minimal/variables-dark" as *;
+@use "../../config/minimal/component-mixins" as *;
+
+/* FileTree.css additions */
+
+//the folder tree container
+.file-tree-container {
+  @include flex-column;
+  height: 100%;
+  padding: 12px;
+  box-shadow: map.get($shadow-map, "default");
+  font-family: $font-family-secondary;
+  font-size: 16px;
+}
+
+// the 3 icon for the file tree
+.file-tree-header {
+  @include flex-center;
+  gap: 8px;
+  padding: 8px 12px;
+  border-bottom: 1px solid var(--#{$prefix}border-color);
+}
+
+.action-button {
+  padding: 8px;
+  border-radius: map.get($border-radius-map, "sm");
+  border: none;
+  background: none;
+  cursor: pointer;
+  @include flex-center;
+
+  &:hover {
+    background-color: var(--#{$prefix}bg-hover, rgba(75, 100, 142, 0.81));
+  }
+}
+
+.action-icon {
+  width: 20px;
+  height: 20px;
+  color: var(--#{$prefix}text-muted, #eaeaec);
+}
+
+// the folder tree content control from the line separate the header below
+.file-tree-content {
+  flex: 1;
+  overflow-y: auto;
+  padding: 10px 0 80px 0;
+}
+
+.tree-item {
+  &-content {
+    @include sidebar-item($is-tree-item: true);
+    transition: background-color 0.2s ease;
+  }
+
+  &-icon {
+    @include tree-item-icon;
+
+    &.folder {
+      @include tree-item-icon($type: "folder");
+    }
+
+    &.file {
+      @include tree-item-icon($type: "file");
+    }
+  }
+
+  &-icon-wrapper {
+    @include flex-center;
+    margin: 0 8px;
+  }
+
+  &-label {
+    font-size: 0.875rem;
+  }
+}

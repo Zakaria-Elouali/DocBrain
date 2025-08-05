@@ -1,0 +1,52 @@
+// Component index file - forwards all component and view styles
+// This pattern reduces the number of imports in main.scss and improves compilation time
+
+// Import color module for modern color functions
+@use "sass:color";
+
+// Auth components
+@forward "auth/confirmationEmail";
+@forward "auth/authentication";
+
+// FileTree components
+@forward "FileTree/SearchView";
+@forward "FileTree/FileTreeItem";
+@forward "FileTree/FileTree";
+@forward "FileTree/RightClickMenu";
+
+// FileViewer components
+@forward "FileViewer/FileViewer";
+@forward "FileViewer/MarkdownEditor";
+
+// Calendar components
+@forward "calendar/calendar";
+@forward "calendar/appointmentList";
+@forward "calendar/appointmentModal";
+
+// User management components
+@forward "Users/usersManagemant";
+@forward "Users/userForm";
+
+// Settings components
+@forward "Settings/Settings";
+@forward "Settings/ProfileSection";
+@forward "Settings/SecuritySection";
+
+// Invoice components
+@forward "invoice/invoice";
+@forward "invoice/InvoiceDetails";
+@forward "invoice/invoice-sidebar";
+@forward "invoice/invoice-modal";
+
+// Chat components
+@forward "chatBot/fileTreeChatSelection";
+
+// Client view components (merged from views)
+@forward "ClientView/clientDocuments";
+@forward "ClientView/clientDocumentsMain";
+@forward "ClientView/uploadModal";
+@forward "ClientView/signatureRequests";
+@forward "ClientView/signatureRequestsMain";
+
+// Firm view components (merged from views)
+@forward "FirmView/caseManagement";

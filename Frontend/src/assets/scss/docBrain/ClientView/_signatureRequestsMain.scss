@@ -1,0 +1,314 @@
+@use "sass:map";
+@use "../../config/minimal/variables" as *;
+@use "../../config/minimal/component-mixins" as mixins;
+
+// Signature Requests Main Area Styles
+.signature-requests-main-container {
+  .main-area-wrapper[data-id="signatures"] {
+    @include mixins.main-area-container(0, true);
+
+    // Override width after mixin
+    & {
+      width: calc(100% - #{map.get($layout-dimensions, "fullsidebar-width")});
+    }
+
+    // Only show when signatures panel is active
+    body[data-active-panel="signatures"] & {
+      display: flex;
+    }
+
+    body[data-active-panel]:not([data-active-panel="signatures"]) & {
+      display: none !important;
+    }
+
+    .main-area-content.signature-requests-main {
+      @include mixins.main-area-content;
+      background-color: var(--#{$prefix}body-bg);
+
+      // Placeholder when no request is selected
+      .signature-requests-main-placeholder {
+        @include mixins.flex-column;
+        align-items: center;
+        justify-content: center;
+        height: 100%;
+        padding: 2rem;
+        text-align: center;
+        color: var(--#{$prefix}text-muted);
+
+        h3 {
+          margin-top: 1.5rem;
+          margin-bottom: 0.5rem;
+          color: var(--#{$prefix}heading-color);
+        }
+
+        p {
+          font-size: 1.1rem;
+          max-width: 400px;
+        }
+      }
+
+      // Spinner animation
+      .spinner {
+        animation: spin 1s linear infinite;
+      }
+
+      @keyframes spin {
+        from { transform: rotate(0deg); }
+        to { transform: rotate(360deg); }
+      }
+
+      // Document Viewer
+      .document-viewer {
+        height: 100%;
+        @include mixins.flex-column;
+        background-color: var(--#{$prefix}body-bg);
+
+        .document-viewer-header {
+          @include mixins.flex-between;
+          padding: 1rem;
+          background-color: var(--#{$prefix}card-bg);
+          border-bottom: 1px solid var(--#{$prefix}border-color);
+
+          h3 {
+            margin: 0;
+            color: var(--#{$prefix}heading-color);
+          }
+
+          .document-viewer-actions {
+            display: flex;
+            gap: 0.5rem;
+
+            .sign-button, .decline-button {
+              @include mixins.flex-center;
+              gap: 0.5rem;
+              padding: 0.5rem 1rem;
+              border: none;
+              border-radius: map.get($border-radius-map, "sm");
+              cursor: pointer;
+              font-weight: 500;
+
+              &:disabled {
+                opacity: 0.7;
+                cursor: not-allowed;
+              }
+            }
+
+            .sign-button {
+              background-color: var(--#{$prefix}success);
+              color: #fff;
+
+              &:hover:not(:disabled) {
+                background-color: var(--#{$prefix}success-dark);
+              }
+            }
+
+            .decline-button {
+              background-color: var(--#{$prefix}danger);
+              color: #fff;
+
+              &:hover:not(:disabled) {
+                background-color: var(--#{$prefix}danger-dark);
+              }
+            }
+
+            .close-button {
+              background: none;
+              border: none;
+              color: var(--#{$prefix}text-muted);
+              cursor: pointer;
+              font-size: 1.25rem;
+              padding: 0.5rem;
+
+              &:hover {
+                color: var(--#{$prefix}danger);
+              }
+            }
+          }
+        }
+
+        .document-viewer-content {
+          flex: 1;
+          overflow: auto;
+          padding: 2rem;
+          @include mixins.flex-center;
+
+          .document-preview {
+            @include mixins.card-style;
+            padding: 2rem;
+            max-width: 1000px;
+            width: 100%;
+            display: flex;
+            gap: 2rem;
+
+            .document-info-display {
+              flex: 1;
+
+              h4 {
+                margin-top: 0;
+                color: var(--#{$prefix}heading-color);
+                border-bottom: 1px solid var(--#{$prefix}border-color);
+                padding-bottom: 0.5rem;
+                margin-bottom: 1rem;
+              }
+
+              p {
+                margin: 0.5rem 0;
+                color: var(--#{$prefix}body-color);
+              }
+
+              .document-description, .signature-info, .decline-info {
+                margin-top: 1.5rem;
+                padding-top: 1rem;
+                border-top: 1px solid var(--#{$prefix}border-color);
+              }
+
+              .signature-info {
+                color: var(--#{$prefix}success);
+              }
+
+              .decline-info {
+                color: var(--#{$prefix}danger);
+              }
+            }
+
+            .document-content-preview {
+              flex: 2;
+              background-color: #fff;
+              padding: 2rem;
+              border-radius: 4px;
+              box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+              color: #000;
+              min-height: 500px;
+
+              .preview-placeholder {
+                color: var(--#{$prefix}text-muted);
+                font-style: italic;
+                margin-bottom: 1rem;
+              }
+
+              pre {
+                white-space: pre-wrap;
+                word-break: break-word;
+                font-family: monospace;
+                font-size: 0.9rem;
+                line-height: 1.5;
+                max-height: 60vh;
+                overflow-y: auto;
+                padding: 1rem;
+                background-color: #f8f9fa;
+                border-radius: 4px;
+                border: 1px solid #e9ecef;
+              }
+            }
+          }
+        }
+      }
+
+      // Signature Modal
+      .signature-modal, .decline-modal {
+        @include mixins.modal-overlay($fullscreen: true);
+
+        .signature-modal-content, .decline-modal-content {
+          @include mixins.modal-style($size: "md");
+
+          .signature-modal-header, .decline-modal-header {
+            @include mixins.flex-between;
+            padding: 1rem;
+            border-bottom: 1px solid var(--#{$prefix}border-color);
+
+            h3 {
+              margin: 0;
+              color: var(--#{$prefix}heading-color);
+            }
+
+            .close-button {
+              background: none;
+              border: none;
+              color: var(--#{$prefix}text-muted);
+              cursor: pointer;
+              font-size: 1.25rem;
+
+              &:hover {
+                color: var(--#{$prefix}danger);
+              }
+            }
+          }
+
+          .signature-modal-body, .decline-modal-body {
+            padding: 1.5rem;
+
+            p {
+              margin-top: 0;
+              margin-bottom: 1rem;
+            }
+
+            .signature-canvas-container {
+              border: 1px dashed var(--#{$prefix}border-color);
+              height: 200px;
+              @include mixins.flex-center;
+              background-color: #fff;
+              color: var(--#{$prefix}text-muted);
+              cursor: pointer;
+
+              .signature-placeholder {
+                font-style: italic;
+              }
+            }
+
+            textarea {
+              @include mixins.form-field;
+              width: 100%;
+              padding: 0.75rem;
+              resize: vertical;
+            }
+          }
+
+          .signature-modal-footer, .decline-modal-footer {
+            @include mixins.flex-between;
+            justify-content: flex-end;
+            gap: 1rem;
+            padding: 1rem;
+            border-top: 1px solid var(--#{$prefix}border-color);
+
+            .cancel-button {
+              @include mixins.button("secondary");
+              padding: 0.5rem 1rem;
+            }
+
+            .sign-button, .decline-button {
+              @include mixins.flex-center;
+              gap: 0.5rem;
+              padding: 0.5rem 1rem;
+              border: none;
+              border-radius: map.get($border-radius-map, "sm");
+              cursor: pointer;
+
+              &:disabled {
+                opacity: 0.7;
+                cursor: not-allowed;
+              }
+            }
+
+            .sign-button {
+              background-color: var(--#{$prefix}success);
+              color: #fff;
+
+              &:hover:not(:disabled) {
+                background-color: var(--#{$prefix}success-dark);
+              }
+            }
+
+            .decline-button {
+              background-color: var(--#{$prefix}danger);
+              color: #fff;
+
+              &:hover:not(:disabled) {
+                background-color: var(--#{$prefix}danger-dark);
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

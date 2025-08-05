@@ -1,0 +1,25 @@
+/* ConfirmationDialog.css */
+.confirmation-dialog {
+    width: 400px; /* Adjust the width as needed */
+    padding: 20px;
+    text-align: center;
+  }
+  
+  .confirmation-dialog h2 {
+    margin-top: 0;
+  }
+  
+  .confirmation-dialog-buttons {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+  }
+  
+  .confirmation-dialog-buttons button {
+    padding: 10px 20px;
+  }
+  
+  .confirmation-toast {
+    width: 420px !important; /* Ensure the toast width matches the dialog */
+  }
+  

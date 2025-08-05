@@ -1,0 +1,22 @@
+{
+  "files": [],
+  "references": [
+    {
+      "path": "./jsconfig.app.json"
+    },
+    {
+      "path": "./jsconfig.node.json"
+    }
+  ],
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["src/*"],
+      "components/*": ["src/components/*"],
+      "utils": ["src/components/ui/lib/utils"],
+      "ui/*": ["src/components/ui/*"],
+      "lib/*": ["src/components/ui/lib/*"],
+      "hooks/*": ["src/components/Hooks/*"]
+    }
+  }
+}

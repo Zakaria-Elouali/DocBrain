@@ -1,0 +1,178 @@
+@use "sass:map";
+@use "../../config/minimal/variables" as *;
+@use "../../config/minimal/component-mixins" as mixins;
+
+// Common Settings Styles
+.settings-section {
+  width: 100%;
+  margin: 0 auto;
+  padding: 0rem 2rem;
+
+  &__title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    color: var(--#{$prefix}settings-section-title-color);
+  }
+}
+
+.settings-card {
+  // Use the improved card-style mixin with direct parameters
+  @include mixins.card-style(
+    var(--#{$prefix}settings-card-bg, #ffffff),
+    var(--#{$prefix}settings-card-border, #e5e7eb),
+    var(--#{$prefix}settings-card-shadow, 0 1px 3px rgba(0, 0, 0, 0.1))
+  );
+  border-radius: map.get($border-radius-map, "default");
+  margin-bottom: 1.5rem;
+  width: 100%;
+
+  &__content {
+    padding: 2.5rem;
+    margin-top: 2rem;
+    width: 100%;
+  }
+}
+
+// Profile Section Styles
+.profile-section {
+  .profile-image {
+    @include mixins.flex-center;
+    justify-content: flex-start;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+
+    &__container {
+      width: 6rem;
+      height: 6rem;
+      border-radius: 50%;
+      overflow: hidden;
+      background-color: var(--#{$prefix}settings-form-input-bg);
+    }
+
+    &__img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    &__input {
+      display: none;
+    }
+
+    &__button {
+      @include mixins.button("secondary");
+      padding: 0.5rem 1rem;
+      border: 1px solid var(--#{$prefix}settings-card-border);
+      border-radius: map.get($border-radius-map, "sm");
+      background-color: var(--#{$prefix}settings-form-button-secondary-bg);
+      color: var(--#{$prefix}settings-form-button-secondary-color);
+      font-size: 0.875rem;
+
+      &:hover {
+        background-color: var(--#{$prefix}settings-form-button-secondary-hover-bg);
+      }
+    }
+  }
+
+  .profile-form {
+    width: 100%;
+
+    &__fields {
+      @include mixins.flex-column;
+      gap: 1.5rem;
+      width: 100%;
+    }
+
+    &__row {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1rem;
+      width: 100%;
+    }
+
+    &__field {
+      @include mixins.flex-column;
+      gap: 0.5rem;
+    }
+
+    &__label {
+      @include mixins.form-label;
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: var(--#{$prefix}settings-form-label-color);
+    }
+
+    &__input {
+      @include mixins.form-field;
+      padding: 0.5rem;
+      border: 1px solid var(--#{$prefix}settings-form-input-border);
+      border-radius: map.get($border-radius-map, "sm");
+      font-size: 0.875rem;
+      color: var(--#{$prefix}dashboard-text-primary);
+      background-color: var(--#{$prefix}settings-form-input-bg);
+
+      &::placeholder {
+        color: var(--#{$prefix}input-placeholder-color);
+      }
+
+      &:focus {
+        outline: none;
+        border-color: var(--#{$prefix}settings-form-input-focus-border);
+        box-shadow: var(--#{$prefix}settings-form-input-focus-shadow);
+      }
+
+      &:disabled {
+        background-color: var(--#{$prefix}input-disabled-bg);
+        cursor: not-allowed;
+      }
+
+      &:disabled {
+        background-color: var(--#{$prefix}button-secondary-bg);
+        cursor: not-allowed;
+
+        &:hover {
+          background-color: var(--#{$prefix}button-secondary-bg);
+        }
+      }
+    }
+
+    &__error {
+      color: var(--#{$prefix}settings-form-error-color);
+      font-size: 0.875rem;
+      margin-top: 0.25rem;
+      @include mixins.flex-center;
+      justify-content: flex-start;
+      gap: 0.25rem;
+    }
+
+    &__submit {
+      @include mixins.button("primary");
+      width: 100%;
+      padding: 0.75rem;
+      background-color: var(--#{$prefix}settings-form-button-primary-bg);
+      color: white;
+      border-radius: map.get($border-radius-map, "sm");
+      font-weight: 500;
+
+      &:hover {
+        background-color: var(--#{$prefix}settings-form-button-primary-hover-bg);
+      }
+    }
+  }
+}
+
+
+
+// Responsive styles
+@media (max-width: map.get($breakpoints, "sm")) {
+  .profile-form__row {
+    grid-template-columns: 1fr;
+  }
+
+  .profile-image {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+}

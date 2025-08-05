@@ -1,0 +1,20 @@
+//
+// _utilities.scss
+//
+@use "../config/minimal/variables" as *;
+$utilities: (
+  "font-size-custom": (
+    property: font-size,
+    class: fs,
+    values: $font-size-custom,
+  ),
+
+  // Add new utilities
+  "cursor":
+    (
+      property: cursor,
+      class: cursor,
+      responsive: true,
+      values: auto pointer grab,
+    ),
+);

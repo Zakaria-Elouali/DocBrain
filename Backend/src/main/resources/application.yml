@@ -1,0 +1,81 @@
+cors:
+  allowed-origins: http://localhost:3000, http://localhost:3001, http://localhost:8080
+
+jwt:
+#  secret-file: file:./config/jwt-secret.key
+#  secret-file: ${java.io.tmpdir}/jwt-secret.key  # Temporary directory
+  secret-file: ./src/main/resources/jwt-secret.key
+#  secret-file: classpath:jwt-secret.key
+#  secret: HzeQYYsrlhC2TZNDKSXqw6LyDmr1YD9+6xqE8/cJS2A\=
+  access-token:
+    expiration: 360000000  # 100 hours
+  refresh-token:
+    expiration: 3600000000  # 1000 hours
+
+spring:
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: example@gmail.com
+    password: password123
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+  application:
+    name: DocBrain
+  datasource:
+    core:
+      driver-class-name: org.postgresql.Driver
+      username: postgres
+      password: postgres
+      jdbcurl: jdbc:postgresql://localhost:5432/docbrain_plus
+
+  flyway:
+    enabled: true  # enable Flyway
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    generate-ddl: true
+    hibernate:
+      ddl-auto: none
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+        jdbc:
+          lob:
+            non_contextual_creation: true
+          use_streams_for_binary: true
+        temp:
+          use_jdbc_metadata_defaults: false
+  security:
+    filter:
+      order: 1
+  api:
+    root_path: http://localhost:8080/api/
+  web:
+    resources:
+      add-mappings: false
+  servlet:
+    multipart:
+      max-file-size: 10MB
+      max-request-size: 10MB
+
+app:
+  uploads:
+    directory: ./data/profilesPics
+    profilesBaseLink: ${spring.api.root_path}data/profilesPics #this used + pictureName to return as link to fetch the picture
+
+python:
+  service:
+    url: http://localhost:8000
+
+# Enable detailed logging for Hibernate and parameter binding
+#logging:
+#  level:
+#    org.hibernate.SQL: DEBUG
+#    org.hibernate.type.descriptor.sql: TRACE
+#    org.hibernate.engine.jdbc.batch.internal.BatchingBatch: DEBUG
+#    org.hibernate.engine.jdbc.spi.SqlStatementLogger: DEBUG

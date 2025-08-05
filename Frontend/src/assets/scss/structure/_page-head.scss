@@ -1,0 +1,32 @@
+//
+// _page-head.scss
+//
+
+@use "../config/minimal/variables" as *;
+@use "../config/minimal/variables-custom" as *;
+
+.page-title-box {
+  padding: 10px $grid-gutter-width;
+  background-color: var(--#{$prefix}secondary-bg);
+  box-shadow: var(--#{$prefix}page-title-box-shadow);
+  border-bottom: 1px solid var(--#{$prefix}page-title-border);
+  margin: -23px (-$grid-gutter-width * 1) $grid-gutter-width (-$grid-gutter-width * 1);
+
+  .breadcrumb {
+    background-color: transparent;
+    padding: 0;
+    align-items: center;
+    .breadcrumb-img {
+      width: 111%;
+      height: auto;
+      object-fit: contain;
+      vertical-align: middle;
+    }
+  }
+
+  h4 {
+    font-weight: 700;
+    font-size: 15px !important;
+    text-transform: uppercase;
+  }
+}

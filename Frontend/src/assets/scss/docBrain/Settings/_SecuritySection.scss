@@ -1,0 +1,136 @@
+@use "sass:map";
+@use "../../config/minimal/variables" as *;
+@use "../../config/minimal/component-mixins" as mixins;
+
+// Security Section Styles
+.security-section {
+  width: 100%;
+
+  &__subtitle {
+    font-size: 1.25rem;
+    font-weight: 500;
+    margin-bottom: 1rem;
+    color: var(--#{$prefix}settings-section-title-color);
+  }
+
+  .security-form {
+    width: 100%;
+
+    &__fields {
+      @include mixins.flex-column;
+      gap: 1rem;
+      width: 100%;
+    }
+
+    &__field {
+      @include mixins.flex-column;
+      gap: 0.5rem;
+    }
+
+    &__label {
+      @include mixins.form-label;
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: var(--#{$prefix}settings-form-label-color);
+    }
+
+    &__input {
+      @include mixins.form-field;
+      padding: 0.5rem;
+      border: 1px solid var(--#{$prefix}settings-form-input-border);
+      border-radius: map.get($border-radius-map, "sm");
+      font-size: 0.875rem;
+      background-color: var(--#{$prefix}settings-form-input-bg);
+
+      &:focus {
+        outline: none;
+        border-color: var(--#{$prefix}settings-form-input-focus-border);
+        box-shadow: var(--#{$prefix}settings-form-input-focus-shadow);
+      }
+    }
+
+    &__submit {
+      @include mixins.button("primary");
+      margin-top: 1rem;
+      width: 100%;
+      padding: 0.75rem;
+      background-color: var(--#{$prefix}settings-form-button-primary-bg);
+      color: white;
+      border-radius: map.get($border-radius-map, "sm");
+      font-weight: 500;
+
+      &:hover {
+        background-color: var(--#{$prefix}settings-form-button-primary-hover-bg);
+      }
+    }
+  }
+
+  .security-2fa {
+    width: 100%;
+
+    &__toggle {
+      @include mixins.flex-between;
+      margin-bottom: 1rem;
+      width: 100%;
+    }
+
+    &__label {
+      @include mixins.form-label;
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: var(--#{$prefix}settings-form-label-color);
+    }
+
+    &__switch {
+      position: relative;
+      display: inline-block;
+      width: 3rem;
+      height: 1.5rem;
+    }
+
+    &__input {
+      opacity: 0;
+      width: 0;
+      height: 0;
+
+      &:checked + .security-2fa__slider {
+        background-color: var(--#{$prefix}settings-form-button-primary-bg);
+      }
+
+      &:checked + .security-2fa__slider:before {
+        transform: translateX(1.5rem);
+      }
+    }
+
+    &__slider {
+      position: absolute;
+      cursor: pointer;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: var(--#{$prefix}settings-form-input-border);
+      transition: 0.4s;
+      border-radius: 1.5rem;
+
+      &:before {
+        position: absolute;
+        content: "";
+        height: 1.25rem;
+        width: 1.25rem;
+        left: 0.125rem;
+        bottom: 0.125rem;
+        background-color: var(--#{$prefix}settings-form-input-bg);
+        transition: 0.4s;
+        border-radius: 50%;
+      }
+    }
+
+    &__description {
+      font-size: 0.875rem;
+      color: var(--#{$prefix}settings-section-description-color);
+      margin-top: 0.5rem;
+    }
+  }
+}
+
